@@ -1,6 +1,5 @@
 +++
-title = "Behavioural, ecological, and genetic evidence confirm the occurrence of host-associated
-  differentiation in goldenrod gall-midges"
+title = "Behavioural, ecological, and genetic evidence confirm the occurrence of host-associated differentiation in goldenrod gall-midges"
 date = "2009-02-23"
 
 # Authors. Comma separated list, e.g. `["Bob Smith", "David Jones"]`.
