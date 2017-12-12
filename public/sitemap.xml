@@ -158,6 +158,15 @@
     
     <url>
     
+      <loc>/publication/jeb-gall-midge/</loc>
+      <lastmod>2009-02-23T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/publication_types/0/</loc>
       <lastmod>2015-09-01T00:00:00+00:00</lastmod>
       <priority>0</priority>
@@ -229,6 +238,16 @@
     
       <loc>/tags/jekyll/</loc>
       <lastmod>2014-03-10T00:00:00-04:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/categories/plant-insect-interaction/</loc>
+      <lastmod>2009-02-23T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
