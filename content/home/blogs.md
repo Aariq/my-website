@@ -14,6 +14,7 @@ subtitle = ""
 weight = 60
 
 +++
+Posts I've written for other's blogs:
 
 - <a id="WorldOfTea" href="https://worldoftea.org/oriental-beauty-bug-bitten-teas/"> Oriental Beauty and Other Bug-Bitten Teas: Fact or Fiction?</a>
 - [The science and nomenclature of tea processing. Part 1: Enzymatic browning](http://www.teageek.net/blog/2017/02/tea-terminology-part-1/)

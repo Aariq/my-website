@@ -221,11 +221,20 @@ defaultContentLanguageInSubdir = false
     icon_pack = "ai"
     link = "https://scholar.google.com/citations?user=kPEDEO0AAAAJ&hl=en"
 
-  [[params.social]]
+[[params.social]]
     icon = "github"
     icon_pack = "fa"
     link = "//github.com/Aariq"
 
+  [[params.social]]
+    icon = "researchgate"
+    icon_pack = "ai"
+    link = "https://www.researchgate.net/profile/Eric_Scott6"
+
+  [[params.social]]
+    icon = "orcid"
+    icon_pack = "ai"
+    link = "https://orcid.org/0000-0002-7430-7879"
 
 # Navigation Links
 #   To link a homepage widget, specify the URL as a hash `#` followed by the filename of the
