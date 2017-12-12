@@ -14,7 +14,7 @@ authors = ["GA Cushen", "MS Nixon"]
 # 4 = Technical report
 # 5 = Book
 # 6 = Book chapter
-publication_types = ["1"]
+publication_types = ["0"]
 
 # Publication name and optional abbreviated version.
 publication = "In *International Conference on Multimedia and Expo Workshops (ICMEW)*, IEEE."
