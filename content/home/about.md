@@ -10,31 +10,26 @@ weight = 5
 # List your academic interests.
 [interests]
   interests = [
-    "Artificial Intelligence",
-    "Computational Linguistics",
-    "Information Retrieval"
+    "Plant-insect interactions",
+    "Chemical ecology",
+    "Plant volatile sampling",
+    "Statistics and Programming in R",
+    "Tea (as a hobby and a study system)"
   ]
 
 # List your qualifications (such as academic degrees).
 [[education.courses]]
-  course = "PhD in Artificial Intelligence"
-  institution = "Stanford University"
-  year = 2012
+  course = "MS in Ecology, Evolution, and Conservation Biology"
+  institution = "Universtiy of Illinois at Urbana-Champaign"
+  year = 2010
 
 [[education.courses]]
-  course = "MEng in Artificial Intelligence"
-  institution = "Massachusetts Institute of Technology"
-  year = 2009
-
-[[education.courses]]
-  course = "BSc in Artificial Intelligence"
-  institution = "Massachusetts Institute of Technology"
-  year = 2008
+  course = "BA in Biology"
+  institution = "Whitman College"
+  year = 2006
  
 +++
 
 # Biography
 
-Lena Smith is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate. 
+I am a Ph.D. candidate in the Biology department at Tufts University with an emphasis on chemical ecology.  I'm interested in the mechanisms of plant defense and insect manipulation of plant defenses.  My Ph.D. focus is on the effects of climate change and insect herbivory on the quality (flavor) of tea (*Camellia sinensis*)

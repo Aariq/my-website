@@ -13,8 +13,8 @@ weight = 3
 #   Deactivate an option by commenting out the line, prefixing it with `#`.
 [header]
   overlay_color = "#666"  # An HTML color value.
-  overlay_img = "headers/bubbles-wide.jpg"  # Image path relative to your `static/img/` folder.
-  overlay_filter = 0.5  # Darken the image. Value in range 0-1.
+  overlay_img = "headers/tea-field.jpg"  # Image path relative to your `static/img/` folder.
+  overlay_filter = 0  # Darken the image. Value in range 0-1.
 
 # Call to action button (optional).
 #   Activate the button by specifying a URL and button label below.
@@ -27,5 +27,7 @@ weight = 3
 Ph.D. Candidate, Tufts University
 <br>
 <small><a id="Orians Lab" href="http://ase.tufts.edu/biology/labs/orians/">Orians Lab</a></small>
-<br><br>
+<br>
+<small><a id="Tea Climate" href="http://www.teaclimate.org/">Tea & Climate Change Collaborative</a></small>
+<br>
 
