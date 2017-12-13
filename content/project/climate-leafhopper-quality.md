@@ -33,4 +33,4 @@ I'm interested in how leafhopper density affects the blend of metabolites produc
 
 I'm also interested in how leafhopper population growth relative to tea shoot growth may change as the climate continues to warm.  Insects are likely to benefit from increased warming because they will be able to emerge earlier and remain active longer. It is predicted that plants will benefit less from warming than insects due to increases in wasteful photorespiration at high temperatures.  This could potentially shift the balance of the tea-leafhopper relationship from beneficial to pest.
 
-To my knowledge, tea is the only crop in the world where farmers actually want *more* insect damage to improve quality, but perhaps this is true in other quality-centric crops, and we've just assumed herbivorous insects are always pests.
+To my knowledge, bug-bitten tea is the only crop in the world where farmers actually want *more* insect damage to improve quality, but perhaps this is true in other quality-centric crops, and we've just assumed herbivorous insects are always pests.

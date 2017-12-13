@@ -3,17 +3,17 @@
 date = "2016-04-27"
 
 # Project title.
-title = "Deep Learning"
+title = "Drought and plant response to herbivory"
 
 # Project summary to display on homepage.
-summary = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+summary = "When plants experience mild or severe drought, how does that change their metabolic response to damage by insect herbivores?"
 
 # Optional image to display on homepage (relative to `static/img/` folder).
-image_preview = "bubbles.jpg"
+image_preview = "bace.jpg"
 
 # Tags: can be used for filtering projects.
 # Example: `tags = ["machine-learning", "deep-learning"]`
-tags = ["deep-learning"]
+tags = ["plant-defense", "climate-change", "tea", "plant-volatiles"]
 
 # Optional external URL for project (replaces project detail page).
 external_link = ""
@@ -22,18 +22,14 @@ external_link = ""
 math = false
 
 # Optional featured image (relative to `static/img/` folder).
-[header]
-image = "headers/bubbles-wide.jpg"
-caption = "My caption :smile:"
+# [header]
+# image = "headers/bubbles-wide.jpg"
+# caption = "My caption :smile:"
 
 +++
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.
+When my collaborator Dr. Li Xin from the Tea Research Institute (TRI) in Hangzhou, China decided to spend a semester in the Orians lab at Tufts, we decided this would be a good opportunity to make use of the [Boston Area Climate Experiment (BACE)](http://web.ics.purdue.edu/~jsdukes/bace.html) to do some work on tea and drought stress.  BACE is an experiment started by [Jeff Dukes](http://web.ics.purdue.edu/~jsdukes/Dukes.html) at Purdue University to study the effects of climate change on plant communities. We thought it would be a good tool to study the effects of drought and insect herbivory on tea plants.
 
-Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.
+There are already quite a few studies on how drought stress affects tea plants and how insect herbivory affects tea plants, but fewer studies that investigate the interaction.  We also have the ability to measure hundreds of metabolites in tea thanks to the efforts of our collaborators in the Robbat lab.  This offered a great opportunity to better understand the response of tea plants to herbivory under different degrees of drought stress.
 
-Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.
-
-Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.
-
-Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.
+We manipulated rainfall in the BACE plots by using corregated polycarbonate roofing slats at differen spacings to create plots that got either 100%, 75%, or 50% of ambient rainfall.  We planted tea plants in these plots and after a summer of growing in these three precipitation regimes, we treated half of the plants with methyl jasmonate, a plant hormone used to mimic insect herbivory, and measured photosynthesis, volatile metabolites, and non-volatile secondary metabolites.  We are currently working on data analysis.

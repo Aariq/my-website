@@ -1,0 +1,12 @@
+---
+title: Effects of elevated carbon dioxide and insect herbivory on tea secondary metabolism
+date: '2017-12-13'
+summary: How will elevated CO2 affect plant responses to insect herbivory?  How will this interaction impact the quality of tea?
+slug: co2-herbivory
+image_preview: "bubbles.jpg"
+tags: ["climate-change", "plant-volatiles", "plant-defense", "tea"]
+math: true
+---
+The aim of this project is to combine genomic and metabolomic tools to better understand how plant responses to herbivory may be altered under increasing CO~2~ concentrations. Tea is a great study system to answer this question since it is attacked by many insects in the field, and the quality, and therefore price, of tea depends greatly on plant secondary metabolites that are known to respond to insect damage.
+
+This project was primarily carried out by my collaborator Li Xin at the Tea Research Institute in Hangzhou, China.  Tea seedlings were grown in ambient and elevated CO~2~. Half of them were then damaged by geometrid caterpillar feeding.  We collected plant volatiles after feeding using [DCSE](/project/dcse/) and collected leaf material for measuring gene expression.  Data analysis for this project is ongoing.
