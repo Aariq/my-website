@@ -1,0 +1,10 @@
+---
+title: Can fermentation rescue low-quality monsoon season tea?
+date: '2017-12-13'
+summary: Is microbial ripening a way for tea farmers to improve low-quality monsoon season harvests?
+slug: puer
+image_preview: "bubbles.jpg"
+tags: ["climate-change", "plant-volatiles", "tea"]
+math: false
+---
+somethign something something link to teageek
