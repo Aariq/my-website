@@ -11,7 +11,7 @@ title = "Invited Blog Posts"
 subtitle = ""
 
 # Order that this section will appear in.
-weight = 60
+weight = 22
 
 +++
 Posts I've written for other's blogs:

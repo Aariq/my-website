@@ -9,7 +9,7 @@ title = "Projects"
 subtitle = ""
 
 # Order that this section will appear in.
-weight = 30
+weight = 10
 
 # View.
 # Customize how projects are displayed.
