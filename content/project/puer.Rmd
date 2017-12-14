@@ -3,8 +3,14 @@ title: Can fermentation rescue low-quality monsoon season tea?
 date: '2017-12-13'
 summary: Is microbial ripening a way for tea farmers to improve low-quality monsoon season harvests?
 slug: puer
-image_preview: "bubbles.jpg"
+image_preview: "shupu.jpg"
 tags: ["climate-change", "plant-volatiles", "tea"]
 math: false
 ---
-somethign something something link to teageek
+Puer tea is a type of tea produced in Yunnan Province, China---a region that experiences seasonal monsoon rains. Typically the best quality tea is harvested in the spring, before the monsoons arrive.  After the arrival of the monsoons, many farmers choose not to harvest their tea, despite an increase in tea shoot growth. [Research](http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0109126) from my collaborators shows that the chemistry of tea changes dramatically after the arrival of monsoon rains and results in a decrease in flavor quality of loose-leaf puer tea (puer mao cha).
+
+This loose-leaf puer tea, however, rarely makes it to customers in the tea market.  Instead puer tea farmers sell their tea to factories that blend tea across locations, seasons, and maybe even years.  These blends are further processed to create either shu puer (ripened puer) or sheng puer (raw puer). Shu puer is [microbially ripened](http://www.teageek.net/blog/2017/02/science-nomenclature-tea-processing-part-2-microbial-ripening/) through a process called [wet-piling](https://teajourney.pub/article/pile-fermentation-catalyst-create-shou-puer/) and then either sold loose-leaf or pressed into cakes.  Sheng puer is typically pressed into cakes and stored by wholesalers or consumers in humid enviornments to encourage a slow ripening.  The result of either process is a drastically different flavor compared to the starting loose-leaf puer tea.
+
+This begs the question: Can microbial ripening ameliorate the impacts of monsoon rains on tea quality?  One could imagine that many of the quality components of shu puer are microbially produced products, and the starting material has less of an impact on quality than the microbial community.  On the otherhand, the differences in secondary metabolites induced by monsoon rains could be a strong selective pressure on the microbial community and could further exacerbate the quality disparity between pre-monsoon and monsoon harvest tea.
+
+I'm currently looking for undergraduates with an interest in microbiology to work on a pilot *in vitro* tea fermentation method.  Please [contact me](/#contact) if you're interested!

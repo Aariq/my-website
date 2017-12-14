@@ -13,7 +13,7 @@ weight = 5
     "Plant-insect interactions",
     "Chemical ecology",
     "Plant volatile sampling",
-    "Statistics and Programming in R",
+    "Statistics and programming in R",
     "Tea (as a hobby and a study system)"
   ]
 
