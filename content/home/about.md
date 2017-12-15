@@ -32,4 +32,4 @@ weight = 5
 
 # Biography
 
-I am a Ph.D. candidate in the Biology department at Tufts University with an emphasis on chemical ecology.  I'm interested in the mechanisms of plant defense and insect manipulation of plant defenses.  My Ph.D. focus is on the effects of climate change and insect herbivory on the quality (flavor) of tea (*Camellia sinensis*)
+I am a Ph.D. candidate in the Biology department at Tufts University with an emphasis on chemical ecology.  I'm interested in the mechanisms of plant defense and insect manipulation of plant defenses.  My Ph.D. focus is on the effects of climate change and insect herbivory on the quality (flavor and health benefits) of tea (*Camellia sinensis*)
