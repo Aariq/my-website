@@ -1,7 +1,7 @@
 +++
 date = 2017-11-08T00:00:00  # Schedule page publish date.
 
-title = "Generating and analyzing metabolomic data from tea plant volatiles [poster]"
+title = "[poster] Generating and analyzing metabolomic data from tea plant volatiles"
 authors = ["Eric R. Scott", "Nicole Kfoury", "Colin Orians", "Albert Robat Jr."]
 time_start = 2017-11-08T13:00:00
 time_end = ""

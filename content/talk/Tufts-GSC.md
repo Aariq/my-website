@@ -1,5 +1,5 @@
 +++
-title= "Can Insect Damage Improve Tea Quality In a Changing Climate? [talk]"
+title= "Can Insect Damage Improve Tea Quality In a Changing Climate?"
 authors= ["Eric R. Scott"]
 date= '2017-02-24'
 time_start= 2017-02-24T13:00:00

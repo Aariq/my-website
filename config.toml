@@ -52,7 +52,7 @@ defaultContentLanguageInSubdir = false
 
   gravatar = true  # Get your avatar from Gravatar.com? (true/false)
   avatar = "portrait.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
-  email = "scottericr@gmail.com"
+  email = "eric.scott@tufts.edu"
   address = "347 Robinson Hall, Tufts University, Medford, 02155, USA"
   #office_hours = "Email for appointment"
   #phone = "888 888 88 88"
@@ -255,24 +255,29 @@ defaultContentLanguageInSubdir = false
   weight = 2
 
 [[menu.main]]
-  name = "Publications & Outreach"
+  name = "Publications & Presentations"
   url = "#publications_selected"
   weight = 3
 
 [[menu.main]]
+  name = "Outreach"
+  url = "#blogs"
+  weight = 4
+
+[[menu.main]]
   name = "Teaching"
   url = "#teaching"
-  weight = 4
+  weight = 5
 
 [[menu.main]]
   name = "Blog"
   url = "#posts"
-  weight = 5
+  weight = 6
 
 [[menu.main]]
   name = "Contact"
   url = "#contact"
-  weight = 6
+  weight = 7
 
 # Taxonomies.
 [taxonomies]
