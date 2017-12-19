@@ -3,6 +3,7 @@ title: Making a website in RStudio
 author: Eric R. Scott
 date: '2017-12-19'
 slug: making-a-website-in-rstudio
+draft: false
 categories:
   - Blog
 tags:
