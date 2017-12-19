@@ -11,6 +11,29 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Making a website in RStudio</title>
+      <link>/2017/12/19/making-a-website-in-rstudio/</link>
+      <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/12/19/making-a-website-in-rstudio/</guid>
+      <description>&lt;p&gt;I’ve always thought I should eventually have a profesional website for job hunting, but recently I’ve realized that it would be nice to have somewhere to collect my thoughts and contributions all in one place. Before having a website of my own, I generally shared updates and thoughts on &lt;a href=&#34;https://twitter.com/LeafyEricScott&#34;&gt;Twitter&lt;/a&gt; and on &lt;a href=&#34;#blogs&#34;&gt;other people’s blogs&lt;/a&gt;, which I will still continue to do, but having everything I do in one place seems like a good idea. I kept putting off making a website until I was recently encouraged by a combination of envy of my &lt;a href=&#34;https://www.rachaelebonoan.com/&#34;&gt;officemate’s awesome looking website&lt;/a&gt;, and learning that one could make a website using RStudio and the &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown&lt;/a&gt; R package. I just spent a semester learning a ton about R Markdown, the file type blogdown uses to construct websites, for a &lt;a href=&#34;https://github.com/Aariq/biostats-recitation&#34;&gt;biostatistics course&lt;/a&gt; I was teaching, so I figured using R Markdown to make a website would be relatively easy. Fortunately, I was correct! I spent about 3-4 work days initially getting this website working and customized, and it was relatively painless. Compared to, say WordPress, the impressiveness-to-effort ratio is much higher, in my opinion.&lt;/p&gt;
+&lt;div id=&#34;getting-started-with-blogdown&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Getting started with Blogdown&lt;/h2&gt;
+&lt;p&gt;Basically blogdown builds a website from a series of Markdown or R Markdown documents. Markdown and the more R-specific version, R Markdown, are really simple languages for creating formatted HTML documents. For example, you can create headers like the one at the start of this paragraph simply by adding different numbers of “#”, and turn a word into a link with square brackets followed by a URL. When the Markdown is converted to HTML, those special characters get converted into the relevant HTML code. Blogdown adds some features to R Studio that make it easier to import themes to help you get started, write new blog posts, and view changes to your website “live.”&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;https://bookdown.org/yihui/blogdown/get-started.html&#34;&gt;tutorial for blogdown&lt;/a&gt; is great, but I found that choosing a &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;theme&lt;/a&gt; early on was important, because a lot of what I needed to learn and figure out was specific to the theme. In fact, using blogdown wasn’t really as helpful as I thought for editing the theme I chose, as the example pages in the theme were written in a different format (Markdown with TOML headers) than the default for a new blogdown post (R Markdown with YAML header). That being said, the example Markdown documents that came with the theme were well annotated and for the most part all I had to do was fiddle around with values and add my own text and images.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;building-and-hosting-a-website&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Building and Hosting a website&lt;/h2&gt;
+&lt;p&gt;I decided to go with blogdown’s recomendation to build and host my website using &lt;a href=&#34;https://www.netlify.com/&#34;&gt;Netlify&lt;/a&gt;. The tutorials on Netlify are very jargon-y and I got basically nothing out of them. Fortunately, the &lt;a href=&#34;https://bookdown.org/yihui/blogdown/netlify.html&#34;&gt;chapter on Netlify&lt;/a&gt; in the blogdown book was very helpful. Netlify builds your website from a GitHub repository containing all the Markdown or R Markdown files you’ve created. Fortunately, I had just recently figured out (after &lt;em&gt;much&lt;/em&gt; failure) how to link GitHub to R Studio thanks to &lt;a href=&#34;http://happygitwithr.com/&#34;&gt;Jenny Bryan&lt;/a&gt;, so it was just a matter of pushing updates to my website to GitHub and following the blogdown tutorial to build the website.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;want-to-make-a-website-just-try-it&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Want to make a website? Just try it!&lt;/h2&gt;
+&lt;p&gt;All of this was completely free, and if you have &lt;em&gt;some&lt;/em&gt; knowledge of R Markdown it is super easy to get started. Even if you’ve never used R Markdown, it’s not hard to learn. Depending on the theme you choose, you could get a website up and running in a day or two easily. Feel free to check out the &lt;a href=&#34;https://github.com/Aariq/my-website&#34;&gt;source documents&lt;/a&gt; for this website. I think you’ll find that they are not as intimidating as you might think!&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Can fermentation rescue low-quality monsoon season tea?</title>
       <link>/project/puer/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
