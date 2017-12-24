@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Eric R. Scott</title>
-    <link>/post/</link>
+    <link>http://ericrscott.netlify.com/post/</link>
     <description>Recent content in Posts on Eric R. Scott</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>Making a website in RStudio</title>
-      <link>/2017/12/19/making-a-website-in-rstudio/</link>
+      <link>http://ericrscott.netlify.com/2017/12/19/making-a-website-in-rstudio/</link>
       <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/12/19/making-a-website-in-rstudio/</guid>
+      <guid>http://ericrscott.netlify.com/2017/12/19/making-a-website-in-rstudio/</guid>
       <description>&lt;p&gt;I’ve always thought I should eventually have a profesional website for job hunting, but recently I’ve realized that it would be nice to have somewhere to collect my thoughts and contributions all in one place. Before having a website of my own, I generally shared updates and thoughts on &lt;a href=&#34;https://twitter.com/LeafyEricScott&#34;&gt;Twitter&lt;/a&gt; and on &lt;a href=&#34;#blogs&#34;&gt;other people’s blogs&lt;/a&gt;, which I will still continue to do, but having everything I do in one place seems like a good idea. I kept putting off making a website until I was recently encouraged by a combination of envy of my &lt;a href=&#34;https://www.rachaelebonoan.com/&#34;&gt;officemate’s awesome looking website&lt;/a&gt;, and learning that one could make a website using RStudio and the &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown&lt;/a&gt; R package. I just spent a semester learning a ton about R Markdown, the file type blogdown uses to construct websites, for a &lt;a href=&#34;https://github.com/Aariq/biostats-recitation&#34;&gt;biostatistics course&lt;/a&gt; I was teaching, so I figured using R Markdown to make a website would be relatively easy. Fortunately, I was correct! I spent about 3-4 work days initially getting this website working and customized, and it was relatively painless. Compared to, say WordPress, the impressiveness-to-effort ratio is much higher, in my opinion.&lt;/p&gt;
 &lt;div id=&#34;getting-started-with-blogdown&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Getting started with Blogdown&lt;/h2&gt;

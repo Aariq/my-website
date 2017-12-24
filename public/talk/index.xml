@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Talks &amp; Posters on Eric R. Scott</title>
-    <link>/talk/</link>
+    <link>http://ericrscott.netlify.com/talk/</link>
     <description>Recent content in Talks &amp; Posters on Eric R. Scott</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,38 +12,38 @@
     
     <item>
       <title>[poster] Generating and analyzing metabolomic data from tea plant volatiles</title>
-      <link>/talk/disc-poster/</link>
+      <link>http://ericrscott.netlify.com/talk/disc-poster/</link>
       <pubDate>Wed, 08 Nov 2017 00:00:00 -0500</pubDate>
       
-      <guid>/talk/disc-poster/</guid>
+      <guid>http://ericrscott.netlify.com/talk/disc-poster/</guid>
       <description></description>
     </item>
     
     <item>
       <title>A novel, high-throughput method for sampling volatiles in the field</title>
-      <link>/talk/esa-dcse/</link>
+      <link>http://ericrscott.netlify.com/talk/esa-dcse/</link>
       <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
       
-      <guid>/talk/esa-dcse/</guid>
+      <guid>http://ericrscott.netlify.com/talk/esa-dcse/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Can Insect Damage Improve Tea Quality In a Changing Climate?</title>
-      <link>/talk/tufts-gsc/</link>
+      <link>http://ericrscott.netlify.com/talk/tufts-gsc/</link>
       <pubDate>Fri, 24 Feb 2017 00:00:00 +0000</pubDate>
       
-      <guid>/talk/tufts-gsc/</guid>
+      <guid>http://ericrscott.netlify.com/talk/tufts-gsc/</guid>
       <description>&lt;p&gt;🏆 First place in 5 min talk category.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>A New Method For Sampling Plant Volatiles in the Field</title>
-      <link>/talk/2016-02-18-tufts-gsc15min/</link>
+      <link>http://ericrscott.netlify.com/talk/2016-02-18-tufts-gsc15min/</link>
       <pubDate>Thu, 18 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>/talk/2016-02-18-tufts-gsc15min/</guid>
+      <guid>http://ericrscott.netlify.com/talk/2016-02-18-tufts-gsc15min/</guid>
       <description>&lt;p&gt;🏆 Second place winning 15 minute talk.&lt;/p&gt;
 </description>
     </item>
