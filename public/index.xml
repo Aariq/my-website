@@ -47,17 +47,6 @@
     </item>
     
     <item>
-      <title>Elevated CO2 and plant response to herbivory</title>
-      <link>/project/co2-herbivory/</link>
-      <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/project/co2-herbivory/</guid>
-      <description>&lt;p&gt;The aim of this project is to combine genomic and metabolomic tools to better understand how plant responses to herbivory may be altered under increasing CO&lt;sub&gt;2&lt;/sub&gt; concentrations. Tea is a great study system to answer this question since it is attacked by many insects in the field, and the quality, and therefore price, of tea depends greatly on plant secondary metabolites that are known to respond to insect damage.&lt;/p&gt;
-&lt;p&gt;This project was primarily carried out by my collaborator Li Xin at the Tea Research Institute in Hangzhou, China. Tea seedlings were grown in ambient and elevated CO&lt;sub&gt;2&lt;/sub&gt;. Half of them were then damaged by geometrid caterpillar feeding. We collected plant volatiles after feeding using &lt;a href=&#34;/project/dcse/&#34;&gt;DCSE&lt;/a&gt; and collected leaf material for measuring gene expression. Data analysis for this project is ongoing.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>[poster] Generating and analyzing metabolomic data from tea plant volatiles</title>
       <link>/talk/disc-poster/</link>
       <pubDate>Wed, 08 Nov 2017 00:00:00 -0500</pubDate>
@@ -73,6 +62,36 @@
       
       <guid>/publication/dcse/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Climate Effects on Bug-Bitten Tea</title>
+      <link>/project/climate-leafhopper-quality/</link>
+      <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/project/climate-leafhopper-quality/</guid>
+      <description>&lt;p&gt;Eastern Beauty wulong is one of several so-called &amp;ldquo;&lt;a href=&#34;https://worldoftea.org/oriental-beauty-bug-bitten-teas/&#34; target=&#34;_blank&#34;&gt;bug-bitten teas&lt;/a&gt;&amp;rdquo; produced only from tea plants attacked by the tea green leafhopper (&lt;em&gt;Empoasca onukii&lt;/em&gt;). Tea plants that are damaged by these leafhoppers respond by producing a blend of volatile compounds that may serve to attract natural enemies of the leafhoppers.  The increase in volatile production by the tea leaves improves the quality of the tea by imparting a unique honey/fruit aroma to the final brew. Leafhoppers are cell-rupture feeders, only making tiny wounds on the underside of tea leaves. Although leafhopper damage does result in stunted growth and reduced yield, leafhoppers aren&amp;rsquo;t removing leaf area. Because the quality of damaged leaves is improved, tea farmers may choose to forgo pesticide applications and produce bug-bitten teas in the summer months when leafhoppers populations are high enough.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m interested in how leafhopper density affects the blend of metabolites produced by tea plants.  Are all metabolites produced in a dose-dependent manner?  This seems unlikely.  It is more likely that the blend of metabolites depends on leafhopper density and there should be an optimal density of leafhoppers to produce the best flavor.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m also interested in how leafhopper population growth relative to tea shoot growth may change as the climate continues to warm.  Insects are likely to benefit from increased warming because they will be able to emerge earlier and remain active longer. It is predicted that plants will benefit less from warming than insects due to increases in wasteful photorespiration at high temperatures.  This could potentially shift the balance of the tea-leafhopper relationship from beneficial to pest.&lt;/p&gt;
+
+&lt;p&gt;To my knowledge, bug-bitten tea is the only crop in the world where farmers actually want &lt;em&gt;more&lt;/em&gt; insect damage to improve quality, but perhaps this is true in other quality-centric crops, and we&amp;rsquo;ve just assumed herbivorous insects are always pests.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Drought and plant response to herbivory</title>
+      <link>/project/bace-tea/</link>
+      <pubDate>Mon, 01 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/project/bace-tea/</guid>
+      <description>&lt;p&gt;When my collaborator Dr. Li Xin from the Tea Research Institute (TRI) in Hangzhou, China decided to spend a semester in the Orians lab at Tufts, we decided this would be a good opportunity to make use of the &lt;a href=&#34;http://web.ics.purdue.edu/~jsdukes/bace.html&#34; target=&#34;_blank&#34;&gt;Boston Area Climate Experiment (BACE)&lt;/a&gt; to do some work on tea and drought stress.  BACE is an experiment started by &lt;a href=&#34;http://web.ics.purdue.edu/~jsdukes/Dukes.html&#34; target=&#34;_blank&#34;&gt;Jeff Dukes&lt;/a&gt; at Purdue University to study the effects of climate change on plant communities. We thought it would be a good tool to study the effects of drought and insect herbivory on tea plants.&lt;/p&gt;
+
+&lt;p&gt;There are already quite a few studies on how drought stress affects tea plants and how insect herbivory affects tea plants, but fewer studies that investigate the interaction.  We also have the ability to measure hundreds of metabolites in tea thanks to the efforts of our collaborators in the Robbat lab.  This offered a great opportunity to better understand the response of tea plants to herbivory under different degrees of drought stress.&lt;/p&gt;
+
+&lt;p&gt;We manipulated rainfall in the BACE plots by using corregated polycarbonate roofing slats at differen spacings to create plots that got either 100%, 75%, or 50% of ambient rainfall.  We planted tea plants in these plots and after a summer of growing in these three precipitation regimes, we treated half of the plants with methyl jasmonate, a plant hormone used to mimic insect herbivory, and measured photosynthesis, volatile metabolites, and non-volatile secondary metabolites.  We are currently working on data analysis.&lt;/p&gt;
+</description>
     </item>
     
     <item>
@@ -95,42 +114,13 @@
     </item>
     
     <item>
-      <title>Climate Effects on Bug-Bitten Tea</title>
-      <link>/project/climate-leafhopper-quality/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <title>Elevated CO2 and plant response to herbivory</title>
+      <link>/project/co2-herbivory/</link>
+      <pubDate>Sun, 01 May 2016 00:00:00 +0000</pubDate>
       
-      <guid>/project/climate-leafhopper-quality/</guid>
-      <description>&lt;p&gt;Eastern Beauty wulong is one of several so-called &amp;ldquo;&lt;a href=&#34;https://worldoftea.org/oriental-beauty-bug-bitten-teas/&#34; target=&#34;_blank&#34;&gt;bug-bitten teas&lt;/a&gt;&amp;rdquo; produced only from tea plants attacked by the tea green leafhopper (&lt;em&gt;Empoasca onukii&lt;/em&gt;). Tea plants that are damaged by these leafhoppers respond by producing a blend of volatile compounds that may serve to attract natural enemies of the leafhoppers.  The increase in volatile production by the tea leaves improves the quality of the tea by imparting a unique honey/fruit aroma to the final brew. Leafhoppers are cell-rupture feeders, only making tiny wounds on the underside of tea leaves. Although leafhopper damage does result in stunted growth and reduced yield, leafhoppers aren&amp;rsquo;t removing leaf area. Because the quality of damaged leaves is improved, tea farmers may choose to forgo pesticide applications and produce bug-bitten teas in the summer months when leafhoppers populations are high enough.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;m interested in how leafhopper density affects the blend of metabolites produced by tea plants.  Are all metabolites produced in a dose-dependent manner?  This seems unlikely.  It is more likely that the blend of metabolites depends on leafhopper density and there should be an optimal density of leafhoppers to produce the best flavor.&lt;/p&gt;
-
-&lt;p&gt;I&amp;rsquo;m also interested in how leafhopper population growth relative to tea shoot growth may change as the climate continues to warm.  Insects are likely to benefit from increased warming because they will be able to emerge earlier and remain active longer. It is predicted that plants will benefit less from warming than insects due to increases in wasteful photorespiration at high temperatures.  This could potentially shift the balance of the tea-leafhopper relationship from beneficial to pest.&lt;/p&gt;
-
-&lt;p&gt;To my knowledge, bug-bitten tea is the only crop in the world where farmers actually want &lt;em&gt;more&lt;/em&gt; insect damage to improve quality, but perhaps this is true in other quality-centric crops, and we&amp;rsquo;ve just assumed herbivorous insects are always pests.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Drought and plant response to herbivory</title>
-      <link>/project/bace-tea/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/project/bace-tea/</guid>
-      <description>&lt;p&gt;When my collaborator Dr. Li Xin from the Tea Research Institute (TRI) in Hangzhou, China decided to spend a semester in the Orians lab at Tufts, we decided this would be a good opportunity to make use of the &lt;a href=&#34;http://web.ics.purdue.edu/~jsdukes/bace.html&#34; target=&#34;_blank&#34;&gt;Boston Area Climate Experiment (BACE)&lt;/a&gt; to do some work on tea and drought stress.  BACE is an experiment started by &lt;a href=&#34;http://web.ics.purdue.edu/~jsdukes/Dukes.html&#34; target=&#34;_blank&#34;&gt;Jeff Dukes&lt;/a&gt; at Purdue University to study the effects of climate change on plant communities. We thought it would be a good tool to study the effects of drought and insect herbivory on tea plants.&lt;/p&gt;
-
-&lt;p&gt;There are already quite a few studies on how drought stress affects tea plants and how insect herbivory affects tea plants, but fewer studies that investigate the interaction.  We also have the ability to measure hundreds of metabolites in tea thanks to the efforts of our collaborators in the Robbat lab.  This offered a great opportunity to better understand the response of tea plants to herbivory under different degrees of drought stress.&lt;/p&gt;
-
-&lt;p&gt;We manipulated rainfall in the BACE plots by using corregated polycarbonate roofing slats at differen spacings to create plots that got either 100%, 75%, or 50% of ambient rainfall.  We planted tea plants in these plots and after a summer of growing in these three precipitation regimes, we treated half of the plants with methyl jasmonate, a plant hormone used to mimic insect herbivory, and measured photosynthesis, volatile metabolites, and non-volatile secondary metabolites.  We are currently working on data analysis.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Field-Sampling Plant Volatiles</title>
-      <link>/project/dcse/</link>
-      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
-      
-      <guid>/project/dcse/</guid>
-      <description>&lt;p&gt;When I started my Ph.D., I knew I needed a very portable, robust way of sampling plant volatiles in the field.  I was going to be doing my work on tea farms in China, potentially far from a lab or even a source of electricity, so I didn&amp;rsquo;t want to rely on the typical plant volatile sampling method used at the time&amp;mdash;dynamic headspace sampling.  Dynamic headspace sampling requires a pump (and a power source) to pull or push air through a container placed around a plant or plant part, then through a sorbent tube that traps the volatiles.  Besides not being easily portable and having replication limited somewhat by the number of pumps, this method introduces a lot of opportunity for contamination from the chamber materials, loss of volatiles due to breakthrough on the sorbent tube, and puts plants in an unnatural environment (in a hot, uv-filtered glass bottle or plastic bag). In collaboration with Nicole Kfoury, a graduate student in Albert Robbat&amp;rsquo;s lab in the Tufts Chemistry department, we created and tested a new application for the magnetic sorptive stir bars (Twisters) they used routinely for sampling volatiles from liquids.  We though &amp;ldquo;Hey, these Twisters are magnetic.  Could we just stick them on a plant leaf with a magnet on the other side and sample leaf volatiles?&amp;rdquo;  I brought some Twisters with me on my first field season in China and that was the start of a wonderful collaboration that lead to the creation of a new robust, high-througput method for sampling volatiles in the field that we call &lt;a href=&#34;/publication/dcse/&#34;&gt;Direct Contact Sorptive Extraction&lt;/a&gt;, or DCSE for short.&lt;/p&gt;
+      <guid>/project/co2-herbivory/</guid>
+      <description>&lt;p&gt;The aim of this project is to combine genomic and metabolomic tools to better understand how plant responses to herbivory may be altered under increasing CO&lt;sub&gt;2&lt;/sub&gt; concentrations. Tea is a great study system to answer this question since it is attacked by many insects in the field, and the quality, and therefore price, of tea depends greatly on plant secondary metabolites that are known to respond to insect damage.&lt;/p&gt;
+&lt;p&gt;This project was primarily carried out by my collaborator Li Xin at the Tea Research Institute in Hangzhou, China. Tea seedlings were grown in ambient and elevated CO&lt;sub&gt;2&lt;/sub&gt;. Half of them were then damaged by geometrid caterpillar feeding. We collected plant volatiles after feeding using &lt;a href=&#34;/project/dcse/&#34;&gt;DCSE&lt;/a&gt; and collected leaf material for measuring gene expression. Data analysis for this project is ongoing.&lt;/p&gt;
 </description>
     </item>
     
@@ -141,6 +131,16 @@
       
       <guid>/talk/2016-02-18-tufts-gsc15min/</guid>
       <description>&lt;p&gt;🏆 Second place winning 15 minute talk.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Field-Sampling Plant Volatiles</title>
+      <link>/project/dcse/</link>
+      <pubDate>Mon, 27 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/project/dcse/</guid>
+      <description>&lt;p&gt;When I started my Ph.D., I knew I needed a very portable, robust way of sampling plant volatiles in the field.  I was going to be doing my work on tea farms in China, potentially far from a lab or even a source of electricity, so I didn&amp;rsquo;t want to rely on the typical plant volatile sampling method used at the time&amp;mdash;dynamic headspace sampling.  Dynamic headspace sampling requires a pump (and a power source) to pull or push air through a container placed around a plant or plant part, then through a sorbent tube that traps the volatiles.  Besides not being easily portable and having replication limited somewhat by the number of pumps, this method introduces a lot of opportunity for contamination from the chamber materials, loss of volatiles due to breakthrough on the sorbent tube, and puts plants in an unnatural environment (in a hot, uv-filtered glass bottle or plastic bag). In collaboration with Nicole Kfoury, a graduate student in Albert Robbat&amp;rsquo;s lab in the Tufts Chemistry department, we created and tested a new application for the magnetic sorptive stir bars (Twisters) they used routinely for sampling volatiles from liquids.  We though &amp;ldquo;Hey, these Twisters are magnetic.  Could we just stick them on a plant leaf with a magnet on the other side and sample leaf volatiles?&amp;rdquo;  I brought some Twisters with me on my first field season in China and that was the start of a wonderful collaboration that lead to the creation of a new robust, high-througput method for sampling volatiles in the field that we call &lt;a href=&#34;/publication/dcse/&#34;&gt;Direct Contact Sorptive Extraction&lt;/a&gt;, or DCSE for short.&lt;/p&gt;
 </description>
     </item>
     
