@@ -1,0 +1,40 @@
+---
+title: Quantifying leafhopper damage with automated supervised classification
+author: Eric R. Scott
+date: '2017-12-24'
+slug: leafhopper-FIJI
+categories:
+  - Research
+tags:
+  - FIJI
+  - ImageJ
+  - R
+  - tea
+  - plant-defense
+
+projects: ["climate-leafhopper-quality"]
+
+draft: true
+---
+```{r include=FALSE}
+library(knitr)
+```
+
+
+As part of my fieldwork in China, I collected harvested tea leaves that were damaged by the tea green leafhopper. I want to quantify the amount of leafhopper damage for each harvest.  There are plenty of tools out there for quantifying holes in leaves or even damage to leaf margins (ADD LINKS), but typical leafhopper damage is just tiny brown spots on the undersides of leaves.
+```{r leaf-fig, echo=FALSE, fig.cap="Typical leafhopper damage", out.width="60%", fig.align='left'}
+include_graphics("/img/damaged leaf.png")
+```
+Last year I piloted a method to quantify leafhopper damage on scanned images of tea leaves with the help of a Tufts undergraduate, Maxwell Turpin.  We ended up getting the most success using a supervised classification algorithm implemented by the WEKA segmentation plugin in FIJI (which stands for "FIJI is just Image-J"). This semester another Tufts undergraduate, Michelle Mu, worked on refining this approach, automating it, and applying it to the hundreds of images I obtained over the summer as part of my research.
+
+## Supervised pixel classification
+Just to clarify, my goal here is not image classification---that is, I'm not trying to classify leaves into categories like "undamged", "medium damaged", "high damage", but rather trying to classify individual pixels in the image as being damaged or undamaged leaf tissue (or background). In short, after selecting some pixels representative of damaged leaf, undamaged leaf, and background (regions of interest, or ROIs), the WEKA plugin trains a random forest algorithm using data from various transformations of the pixels in your ROIs. Then, you can apply your algorithm to other images and extract data in the form of numbers of pixels classified in each category.
+
+```{r example-result, echo=FALSE, fig.cap="example results of WEKA classification"}
+#include_image("\img\example result.png")
+```
+
+
+## WEKA segmentation tutorial
+The WEKA plugin works on image stacks. To begin, Michelle chose 15 leaf images at random using an R script we wrote (ADD LINKS OR CODE CHUNK) and combined them into a single image stack using......
+
