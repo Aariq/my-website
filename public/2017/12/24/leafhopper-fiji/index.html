@@ -258,7 +258,7 @@
   
   <span class="middot-divider"></span>
   <span class="article-reading-time">
-    2 min read
+    7 min read
   </span>
   
 
@@ -330,21 +330,110 @@
 
 
       <div class="article-style" itemprop="articleBody">
-        As part of my fieldwork in China, I collected harvested tea leaves that were damaged by the tea green leafhopper. I want to quantify the amount of leafhopper damage for each harvest. There are plenty of tools out there for quantifying holes in leaves or even damage to leaf margins (ADD LINKS), but typical leafhopper damage is just tiny brown spots on the undersides of leaves.
+        <p>As part of my fieldwork in China, I collected harvested tea leaves that were damaged by the tea green leafhopper. I want to quantify the amount of leafhopper damage for each harvest. I was able to find several solutions for quantifying holes in leaves or even damage to leaf margins, but typical leafhopper damage is just tiny brown spots on the undersides of leaves. I did find some tutorials on using <a href="http://imagej.net/Welcome">ImageJ</a> to analyze diseased area on leaves, but found that the leafhopper damage spots were too small and too similar in color to undamaged leaves for these tools to work reliably and be automated.</p>
 <div class="figure" style="text-align: left"><span id="fig:leaf-fig"></span>
 <img src="/img/damaged leaf.png" alt="Typical leafhopper damage" width="60%" />
 <p class="caption">
 Figure 1: Typical leafhopper damage
 </p>
 </div>
-<p>Last year I piloted a method to quantify leafhopper damage on scanned images of tea leaves with the help of a Tufts undergraduate, Maxwell Turpin. We ended up getting the most success using a supervised classification algorithm implemented by the WEKA segmentation plugin in FIJI (which stands for “FIJI is just Image-J”). This semester another Tufts undergraduate, Michelle Mu, worked on refining this approach, automating it, and applying it to the hundreds of images I obtained over the summer as part of my research.</p>
+<p>Last year I piloted a method to quantify leafhopper damage on scanned images of tea leaves with the help of a Tufts undergraduate, Maxwell Turpin. We ended up getting the most success using a supervised classification algorithm implemented by the <a href="https://imagej.net/Trainable_Weka_Segmentation">trainable WEKA segmentation</a> plugin in <a href="https://fiji.sc/">FIJI</a> (which stands for “FIJI is just Image J”). This semester, another Tufts undergraduate, Michelle Mu, worked on refining this approach, automating it, and applying it to the hundreds of images I obtained over the summer as part of my research.</p>
 <div id="supervised-pixel-classification" class="section level2">
 <h2>Supervised pixel classification</h2>
-<p>Just to clarify, my goal here is not image classification—that is, I’m not trying to classify leaves into categories like “undamged”, “medium damaged”, “high damage”, but rather trying to classify individual pixels in the image as being damaged or undamaged leaf tissue (or background). In short, after selecting some pixels representative of damaged leaf, undamaged leaf, and background (regions of interest, or ROIs), the WEKA plugin trains a random forest algorithm using data from various transformations of the pixels in your ROIs. Then, you can apply your algorithm to other images and extract data in the form of numbers of pixels classified in each category.</p>
+<p>Just to clarify, my goal here is not image classification—that is, I’m not trying to classify leaves into categories like “undamaged”, “medium damaged”, “high damage”, but rather trying to classify individual pixels in the image as being damaged or undamaged leaf tissue (or background). In short, after selecting some pixels representative of damaged leaf, undamaged leaf, and background (regions of interest, or ROIs), the WEKA plugin trains a random forest algorithm using data from various transformations of the pixels in the ROIs. Then, I can apply the algorithm to other images and extract data in the form of numbers of pixels classified in each category.</p>
+<div class="figure"><span id="fig:example-result"></span>
+<img src="/img/analyzed leaf.png" alt="example results of WEKA classification" width="60%" />
+<p class="caption">
+Figure 2: example results of WEKA classification
+</p>
 </div>
-<div id="weka-segmentation-tutorial" class="section level2">
-<h2>WEKA segmentation tutorial</h2>
-<p>The WEKA plugin works on image stacks. To begin, Michelle chose 15 leaf images at random using an R script we wrote (ADD LINKS OR CODE CHUNK) and combined them into a single image stack using……</p>
+</div>
+<div id="weka-segmentation-tips" class="section level2">
+<h2>WEKA segmentation tips</h2>
+<p>The <a href="https://imagej.net/Trainable_Weka_Segmentation">documentation</a> on the WEKA segmentation plugin is fairly detailed, so I won’t go into great detail on how to use it, rather focus on some things I learned specific to this project.</p>
+<div id="creating-a-training-stack" class="section level3">
+<h3>Creating a training stack</h3>
+<p>I had hundreds of images to classify, so obviously it made sense to train a classifier on a subset of leaves. We started by taking my leaf scans, which contained dozens of leaves, and making images of individual leaves. You can do this in any number of image manipulation software, but we found it easiest using Preview, the default image and PDF viewer on OS X. You just select a leaf with the rectangle selection tool, copy with cmd + c, and create a new image with cmd + n.</p>
+<p>We chose a random subset of 15 leaves to use as a training set. Why 15? At the time, we were using a regular desktop computer with 8 GB of RAM, and using the WEKA plugin with an image stack any larger than that caused it to crash. Fortunately, because the leaves were all scanned in a uniform way and leaf color didn’t vary too much, 15 leaves was suitable for a training set. If you have more RAM at your disposal, feel free to train on more leaves.</p>
+</div>
+<div id="training-and-applying-a-classifier" class="section level3">
+<h3>Training and applying a classifier</h3>
+<p>We trained the classifier on three classes, background, damaged leaf, and undamaged leaf. For background and undamaged leaf, we found it was really important to focus on leaf edges, making sure to include shadows in the background class and lighter green leaf margins in the undamaged class. Without doing this, the classifier would consistently mis-classify shadows and edges as either damaged or background, respectively. This was also an iterative process and took several rounds of selecting ROIs, training a classifier, viewing results, and adding more ROIs. Once we were satisfied with our classifier, we saved it and applied it to all of our images in stacks of 20 on a computer with 32 GB of RAM. The results created by the WEKA plugin are stacks of three color images (because we used 3 classes). Getting numerical results turned out to be another problem.</p>
+<div class="figure"><span id="fig:screenshot"></span>
+<img src="/img/WEKA screenshot.png" alt="WEKA segmentation window with ROIs selected"  />
+<p class="caption">
+Figure 3: WEKA segmentation window with ROIs selected
+</p>
+</div>
+</div>
+<div id="exporting-results" class="section level3">
+<h3>Exporting results</h3>
+<p>Exporting results in a numeric format turned out to be a lot more difficult than we thought it would. The manual way of doing this through the menu is <em>Analyze &gt; Histogram</em> which opens a histogram window, then clicking “list” to get a results window with the number of pixels in each class for that image, then copying and pasting into Excel. This was far too labor intensive and error-prone to be appropriate for hundreds of images. We needed a better way, which led us to FIJI macros.</p>
+<p>Building a macro turned out to be relatively painless, even though neither Michelle nor I had any experience coding in any language other than R. Through a combination of forum posts and using the documentation for the <a href="http://imagej.net/developer/macro/functions.html">ImageJ macro language</a> as a reference, we were able to create a macro that opens results stacks (three-color images) and exports a text file containing the number of pixels in each class for each image in the stack.</p>
+<pre><code>//ImageJ macro for exporting numerical results from classified image stacks
+inpath = getDirectory(&quot;Analyzed Stacks&quot;);
+File.makeDirectory(inpath + &quot;//Results//&quot;);
+//outpath = getDirectory(&quot;Results&quot;);
+//for some reason using getDirectory() twice screws things up.
+//My solution is to just create a results folder in the folder with the analyzed stacks
+//But then you get an error at the end when the script tries to open that folder.
+files = getFileList(inpath);
+for(j = 0; j &lt; lengthOf(files); j++){
+    open(files[j]);
+    title = getTitle();
+    for (n = 1; n &lt;= nSlices(); n++) { //loop through slices
+        showProgress(n, nSlices); //this just adds a progress bar
+        setSlice(n); //set which slice
+        getStatistics(area, mean, min, max, std, histogram); //this gets the number of pixels
+        for (i=0; i&lt;histogram.length; i++) {
+            setResult(&quot;Value&quot;, i, i);
+            setResult(&quot;Leaf.&quot; + n, i, histogram[i]); //adds a column for each slice called &quot;Count[slicenumber]&quot;
+        }   
+    saveAs(&quot;results&quot;, inpath + &quot;//Results//&quot; + title + &quot;.txt&quot;); //saves results table as text file
+    }
+    close();
+    run(&quot;Clear Results&quot;);
+}</code></pre>
+</div>
+<div id="importing-results" class="section level3">
+<h3>Importing Results</h3>
+<p>The results files then get read into R and tidied using a relatively simple script.</p>
+<pre class="r"><code>#packages you will need
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+
+#Get the filenames of all the results files
+filenames &lt;- list.files(&quot;Results/&quot;) #might need to change path
+
+#Create paths to those files
+filepaths &lt;- paste0(&quot;Results/&quot;, filenames)
+
+#make a list to eventually contain all the data files.  
+raw.list &lt;- as.list(filenames)
+names(raw.list) &lt;- filenames
+raw.list
+
+#for loop for reading in every file into an element of the list.  There is probably a faster way to do this with purrr::map
+for(i in 1:length(filenames)){   #loop through all files
+  raw.list[[i]] &lt;- read_tsv(filepaths[i])[1:2, -1] #read only the first two rows and NOT the first column into the list
+}
+raw.list #now contains multiple data frames.</code></pre>
+<p>At this point, you have a list of data frames, one for each image stack. Since our image stacks were split up just to make analysis possible with limited RAM, we want to merge the results back together now.</p>
+<p>I also couldn’t figure out how to rename the classes in the Image J plugin, so we took this opportunity to rename them in our R script.</p>
+<pre class="r"><code>raw.data &lt;- raw.list %&gt;%
+  bind_rows(.id = &quot;File&quot;) %&gt;% 
+  mutate(Value = ifelse(Value == 0, &quot;damaged&quot;, &quot;undamaged&quot;) %&gt;% as.factor()) %&gt;% 
+  #converts 0&#39;s to &quot;damaged&quot; and anything else to &quot;undamaged&quot;, then converts Value to a factor
+  rename(Type = &quot;Value&quot;)
+  #renames the &quot;Value&quot; column &quot;Type&quot;
+
+raw.data.2 &lt;- raw.data %&gt;% 
+  gather(-File, -Type, key = LeafID, value = Pixels) %&gt;%  #gathers all the data into three columns
+  spread(key = Type, value = Pixels)</code></pre>
+<p>And finished! With all the image stacks analyzed using our classifier, numeric results exported using our custom macro, and then read into R and tidied using our R script, we have data ready for statistical analysis!</p>
+</div>
 </div>
 
       </div>
@@ -357,8 +446,6 @@ Figure 1: Typical leafhopper damage
   <a class="btn btn-primary btn-outline" href="/tags/fiji">FIJI</a>
   
   <a class="btn btn-primary btn-outline" href="/tags/imagej">ImageJ</a>
-  
-  <a class="btn btn-primary btn-outline" href="/tags/r">R</a>
   
   <a class="btn btn-primary btn-outline" href="/tags/tea">tea</a>
   
@@ -388,7 +475,7 @@ Figure 1: Typical leafhopper damage
     
     <li><a href="/project/co2-herbivory/">Elevated CO2 and plant response to herbivory</a></li>
     
-    <li><a href="/2017/12/19/making-a-website-in-rstudio/">Making a website in RStudio</a></li>
+    <li><a href="/project/puer/">Can fermentation rescue low-quality monsoon season tea?</a></li>
     
   </ul>
 </div>

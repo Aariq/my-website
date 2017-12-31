@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications on Eric R. Scott</title>
-    <link>http://ericrscott.netlify.com/publication/</link>
+    <link>/publication/</link>
     <description>Recent content in Publications on Eric R. Scott</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,37 +12,37 @@
     
     <item>
       <title>Direct Contact Sorptive Extraction: A Robust Method for Sampling Plant Volatiles in the Field</title>
-      <link>http://ericrscott.netlify.com/publication/dcse/</link>
+      <link>/publication/dcse/</link>
       <pubDate>Fri, 15 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://ericrscott.netlify.com/publication/dcse/</guid>
+      <guid>/publication/dcse/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Behavioural, ecological, and genetic evidence confirm the occurrence of host-associated differentiation in goldenrod gall-midges</title>
-      <link>http://ericrscott.netlify.com/publication/jeb-gall-midge/</link>
+      <link>/publication/jeb-gall-midge/</link>
       <pubDate>Mon, 23 Feb 2009 00:00:00 +0000</pubDate>
       
-      <guid>http://ericrscott.netlify.com/publication/jeb-gall-midge/</guid>
+      <guid>/publication/jeb-gall-midge/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Taxonomy, life history, and population sex ratios of North American Dasineura (Diptera: Cecidomyiidae) on goldenrods (Asteraceae)</title>
-      <link>http://ericrscott.netlify.com/publication/entsoc-gall-midge/</link>
+      <link>/publication/entsoc-gall-midge/</link>
       <pubDate>Mon, 16 Apr 2007 00:00:00 +0000</pubDate>
       
-      <guid>http://ericrscott.netlify.com/publication/entsoc-gall-midge/</guid>
+      <guid>/publication/entsoc-gall-midge/</guid>
       <description></description>
     </item>
     
     <item>
       <title>First Record of *Macrolabis* (Diptera: Cecidomyiidae) in America: A New Inquiline Species from Dasineura folliculi Galls on Goldenrods</title>
-      <link>http://ericrscott.netlify.com/publication/entsoc-macrolabis/</link>
+      <link>/publication/entsoc-macrolabis/</link>
       <pubDate>Tue, 14 Feb 2006 00:00:00 +0000</pubDate>
       
-      <guid>http://ericrscott.netlify.com/publication/entsoc-macrolabis/</guid>
+      <guid>/publication/entsoc-macrolabis/</guid>
       <description></description>
     </item>
     

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Eric R. Scott</title>
-    <link>http://ericrscott.netlify.com/post/</link>
+    <link>/post/</link>
     <description>Recent content in Posts on Eric R. Scott</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -11,11 +11,125 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Quantifying leafhopper damage with automated supervised classification</title>
+      <link>/2017/12/24/leafhopper-fiji/</link>
+      <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/2017/12/24/leafhopper-fiji/</guid>
+      <description>&lt;p&gt;As part of my fieldwork in China, I collected harvested tea leaves that were damaged by the tea green leafhopper. I want to quantify the amount of leafhopper damage for each harvest. I was able to find several solutions for quantifying holes in leaves or even damage to leaf margins, but typical leafhopper damage is just tiny brown spots on the undersides of leaves. I did find some tutorials on using &lt;a href=&#34;http://imagej.net/Welcome&#34;&gt;ImageJ&lt;/a&gt; to analyze diseased area on leaves, but found that the leafhopper damage spots were too small and too similar in color to undamaged leaves for these tools to work reliably and be automated.&lt;/p&gt;
+&lt;div class=&#34;figure&#34; style=&#34;text-align: left&#34;&gt;&lt;span id=&#34;fig:leaf-fig&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/img/damaged leaf.png&#34; alt=&#34;Typical leafhopper damage&#34; width=&#34;60%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Typical leafhopper damage
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Last year I piloted a method to quantify leafhopper damage on scanned images of tea leaves with the help of a Tufts undergraduate, Maxwell Turpin. We ended up getting the most success using a supervised classification algorithm implemented by the &lt;a href=&#34;https://imagej.net/Trainable_Weka_Segmentation&#34;&gt;trainable WEKA segmentation&lt;/a&gt; plugin in &lt;a href=&#34;https://fiji.sc/&#34;&gt;FIJI&lt;/a&gt; (which stands for “FIJI is just Image J”). This semester, another Tufts undergraduate, Michelle Mu, worked on refining this approach, automating it, and applying it to the hundreds of images I obtained over the summer as part of my research.&lt;/p&gt;
+&lt;div id=&#34;supervised-pixel-classification&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Supervised pixel classification&lt;/h2&gt;
+&lt;p&gt;Just to clarify, my goal here is not image classification—that is, I’m not trying to classify leaves into categories like “undamaged”, “medium damaged”, “high damage”, but rather trying to classify individual pixels in the image as being damaged or undamaged leaf tissue (or background). In short, after selecting some pixels representative of damaged leaf, undamaged leaf, and background (regions of interest, or ROIs), the WEKA plugin trains a random forest algorithm using data from various transformations of the pixels in the ROIs. Then, I can apply the algorithm to other images and extract data in the form of numbers of pixels classified in each category.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:example-result&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/img/analyzed leaf.png&#34; alt=&#34;example results of WEKA classification&#34; width=&#34;60%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: example results of WEKA classification
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;weka-segmentation-tips&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;WEKA segmentation tips&lt;/h2&gt;
+&lt;p&gt;The &lt;a href=&#34;https://imagej.net/Trainable_Weka_Segmentation&#34;&gt;documentation&lt;/a&gt; on the WEKA segmentation plugin is fairly detailed, so I won’t go into great detail on how to use it, rather focus on some things I learned specific to this project.&lt;/p&gt;
+&lt;div id=&#34;creating-a-training-stack&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Creating a training stack&lt;/h3&gt;
+&lt;p&gt;I had hundreds of images to classify, so obviously it made sense to train a classifier on a subset of leaves. We started by taking my leaf scans, which contained dozens of leaves, and making images of individual leaves. You can do this in any number of image manipulation software, but we found it easiest using Preview, the default image and PDF viewer on OS X. You just select a leaf with the rectangle selection tool, copy with cmd + c, and create a new image with cmd + n.&lt;/p&gt;
+&lt;p&gt;We chose a random subset of 15 leaves to use as a training set. Why 15? At the time, we were using a regular desktop computer with 8 GB of RAM, and using the WEKA plugin with an image stack any larger than that caused it to crash. Fortunately, because the leaves were all scanned in a uniform way and leaf color didn’t vary too much, 15 leaves was suitable for a training set. If you have more RAM at your disposal, feel free to train on more leaves.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;training-and-applying-a-classifier&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Training and applying a classifier&lt;/h3&gt;
+&lt;p&gt;We trained the classifier on three classes, background, damaged leaf, and undamaged leaf. For background and undamaged leaf, we found it was really important to focus on leaf edges, making sure to include shadows in the background class and lighter green leaf margins in the undamaged class. Without doing this, the classifier would consistently mis-classify shadows and edges as either damaged or background, respectively. This was also an iterative process and took several rounds of selecting ROIs, training a classifier, viewing results, and adding more ROIs. Once we were satisfied with our classifier, we saved it and applied it to all of our images in stacks of 20 on a computer with 32 GB of RAM. The results created by the WEKA plugin are stacks of three color images (because we used 3 classes). Getting numerical results turned out to be another problem.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:screenshot&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/img/WEKA screenshot.png&#34; alt=&#34;WEKA segmentation window with ROIs selected&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 3: WEKA segmentation window with ROIs selected
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;exporting-results&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Exporting results&lt;/h3&gt;
+&lt;p&gt;Exporting results in a numeric format turned out to be a lot more difficult than we thought it would. The manual way of doing this through the menu is &lt;em&gt;Analyze &amp;gt; Histogram&lt;/em&gt; which opens a histogram window, then clicking “list” to get a results window with the number of pixels in each class for that image, then copying and pasting into Excel. This was far too labor intensive and error-prone to be appropriate for hundreds of images. We needed a better way, which led us to FIJI macros.&lt;/p&gt;
+&lt;p&gt;Building a macro turned out to be relatively painless, even though neither Michelle nor I had any experience coding in any language other than R. Through a combination of forum posts and using the documentation for the &lt;a href=&#34;http://imagej.net/developer/macro/functions.html&#34;&gt;ImageJ macro language&lt;/a&gt; as a reference, we were able to create a macro that opens results stacks (three-color images) and exports a text file containing the number of pixels in each class for each image in the stack.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//ImageJ macro for exporting numerical results from classified image stacks
+inpath = getDirectory(&amp;quot;Analyzed Stacks&amp;quot;);
+File.makeDirectory(inpath + &amp;quot;//Results//&amp;quot;);
+//outpath = getDirectory(&amp;quot;Results&amp;quot;);
+//for some reason using getDirectory() twice screws things up.
+//My solution is to just create a results folder in the folder with the analyzed stacks
+//But then you get an error at the end when the script tries to open that folder.
+files = getFileList(inpath);
+for(j = 0; j &amp;lt; lengthOf(files); j++){
+    open(files[j]);
+    title = getTitle();
+    for (n = 1; n &amp;lt;= nSlices(); n++) { //loop through slices
+        showProgress(n, nSlices); //this just adds a progress bar
+        setSlice(n); //set which slice
+        getStatistics(area, mean, min, max, std, histogram); //this gets the number of pixels
+        for (i=0; i&amp;lt;histogram.length; i++) {
+            setResult(&amp;quot;Value&amp;quot;, i, i);
+            setResult(&amp;quot;Leaf.&amp;quot; + n, i, histogram[i]); //adds a column for each slice called &amp;quot;Count[slicenumber]&amp;quot;
+        }   
+    saveAs(&amp;quot;results&amp;quot;, inpath + &amp;quot;//Results//&amp;quot; + title + &amp;quot;.txt&amp;quot;); //saves results table as text file
+    }
+    close();
+    run(&amp;quot;Clear Results&amp;quot;);
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;importing-results&#34; class=&#34;section level3&#34;&gt;
+&lt;h3&gt;Importing Results&lt;/h3&gt;
+&lt;p&gt;The results files then get read into R and tidied using a relatively simple script.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#packages you will need
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+
+#Get the filenames of all the results files
+filenames &amp;lt;- list.files(&amp;quot;Results/&amp;quot;) #might need to change path
+
+#Create paths to those files
+filepaths &amp;lt;- paste0(&amp;quot;Results/&amp;quot;, filenames)
+
+#make a list to eventually contain all the data files.  
+raw.list &amp;lt;- as.list(filenames)
+names(raw.list) &amp;lt;- filenames
+raw.list
+
+#for loop for reading in every file into an element of the list.  There is probably a faster way to do this with purrr::map
+for(i in 1:length(filenames)){   #loop through all files
+  raw.list[[i]] &amp;lt;- read_tsv(filepaths[i])[1:2, -1] #read only the first two rows and NOT the first column into the list
+}
+raw.list #now contains multiple data frames.&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;At this point, you have a list of data frames, one for each image stack. Since our image stacks were split up just to make analysis possible with limited RAM, we want to merge the results back together now.&lt;/p&gt;
+&lt;p&gt;I also couldn’t figure out how to rename the classes in the Image J plugin, so we took this opportunity to rename them in our R script.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;raw.data &amp;lt;- raw.list %&amp;gt;%
+  bind_rows(.id = &amp;quot;File&amp;quot;) %&amp;gt;% 
+  mutate(Value = ifelse(Value == 0, &amp;quot;damaged&amp;quot;, &amp;quot;undamaged&amp;quot;) %&amp;gt;% as.factor()) %&amp;gt;% 
+  #converts 0&amp;#39;s to &amp;quot;damaged&amp;quot; and anything else to &amp;quot;undamaged&amp;quot;, then converts Value to a factor
+  rename(Type = &amp;quot;Value&amp;quot;)
+  #renames the &amp;quot;Value&amp;quot; column &amp;quot;Type&amp;quot;
+
+raw.data.2 &amp;lt;- raw.data %&amp;gt;% 
+  gather(-File, -Type, key = LeafID, value = Pixels) %&amp;gt;%  #gathers all the data into three columns
+  spread(key = Type, value = Pixels)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And finished! With all the image stacks analyzed using our classifier, numeric results exported using our custom macro, and then read into R and tidied using our R script, we have data ready for statistical analysis!&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Making a website in RStudio</title>
-      <link>http://ericrscott.netlify.com/2017/12/19/making-a-website-in-rstudio/</link>
+      <link>/2017/12/19/making-a-website-in-rstudio/</link>
       <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://ericrscott.netlify.com/2017/12/19/making-a-website-in-rstudio/</guid>
+      <guid>/2017/12/19/making-a-website-in-rstudio/</guid>
       <description>&lt;p&gt;I’ve always thought I should eventually have a professional website for job hunting, but recently I’ve realized that it would be nice to have somewhere to collect my thoughts and contributions all in one place. Before having a website of my own, I generally shared updates and thoughts on &lt;a href=&#34;https://twitter.com/LeafyEricScott&#34;&gt;Twitter&lt;/a&gt; and on &lt;a href=&#34;#blogs&#34;&gt;other people’s blogs&lt;/a&gt;, which I will still continue to do, but having everything I do in one place seems like a good idea. I kept putting off making a website until I was recently encouraged by a combination of envy of my &lt;a href=&#34;https://www.rachaelebonoan.com/&#34;&gt;officemate’s awesome looking website&lt;/a&gt;, and learning that one could make a website using R Studio and the &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown&lt;/a&gt; R package. I just spent a semester learning a ton about R Markdown, the file type blogdown uses to construct websites, for a &lt;a href=&#34;https://github.com/Aariq/biostats-recitation&#34;&gt;biostatistics course&lt;/a&gt; I was teaching, so I figured using R Markdown to make a website would be relatively easy. Fortunately, I was correct! I spent about 3-4 work days initially getting this website working and customized, and it was relatively painless. Compared to, say WordPress, the impressiveness-to-effort ratio is much higher, in my opinion.&lt;/p&gt;
 &lt;div id=&#34;getting-started-with-blogdown&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Getting started with Blogdown&lt;/h2&gt;
