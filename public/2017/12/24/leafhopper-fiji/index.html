@@ -340,7 +340,8 @@ Figure 1: Typical leafhopper damage
 <p>Last year I piloted a method to quantify leafhopper damage on scanned images of tea leaves with the help of a Tufts undergraduate, Maxwell Turpin. We ended up getting the most success using a supervised classification algorithm implemented by the <a href="https://imagej.net/Trainable_Weka_Segmentation">trainable WEKA segmentation</a> plugin in <a href="https://fiji.sc/">FIJI</a> (which stands for “FIJI is just Image J”). This semester, another Tufts undergraduate, Michelle Mu, worked on refining this approach, automating it, and applying it to the hundreds of images I obtained over the summer as part of my research.</p>
 <div id="supervised-pixel-classification" class="section level2">
 <h2>Supervised pixel classification</h2>
-<p>Just to clarify, my goal here is not image classification—that is, I’m not trying to classify leaves into categories like “undamaged”, “medium damaged”, “high damage”, but rather trying to classify individual pixels in the image as being damaged or undamaged leaf tissue (or background). In short, after selecting some pixels representative of damaged leaf, undamaged leaf, and background (regions of interest, or ROIs), the WEKA plugin trains a random forest algorithm using data from various transformations of the pixels in the ROIs. Then, I can apply the algorithm to other images and extract data in the form of numbers of pixels classified in each category.</p>
+<p>Just to clarify, my goal here is not image classification—that is, I’m not trying to classify leaves into categories like “undamaged”, “medium damaged”, “high damage”, but rather trying to classify individual pixels in the image as being damaged or undamaged leaf tissue (or background).</p>
+<p>In short, after selecting some pixels representative of damaged leaf, undamaged leaf, and background (regions of interest, or ROIs), the WEKA plugin trains a random forest algorithm using data from various transformations of the pixels in the ROIs. Then, I can apply the algorithm to other images and extract data in the form of numbers of pixels classified in each category.</p>
 <div class="figure"><span id="fig:example-result"></span>
 <img src="/img/analyzed leaf.png" alt="example results of WEKA classification" width="60%" />
 <p class="caption">
@@ -353,8 +354,8 @@ Figure 2: example results of WEKA classification
 <p>The <a href="https://imagej.net/Trainable_Weka_Segmentation">documentation</a> on the WEKA segmentation plugin is fairly detailed, so I won’t go into great detail on how to use it, rather focus on some things I learned specific to this project.</p>
 <div id="creating-a-training-stack" class="section level3">
 <h3>Creating a training stack</h3>
-<p>I had hundreds of images to classify, so obviously it made sense to train a classifier on a subset of leaves. We started by taking my leaf scans, which contained dozens of leaves, and making images of individual leaves. You can do this in any number of image manipulation software, but we found it easiest using Preview, the default image and PDF viewer on OS X. You just select a leaf with the rectangle selection tool, copy with cmd + c, and create a new image with cmd + n.</p>
-<p>We chose a random subset of 15 leaves to use as a training set. Why 15? At the time, we were using a regular desktop computer with 8 GB of RAM, and using the WEKA plugin with an image stack any larger than that caused it to crash. Fortunately, because the leaves were all scanned in a uniform way and leaf color didn’t vary too much, 15 leaves was suitable for a training set. If you have more RAM at your disposal, feel free to train on more leaves.</p>
+<p>I had hundreds of images to classify, so obviously it made sense to train a classifier on a subset of leaves. We started by taking my leaf scans, which contained dozens of leaves, and making images of individual leaves. You can do this in any number of image manipulation software, but we found it easiest using Preview, the default image and PDF viewer on OS X. You just select a leaf with the rectangle selection tool, copy with cmd + c, and create a new image with cmd + n, then save with cmd + s.</p>
+<p>We then chose a random subset of 15 leaves to use as a training set. Why 15? At the time, we were using a regular desktop computer with 8 GB of RAM, and using the WEKA plugin with an image stack any larger than that caused it to crash. Fortunately, because the leaves were all scanned in a uniform way and leaf color didn’t vary too much, 15 leaves was suitable for a training set. If you have more RAM at your disposal, feel free to train on more leaves.</p>
 </div>
 <div id="training-and-applying-a-classifier" class="section level3">
 <h3>Training and applying a classifier</h3>
@@ -368,7 +369,7 @@ Figure 3: WEKA segmentation window with ROIs selected
 </div>
 <div id="exporting-results" class="section level3">
 <h3>Exporting results</h3>
-<p>Exporting results in a numeric format turned out to be a lot more difficult than we thought it would. The manual way of doing this through the menu is <em>Analyze &gt; Histogram</em> which opens a histogram window, then clicking “list” to get a results window with the number of pixels in each class for that image, then copying and pasting into Excel. This was far too labor intensive and error-prone to be appropriate for hundreds of images. We needed a better way, which led us to FIJI macros.</p>
+<p>Exporting results in a numeric format turned out to be a lot more difficult than we thought it would. The manual way of doing this through the FIJI menus is <em>Analyze &gt; Histogram</em> which opens a histogram window, then clicking “list” to get a results window with the number of pixels in each class for that image, then copying and pasting into Excel. This was far too labor intensive and error-prone to be appropriate for hundreds of images. We needed a better way, which led us to FIJI macros.</p>
 <p>Building a macro turned out to be relatively painless, even though neither Michelle nor I had any experience coding in any language other than R. Through a combination of forum posts and using the documentation for the <a href="http://imagej.net/developer/macro/functions.html">ImageJ macro language</a> as a reference, we were able to create a macro that opens results stacks (three-color images) and exports a text file containing the number of pixels in each class for each image in the stack.</p>
 <pre><code>//ImageJ macro for exporting numerical results from classified image stacks
 inpath = getDirectory(&quot;Analyzed Stacks&quot;);
@@ -420,8 +421,8 @@ for(i in 1:length(filenames)){   #loop through all files
   raw.list[[i]] &lt;- read_tsv(filepaths[i])[1:2, -1] #read only the first two rows and NOT the first column into the list
 }
 raw.list #now contains multiple data frames.</code></pre>
-<p>At this point, you have a list of data frames, one for each image stack. Since our image stacks were split up just to make analysis possible with limited RAM, we want to merge the results back together now.</p>
-<p>I also couldn’t figure out how to rename the classes in the Image J plugin, so we took this opportunity to rename them in our R script.</p>
+<p>At this point, we have created a list of data frames, one for each image stack. Since our image stacks were split up just to make analysis possible with limited RAM, we want to merge the results back together now.</p>
+<p>I also couldn’t figure out how to rename the classes in the Image J macro (they appear as numeric labels “0”, “1”, and “2”), so we took this opportunity to rename them in our R script.</p>
 <pre class="r"><code>raw.data &lt;- raw.list %&gt;%
   bind_rows(.id = &quot;File&quot;) %&gt;% 
   mutate(Value = ifelse(Value == 0, &quot;damaged&quot;, &quot;undamaged&quot;) %&gt;% as.factor()) %&gt;% 
@@ -451,6 +452,8 @@ raw.data.2 &lt;- raw.data %&gt;%
   
   <a class="btn btn-primary btn-outline" href="/tags/plant-defense">plant-defense</a>
   
+  <a class="btn btn-primary btn-outline" href="/tags/r">R</a>
+  
 </div>
 
 
@@ -475,7 +478,7 @@ raw.data.2 &lt;- raw.data %&gt;%
     
     <li><a href="/project/co2-herbivory/">Elevated CO2 and plant response to herbivory</a></li>
     
-    <li><a href="/project/puer/">Can fermentation rescue low-quality monsoon season tea?</a></li>
+    <li><a href="/2017/12/19/making-a-website-in-rstudio/">Making a website in RStudio</a></li>
     
   </ul>
 </div>
