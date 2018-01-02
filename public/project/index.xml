@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Eric R. Scott</title>
-    <link>/project/</link>
+    <link>http://ericrscott.netlify.com/project/</link>
     <description>Recent content in Projects on Eric R. Scott</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,23 +12,23 @@
     
     <item>
       <title>Can fermentation rescue low-quality monsoon season tea?</title>
-      <link>/project/puer/</link>
+      <link>http://ericrscott.netlify.com/project/puer/</link>
       <pubDate>Wed, 13 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/project/puer/</guid>
+      <guid>http://ericrscott.netlify.com/project/puer/</guid>
       <description>&lt;p&gt;Puer tea is a type of tea produced in Yunnan Province, China—a region that experiences seasonal monsoon rains. Typically the best quality tea is harvested in the spring, before the monsoons arrive. After the arrival of the monsoons, many farmers choose not to harvest their tea, despite an increase in tea shoot growth. &lt;a href=&#34;http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0109126&#34;&gt;Research&lt;/a&gt; from my collaborators shows that the chemistry of tea changes dramatically after the arrival of monsoon rains and results in a decrease in flavor quality of loose-leaf puer tea (puer mao cha).&lt;/p&gt;
 &lt;p&gt;This loose-leaf puer tea, however, rarely makes it to customers in the tea market. Instead puer tea farmers sell their tea to factories that blend tea across locations, seasons, and maybe even years. These blends are further processed to create either shu puer (ripened puer) or sheng puer (raw puer). Shu puer is &lt;a href=&#34;http://www.teageek.net/blog/2017/02/science-nomenclature-tea-processing-part-2-microbial-ripening/&#34;&gt;microbially ripened&lt;/a&gt; through a process called &lt;a href=&#34;https://teajourney.pub/article/pile-fermentation-catalyst-create-shou-puer/&#34;&gt;wet-piling&lt;/a&gt; and then either sold loose-leaf or pressed into cakes. Sheng puer is typically pressed into cakes and stored by wholesalers or consumers in humid environments to encourage a slow ripening. The result of either process is a drastically different flavor compared to the starting loose-leaf puer tea.&lt;/p&gt;
 &lt;p&gt;This begs the question: Can microbial ripening ameliorate the impacts of monsoon rains on tea quality? One could imagine that many of the quality components of shu puer are microbially produced products, and the starting material has less of an impact on quality than the microbial community. On the other hand, the differences in secondary metabolites induced by monsoon rains could be a strong selective pressure on the microbial community and could further exacerbate the quality disparity between pre-monsoon and monsoon harvest tea.&lt;/p&gt;
-&lt;p&gt;I’m currently looking for undergraduates with an interest in microbiology to work on a pilot &lt;em&gt;in vitro&lt;/em&gt; tea fermentation method. Please &lt;a href=&#34;/#contact&#34;&gt;contact me&lt;/a&gt; if you’re interested!&lt;/p&gt;
+&lt;p&gt;I’m currently looking for undergraduates with an interest in microbiology to work on a pilot &lt;em&gt;in vitro&lt;/em&gt; tea fermentation method. Please &lt;a href=&#34;http://ericrscott.netlify.com/#contact&#34;&gt;contact me&lt;/a&gt; if you’re interested!&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Climate Effects on Bug-Bitten Tea</title>
-      <link>/project/climate-leafhopper-quality/</link>
+      <link>http://ericrscott.netlify.com/project/climate-leafhopper-quality/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>/project/climate-leafhopper-quality/</guid>
+      <guid>http://ericrscott.netlify.com/project/climate-leafhopper-quality/</guid>
       <description>&lt;p&gt;Eastern Beauty wulong is one of several so-called &amp;ldquo;&lt;a href=&#34;https://worldoftea.org/oriental-beauty-bug-bitten-teas/&#34; target=&#34;_blank&#34;&gt;bug-bitten teas&lt;/a&gt;&amp;rdquo; produced only from tea plants attacked by the tea green leafhopper (&lt;em&gt;Empoasca onukii&lt;/em&gt;). Tea plants that are damaged by these leafhoppers respond by producing a blend of volatile compounds that may serve to attract natural enemies of the leafhoppers.  The increase in volatile production by the tea leaves improves the quality of the tea by imparting a unique honey/fruit aroma to the final brew. Leafhoppers are cell-rupture feeders, only making tiny wounds on the underside of tea leaves. Although leafhopper damage does result in stunted growth and reduced yield, leafhoppers aren&amp;rsquo;t removing leaf area. Because the quality of damaged leaves is improved, tea farmers may choose to forgo pesticide applications and produce bug-bitten teas in the summer months when leafhoppers populations are high enough.&lt;/p&gt;
 
 &lt;p&gt;I&amp;rsquo;m interested in how leafhopper density affects the blend of metabolites produced by tea plants.  Are all metabolites produced in a dose-dependent manner?  This seems unlikely.  It is more likely that the blend of metabolites depends on leafhopper density and there should be an optimal density of leafhoppers to produce the best flavor.&lt;/p&gt;
@@ -41,10 +41,10 @@
     
     <item>
       <title>Drought and plant response to herbivory</title>
-      <link>/project/bace-tea/</link>
+      <link>http://ericrscott.netlify.com/project/bace-tea/</link>
       <pubDate>Mon, 01 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>/project/bace-tea/</guid>
+      <guid>http://ericrscott.netlify.com/project/bace-tea/</guid>
       <description>&lt;p&gt;When my collaborator Dr. Li Xin from the Tea Research Institute (TRI) in Hangzhou, China decided to spend a semester in the Orians lab at Tufts, we decided this would be a good opportunity to make use of the &lt;a href=&#34;http://web.ics.purdue.edu/~jsdukes/bace.html&#34; target=&#34;_blank&#34;&gt;Boston Area Climate Experiment (BACE)&lt;/a&gt; to do some work on tea and drought stress.  BACE is an experiment started by &lt;a href=&#34;http://web.ics.purdue.edu/~jsdukes/Dukes.html&#34; target=&#34;_blank&#34;&gt;Jeff Dukes&lt;/a&gt; at Purdue University to study the effects of climate change on plant communities. We thought it would be a good tool to study the effects of drought and insect herbivory on tea plants.&lt;/p&gt;
 
 &lt;p&gt;There are already quite a few studies on how drought stress affects tea plants and how insect herbivory affects tea plants, but fewer studies that investigate the interaction.  We also have the ability to measure hundreds of metabolites in tea thanks to the efforts of our collaborators in the Robbat lab.  This offered a great opportunity to better understand the response of tea plants to herbivory under different degrees of drought stress.&lt;/p&gt;
@@ -55,22 +55,22 @@
     
     <item>
       <title>Elevated CO2 and plant response to herbivory</title>
-      <link>/project/co2-herbivory/</link>
+      <link>http://ericrscott.netlify.com/project/co2-herbivory/</link>
       <pubDate>Sun, 01 May 2016 00:00:00 +0000</pubDate>
       
-      <guid>/project/co2-herbivory/</guid>
+      <guid>http://ericrscott.netlify.com/project/co2-herbivory/</guid>
       <description>&lt;p&gt;The aim of this project is to combine genomic and metabolomic tools to better understand how plant responses to herbivory may be altered under increasing CO&lt;sub&gt;2&lt;/sub&gt; concentrations. Tea is a great study system to answer this question since it is attacked by many insects in the field, and the quality, and therefore price, of tea depends greatly on plant secondary metabolites that are known to respond to insect damage.&lt;/p&gt;
-&lt;p&gt;This project was primarily carried out by my collaborator Li Xin at the Tea Research Institute in Hangzhou, China. Tea seedlings were grown in ambient and elevated CO&lt;sub&gt;2&lt;/sub&gt;. Half of them were then damaged by geometrid caterpillar feeding. We collected plant volatiles after feeding using &lt;a href=&#34;/project/dcse/&#34;&gt;DCSE&lt;/a&gt; and collected leaf material for measuring gene expression. Data analysis for this project is ongoing.&lt;/p&gt;
+&lt;p&gt;This project was primarily carried out by my collaborator Li Xin at the Tea Research Institute in Hangzhou, China. Tea seedlings were grown in ambient and elevated CO&lt;sub&gt;2&lt;/sub&gt;. Half of them were then damaged by geometrid caterpillar feeding. We collected plant volatiles after feeding using &lt;a href=&#34;http://ericrscott.netlify.com/project/dcse/&#34;&gt;DCSE&lt;/a&gt; and collected leaf material for measuring gene expression. Data analysis for this project is ongoing.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Field-Sampling Plant Volatiles</title>
-      <link>/project/dcse/</link>
+      <link>http://ericrscott.netlify.com/project/dcse/</link>
       <pubDate>Mon, 27 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>/project/dcse/</guid>
-      <description>&lt;p&gt;When I started my Ph.D., I knew I needed a very portable, robust way of sampling plant volatiles in the field.  I was going to be doing my work on tea farms in China, potentially far from a lab or even a source of electricity, so I didn&amp;rsquo;t want to rely on the typical plant volatile sampling method used at the time&amp;mdash;dynamic headspace sampling.  Dynamic headspace sampling requires a pump (and a power source) to pull or push air through a container placed around a plant or plant part, then through a sorbent tube that traps the volatiles.  Besides not being easily portable and having replication limited somewhat by the number of pumps, this method introduces a lot of opportunity for contamination from the chamber materials, loss of volatiles due to breakthrough on the sorbent tube, and puts plants in an unnatural environment (in a hot, UV-filtered glass bottle or plastic bag). In collaboration with Nicole Kfoury, a graduate student in Albert Robbat&amp;rsquo;s lab in the Tufts Chemistry department, we created and tested a new application for the magnetic sorptive stir bars (Twisters) they used routinely for sampling volatiles from liquids.  We though &amp;ldquo;Hey, these Twisters are magnetic.  Could we just stick them on a plant leaf with a magnet on the other side and sample leaf volatiles?&amp;rdquo;  I brought some Twisters with me on my first field season in China and that was the start of a wonderful collaboration that lead to the creation of a new robust, high-throughput method for sampling volatiles in the field that we call &lt;a href=&#34;/publication/dcse/&#34;&gt;Direct Contact Sorptive Extraction&lt;/a&gt;, or DCSE for short.&lt;/p&gt;
+      <guid>http://ericrscott.netlify.com/project/dcse/</guid>
+      <description>&lt;p&gt;When I started my Ph.D., I knew I needed a very portable, robust way of sampling plant volatiles in the field.  I was going to be doing my work on tea farms in China, potentially far from a lab or even a source of electricity, so I didn&amp;rsquo;t want to rely on the typical plant volatile sampling method used at the time&amp;mdash;dynamic headspace sampling.  Dynamic headspace sampling requires a pump (and a power source) to pull or push air through a container placed around a plant or plant part, then through a sorbent tube that traps the volatiles.  Besides not being easily portable and having replication limited somewhat by the number of pumps, this method introduces a lot of opportunity for contamination from the chamber materials, loss of volatiles due to breakthrough on the sorbent tube, and puts plants in an unnatural environment (in a hot, UV-filtered glass bottle or plastic bag). In collaboration with Nicole Kfoury, a graduate student in Albert Robbat&amp;rsquo;s lab in the Tufts Chemistry department, we created and tested a new application for the magnetic sorptive stir bars (Twisters) they used routinely for sampling volatiles from liquids.  We though &amp;ldquo;Hey, these Twisters are magnetic.  Could we just stick them on a plant leaf with a magnet on the other side and sample leaf volatiles?&amp;rdquo;  I brought some Twisters with me on my first field season in China and that was the start of a wonderful collaboration that lead to the creation of a new robust, high-throughput method for sampling volatiles in the field that we call &lt;a href=&#34;http://ericrscott.netlify.com/publication/dcse/&#34;&gt;Direct Contact Sorptive Extraction&lt;/a&gt;, or DCSE for short.&lt;/p&gt;
 </description>
     </item>
     
