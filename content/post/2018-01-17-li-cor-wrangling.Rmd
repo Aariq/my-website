@@ -1,0 +1,137 @@
+---
+title: Parsing photosynthesis data from a LI-COR LI-6400 in R
+author: Eric R. Scott
+date: '2018-01-17'
+slug: li-cor-wrangling
+categories:
+  - Research
+tags:
+  - R
+  - LI-COR
+  - Data-wrangling
+  - Regexp
+projects: ["bace-tea"]
+draft: true
+---
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(knitr)
+```
+
+The [LI-6400XT](https://www.licor.com/env/products/photosynthesis/LI-6400XT/) is a portable device used to measure photosynthesis in plant leaves.  The interface is a simple green and black text screen with a keyboard and some buttons.  As you take measurements, they are recorded by the device.  In order to keep track of which measurments go with which plants (or experimental treatments), there is an "add remark" option where you can enter sample information before taking measurements.
+
+When the data are exported, you get a series of .xls files and a plain text file.  Both of these have some problems that you'll have to deal with if you want to read the data into R and use it for statistical analysis or generating reports.
+
+```{r excel, echo=FALSE, fig.cap="Excel nightmare or text nightmare? Pick your poison.", out.width="90%"}
+include_graphics("/img/licor_excel.png")
+```
+
+One obvious problem is all the header information.  Fortunatly, it's mostly just information about the instrument configuration that we don't need and we could deal with it by just skipping some number of rows when reading the file in. However there is also the problem of the way the remarks are handled.  Instead of being in their own column, they appear in the `HHMMSS` column! And to indicate that the row is a remark, instead of giving it an observation number in `Obs`, it just says "Remark =".  A less obvious problem is the weird row of "in"s and "out"s under the header.  I'm honestly not sure what this is, but it's in the way, so it's gotta go.
+
+Another problem that you can't see in Fig. 1 is that I've done my measurments in several bouts.  This produced two .xls files and a text file with header junk inbetween my two sets of measurements.  At this point I had to choose between reading in the .xls files with `read_xls()` from the `readxl` package and doing some wrangling from there, or to deal with the text file, which would surely include some regular expression headaches.
+
+For some unknown reason, `read_xls()` didn't work on these files, and I had to open them in Excel, then save them as .xlsx files and use `read_xlsx()` to get them into R.  For the sake of full automatedness, I'm going to work through the text file example here.
+
+## Tidying up raw text
+My approach is to read in the raw text, tidy it up, then use `read_tsv()` to get a list of data frames. After that, I planned to combine them into one big data frame and do some more tidying to extract the sample IDs from the remarks. I'll be using functions from `stringr` to do the text tidying, and functions from various `tidyverse` packages to bring it all together into a coherent data frame.
+
+```{r packages, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(stringr)
+```
+
+```{r}
+text.raw <- read_file("licor.txt")
+```
+
+Scrolling through the text a little reveals that, conveniently, the line \$STARTOFDATA\$ appears between the header information and the start of the actual data. The headers themselves always begin with "OPEN" followed by a date.  I create regular expression patterns for these and use them to split the raw text file first into separate bouts of measurements, then into headers and data, discarding the headers.
+```{r}
+header_pattern <- "\"OPEN \\d\\.\\d\\.\\d"
+data_pattern <- "\\$STARTOFDATA\\$"
+
+#splits into individual bouts
+raw_split <- str_split(text.raw, header_pattern, simplify = TRUE)
+
+#splits further to separate headers from actual data
+raw_split2 <- str_split(raw_split, data_pattern, simplify = FALSE)
+
+str(raw_split2)
+```
+It's a little hard to see with `str()` (try `View(raw_split2)`), but now there is a list of 3 elements, where each element is a vector of strings.  The first element contains nothing, the other elements contain two strings---one is the header, the other is the data.  Let's get rid of the headers and the empty list element.
+```{r}
+#extract just the second element, the actual data
+raw_split3 <- raw_split2 %>%
+  map(`[`, 2) %>% #equivalent to doing raw_split2[[i]][2] for every element "i"
+  flatten_chr() #converts to a vector
+
+#remove empty elements
+raw_split3 <- raw_split3[!is.na(raw_split3)]
+```
+
+## Reading in our cleaned text file
+
+Then we can finally read in our cleaned text as a tab-separated (.tsv) file.  Here I make use of `map()` from the `purrr` package to apply `read_tsv()` to every string in our raw text vector.  `skip = 1` gets rid of that weird line of "in"s and "out"s.
+
+```{r message=FALSE, warning=FALSE}
+input <- raw_split3 %>%
+  map(read_tsv, skip = 1)
+
+input.all <- bind_rows(input)
+head(input.all, 10)
+```
+
+## Extracting useful remarks
+
+The first step is moving remarks into a `remark` column while keeping the observation numbers in the `Obs` column. I'm sure there is a more elegant way to do this, but I had recently [learned about](http://purrr.tidyverse.org/reference/safely.html) the `safely()` function from `purrr` which allows you to capture errors.  I figured I could try converting elements of the `Obs` column to integers and if it failed, I could use that as a criteria for moving to a new column.
+
+```{r}
+#create a "safe" version of as.integer() that returns a list of a result and error
+safe_as.int <- safely(as.integer)
+#returns error for text remarks, returns value for integer observation numbers
+
+input.all <- input.all %>% 
+  mutate(#create a comment column to indicate if an "Obs" is actually a remark
+       comment = is.na(safe_as.int(Obs)$result), 
+       #copy those remarks to the remark column
+       remark = ifelse(comment == TRUE, Obs, NA),
+       #remove remarks from Obs column
+       Obs = ifelse(comment == FALSE, Obs, NA)) %>% 
+#move the remark column the the begining
+select(remark, everything()) %>% 
+#remove the comment column.  We're done with it
+select(-comment)
+head(input.all, 10)
+```
+
+In the data frame above, you'll notice that some of the remarks are just me changing parameters of the device, while others are sample IDs (e.g. "08:43:13 c 4 a" is plot c, plant 4, leaf a).  I got lucky in my sample naming convention in that the sample IDs are relatively easily distinguishable from other remarks using regular expressions.
+
+```{r}
+#you must replace NA with the literal string "NA" so str_* functions from stringr can deal with it
+input.all <- input.all %>% mutate(remark = str_replace_na(remark))
+
+IDpattern <- "[:lower:][:blank:]\\d+[:blank:][:lower:]"
+str_view(input.all$remark[1:10], IDpattern)
+```
+
+Now that I've figure out a pattern that matches the ID's I can use `str_extract()` to move them to a new `sampleID` column.
+```{r}
+input.all <- input.all %>%
+  mutate(sampleID = str_extract(remark, IDpattern)) %>% 
+  select(sampleID, everything())
+head(input.all, 10)
+```
+
+## Fill down
+Now, if this were Excel, you could highlight that "c 4 a" and drag the corner down to fill in all the NA's. In R, you can do exactly this with the `fill()` function from `tidyr`.
+
+```{r}
+#get rid of other remarks and fill down the sample ID column
+output <- input.all %>% 
+  filter(!xor(remark == "NA" , is.na(sampleID))) %>%
+  fill(sampleID) %>% 
+  #get rid of the rest of the remark rows
+  filter(complete.cases(.)) %>% 
+  #get rid of the remark column
+  select(-remark)
+head(output, 10)
+```
+And finally, we have a cleaned data frame ready for use in analyses!  You could go on to separate plot ID, plant ID and leaf ID using `separate()` from `tidyr`.
