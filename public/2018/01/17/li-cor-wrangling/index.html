@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="author" content="Eric R. Scott">
+  <meta name="description" content="PhD Candidate in Biology">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/2018/01/17/li-cor-wrangling/">
+
+  
+  
+
+
+  
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+      
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+      
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7cRoboto:400,400italic,700%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+
+  
+  <link rel="alternate" href="/index.xml" type="application/rss+xml" title="Eric R. Scott">
+  <link rel="feed" href="/index.xml" type="application/rss+xml" title="Eric R. Scott">
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/2018/01/17/li-cor-wrangling/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@leafyericscott">
+  <meta property="twitter:creator" content="@leafyericscott">
+  
+  <meta property="og:site_name" content="Eric R. Scott">
+  <meta property="og:url" content="/2018/01/17/li-cor-wrangling/">
+  <meta property="og:title" content="Importing data from a LI-COR photosynthesis meter into R | Eric R. Scott">
+  <meta property="og:description" content=""><meta property="og:image" content="/img/headers/licor-header.png">
+  <meta property="og:locale" content="en-us">
+  
+  <meta property="article:published_time" content="2018-01-17T00:00:00&#43;00:00">
+  
+  <meta property="article:modified_time" content="2018-01-17T00:00:00&#43;00:00">
+  
+
+  
+
+  <title>Importing data from a LI-COR photosynthesis meter into R | Eric R. Scott</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/"><img src="/img/leaf-logo.png" alt="Eric R. Scott"></a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Research Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#publications_selected">
+            
+            <span>Publications &amp; Presentations</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#blogs">
+            
+            <span>Outreach</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#teaching">
+            
+            <span>Teaching</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#posts">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+<div class="article-header">
+  <img src="/img/headers/licor-header.png" class="article-banner" itemprop="image">
+  
+</div>
+
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">Importing data from a LI-COR photosynthesis meter into R</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2018-01-17 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+      Jan 17, 2018
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    11 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/2018/01/17/li-cor-wrangling/#disqus_thread"></a>
+  
+
+  
+  
+  
+  <span class="middot-divider"></span>
+  <span class="article-categories">
+    <i class="fa fa-folder"></i>
+    
+    <a href="/categories/research">Research</a
+    >
+    
+  </span>
+  
+  
+
+  
+  
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    <li>
+      <a class="twitter"
+         href="https://twitter.com/intent/tweet?text=Importing%20data%20from%20a%20LI-COR%20photosynthesis%20meter%20into%20R&amp;url=%2f2018%2f01%2f17%2fli-cor-wrangling%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a class="facebook"
+         href="https://www.facebook.com/sharer.php?u=%2f2018%2f01%2f17%2fli-cor-wrangling%2f"
+         target="_blank" rel="noopener">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a class="linkedin"
+         href="https://www.linkedin.com/shareArticle?mini=true&amp;url=%2f2018%2f01%2f17%2fli-cor-wrangling%2f&amp;title=Importing%20data%20from%20a%20LI-COR%20photosynthesis%20meter%20into%20R"
+         target="_blank" rel="noopener">
+        <i class="fa fa-linkedin"></i>
+      </a>
+    </li>
+    <li>
+      <a class="weibo"
+         href="http://service.weibo.com/share/share.php?url=%2f2018%2f01%2f17%2fli-cor-wrangling%2f&amp;title=Importing%20data%20from%20a%20LI-COR%20photosynthesis%20meter%20into%20R"
+         target="_blank" rel="noopener">
+        <i class="fa fa-weibo"></i>
+      </a>
+    </li>
+    <li>
+      <a class="email"
+         href="mailto:?subject=Importing%20data%20from%20a%20LI-COR%20photosynthesis%20meter%20into%20R&amp;body=%2f2018%2f01%2f17%2fli-cor-wrangling%2f">
+        <i class="fa fa-envelope"></i>
+      </a>
+    </li>
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        <script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/viz/viz.js"></script>
+<link href="/rmarkdown-libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/grViz-binding/grViz.js"></script>
+<link href="/rmarkdown-libs/str_view/str_view.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/str_view-binding/str_view.js"></script>
+
+
+<p>The <a href="https://www.licor.com/env/products/photosynthesis/LI-6400XT/">LI-6400XT</a> is a portable device used to measure photosynthesis in plant leaves. As you take measurements by pressing a button on the device, they are recorded into memory. In order to keep track of which measurments go with which plants (or experimental treatments), there is an “add remark” option where you can enter sample information before taking measurements.</p>
+<p>When the data are exported, you get a series of .xls files and a plain text file. Both of these have some problems that you’ll have to deal with if you want to read the data into R and use it for statistical analysis or generating reports.</p>
+<div class="figure"><span id="fig:excel"></span>
+<img src="/img/licor_excel.png" alt="Excel nightmare or text nightmare? Pick your poison." width="90%" />
+<p class="caption">
+Figure 1: Excel nightmare or text nightmare? Pick your poison.
+</p>
+</div>
+<p>Both file types create some problems for easily getting the data into R:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Header information</strong> interrupts the data table format. Fortunatly, it’s mostly just information about the instrument configuration that we don’t need.</li>
+<li><strong>Untidy handling of remarks</strong>. Instead of remarks being in their own column, they appear in the <code>HHMMSS</code> column in the .xls files and in the <code>Obs</code> column in the .txt file! And to indicate that the row is a remark, instead of giving it an observation number in <code>Obs</code>, it just says “Remark =”.</li>
+<li><strong>Column headers are spread over two rows</strong>. There is a (somewhat mysterious to me) row of “in”s and “out”s under the column headers in the .xls file.</li>
+<li>Another problem that you can’t see in Fig. 1 is that I’ve done my <strong>measurments in several bouts</strong>. This produced two .xls files and a text file with header text inbetween my two sets of measurements.</li>
+</ol>
+<p>At this point I had to choose between reading in the .xls files with <code>read_xls()</code> from the <code>readxl</code> package and doing some wrangling from there, or to deal with the text file, which would surely include some regular expression headaches.</p>
+<p>For some unknown reason, <code>read_xls()</code> didn’t work on these files, and I had to open them in Excel, then save them as .xlsx files and use <code>read_xlsx()</code> to get them into R. For the sake of full automatedness, I’m going to work through the text file example here.</p>
+<div id="tidying-up-raw-text" class="section level2">
+<h2>Tidying up raw text</h2>
+<div class="figure"><span id="fig:flowchart"></span>
+<div id="htmlwidget-1" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"diagram":"digraph rmarkdown {\n        \n        graph [layout = dot, rankdir = TB, fontsize = 16]\n        # node definitions with substituted label text\n        node [fontname = Avenir, shape = rectangle]        \n        rec1 [label = \"Raw text\"]\n        rec2 [label = \"List of strings\"]\n        rec3 [label = \"List of data frames\"]\n        rec4 [label = \"Extract sample ID\nfrom remarks\"]\n\n        node [fontname = Avenir, shape = oval]\n        ova1 [label = \"Tidy and split\"]\n\n        node [fontname = Courier, shape = oval]\n        ova2 [label = \"map(list, read_tsv)\"]\n        ova3 [label = \"bind_rows()\"]\n\n        # edge definitions with the node IDs\n        rec1 -> ova1 -> rec2 -> ova2 -> rec3 -> ova3 -> rec4\n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p class="caption">
+Figure 2: My approach to wrangling text files generated by the LI-6400XT
+</p>
+</div>
+<p>My approach is to read in the raw text, tidy it up, then use <code>read_tsv()</code> to get a list of data frames. After that, I planned to combine them into one big data frame and do some more tidying to extract the sample IDs from the remarks. I’ll be using functions from <code>stringr</code> to do the text tidying, and functions from various <code>tidyverse</code> packages to bring it all together into a coherent data frame.</p>
+<pre class="r"><code>library(tidyverse)
+library(stringr)</code></pre>
+<pre class="r"><code>text.raw &lt;- read_file(&quot;licor.txt&quot;)</code></pre>
+<p>Scrolling through the text a little reveals that, conveniently, the line <code>&quot;$STARTOFDATA$&quot;</code> appears between the header information and the start of the actual data. The headers themselves always begin with <code>&quot;OPEN&quot;</code> followed by a date. I created regular expression patterns for these and used them to split the raw text file first into separate bouts of measurements, then into headers and data, discarding the headers.</p>
+<pre class="r"><code>header_pattern &lt;- &quot;\&quot;OPEN \\d\\.\\d\\.\\d&quot;
+data_pattern &lt;- &quot;\\$STARTOFDATA\\$&quot;
+
+#splits into individual bouts
+raw_split &lt;- str_split(text.raw, header_pattern, simplify = TRUE)
+
+#splits further to separate headers from actual data
+raw_split2 &lt;- str_split(raw_split, data_pattern, simplify = FALSE)
+
+str(raw_split2)</code></pre>
+<pre><code>## List of 3
+##  $ : chr &quot;&quot;
+##  $ : chr [1:2] &quot;\&quot;\n\&quot;Fri Aug 25 2017 08:29:30\&quot;\n&lt;open&gt;&lt;version&gt;\&quot;6.3.4\&quot;&lt;/version&gt;&lt;/open&gt;\n&lt;open&gt;&lt;configfile&gt;\&quot;/User/Configs/&quot;| __truncated__ &quot;\n\&quot;Obs\&quot;\t\&quot;HHMMSS\&quot;\t\&quot;FTime\&quot;\t\&quot;EBal?\&quot;\t\&quot;Photo\&quot;\t\&quot;Cond\&quot;\t\&quot;Ci\&quot;\t\&quot;Trmmol\&quot;\t\&quot;VpdL\&quot;\t\&quot;CTleaf\&quot;\t\&quot;A&quot;| __truncated__
+##  $ : chr [1:2] &quot;\&quot;\n\&quot;Fri Aug 25 2017 10:32:44\&quot;\n&lt;open&gt;&lt;version&gt;\&quot;6.3.4\&quot;&lt;/version&gt;&lt;/open&gt;\n&lt;open&gt;&lt;configfile&gt;\&quot;/User/Configs/&quot;| __truncated__ &quot;\n\&quot;Obs\&quot;\t\&quot;HHMMSS\&quot;\t\&quot;FTime\&quot;\t\&quot;EBal?\&quot;\t\&quot;Photo\&quot;\t\&quot;Cond\&quot;\t\&quot;Ci\&quot;\t\&quot;Trmmol\&quot;\t\&quot;VpdL\&quot;\t\&quot;CTleaf\&quot;\t\&quot;A&quot;| __truncated__</code></pre>
+<p>It’s a little hard to see here, but now there is a list of 3 elements. The first element contains nothing (because there is nothing before the first <code>header_pattern</code>), the other elements contain two strings—one is the header, the other is the data. Let’s get rid of the headers and the empty list element.</p>
+<pre class="r"><code>#extract just the second element, the actual data
+raw_split3 &lt;- raw_split2 %&gt;%
+  map(`[`, 2) %&gt;% #equivalent to doing raw_split2[[i]][2] for every element &quot;i&quot;
+  flatten_chr() #converts to a vector
+
+#remove empty elements
+raw_split3 &lt;- raw_split3[!is.na(raw_split3)]</code></pre>
+</div>
+<div id="reading-in-our-cleaned-text-file" class="section level2">
+<h2>Reading in our cleaned text file</h2>
+<p>Then we can finally read in our cleaned text as a tab-separated (.tsv) file. Here I make use of <code>map()</code> from the <code>purrr</code> package to apply <code>read_tsv()</code> to every string in our raw text vector. <code>skip = 1</code> gets rid of that weird line of “in”s and “out”s.</p>
+<pre class="r"><code>input &lt;- raw_split3 %&gt;%
+  map(read_tsv, skip = 1)
+
+input.all &lt;- bind_rows(input)
+head(input.all, 10)</code></pre>
+<pre><code>## # A tibble: 10 x 40
+##    Obs        HHMMSS FTime `EBal?` Photo    Cond    Ci Trmmol  VpdL CTleaf
+##    &lt;chr&gt;      &lt;time&gt; &lt;dbl&gt;   &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1 08:30:38 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  2 08:32:37 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  3 08:40:20 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  4 08:40:20 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  5 08:40:20 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  6 08:40:20 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  7 08:42:11 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  8 08:43:13 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  9 1          08:43…   932       0  6.62  0.0589   202  0.724  1.25   22.3
+## 10 2          08:43…   937       0  6.99  0.0594   193  0.731  1.25   22.3
+## # ... with 30 more variables: Area &lt;int&gt;, BLC_1 &lt;dbl&gt;, StmRat &lt;int&gt;,
+## #   BLCond &lt;dbl&gt;, Tair &lt;dbl&gt;, Tleaf &lt;dbl&gt;, TBlk &lt;dbl&gt;, CO2R &lt;dbl&gt;,
+## #   CO2S &lt;dbl&gt;, H2OR &lt;dbl&gt;, H2OS &lt;dbl&gt;, RH_R &lt;dbl&gt;, RH_S &lt;dbl&gt;,
+## #   Flow &lt;dbl&gt;, PARi &lt;int&gt;, PARo &lt;int&gt;, Press &lt;dbl&gt;, CsMch &lt;dbl&gt;,
+## #   HsMch &lt;dbl&gt;, CsMchSD &lt;dbl&gt;, HsMchSD &lt;dbl&gt;, CrMchSD &lt;dbl&gt;,
+## #   HrMchSD &lt;dbl&gt;, StableF &lt;dbl&gt;, BLCslope &lt;dbl&gt;, BLCoffst &lt;dbl&gt;,
+## #   f_parin &lt;dbl&gt;, f_parout &lt;dbl&gt;, alphaK &lt;dbl&gt;, Status &lt;int&gt;</code></pre>
+</div>
+<div id="extracting-useful-remarks" class="section level2">
+<h2>Extracting useful remarks</h2>
+<p>The first step is moving remarks into a <code>remark</code> column while keeping the observation numbers in the <code>Obs</code> column. I’m sure there is a more elegant way to do this, but I had recently <a href="http://purrr.tidyverse.org/reference/safely.html">learned about</a> the <code>safely()</code> function from <code>purrr</code> which allows you to capture errors. I figured I could try converting elements of the <code>Obs</code> column to integers and if it failed, I could use that as a criteria for moving to a new column.</p>
+<pre class="r"><code>#create a &quot;safe&quot; version of as.integer() that returns a list of a result and error
+safe_as.int &lt;- safely(as.integer)
+#returns error for text remarks, returns value for integer observation numbers
+
+input.all &lt;- input.all %&gt;% 
+  mutate(#create a comment column to indicate if an &quot;Obs&quot; is actually a remark
+       comment = is.na(safe_as.int(Obs)$result), 
+       #copy those remarks to the remark column
+       remark = ifelse(comment == TRUE, Obs, NA),
+       #remove remarks from Obs column
+       Obs = ifelse(comment == FALSE, Obs, NA)) %&gt;% 
+#move the remark column the the begining
+select(remark, everything()) %&gt;% 
+#remove the comment column.  We&#39;re done with it
+select(-comment)
+head(input.all, 10)</code></pre>
+<pre><code>## # A tibble: 10 x 41
+##    remark      Obs   HHMMSS FTime `EBal?` Photo    Cond    Ci Trmmol  VpdL
+##    &lt;chr&gt;       &lt;chr&gt; &lt;time&gt; &lt;dbl&gt;   &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+##  1 08:30:38 L… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  2 08:32:37 C… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  3 08:40:20 L… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  4 08:40:20 C… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  5 08:40:20 C… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  6 08:40:20 F… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  7 08:42:11 F… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  8 08:43:13 c… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  9 &lt;NA&gt;        1     08:43…   932       0  6.62  0.0589   202  0.724  1.25
+## 10 &lt;NA&gt;        2     08:43…   937       0  6.99  0.0594   193  0.731  1.25
+## # ... with 31 more variables: CTleaf &lt;dbl&gt;, Area &lt;int&gt;, BLC_1 &lt;dbl&gt;,
+## #   StmRat &lt;int&gt;, BLCond &lt;dbl&gt;, Tair &lt;dbl&gt;, Tleaf &lt;dbl&gt;, TBlk &lt;dbl&gt;,
+## #   CO2R &lt;dbl&gt;, CO2S &lt;dbl&gt;, H2OR &lt;dbl&gt;, H2OS &lt;dbl&gt;, RH_R &lt;dbl&gt;,
+## #   RH_S &lt;dbl&gt;, Flow &lt;dbl&gt;, PARi &lt;int&gt;, PARo &lt;int&gt;, Press &lt;dbl&gt;,
+## #   CsMch &lt;dbl&gt;, HsMch &lt;dbl&gt;, CsMchSD &lt;dbl&gt;, HsMchSD &lt;dbl&gt;, CrMchSD &lt;dbl&gt;,
+## #   HrMchSD &lt;dbl&gt;, StableF &lt;dbl&gt;, BLCslope &lt;dbl&gt;, BLCoffst &lt;dbl&gt;,
+## #   f_parin &lt;dbl&gt;, f_parout &lt;dbl&gt;, alphaK &lt;dbl&gt;, Status &lt;int&gt;</code></pre>
+<p>In the data frame above, you’ll notice that some of the remarks are just me changing parameters of the device, while others are sample IDs (e.g. “08:43:13 c 4 a” is plot c, plant 4, leaf a). I got lucky in my sample naming convention in that the sample IDs are relatively easily distinguishable from other remarks using regular expressions.</p>
+<pre class="r"><code>#you must replace NA with the literal string &quot;NA&quot; so str_* functions from stringr can deal with it
+input.all &lt;- input.all %&gt;% mutate(remark = str_replace_na(remark))
+
+IDpattern &lt;- &quot;[:lower:][:blank:]\\d+[:blank:][:lower:]&quot;
+str_view(input.all$remark[1:10], IDpattern)</code></pre>
+<div id="htmlwidget-2" style="width:960px;height:auto;" class="str_view html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2">{"x":{"html":"<ul>\n  <li>08:30:38 Lamp: ParIn ->  500 uml<\/li>\n  <li>08:32:37 CO2 Mixer: CO2R -> 400 uml<\/li>\n  <li>08:40:20 Lamp: ParIn ->  500 uml<\/li>\n  <li>08:40:20 CO2 Mixer: CO2R -> 400 uml<\/li>\n  <li>08:40:20 Coolers: Off<\/li>\n  <li>08:40:20 Flow: Fixed -> 500 umol/s<\/li>\n  <li>08:42:11 Flow: Fixed -> 500 umol/s<\/li>\n  <li>08:43:13 <span class='match'>c 4 a<\/span><\/li>\n  <li>NA<\/li>\n  <li>NA<\/li>\n<\/ul>"},"evals":[],"jsHooks":[]}</script>
+<p>Now that I’ve figure out a pattern that matches the ID’s I can use <code>str_extract()</code> to move them to a new <code>sampleID</code> column.</p>
+<pre class="r"><code>input.all &lt;- input.all %&gt;%
+  mutate(sampleID = str_extract(remark, IDpattern)) %&gt;% 
+  select(sampleID, everything())
+head(input.all, 10)</code></pre>
+<pre><code>## # A tibble: 10 x 42
+##    sampleID remark   Obs   HHMMSS FTime `EBal?` Photo    Cond    Ci Trmmol
+##    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; &lt;time&gt; &lt;dbl&gt;   &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1 &lt;NA&gt;     08:30:3… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
+##  2 &lt;NA&gt;     08:32:3… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
+##  3 &lt;NA&gt;     08:40:2… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
+##  4 &lt;NA&gt;     08:40:2… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
+##  5 &lt;NA&gt;     08:40:2… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
+##  6 &lt;NA&gt;     08:40:2… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
+##  7 &lt;NA&gt;     08:42:1… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
+##  8 c 4 a    08:43:1… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
+##  9 &lt;NA&gt;     NA       1     08:43…   932       0  6.62  0.0589   202  0.724
+## 10 &lt;NA&gt;     NA       2     08:43…   937       0  6.99  0.0594   193  0.731
+## # ... with 32 more variables: VpdL &lt;dbl&gt;, CTleaf &lt;dbl&gt;, Area &lt;int&gt;,
+## #   BLC_1 &lt;dbl&gt;, StmRat &lt;int&gt;, BLCond &lt;dbl&gt;, Tair &lt;dbl&gt;, Tleaf &lt;dbl&gt;,
+## #   TBlk &lt;dbl&gt;, CO2R &lt;dbl&gt;, CO2S &lt;dbl&gt;, H2OR &lt;dbl&gt;, H2OS &lt;dbl&gt;,
+## #   RH_R &lt;dbl&gt;, RH_S &lt;dbl&gt;, Flow &lt;dbl&gt;, PARi &lt;int&gt;, PARo &lt;int&gt;,
+## #   Press &lt;dbl&gt;, CsMch &lt;dbl&gt;, HsMch &lt;dbl&gt;, CsMchSD &lt;dbl&gt;, HsMchSD &lt;dbl&gt;,
+## #   CrMchSD &lt;dbl&gt;, HrMchSD &lt;dbl&gt;, StableF &lt;dbl&gt;, BLCslope &lt;dbl&gt;,
+## #   BLCoffst &lt;dbl&gt;, f_parin &lt;dbl&gt;, f_parout &lt;dbl&gt;, alphaK &lt;dbl&gt;,
+## #   Status &lt;int&gt;</code></pre>
+</div>
+<div id="fill-down" class="section level2">
+<h2>Fill down</h2>
+<p>Now, if this were Excel, you could highlight that “c 4 a” and drag the corner down to fill in all the NA’s. In R, you can do exactly this with the <code>fill()</code> function from <code>tidyr</code>.</p>
+<pre class="r"><code>#get rid of other remarks and fill down the sample ID column
+output &lt;- input.all %&gt;% 
+  filter(!xor(remark == &quot;NA&quot; , is.na(sampleID))) %&gt;%
+  fill(sampleID) %&gt;% 
+  #get rid of the rest of the remark rows
+  filter(complete.cases(.)) %&gt;% 
+  #get rid of the remark column
+  select(-remark)
+head(output, 10)</code></pre>
+<pre><code>## # A tibble: 10 x 41
+##    sampleID Obs   HHMMSS   FTime `EBal?` Photo   Cond    Ci Trmmol  VpdL
+##    &lt;chr&gt;    &lt;chr&gt; &lt;time&gt;   &lt;dbl&gt;   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+##  1 c 4 a    1     08:43:53   932       0  6.62 0.0589   202  0.724  1.25
+##  2 c 4 a    2     08:43:58   937       0  6.99 0.0594   193  0.731  1.25
+##  3 c 4 a    3     08:44:03   942       0  6.96 0.0596   195  0.731  1.25
+##  4 c 4 b    4     08:44:39   978       0  7.08 0.0783   237  0.941  1.23
+##  5 c 4 b    5     08:44:46   985       0  6.90 0.0791   242  0.949  1.23
+##  6 c 4 b    6     08:44:51   990       0  6.78 0.0801   246  0.959  1.22
+##  7 c 4 c    7     08:45:31  1030       0  6.34 0.0654   228  0.805  1.25
+##  8 c 4 c    8     08:45:38  1037       0  6.48 0.0648   222  0.798  1.26
+##  9 c 4 c    9     08:45:45  1044       0  6.51 0.0664   226  0.819  1.26
+## 10 c 4 c    10    08:45:51  1050       0  6.68 0.0678   225  0.836  1.26
+## # ... with 31 more variables: CTleaf &lt;dbl&gt;, Area &lt;int&gt;, BLC_1 &lt;dbl&gt;,
+## #   StmRat &lt;int&gt;, BLCond &lt;dbl&gt;, Tair &lt;dbl&gt;, Tleaf &lt;dbl&gt;, TBlk &lt;dbl&gt;,
+## #   CO2R &lt;dbl&gt;, CO2S &lt;dbl&gt;, H2OR &lt;dbl&gt;, H2OS &lt;dbl&gt;, RH_R &lt;dbl&gt;,
+## #   RH_S &lt;dbl&gt;, Flow &lt;dbl&gt;, PARi &lt;int&gt;, PARo &lt;int&gt;, Press &lt;dbl&gt;,
+## #   CsMch &lt;dbl&gt;, HsMch &lt;dbl&gt;, CsMchSD &lt;dbl&gt;, HsMchSD &lt;dbl&gt;, CrMchSD &lt;dbl&gt;,
+## #   HrMchSD &lt;dbl&gt;, StableF &lt;dbl&gt;, BLCslope &lt;dbl&gt;, BLCoffst &lt;dbl&gt;,
+## #   f_parin &lt;dbl&gt;, f_parout &lt;dbl&gt;, alphaK &lt;dbl&gt;, Status &lt;int&gt;</code></pre>
+<p>And finally, we have a cleaned data frame ready for use in analyses! You could go on to separate plot ID, plant ID and leaf ID using <code>separate()</code> from <code>tidyr</code>, and then do any necessary calculations, visualizations, and modeling with the resulting data frame.</p>
+</div>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/r">R</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/li-cor">LI-COR</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/data-wrangling">data-wrangling</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/regexp">regexp</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/photosynthesis">photosynthesis</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/tidyverse">tidyverse</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/2017/12/24/leafhopper-fiji/">Quantifying leafhopper damage with automated supervised classification</a></li>
+    
+    <li><a href="/2017/12/19/making-a-website-in-rstudio/">Making a website in RStudio</a></li>
+    
+    <li><a href="/talk/disc-poster/">[poster] Generating and analyzing metabolomic data from tea plant volatiles</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "ericrscott" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Eric R. Scott &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script id="dsq-count-scr" src="//ericrscott.disqus.com/count.js" async></script>
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+
+  </body>
+</html>
+

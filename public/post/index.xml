@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Eric R. Scott</title>
-    <link>http://ericrscott.com/post/</link>
+    <link>/post/</link>
     <description>Recent content in Posts on Eric R. Scott</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -11,14 +11,222 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Importing data from a LI-COR photosynthesis meter into R</title>
+      <link>/2018/01/17/li-cor-wrangling/</link>
+      <pubDate>Wed, 17 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/01/17/li-cor-wrangling/</guid>
+      <description>&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/viz/viz.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/DiagrammeR-styles/styles.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/grViz-binding/grViz.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/str_view/str_view.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/str_view-binding/str_view.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;The &lt;a href=&#34;https://www.licor.com/env/products/photosynthesis/LI-6400XT/&#34;&gt;LI-6400XT&lt;/a&gt; is a portable device used to measure photosynthesis in plant leaves. As you take measurements by pressing a button on the device, they are recorded into memory. In order to keep track of which measurments go with which plants (or experimental treatments), there is an “add remark” option where you can enter sample information before taking measurements.&lt;/p&gt;
+&lt;p&gt;When the data are exported, you get a series of .xls files and a plain text file. Both of these have some problems that you’ll have to deal with if you want to read the data into R and use it for statistical analysis or generating reports.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:excel&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/img/licor_excel.png&#34; alt=&#34;Excel nightmare or text nightmare? Pick your poison.&#34; width=&#34;90%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Excel nightmare or text nightmare? Pick your poison.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Both file types create some problems for easily getting the data into R:&lt;/p&gt;
+&lt;ol style=&#34;list-style-type: decimal&#34;&gt;
+&lt;li&gt;&lt;strong&gt;Header information&lt;/strong&gt; interrupts the data table format. Fortunatly, it’s mostly just information about the instrument configuration that we don’t need.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Untidy handling of remarks&lt;/strong&gt;. Instead of remarks being in their own column, they appear in the &lt;code&gt;HHMMSS&lt;/code&gt; column in the .xls files and in the &lt;code&gt;Obs&lt;/code&gt; column in the .txt file! And to indicate that the row is a remark, instead of giving it an observation number in &lt;code&gt;Obs&lt;/code&gt;, it just says “Remark =”.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Column headers are spread over two rows&lt;/strong&gt;. There is a (somewhat mysterious to me) row of “in”s and “out”s under the column headers in the .xls file.&lt;/li&gt;
+&lt;li&gt;Another problem that you can’t see in Fig. 1 is that I’ve done my &lt;strong&gt;measurments in several bouts&lt;/strong&gt;. This produced two .xls files and a text file with header text inbetween my two sets of measurements.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;At this point I had to choose between reading in the .xls files with &lt;code&gt;read_xls()&lt;/code&gt; from the &lt;code&gt;readxl&lt;/code&gt; package and doing some wrangling from there, or to deal with the text file, which would surely include some regular expression headaches.&lt;/p&gt;
+&lt;p&gt;For some unknown reason, &lt;code&gt;read_xls()&lt;/code&gt; didn’t work on these files, and I had to open them in Excel, then save them as .xlsx files and use &lt;code&gt;read_xlsx()&lt;/code&gt; to get them into R. For the sake of full automatedness, I’m going to work through the text file example here.&lt;/p&gt;
+&lt;div id=&#34;tidying-up-raw-text&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Tidying up raw text&lt;/h2&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:flowchart&#34;&gt;&lt;/span&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;grViz html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;diagram&#34;:&#34;digraph rmarkdown {\n        \n        graph [layout = dot, rankdir = TB, fontsize = 16]\n        # node definitions with substituted label text\n        node [fontname = Avenir, shape = rectangle]        \n        rec1 [label = \&#34;Raw text\&#34;]\n        rec2 [label = \&#34;List of strings\&#34;]\n        rec3 [label = \&#34;List of data frames\&#34;]\n        rec4 [label = \&#34;Extract sample ID\nfrom remarks\&#34;]\n\n        node [fontname = Avenir, shape = oval]\n        ova1 [label = \&#34;Tidy and split\&#34;]\n\n        node [fontname = Courier, shape = oval]\n        ova2 [label = \&#34;map(list, read_tsv)\&#34;]\n        ova3 [label = \&#34;bind_rows()\&#34;]\n\n        # edge definitions with the node IDs\n        rec1 -&gt; ova1 -&gt; rec2 -&gt; ova2 -&gt; rec3 -&gt; ova3 -&gt; rec4\n  }&#34;,&#34;config&#34;:{&#34;engine&#34;:&#34;dot&#34;,&#34;options&#34;:null}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: My approach to wrangling text files generated by the LI-6400XT
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;My approach is to read in the raw text, tidy it up, then use &lt;code&gt;read_tsv()&lt;/code&gt; to get a list of data frames. After that, I planned to combine them into one big data frame and do some more tidying to extract the sample IDs from the remarks. I’ll be using functions from &lt;code&gt;stringr&lt;/code&gt; to do the text tidying, and functions from various &lt;code&gt;tidyverse&lt;/code&gt; packages to bring it all together into a coherent data frame.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
+library(stringr)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;text.raw &amp;lt;- read_file(&amp;quot;licor.txt&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Scrolling through the text a little reveals that, conveniently, the line &lt;code&gt;&amp;quot;$STARTOFDATA$&amp;quot;&lt;/code&gt; appears between the header information and the start of the actual data. The headers themselves always begin with &lt;code&gt;&amp;quot;OPEN&amp;quot;&lt;/code&gt; followed by a date. I created regular expression patterns for these and used them to split the raw text file first into separate bouts of measurements, then into headers and data, discarding the headers.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;header_pattern &amp;lt;- &amp;quot;\&amp;quot;OPEN \\d\\.\\d\\.\\d&amp;quot;
+data_pattern &amp;lt;- &amp;quot;\\$STARTOFDATA\\$&amp;quot;
+
+#splits into individual bouts
+raw_split &amp;lt;- str_split(text.raw, header_pattern, simplify = TRUE)
+
+#splits further to separate headers from actual data
+raw_split2 &amp;lt;- str_split(raw_split, data_pattern, simplify = FALSE)
+
+str(raw_split2)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## List of 3
+##  $ : chr &amp;quot;&amp;quot;
+##  $ : chr [1:2] &amp;quot;\&amp;quot;\n\&amp;quot;Fri Aug 25 2017 08:29:30\&amp;quot;\n&amp;lt;open&amp;gt;&amp;lt;version&amp;gt;\&amp;quot;6.3.4\&amp;quot;&amp;lt;/version&amp;gt;&amp;lt;/open&amp;gt;\n&amp;lt;open&amp;gt;&amp;lt;configfile&amp;gt;\&amp;quot;/User/Configs/&amp;quot;| __truncated__ &amp;quot;\n\&amp;quot;Obs\&amp;quot;\t\&amp;quot;HHMMSS\&amp;quot;\t\&amp;quot;FTime\&amp;quot;\t\&amp;quot;EBal?\&amp;quot;\t\&amp;quot;Photo\&amp;quot;\t\&amp;quot;Cond\&amp;quot;\t\&amp;quot;Ci\&amp;quot;\t\&amp;quot;Trmmol\&amp;quot;\t\&amp;quot;VpdL\&amp;quot;\t\&amp;quot;CTleaf\&amp;quot;\t\&amp;quot;A&amp;quot;| __truncated__
+##  $ : chr [1:2] &amp;quot;\&amp;quot;\n\&amp;quot;Fri Aug 25 2017 10:32:44\&amp;quot;\n&amp;lt;open&amp;gt;&amp;lt;version&amp;gt;\&amp;quot;6.3.4\&amp;quot;&amp;lt;/version&amp;gt;&amp;lt;/open&amp;gt;\n&amp;lt;open&amp;gt;&amp;lt;configfile&amp;gt;\&amp;quot;/User/Configs/&amp;quot;| __truncated__ &amp;quot;\n\&amp;quot;Obs\&amp;quot;\t\&amp;quot;HHMMSS\&amp;quot;\t\&amp;quot;FTime\&amp;quot;\t\&amp;quot;EBal?\&amp;quot;\t\&amp;quot;Photo\&amp;quot;\t\&amp;quot;Cond\&amp;quot;\t\&amp;quot;Ci\&amp;quot;\t\&amp;quot;Trmmol\&amp;quot;\t\&amp;quot;VpdL\&amp;quot;\t\&amp;quot;CTleaf\&amp;quot;\t\&amp;quot;A&amp;quot;| __truncated__&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It’s a little hard to see here, but now there is a list of 3 elements. The first element contains nothing (because there is nothing before the first &lt;code&gt;header_pattern&lt;/code&gt;), the other elements contain two strings—one is the header, the other is the data. Let’s get rid of the headers and the empty list element.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#extract just the second element, the actual data
+raw_split3 &amp;lt;- raw_split2 %&amp;gt;%
+  map(`[`, 2) %&amp;gt;% #equivalent to doing raw_split2[[i]][2] for every element &amp;quot;i&amp;quot;
+  flatten_chr() #converts to a vector
+
+#remove empty elements
+raw_split3 &amp;lt;- raw_split3[!is.na(raw_split3)]&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;reading-in-our-cleaned-text-file&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Reading in our cleaned text file&lt;/h2&gt;
+&lt;p&gt;Then we can finally read in our cleaned text as a tab-separated (.tsv) file. Here I make use of &lt;code&gt;map()&lt;/code&gt; from the &lt;code&gt;purrr&lt;/code&gt; package to apply &lt;code&gt;read_tsv()&lt;/code&gt; to every string in our raw text vector. &lt;code&gt;skip = 1&lt;/code&gt; gets rid of that weird line of “in”s and “out”s.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;input &amp;lt;- raw_split3 %&amp;gt;%
+  map(read_tsv, skip = 1)
+
+input.all &amp;lt;- bind_rows(input)
+head(input.all, 10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 40
+##    Obs        HHMMSS FTime `EBal?` Photo    Cond    Ci Trmmol  VpdL CTleaf
+##    &amp;lt;chr&amp;gt;      &amp;lt;time&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+##  1 08:30:38 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  2 08:32:37 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  3 08:40:20 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  4 08:40:20 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  5 08:40:20 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  6 08:40:20 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  7 08:42:11 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  8 08:43:13 … NA        NA      NA NA    NA         NA NA     NA      NA  
+##  9 1          08:43…   932       0  6.62  0.0589   202  0.724  1.25   22.3
+## 10 2          08:43…   937       0  6.99  0.0594   193  0.731  1.25   22.3
+## # ... with 30 more variables: Area &amp;lt;int&amp;gt;, BLC_1 &amp;lt;dbl&amp;gt;, StmRat &amp;lt;int&amp;gt;,
+## #   BLCond &amp;lt;dbl&amp;gt;, Tair &amp;lt;dbl&amp;gt;, Tleaf &amp;lt;dbl&amp;gt;, TBlk &amp;lt;dbl&amp;gt;, CO2R &amp;lt;dbl&amp;gt;,
+## #   CO2S &amp;lt;dbl&amp;gt;, H2OR &amp;lt;dbl&amp;gt;, H2OS &amp;lt;dbl&amp;gt;, RH_R &amp;lt;dbl&amp;gt;, RH_S &amp;lt;dbl&amp;gt;,
+## #   Flow &amp;lt;dbl&amp;gt;, PARi &amp;lt;int&amp;gt;, PARo &amp;lt;int&amp;gt;, Press &amp;lt;dbl&amp;gt;, CsMch &amp;lt;dbl&amp;gt;,
+## #   HsMch &amp;lt;dbl&amp;gt;, CsMchSD &amp;lt;dbl&amp;gt;, HsMchSD &amp;lt;dbl&amp;gt;, CrMchSD &amp;lt;dbl&amp;gt;,
+## #   HrMchSD &amp;lt;dbl&amp;gt;, StableF &amp;lt;dbl&amp;gt;, BLCslope &amp;lt;dbl&amp;gt;, BLCoffst &amp;lt;dbl&amp;gt;,
+## #   f_parin &amp;lt;dbl&amp;gt;, f_parout &amp;lt;dbl&amp;gt;, alphaK &amp;lt;dbl&amp;gt;, Status &amp;lt;int&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;extracting-useful-remarks&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Extracting useful remarks&lt;/h2&gt;
+&lt;p&gt;The first step is moving remarks into a &lt;code&gt;remark&lt;/code&gt; column while keeping the observation numbers in the &lt;code&gt;Obs&lt;/code&gt; column. I’m sure there is a more elegant way to do this, but I had recently &lt;a href=&#34;http://purrr.tidyverse.org/reference/safely.html&#34;&gt;learned about&lt;/a&gt; the &lt;code&gt;safely()&lt;/code&gt; function from &lt;code&gt;purrr&lt;/code&gt; which allows you to capture errors. I figured I could try converting elements of the &lt;code&gt;Obs&lt;/code&gt; column to integers and if it failed, I could use that as a criteria for moving to a new column.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#create a &amp;quot;safe&amp;quot; version of as.integer() that returns a list of a result and error
+safe_as.int &amp;lt;- safely(as.integer)
+#returns error for text remarks, returns value for integer observation numbers
+
+input.all &amp;lt;- input.all %&amp;gt;% 
+  mutate(#create a comment column to indicate if an &amp;quot;Obs&amp;quot; is actually a remark
+       comment = is.na(safe_as.int(Obs)$result), 
+       #copy those remarks to the remark column
+       remark = ifelse(comment == TRUE, Obs, NA),
+       #remove remarks from Obs column
+       Obs = ifelse(comment == FALSE, Obs, NA)) %&amp;gt;% 
+#move the remark column the the begining
+select(remark, everything()) %&amp;gt;% 
+#remove the comment column.  We&amp;#39;re done with it
+select(-comment)
+head(input.all, 10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 41
+##    remark      Obs   HHMMSS FTime `EBal?` Photo    Cond    Ci Trmmol  VpdL
+##    &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt; &amp;lt;time&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1 08:30:38 L… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  2 08:32:37 C… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  3 08:40:20 L… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  4 08:40:20 C… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  5 08:40:20 C… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  6 08:40:20 F… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  7 08:42:11 F… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  8 08:43:13 c… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA     NA   
+##  9 &amp;lt;NA&amp;gt;        1     08:43…   932       0  6.62  0.0589   202  0.724  1.25
+## 10 &amp;lt;NA&amp;gt;        2     08:43…   937       0  6.99  0.0594   193  0.731  1.25
+## # ... with 31 more variables: CTleaf &amp;lt;dbl&amp;gt;, Area &amp;lt;int&amp;gt;, BLC_1 &amp;lt;dbl&amp;gt;,
+## #   StmRat &amp;lt;int&amp;gt;, BLCond &amp;lt;dbl&amp;gt;, Tair &amp;lt;dbl&amp;gt;, Tleaf &amp;lt;dbl&amp;gt;, TBlk &amp;lt;dbl&amp;gt;,
+## #   CO2R &amp;lt;dbl&amp;gt;, CO2S &amp;lt;dbl&amp;gt;, H2OR &amp;lt;dbl&amp;gt;, H2OS &amp;lt;dbl&amp;gt;, RH_R &amp;lt;dbl&amp;gt;,
+## #   RH_S &amp;lt;dbl&amp;gt;, Flow &amp;lt;dbl&amp;gt;, PARi &amp;lt;int&amp;gt;, PARo &amp;lt;int&amp;gt;, Press &amp;lt;dbl&amp;gt;,
+## #   CsMch &amp;lt;dbl&amp;gt;, HsMch &amp;lt;dbl&amp;gt;, CsMchSD &amp;lt;dbl&amp;gt;, HsMchSD &amp;lt;dbl&amp;gt;, CrMchSD &amp;lt;dbl&amp;gt;,
+## #   HrMchSD &amp;lt;dbl&amp;gt;, StableF &amp;lt;dbl&amp;gt;, BLCslope &amp;lt;dbl&amp;gt;, BLCoffst &amp;lt;dbl&amp;gt;,
+## #   f_parin &amp;lt;dbl&amp;gt;, f_parout &amp;lt;dbl&amp;gt;, alphaK &amp;lt;dbl&amp;gt;, Status &amp;lt;int&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In the data frame above, you’ll notice that some of the remarks are just me changing parameters of the device, while others are sample IDs (e.g. “08:43:13 c 4 a” is plot c, plant 4, leaf a). I got lucky in my sample naming convention in that the sample IDs are relatively easily distinguishable from other remarks using regular expressions.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#you must replace NA with the literal string &amp;quot;NA&amp;quot; so str_* functions from stringr can deal with it
+input.all &amp;lt;- input.all %&amp;gt;% mutate(remark = str_replace_na(remark))
+
+IDpattern &amp;lt;- &amp;quot;[:lower:][:blank:]\\d+[:blank:][:lower:]&amp;quot;
+str_view(input.all$remark[1:10], IDpattern)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:960px;height:auto;&#34; class=&#34;str_view html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;html&#34;:&#34;&lt;ul&gt;\n  &lt;li&gt;08:30:38 Lamp: ParIn -&gt;  500 uml&lt;\/li&gt;\n  &lt;li&gt;08:32:37 CO2 Mixer: CO2R -&gt; 400 uml&lt;\/li&gt;\n  &lt;li&gt;08:40:20 Lamp: ParIn -&gt;  500 uml&lt;\/li&gt;\n  &lt;li&gt;08:40:20 CO2 Mixer: CO2R -&gt; 400 uml&lt;\/li&gt;\n  &lt;li&gt;08:40:20 Coolers: Off&lt;\/li&gt;\n  &lt;li&gt;08:40:20 Flow: Fixed -&gt; 500 umol/s&lt;\/li&gt;\n  &lt;li&gt;08:42:11 Flow: Fixed -&gt; 500 umol/s&lt;\/li&gt;\n  &lt;li&gt;08:43:13 &lt;span class=&#39;match&#39;&gt;c 4 a&lt;\/span&gt;&lt;\/li&gt;\n  &lt;li&gt;NA&lt;\/li&gt;\n  &lt;li&gt;NA&lt;\/li&gt;\n&lt;\/ul&gt;&#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;Now that I’ve figure out a pattern that matches the ID’s I can use &lt;code&gt;str_extract()&lt;/code&gt; to move them to a new &lt;code&gt;sampleID&lt;/code&gt; column.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;input.all &amp;lt;- input.all %&amp;gt;%
+  mutate(sampleID = str_extract(remark, IDpattern)) %&amp;gt;% 
+  select(sampleID, everything())
+head(input.all, 10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 42
+##    sampleID remark   Obs   HHMMSS FTime `EBal?` Photo    Cond    Ci Trmmol
+##    &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;time&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
+##  1 &amp;lt;NA&amp;gt;     08:30:3… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA    
+##  2 &amp;lt;NA&amp;gt;     08:32:3… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA    
+##  3 &amp;lt;NA&amp;gt;     08:40:2… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA    
+##  4 &amp;lt;NA&amp;gt;     08:40:2… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA    
+##  5 &amp;lt;NA&amp;gt;     08:40:2… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA    
+##  6 &amp;lt;NA&amp;gt;     08:40:2… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA    
+##  7 &amp;lt;NA&amp;gt;     08:42:1… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA    
+##  8 c 4 a    08:43:1… &amp;lt;NA&amp;gt;  NA        NA      NA NA    NA         NA NA    
+##  9 &amp;lt;NA&amp;gt;     NA       1     08:43…   932       0  6.62  0.0589   202  0.724
+## 10 &amp;lt;NA&amp;gt;     NA       2     08:43…   937       0  6.99  0.0594   193  0.731
+## # ... with 32 more variables: VpdL &amp;lt;dbl&amp;gt;, CTleaf &amp;lt;dbl&amp;gt;, Area &amp;lt;int&amp;gt;,
+## #   BLC_1 &amp;lt;dbl&amp;gt;, StmRat &amp;lt;int&amp;gt;, BLCond &amp;lt;dbl&amp;gt;, Tair &amp;lt;dbl&amp;gt;, Tleaf &amp;lt;dbl&amp;gt;,
+## #   TBlk &amp;lt;dbl&amp;gt;, CO2R &amp;lt;dbl&amp;gt;, CO2S &amp;lt;dbl&amp;gt;, H2OR &amp;lt;dbl&amp;gt;, H2OS &amp;lt;dbl&amp;gt;,
+## #   RH_R &amp;lt;dbl&amp;gt;, RH_S &amp;lt;dbl&amp;gt;, Flow &amp;lt;dbl&amp;gt;, PARi &amp;lt;int&amp;gt;, PARo &amp;lt;int&amp;gt;,
+## #   Press &amp;lt;dbl&amp;gt;, CsMch &amp;lt;dbl&amp;gt;, HsMch &amp;lt;dbl&amp;gt;, CsMchSD &amp;lt;dbl&amp;gt;, HsMchSD &amp;lt;dbl&amp;gt;,
+## #   CrMchSD &amp;lt;dbl&amp;gt;, HrMchSD &amp;lt;dbl&amp;gt;, StableF &amp;lt;dbl&amp;gt;, BLCslope &amp;lt;dbl&amp;gt;,
+## #   BLCoffst &amp;lt;dbl&amp;gt;, f_parin &amp;lt;dbl&amp;gt;, f_parout &amp;lt;dbl&amp;gt;, alphaK &amp;lt;dbl&amp;gt;,
+## #   Status &amp;lt;int&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div id=&#34;fill-down&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Fill down&lt;/h2&gt;
+&lt;p&gt;Now, if this were Excel, you could highlight that “c 4 a” and drag the corner down to fill in all the NA’s. In R, you can do exactly this with the &lt;code&gt;fill()&lt;/code&gt; function from &lt;code&gt;tidyr&lt;/code&gt;.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#get rid of other remarks and fill down the sample ID column
+output &amp;lt;- input.all %&amp;gt;% 
+  filter(!xor(remark == &amp;quot;NA&amp;quot; , is.na(sampleID))) %&amp;gt;%
+  fill(sampleID) %&amp;gt;% 
+  #get rid of the rest of the remark rows
+  filter(complete.cases(.)) %&amp;gt;% 
+  #get rid of the remark column
+  select(-remark)
+head(output, 10)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 41
+##    sampleID Obs   HHMMSS   FTime `EBal?` Photo   Cond    Ci Trmmol  VpdL
+##    &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;time&amp;gt;   &amp;lt;dbl&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
+##  1 c 4 a    1     08:43:53   932       0  6.62 0.0589   202  0.724  1.25
+##  2 c 4 a    2     08:43:58   937       0  6.99 0.0594   193  0.731  1.25
+##  3 c 4 a    3     08:44:03   942       0  6.96 0.0596   195  0.731  1.25
+##  4 c 4 b    4     08:44:39   978       0  7.08 0.0783   237  0.941  1.23
+##  5 c 4 b    5     08:44:46   985       0  6.90 0.0791   242  0.949  1.23
+##  6 c 4 b    6     08:44:51   990       0  6.78 0.0801   246  0.959  1.22
+##  7 c 4 c    7     08:45:31  1030       0  6.34 0.0654   228  0.805  1.25
+##  8 c 4 c    8     08:45:38  1037       0  6.48 0.0648   222  0.798  1.26
+##  9 c 4 c    9     08:45:45  1044       0  6.51 0.0664   226  0.819  1.26
+## 10 c 4 c    10    08:45:51  1050       0  6.68 0.0678   225  0.836  1.26
+## # ... with 31 more variables: CTleaf &amp;lt;dbl&amp;gt;, Area &amp;lt;int&amp;gt;, BLC_1 &amp;lt;dbl&amp;gt;,
+## #   StmRat &amp;lt;int&amp;gt;, BLCond &amp;lt;dbl&amp;gt;, Tair &amp;lt;dbl&amp;gt;, Tleaf &amp;lt;dbl&amp;gt;, TBlk &amp;lt;dbl&amp;gt;,
+## #   CO2R &amp;lt;dbl&amp;gt;, CO2S &amp;lt;dbl&amp;gt;, H2OR &amp;lt;dbl&amp;gt;, H2OS &amp;lt;dbl&amp;gt;, RH_R &amp;lt;dbl&amp;gt;,
+## #   RH_S &amp;lt;dbl&amp;gt;, Flow &amp;lt;dbl&amp;gt;, PARi &amp;lt;int&amp;gt;, PARo &amp;lt;int&amp;gt;, Press &amp;lt;dbl&amp;gt;,
+## #   CsMch &amp;lt;dbl&amp;gt;, HsMch &amp;lt;dbl&amp;gt;, CsMchSD &amp;lt;dbl&amp;gt;, HsMchSD &amp;lt;dbl&amp;gt;, CrMchSD &amp;lt;dbl&amp;gt;,
+## #   HrMchSD &amp;lt;dbl&amp;gt;, StableF &amp;lt;dbl&amp;gt;, BLCslope &amp;lt;dbl&amp;gt;, BLCoffst &amp;lt;dbl&amp;gt;,
+## #   f_parin &amp;lt;dbl&amp;gt;, f_parout &amp;lt;dbl&amp;gt;, alphaK &amp;lt;dbl&amp;gt;, Status &amp;lt;int&amp;gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And finally, we have a cleaned data frame ready for use in analyses! You could go on to separate plot ID, plant ID and leaf ID using &lt;code&gt;separate()&lt;/code&gt; from &lt;code&gt;tidyr&lt;/code&gt;, and then do any necessary calculations, visualizations, and modeling with the resulting data frame.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Quantifying leafhopper damage with automated supervised classification</title>
-      <link>http://ericrscott.com/2017/12/24/leafhopper-fiji/</link>
+      <link>/2017/12/24/leafhopper-fiji/</link>
       <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://ericrscott.com/2017/12/24/leafhopper-fiji/</guid>
+      <guid>/2017/12/24/leafhopper-fiji/</guid>
       <description>&lt;p&gt;As part of my fieldwork in China, I collected harvested tea leaves that were damaged by the tea green leafhopper. I want to quantify the amount of leafhopper damage for each harvest. I was able to find several solutions for quantifying holes in leaves or even damage to leaf margins, but typical leafhopper damage is just tiny brown spots on the undersides of leaves. I did find some tutorials on using &lt;a href=&#34;http://imagej.net/Welcome&#34;&gt;ImageJ&lt;/a&gt; to analyze diseased area on leaves, but found that the leafhopper damage spots were too small and too similar in color to undamaged leaves for these tools to work reliably and be automated.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: left&#34;&gt;&lt;span id=&#34;fig:leaf-fig&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;http://ericrscott.com/img/damaged leaf.png&#34; alt=&#34;Typical leafhopper damage&#34; width=&#34;60%&#34; /&gt;
+&lt;img src=&#34;/img/damaged leaf.png&#34; alt=&#34;Typical leafhopper damage&#34; width=&#34;60%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Typical leafhopper damage
 &lt;/p&gt;
@@ -29,7 +237,7 @@ Figure 1: Typical leafhopper damage
 &lt;p&gt;Just to clarify, my goal here is not image classification—that is, I’m not trying to classify leaves into categories like “undamaged”, “medium damaged”, “high damage”, but rather trying to classify individual pixels in the image as being damaged or undamaged leaf tissue (or background).&lt;/p&gt;
 &lt;p&gt;In short, after selecting some pixels representative of damaged leaf, undamaged leaf, and background (regions of interest, or ROIs), the WEKA plugin trains a random forest algorithm using data from various transformations of the pixels in the ROIs. Then, I can apply the algorithm to other images and extract data in the form of numbers of pixels classified in each category.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:example-result&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;http://ericrscott.com/img/analyzed leaf.png&#34; alt=&#34;example results of WEKA classification&#34; width=&#34;60%&#34; /&gt;
+&lt;img src=&#34;/img/analyzed leaf.png&#34; alt=&#34;example results of WEKA classification&#34; width=&#34;60%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: example results of WEKA classification
 &lt;/p&gt;
@@ -47,7 +255,7 @@ Figure 2: example results of WEKA classification
 &lt;h3&gt;Training and applying a classifier&lt;/h3&gt;
 &lt;p&gt;We trained the classifier on three classes, background, damaged leaf, and undamaged leaf. For background and undamaged leaf, we found it was really important to focus on leaf edges, making sure to include shadows in the background class and lighter green leaf margins in the undamaged class. Without doing this, the classifier would consistently mis-classify shadows and edges as either damaged or background, respectively. This was also an iterative process and took several rounds of selecting ROIs, training a classifier, viewing results, and adding more ROIs. Once we were satisfied with our classifier, we saved it and applied it to all of our images in stacks of 20 on a computer with 32 GB of RAM. The results created by the WEKA plugin are stacks of three color images (because we used 3 classes). Getting numerical results turned out to be another problem.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:screenshot&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;http://ericrscott.com/img/WEKA screenshot.png&#34; alt=&#34;WEKA segmentation window with ROIs selected&#34;  /&gt;
+&lt;img src=&#34;/img/WEKA screenshot.png&#34; alt=&#34;WEKA segmentation window with ROIs selected&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: WEKA segmentation window with ROIs selected
 &lt;/p&gt;
@@ -127,10 +335,10 @@ raw.data.2 &amp;lt;- raw.data %&amp;gt;%
     
     <item>
       <title>Making a website in RStudio</title>
-      <link>http://ericrscott.com/2017/12/19/making-a-website-in-rstudio/</link>
+      <link>/2017/12/19/making-a-website-in-rstudio/</link>
       <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>http://ericrscott.com/2017/12/19/making-a-website-in-rstudio/</guid>
+      <guid>/2017/12/19/making-a-website-in-rstudio/</guid>
       <description>&lt;p&gt;I’ve always thought I should eventually have a professional website for job hunting, but recently I’ve realized that it would be nice to have somewhere to collect my thoughts and contributions all in one place. Before having a website of my own, I generally shared updates and thoughts on &lt;a href=&#34;https://twitter.com/LeafyEricScott&#34;&gt;Twitter&lt;/a&gt; and on &lt;a href=&#34;#blogs&#34;&gt;other people’s blogs&lt;/a&gt;, which I will still continue to do, but having everything I do in one place seems like a good idea. I kept putting off making a website until I was recently encouraged by a combination of envy of my &lt;a href=&#34;https://www.rachaelebonoan.com/&#34;&gt;officemate’s awesome looking website&lt;/a&gt;, and learning that one could make a website using R Studio and the &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown&lt;/a&gt; R package. I just spent a semester learning a ton about R Markdown, the file type blogdown uses to construct websites, for a &lt;a href=&#34;https://github.com/Aariq/biostats-recitation&#34;&gt;biostatistics course&lt;/a&gt; I was teaching, so I figured using R Markdown to make a website would be relatively easy. Fortunately, I was correct! I spent about 3-4 work days initially getting this website working and customized, and it was relatively painless. Compared to, say WordPress, the impressiveness-to-effort ratio is much higher, in my opinion.&lt;/p&gt;
 &lt;div id=&#34;getting-started-with-blogdown&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Getting started with Blogdown&lt;/h2&gt;
