@@ -281,6 +281,9 @@
     <i class="fa fa-folder"></i>
     
     <a href="/categories/research">Research</a
+    >, 
+    
+    <a href="/categories/data-science">Data Science</a
     >
     
   </span>
@@ -408,16 +411,16 @@ head(input.all, 10)</code></pre>
 <pre><code>## # A tibble: 10 x 40
 ##    Obs        HHMMSS FTime `EBal?` Photo    Cond    Ci Trmmol  VpdL CTleaf
 ##    &lt;chr&gt;      &lt;time&gt; &lt;dbl&gt;   &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
-##  1 08:30:38 … NA        NA      NA NA    NA         NA NA     NA      NA  
-##  2 08:32:37 … NA        NA      NA NA    NA         NA NA     NA      NA  
-##  3 08:40:20 … NA        NA      NA NA    NA         NA NA     NA      NA  
-##  4 08:40:20 … NA        NA      NA NA    NA         NA NA     NA      NA  
-##  5 08:40:20 … NA        NA      NA NA    NA         NA NA     NA      NA  
-##  6 08:40:20 … NA        NA      NA NA    NA         NA NA     NA      NA  
-##  7 08:42:11 … NA        NA      NA NA    NA         NA NA     NA      NA  
-##  8 08:43:13 … NA        NA      NA NA    NA         NA NA     NA      NA  
-##  9 1          08:43…   932       0  6.62  0.0589   202  0.724  1.25   22.3
-## 10 2          08:43…   937       0  6.99  0.0594   193  0.731  1.25   22.3
+##  1 08:30:38 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
+##  2 08:32:37 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
+##  3 08:40:20 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
+##  4 08:40:20 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
+##  5 08:40:20 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
+##  6 08:40:20 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
+##  7 08:42:11 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
+##  8 08:43:13 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
+##  9 1          08:43   932.       0  6.62  0.0589  202.  0.724  1.25   22.3
+## 10 2          08:43   937.       0  6.99  0.0594  193.  0.731  1.25   22.3
 ## # ... with 30 more variables: Area &lt;int&gt;, BLC_1 &lt;dbl&gt;, StmRat &lt;int&gt;,
 ## #   BLCond &lt;dbl&gt;, Tair &lt;dbl&gt;, Tleaf &lt;dbl&gt;, TBlk &lt;dbl&gt;, CO2R &lt;dbl&gt;,
 ## #   CO2S &lt;dbl&gt;, H2OR &lt;dbl&gt;, H2OS &lt;dbl&gt;, RH_R &lt;dbl&gt;, RH_S &lt;dbl&gt;,
@@ -448,16 +451,16 @@ head(input.all, 10)</code></pre>
 <pre><code>## # A tibble: 10 x 41
 ##    remark      Obs   HHMMSS FTime `EBal?` Photo    Cond    Ci Trmmol  VpdL
 ##    &lt;chr&gt;       &lt;chr&gt; &lt;time&gt; &lt;dbl&gt;   &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-##  1 08:30:38 L… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
-##  2 08:32:37 C… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
-##  3 08:40:20 L… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
-##  4 08:40:20 C… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
-##  5 08:40:20 C… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
-##  6 08:40:20 F… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
-##  7 08:42:11 F… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
-##  8 08:43:13 c… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA     NA   
-##  9 &lt;NA&gt;        1     08:43…   932       0  6.62  0.0589   202  0.724  1.25
-## 10 &lt;NA&gt;        2     08:43…   937       0  6.99  0.0594   193  0.731  1.25
+##  1 08:30:38 L… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA     NA   
+##  2 08:32:37 C… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA     NA   
+##  3 08:40:20 L… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA     NA   
+##  4 08:40:20 C… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA     NA   
+##  5 08:40:20 C… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA     NA   
+##  6 08:40:20 F… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA     NA   
+##  7 08:42:11 F… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA     NA   
+##  8 08:43:13 c… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA     NA   
+##  9 &lt;NA&gt;        1     08:43   932.       0  6.62  0.0589  202.  0.724  1.25
+## 10 &lt;NA&gt;        2     08:43   937.       0  6.99  0.0594  193.  0.731  1.25
 ## # ... with 31 more variables: CTleaf &lt;dbl&gt;, Area &lt;int&gt;, BLC_1 &lt;dbl&gt;,
 ## #   StmRat &lt;int&gt;, BLCond &lt;dbl&gt;, Tair &lt;dbl&gt;, Tleaf &lt;dbl&gt;, TBlk &lt;dbl&gt;,
 ## #   CO2R &lt;dbl&gt;, CO2S &lt;dbl&gt;, H2OR &lt;dbl&gt;, H2OS &lt;dbl&gt;, RH_R &lt;dbl&gt;,
@@ -481,16 +484,16 @@ head(input.all, 10)</code></pre>
 <pre><code>## # A tibble: 10 x 42
 ##    sampleID remark   Obs   HHMMSS FTime `EBal?` Photo    Cond    Ci Trmmol
 ##    &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt; &lt;time&gt; &lt;dbl&gt;   &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
-##  1 &lt;NA&gt;     08:30:3… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
-##  2 &lt;NA&gt;     08:32:3… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
-##  3 &lt;NA&gt;     08:40:2… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
-##  4 &lt;NA&gt;     08:40:2… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
-##  5 &lt;NA&gt;     08:40:2… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
-##  6 &lt;NA&gt;     08:40:2… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
-##  7 &lt;NA&gt;     08:42:1… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
-##  8 c 4 a    08:43:1… &lt;NA&gt;  NA        NA      NA NA    NA         NA NA    
-##  9 &lt;NA&gt;     NA       1     08:43…   932       0  6.62  0.0589   202  0.724
-## 10 &lt;NA&gt;     NA       2     08:43…   937       0  6.99  0.0594   193  0.731
+##  1 &lt;NA&gt;     08:30:3… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA    
+##  2 &lt;NA&gt;     08:32:3… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA    
+##  3 &lt;NA&gt;     08:40:2… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA    
+##  4 &lt;NA&gt;     08:40:2… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA    
+##  5 &lt;NA&gt;     08:40:2… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA    
+##  6 &lt;NA&gt;     08:40:2… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA    
+##  7 &lt;NA&gt;     08:42:1… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA    
+##  8 c 4 a    08:43:1… &lt;NA&gt;     NA    NA       NA NA    NA        NA  NA    
+##  9 &lt;NA&gt;     NA       1     08:43   932.       0  6.62  0.0589  202.  0.724
+## 10 &lt;NA&gt;     NA       2     08:43   937.       0  6.99  0.0594  193.  0.731
 ## # ... with 32 more variables: VpdL &lt;dbl&gt;, CTleaf &lt;dbl&gt;, Area &lt;int&gt;,
 ## #   BLC_1 &lt;dbl&gt;, StmRat &lt;int&gt;, BLCond &lt;dbl&gt;, Tair &lt;dbl&gt;, Tleaf &lt;dbl&gt;,
 ## #   TBlk &lt;dbl&gt;, CO2R &lt;dbl&gt;, CO2S &lt;dbl&gt;, H2OR &lt;dbl&gt;, H2OS &lt;dbl&gt;,
@@ -513,18 +516,18 @@ output &lt;- input.all %&gt;%
   select(-remark)
 head(output, 10)</code></pre>
 <pre><code>## # A tibble: 10 x 41
-##    sampleID Obs   HHMMSS   FTime `EBal?` Photo   Cond    Ci Trmmol  VpdL
-##    &lt;chr&gt;    &lt;chr&gt; &lt;time&gt;   &lt;dbl&gt;   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
-##  1 c 4 a    1     08:43:53   932       0  6.62 0.0589   202  0.724  1.25
-##  2 c 4 a    2     08:43:58   937       0  6.99 0.0594   193  0.731  1.25
-##  3 c 4 a    3     08:44:03   942       0  6.96 0.0596   195  0.731  1.25
-##  4 c 4 b    4     08:44:39   978       0  7.08 0.0783   237  0.941  1.23
-##  5 c 4 b    5     08:44:46   985       0  6.90 0.0791   242  0.949  1.23
-##  6 c 4 b    6     08:44:51   990       0  6.78 0.0801   246  0.959  1.22
-##  7 c 4 c    7     08:45:31  1030       0  6.34 0.0654   228  0.805  1.25
-##  8 c 4 c    8     08:45:38  1037       0  6.48 0.0648   222  0.798  1.26
-##  9 c 4 c    9     08:45:45  1044       0  6.51 0.0664   226  0.819  1.26
-## 10 c 4 c    10    08:45:51  1050       0  6.68 0.0678   225  0.836  1.26
+##    sampleID Obs   HHMMSS FTime `EBal?` Photo   Cond    Ci Trmmol  VpdL
+##    &lt;chr&gt;    &lt;chr&gt; &lt;time&gt; &lt;dbl&gt;   &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+##  1 c 4 a    1     08:43   932.       0  6.62 0.0589  202.  0.724  1.25
+##  2 c 4 a    2     08:43   937.       0  6.99 0.0594  193.  0.731  1.25
+##  3 c 4 a    3     08:44   942.       0  6.96 0.0596  195.  0.731  1.25
+##  4 c 4 b    4     08:44   978.       0  7.08 0.0783  237.  0.941  1.23
+##  5 c 4 b    5     08:44   985.       0  6.90 0.0791  242.  0.949  1.23
+##  6 c 4 b    6     08:44   990.       0  6.78 0.0801  246.  0.959  1.22
+##  7 c 4 c    7     08:45  1030.       0  6.34 0.0654  228.  0.805  1.25
+##  8 c 4 c    8     08:45  1037.       0  6.48 0.0648  222.  0.798  1.26
+##  9 c 4 c    9     08:45  1044.       0  6.51 0.0664  226.  0.819  1.26
+## 10 c 4 c    10    08:45  1050.       0  6.68 0.0678  225.  0.836  1.26
 ## # ... with 31 more variables: CTleaf &lt;dbl&gt;, Area &lt;int&gt;, BLC_1 &lt;dbl&gt;,
 ## #   StmRat &lt;int&gt;, BLCond &lt;dbl&gt;, Tair &lt;dbl&gt;, Tleaf &lt;dbl&gt;, TBlk &lt;dbl&gt;,
 ## #   CO2R &lt;dbl&gt;, CO2S &lt;dbl&gt;, H2OR &lt;dbl&gt;, H2OS &lt;dbl&gt;, RH_R &lt;dbl&gt;,

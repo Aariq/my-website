@@ -5,6 +5,15 @@
     
     <url>
     
+      <loc>/2018/03/05/cupcakes-vs-muffins/</loc>
+      <lastmod>2018-03-05T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/2018/01/17/li-cor-wrangling/</loc>
       <lastmod>2018-01-17T00:00:00+00:00</lastmod>
     </url>
@@ -205,7 +214,7 @@
     <url>
     
       <loc>/categories/blog/</loc>
-      <lastmod>2017-12-19T00:00:00+00:00</lastmod>
+      <lastmod>2018-03-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -225,7 +234,7 @@
     <url>
     
       <loc>/categories/</loc>
-      <lastmod>2017-12-19T00:00:00+00:00</lastmod>
+      <lastmod>2018-03-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -244,8 +253,18 @@
     
     <url>
     
+      <loc>/categories/data-science/</loc>
+      <lastmod>2018-03-05T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/tags/data-wrangling/</loc>
-      <lastmod>2018-01-17T00:00:00+00:00</lastmod>
+      <lastmod>2018-03-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -286,6 +305,16 @@
     
       <loc>/tags/li-cor/</loc>
       <lastmod>2018-01-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/multivariate-statistics/</loc>
+      <lastmod>2018-03-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -345,7 +374,7 @@
     <url>
     
       <loc>/tags/r/</loc>
-      <lastmod>2018-01-17T00:00:00+00:00</lastmod>
+      <lastmod>2018-03-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -365,7 +394,7 @@
     <url>
     
       <loc>/tags/regexp/</loc>
-      <lastmod>2018-01-17T00:00:00+00:00</lastmod>
+      <lastmod>2018-03-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -406,6 +435,16 @@
     
       <loc>/tags/tidyverse/</loc>
       <lastmod>2018-01-17T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/tags/webscraping/</loc>
+      <lastmod>2018-03-05T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

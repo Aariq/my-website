@@ -1,0 +1,120 @@
+---
+title: Cupcakes vs. Muffins
+author: Eric R. Scott
+date: '2018-03-05'
+slug: cupcakes-vs-muffins
+categories:
+  - Blog
+  - Data Science
+tags:
+  - regexp
+  - R
+  - multivariate statistics
+  - data-wrangling
+  - webscraping
+draft: false
+header:
+  image: "headers/cupcake-muffin-header.png"
+---
+
+
+
+<p>One thing I’ve learned from my PhD at Tufts is that I really enjoy working data wrangling, visualization, and statistics in R. I enjoy it so much, that lately I’ve been strongly considering a career in data science after graduation. As a way to showcase my data science skills, I’ve been working on a side project to use webscraping and multivariate statistics to answer the age old question: Are cupcakes really <em>that</em> different from muffins?</p>
+<p>Honestly, I can’t even quite remember how this idea came to me, but it started in a discussion with Dr. Elizabeth Crone about why more ecologists don’t use a statistical technique called <a href="https://en.wikipedia.org/wiki/Partial_least_squares_regression">partial least squares regression</a>. We wanted a fun multivariate dataset that could illustrate the different conlculsions you might get depending on the statistical method you use. And that somehow led to me webscraping <strong>every single muffin and cupcake recipe</strong> on allrecipes.com.</p>
+<p>I just finished the webscraping bit of the project this weekend. I’m not going to reproduce the code here, but rather address some of the challenges I faced, and some things I’ve learned so far. You can check out my R notebook and a .rds file of all the recipes <a href="https://github.com/Aariq/cupcakes-vs-muffins">over on github</a></p>
+<div id="getting-started-on-webscraping" class="section level1">
+<h1>Getting started on webscraping</h1>
+<p>I followed this <a href="https://towardsdatascience.com/web-scraping-tutorial-in-r-5e71fd107f32">wonderful tutorial</a> from José Roberto Ayala Solares to get going. Necessary tools include the <code>tidyverse</code>, the <code>rvest</code> package for webscraping, and a chrome plugin called <a href="http://selectorgadget.com/">SelectorGadget</a>. Going through the example in the tutorial was really helpful for getting a hang of what is and isn’t easy/possible.</p>
+</div>
+<div id="choosing-a-data-source" class="section level1">
+<h1>Choosing a data source</h1>
+<p>I specifically chose allrecipes.com over, say geniuskitchen.com (an excellent recipe site) because of the way it categorizes and structures recipes. When I search “cupcake” on geniuskitchen.com, I get 1830 reults (yay!), but a bunch of them are links to videos, articles, reviews, blog posts, food porn albums, and other things that are <strong>not</strong> recipes (boo!). Allrecipes.com, on the otherhand, gives me the following url: <a href="https://www.allrecipes.com/recipes/377/desserts/cakes/cupcakes/" class="uri">https://www.allrecipes.com/recipes/377/desserts/cakes/cupcakes/</a></p>
+<p>This is <strong>ALL THE CUPCAKES</strong>. From there, I played around with SelectorGadget to make sure it was going to be easy to drill down to just the links to the actual recipes, and yes, it was.</p>
+<div class="figure"><span id="fig:selector-gadget"></span>
+<img src="/img/selector-gadget.png" alt="SelectorGadget in action"  />
+<p class="caption">
+Figure 1: SelectorGadget in action
+</p>
+</div>
+<p>I also checked that the ingredients list of each recipe was going to be easy to scrape. They all have the same format, and some brief testing convinced me that I’d be able to figure out how to pull out ingredients.</p>
+<p>The takeaway is that for this project I had my choice of many websites, but I specifically picked one that would make my life easier because of its html structure.</p>
+</div>
+<div id="dont-scrape-too-fast" class="section level1">
+<h1>Don’t scrape too fast!</h1>
+<div id="sys.sleep-and-possibly-are-your-friends" class="section level2">
+<h2><code>Sys.sleep()</code> and <code>possibly()</code> are your friends</h2>
+<p>So once I figured out how to pull in all the links to all the cupcake recipes, I started scraping ingredients from a small sample of them. After a few debugging runs, allrecipes.com stopped responding and I just kept getting error messages. After pulling my hair out trying to figure out how I broke my code, I realized that my IP was being blocked! Because of the speed of accessing the website or how many links I accessed, my IP was suspected of being a bot or something and was temporarily (<em>whew</em>) blocked. An easy fix to this was to create a custom <code>read_html_slow()</code> function that included <code>Sys.sleep(5)</code> which just makes R wait 5 seconds inbetween reading websites.</p>
+<pre class="r"><code>library(rvest)
+read_html_slow &lt;- function(x, ...){
+  output &lt;- read_html(x)
+  Sys.sleep(5) #wait 5 seconds before returning output
+  return(output)
+}</code></pre>
+</div>
+</div>
+<div id="create-your-own-custom-helper-functions" class="section level1">
+<h1>Create your own custom helper functions</h1>
+<p>A great side-effect of creating your own functions like <code>read_html_slow()</code> is making your code more readable. Instead of a for-loop that calls <code>Sys.sleep(5)</code> after every iteration of <code>read_html()</code>, I now have one function that does it all and can be easilly used in conjunction with <code>map()</code> from the <code>purrr</code> package.</p>
+<p>My <code>read_html_slow()</code> function would still occasionally encounter errors like when it would encounter a broken URL. When reading in a whole list of URLs, one broken URL would mess up the whole list. I ended up expanding on <code>read_html_slow()</code> to make <code>read_html_safely()</code> which would output an <code>NA</code> rather than throwing an error if a URL was broken.</p>
+<pre class="r"><code>library(purrr)
+read_html_safely &lt;- possibly(read_html_slow, NA) #from the purrr package</code></pre>
+<p>I also created a <code>str_detect_any()</code> which allows you to check if a string is matched by any of a vector of regular expressions. I show how I use this in the next section</p>
+<pre class="r"><code>library(stringi)
+str_detect_any &lt;- function(string, pattern){
+  map_lgl(string, ~stri_detect_regex(., pattern) %&gt;% any(.)) 
+  #map_lgl is from purrr, stri_detect() is from stringi
+}</code></pre>
+</div>
+<div id="work-on-random-samples" class="section level1">
+<h1>Work on random samples</h1>
+<p>There were something like 200 cupcake recipes and another 100 muffin recipes on allrecipes.com, which takes a long time to read in. Rather than working on the whole data set, I used <code>sample()</code> on my vector of recipe URLs to take a manageable sample of recipes to work on. After working through a few different random subsets, I reached a point where I was happy with how my code was working. Only then did I read in the entire dataset.</p>
+</div>
+<div id="webscraped-data-is-messy" class="section level1">
+<h1>Webscraped data is messy</h1>
+<div id="people-make-weird-baked-goods" class="section level2">
+<h2>(People make weird baked goods)</h2>
+<p>Once I had all my ingredients for muffins and cupcakes in a data frame, I needed to standardize the ingredients. For example “8 tablespoons butter, melted” and “1/2 cup unsalted, organic, non-GMO, gluten-free, single-origin butter” both needed to get converted to “1/2 cup butter.” This is where the combination of <code>mutate()</code>, <code>case_when()</code> and <code>str_detect()</code> really came in handy to make readable, debuggable code.</p>
+<p><code>mutate()</code> is a function from the <code>dplyr</code> package (part of <code>tidyverse</code>) for adding new columns to dataframes based on information in other columns. Here, I used it to take the ingredient descriptions and turn them into short, concise ingredients. <code>str_detect()</code> is from the <code>stringr</code> package and takes a string and a regular expression pattern and outputs <code>TRUE</code> or <code>FALSE</code>. Finally, <code>case_when()</code> is also from <code>dplyr</code> and provides a readable alternative to insane nested <code>ifelse()</code> statements. For example:</p>
+<pre class="r"><code>library(tidyverse)
+df &lt;- tibble(description = c(&quot;1/2 cup unsalted, organic, non-GMO, gluten-free, single-origin butter&quot;,
+                             &quot;1 cup buttermilk&quot;,
+                             &quot;4 cups sugar&quot;,
+                             &quot;4 cups slivered almonds&quot;,
+                             &quot;1/2 cup chopped walnuts&quot;,
+                             &quot;1 teaspoon salt&quot;,
+                             &quot;25 blueberries&quot;))
+
+#all nuts should match one of these patterns
+nuts &lt;- c(&quot;almond&quot;, &quot;\\w*nut&quot;, &quot;pecan&quot;)
+
+df %&gt;%
+  mutate(ingredient = case_when(str_detect(.$description, &quot;butter&quot;) ~  &quot;butter&quot;,
+                                str_detect(.$description, &quot;milk&quot;)   ~  &quot;milk&quot;,
+                                str_detect(.$description, &quot;sugar&quot;)  ~  &quot;sugar&quot;,
+                                str_detect(.$description, &quot;salt&quot;)   ~  &quot;salt&quot;,
+                                str_detect_any(.$description, nuts) ~  &quot;nut&quot;,
+                                TRUE                                ~  as.character(NA)
+                                )
+         )</code></pre>
+<pre><code>## # A tibble: 7 x 2
+##   description                                                   ingredient
+##   &lt;chr&gt;                                                         &lt;chr&gt;     
+## 1 1/2 cup unsalted, organic, non-GMO, gluten-free, single-orig… butter    
+## 2 1 cup buttermilk                                              butter    
+## 3 4 cups sugar                                                  sugar     
+## 4 4 cups slivered almonds                                       nut       
+## 5 1/2 cup chopped walnuts                                       nut       
+## 6 1 teaspoon salt                                               salt      
+## 7 25 blueberries                                                &lt;NA&gt;</code></pre>
+<p>The way <code>case_when()</code> works is just like a bunch of nested <code>ifelse()</code> statments. That is, if it satisfies a condition on the left of the <code>~</code> in the first line, it returns the output to the right, otherwise it goes to the next line. That results in “buttermilk” getting categorized as “butter”. If you wanted it to be captured as “milk” instead, you could switch the order of the butter and milk lines inside <code>case_when()</code>.</p>
+<p>I had to do this sort of thing <strong>a lot</strong>. For example, when “creamy peanut butter” was getting categorized as “cream” or “butter” instead of “nuts” or when “unsalted butter” was getting categorized as “salt”. You’ll also notice that if a description makes it all the way through the list, it gets categorized as <code>NA</code>. I’ll never be able to categorize all the cupcake/muffin ingredients, because people put <a href="https://www.allrecipes.com/recipe/215561/peanut-butter-bacon-cupcake/">weird shit</a> in their baked goods.</p>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>Webscraping can be fun and frustrating, but you can take set yourself up for success by choosing an easily scrapable website, documenting your code well, and taking measures to make your code as readable as possible. With big, messy data, you’ll likely never get it perfect, but you can use random samples of websites to help debug your code and test its effectiveness on new random samples of websites.</p>
+</div>
+<div id="next-steps" class="section level1">
+<h1>Next Steps</h1>
+<p>Now that I have a dataset I’m pretty happy with, the next step of the project is to do some exploratory data analysis to see what properties it has that are relevant to the sorts of multivariate data that ecologists deal with. Then on to statistical analyses to figure out what ingredients make cupcakes different from muffins. Is it sweetness? Is it somethign to do with leavening? Butter vs oil? Leave your predictions in the comments below!</p>
+</div>
