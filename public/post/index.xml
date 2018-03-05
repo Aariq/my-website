@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Eric R. Scott</title>
-    <link>/post/</link>
+    <link>http://ericrscott.com/post/</link>
     <description>Recent content in Posts on Eric R. Scott</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>Cupcakes vs. Muffins</title>
-      <link>/2018/03/05/cupcakes-vs-muffins/</link>
+      <link>http://ericrscott.com/2018/03/05/cupcakes-vs-muffins/</link>
       <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/05/cupcakes-vs-muffins/</guid>
+      <guid>http://ericrscott.com/2018/03/05/cupcakes-vs-muffins/</guid>
       <description>&lt;p&gt;One thing I’ve learned from my PhD at Tufts is that I really enjoy working data wrangling, visualization, and statistics in R. I enjoy it so much, that lately I’ve been strongly considering a career in data science after graduation. As a way to showcase my data science skills, I’ve been working on a side project to use webscraping and multivariate statistics to answer the age old question: Are cupcakes really &lt;em&gt;that&lt;/em&gt; different from muffins?&lt;/p&gt;
 &lt;p&gt;Honestly, I can’t even quite remember how this idea came to me, but it started in a discussion with Dr. Elizabeth Crone about why more ecologists don’t use a statistical technique called &lt;a href=&#34;https://en.wikipedia.org/wiki/Partial_least_squares_regression&#34;&gt;partial least squares regression&lt;/a&gt;. We wanted a fun multivariate dataset that could illustrate the different conlculsions you might get depending on the statistical method you use. And that somehow led to me webscraping &lt;strong&gt;every single muffin and cupcake recipe&lt;/strong&gt; on allrecipes.com.&lt;/p&gt;
 &lt;p&gt;I just finished the webscraping bit of the project this weekend. I’m not going to reproduce the code here, but rather address some of the challenges I faced, and some things I’ve learned so far. You can check out my R notebook and a .rds file of all the recipes &lt;a href=&#34;https://github.com/Aariq/cupcakes-vs-muffins&#34;&gt;over on github&lt;/a&gt;&lt;/p&gt;
@@ -28,7 +28,7 @@
 &lt;p&gt;I specifically chose allrecipes.com over, say geniuskitchen.com (an excellent recipe site) because of the way it categorizes and structures recipes. When I search “cupcake” on geniuskitchen.com, I get 1830 reults (yay!), but a bunch of them are links to videos, articles, reviews, blog posts, food porn albums, and other things that are &lt;strong&gt;not&lt;/strong&gt; recipes (boo!). Allrecipes.com, on the otherhand, gives me the following url: &lt;a href=&#34;https://www.allrecipes.com/recipes/377/desserts/cakes/cupcakes/&#34; class=&#34;uri&#34;&gt;https://www.allrecipes.com/recipes/377/desserts/cakes/cupcakes/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is &lt;strong&gt;ALL THE CUPCAKES&lt;/strong&gt;. From there, I played around with SelectorGadget to make sure it was going to be easy to drill down to just the links to the actual recipes, and yes, it was.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:selector-gadget&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/selector-gadget.png&#34; alt=&#34;SelectorGadget in action&#34;  /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/selector-gadget.png&#34; alt=&#34;SelectorGadget in action&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: SelectorGadget in action
 &lt;/p&gt;
@@ -38,8 +38,8 @@ Figure 1: SelectorGadget in action
 &lt;/div&gt;
 &lt;div id=&#34;dont-scrape-too-fast&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Don’t scrape too fast!&lt;/h1&gt;
-&lt;div id=&#34;sys.sleep-and-possibly-are-your-friends&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;&lt;code&gt;Sys.sleep()&lt;/code&gt; and &lt;code&gt;possibly()&lt;/code&gt; are your friends&lt;/h2&gt;
+&lt;div id=&#34;sys.sleep-is-your-friend&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;(&lt;code&gt;Sys.sleep()&lt;/code&gt; is your friend)&lt;/h2&gt;
 &lt;p&gt;So once I figured out how to pull in all the links to all the cupcake recipes, I started scraping ingredients from a small sample of them. After a few debugging runs, allrecipes.com stopped responding and I just kept getting error messages. After pulling my hair out trying to figure out how I broke my code, I realized that my IP was being blocked! Because of the speed of accessing the website or how many links I accessed, my IP was suspected of being a bot or something and was temporarily (&lt;em&gt;whew&lt;/em&gt;) blocked. An easy fix to this was to create a custom &lt;code&gt;read_html_slow()&lt;/code&gt; function that included &lt;code&gt;Sys.sleep(5)&lt;/code&gt; which just makes R wait 5 seconds inbetween reading websites.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rvest)
 read_html_slow &amp;lt;- function(x, ...){
@@ -120,22 +120,22 @@ df %&amp;gt;%
     
     <item>
       <title>Importing data from a LI-COR photosynthesis meter into R</title>
-      <link>/2018/01/17/li-cor-wrangling/</link>
+      <link>http://ericrscott.com/2018/01/17/li-cor-wrangling/</link>
       <pubDate>Wed, 17 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/01/17/li-cor-wrangling/</guid>
-      <description>&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/viz/viz.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/DiagrammeR-styles/styles.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/grViz-binding/grViz.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/str_view/str_view.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/str_view-binding/str_view.js&#34;&gt;&lt;/script&gt;
+      <guid>http://ericrscott.com/2018/01/17/li-cor-wrangling/</guid>
+      <description>&lt;script src=&#34;http://ericrscott.com/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://ericrscott.com/rmarkdown-libs/viz/viz.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://ericrscott.com/rmarkdown-libs/DiagrammeR-styles/styles.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://ericrscott.com/rmarkdown-libs/grViz-binding/grViz.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://ericrscott.com/rmarkdown-libs/str_view/str_view.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://ericrscott.com/rmarkdown-libs/str_view-binding/str_view.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;The &lt;a href=&#34;https://www.licor.com/env/products/photosynthesis/LI-6400XT/&#34;&gt;LI-6400XT&lt;/a&gt; is a portable device used to measure photosynthesis in plant leaves. As you take measurements by pressing a button on the device, they are recorded into memory. In order to keep track of which measurments go with which plants (or experimental treatments), there is an “add remark” option where you can enter sample information before taking measurements.&lt;/p&gt;
 &lt;p&gt;When the data are exported, you get a series of .xls files and a plain text file. Both of these have some problems that you’ll have to deal with if you want to read the data into R and use it for statistical analysis or generating reports.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:excel&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/licor_excel.png&#34; alt=&#34;Excel nightmare or text nightmare? Pick your poison.&#34; width=&#34;90%&#34; /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/licor_excel.png&#34; alt=&#34;Excel nightmare or text nightmare? Pick your poison.&#34; width=&#34;90%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Excel nightmare or text nightmare? Pick your poison.
 &lt;/p&gt;
@@ -328,13 +328,13 @@ head(output, 10)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Quantifying leafhopper damage with automated supervised classification</title>
-      <link>/2017/12/24/leafhopper-fiji/</link>
+      <link>http://ericrscott.com/2017/12/24/leafhopper-fiji/</link>
       <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/12/24/leafhopper-fiji/</guid>
+      <guid>http://ericrscott.com/2017/12/24/leafhopper-fiji/</guid>
       <description>&lt;p&gt;As part of my fieldwork in China, I collected harvested tea leaves that were damaged by the tea green leafhopper. I want to quantify the amount of leafhopper damage for each harvest. I was able to find several solutions for quantifying holes in leaves or even damage to leaf margins, but typical leafhopper damage is just tiny brown spots on the undersides of leaves. I did find some tutorials on using &lt;a href=&#34;http://imagej.net/Welcome&#34;&gt;ImageJ&lt;/a&gt; to analyze diseased area on leaves, but found that the leafhopper damage spots were too small and too similar in color to undamaged leaves for these tools to work reliably and be automated.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: left&#34;&gt;&lt;span id=&#34;fig:leaf-fig&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/damaged leaf.png&#34; alt=&#34;Typical leafhopper damage&#34; width=&#34;60%&#34; /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/damaged leaf.png&#34; alt=&#34;Typical leafhopper damage&#34; width=&#34;60%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Typical leafhopper damage
 &lt;/p&gt;
@@ -345,7 +345,7 @@ Figure 1: Typical leafhopper damage
 &lt;p&gt;Just to clarify, my goal here is not image classification—that is, I’m not trying to classify leaves into categories like “undamaged”, “medium damaged”, “high damage”, but rather trying to classify individual pixels in the image as being damaged or undamaged leaf tissue (or background).&lt;/p&gt;
 &lt;p&gt;In short, after selecting some pixels representative of damaged leaf, undamaged leaf, and background (regions of interest, or ROIs), the WEKA plugin trains a random forest algorithm using data from various transformations of the pixels in the ROIs. Then, I can apply the algorithm to other images and extract data in the form of numbers of pixels classified in each category.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:example-result&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/analyzed leaf.png&#34; alt=&#34;example results of WEKA classification&#34; width=&#34;60%&#34; /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/analyzed leaf.png&#34; alt=&#34;example results of WEKA classification&#34; width=&#34;60%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: example results of WEKA classification
 &lt;/p&gt;
@@ -363,7 +363,7 @@ Figure 2: example results of WEKA classification
 &lt;h3&gt;Training and applying a classifier&lt;/h3&gt;
 &lt;p&gt;We trained the classifier on three classes, background, damaged leaf, and undamaged leaf. For background and undamaged leaf, we found it was really important to focus on leaf edges, making sure to include shadows in the background class and lighter green leaf margins in the undamaged class. Without doing this, the classifier would consistently mis-classify shadows and edges as either damaged or background, respectively. This was also an iterative process and took several rounds of selecting ROIs, training a classifier, viewing results, and adding more ROIs. Once we were satisfied with our classifier, we saved it and applied it to all of our images in stacks of 20 on a computer with 32 GB of RAM. The results created by the WEKA plugin are stacks of three color images (because we used 3 classes). Getting numerical results turned out to be another problem.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:screenshot&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/WEKA screenshot.png&#34; alt=&#34;WEKA segmentation window with ROIs selected&#34;  /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/WEKA screenshot.png&#34; alt=&#34;WEKA segmentation window with ROIs selected&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: WEKA segmentation window with ROIs selected
 &lt;/p&gt;
@@ -443,10 +443,10 @@ raw.data.2 &amp;lt;- raw.data %&amp;gt;%
     
     <item>
       <title>Making a website in RStudio</title>
-      <link>/2017/12/19/making-a-website-in-rstudio/</link>
+      <link>http://ericrscott.com/2017/12/19/making-a-website-in-rstudio/</link>
       <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/12/19/making-a-website-in-rstudio/</guid>
+      <guid>http://ericrscott.com/2017/12/19/making-a-website-in-rstudio/</guid>
       <description>&lt;p&gt;I’ve always thought I should eventually have a professional website for job hunting, but recently I’ve realized that it would be nice to have somewhere to collect my thoughts and contributions all in one place. Before having a website of my own, I generally shared updates and thoughts on &lt;a href=&#34;https://twitter.com/LeafyEricScott&#34;&gt;Twitter&lt;/a&gt; and on &lt;a href=&#34;#blogs&#34;&gt;other people’s blogs&lt;/a&gt;, which I will still continue to do, but having everything I do in one place seems like a good idea. I kept putting off making a website until I was recently encouraged by a combination of envy of my &lt;a href=&#34;https://www.rachaelebonoan.com/&#34;&gt;officemate’s awesome looking website&lt;/a&gt;, and learning that one could make a website using R Studio and the &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown&lt;/a&gt; R package. I just spent a semester learning a ton about R Markdown, the file type blogdown uses to construct websites, for a &lt;a href=&#34;https://github.com/Aariq/biostats-recitation&#34;&gt;biostatistics course&lt;/a&gt; I was teaching, so I figured using R Markdown to make a website would be relatively easy. Fortunately, I was correct! I spent about 3-4 work days initially getting this website working and customized, and it was relatively painless. Compared to, say WordPress, the impressiveness-to-effort ratio is much higher, in my opinion.&lt;/p&gt;
 &lt;div id=&#34;getting-started-with-blogdown&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Getting started with Blogdown&lt;/h2&gt;
