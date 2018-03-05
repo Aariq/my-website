@@ -109,7 +109,7 @@ df %&amp;gt;%
 &lt;/div&gt;
 &lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;Webscraping can be fun and frustrating, but you can take set yourself up for success by choosing an easily scrapable website, documenting your code well, and taking measures to make your code as readable as possible. With big, messy data, you’ll likely never get it perfect, but you can use random samples of websites to help debug your code and test its effectiveness on new random samples of websites.&lt;/p&gt;
+&lt;p&gt;Webscraping can be frustrating, but you can set yourself up for success by choosing an easily scrapable website, annotating your code as you go, and taking measures to make your code as readable as possible. With big, messy data, you’ll likely never get it perfect, but you can use random samples of websites to help debug your code and test its effectiveness on new random samples of websites.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div id=&#34;next-steps&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Next Steps&lt;/h1&gt;
