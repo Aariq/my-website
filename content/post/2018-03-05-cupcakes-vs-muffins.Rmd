@@ -19,7 +19,7 @@ header:
 
 One thing I've learned from my PhD at Tufts is that I really enjoy working data wrangling, visualization, and statistics in R.  I enjoy it so much, that lately I've been strongly considering a career in data science after graduation.  As a way to showcase my data science skills, I've been working on a side project to use webscraping and multivariate statistics to answer the age old question: Are cupcakes really *that* different from muffins?
 
-Honestly, I can't even quite remember how this idea came to me, but it started in a discussion with Dr. Elizabeth Crone about why more ecologists don't use a statistical technique called [partial least squares regression](https://en.wikipedia.org/wiki/Partial_least_squares_regression).  We wanted a fun multivariate data set that could illustrate the different conclusions you might get depending on the statistical method you use. And that somehow led to me webscraping **every single muffin and cupcake recipe** on allrecipes.com.
+Honestly, I can't even quite remember how this idea came to me, but it started in a discussion with Dr. Elizabeth Crone about why more ecologists don't use a statistical technique called [partial least squares regression](https://en.wikipedia.org/wiki/Partial_least_squares_regression).  We wanted a fun multivariate data set that could illustrate the different conclusions you might get depending on the statistical method you use. Around the same time, I came across a blog post by [\@lariebyrd](https://aczane.netlify.com/2018/02/08/the-first-and-namesake-post-is-it-cake/) explaining machine learning using cake emoji. And that somehow led to me webscraping **every single muffin and cupcake recipe** on allrecipes.com.
 
 I just finished the webscraping bit of the project this weekend. I'm not going to reproduce the code here, but rather address some of the challenges I faced, and some things I've learned so far.  You can check out my R notebook and a .rds file of all the recipes [over on github](https://github.com/Aariq/cupcakes-vs-muffins)
 
@@ -41,7 +41,11 @@ The takeaway is that for this project I had my choice of many websites, but I sp
 
 # Don't scrape too fast! 
 ## (`Sys.sleep()` is your friend)
-So once I figured out how to pull in all the links to all the cupcake recipes, I started scraping ingredients from a small sample of them.  After a few debugging runs, allrecipes.com stopped responding and I just kept getting error messages.  After pulling my hair out trying to figure out how I broke my code, I realized that my IP was being blocked!  Because of the speed of accessing the website or how many links I accessed, my IP was suspected of being a bot or something and was temporarily (*whew*) blocked.  An easy fix to this was to create a custom `read_html_slow()` function that included `Sys.sleep(5)` which just makes R wait 5 seconds in between reading websites. 
+So once I figured out how to pull in all the links to all the cupcake recipes, I started scraping ingredients from a small sample of them.  After a few debugging runs, allrecipes.com stopped responding and I just kept getting error messages.  After pulling my hair out trying to figure out how I broke my code, I realized that my IP was being blocked!  Because of the speed of accessing the website or how many links I accessed, my IP was suspected of being a bot or something and was temporarily (*whew*) blocked.  I turned to twitter and was reccomended an easy fix---create a custom `read_html_slow()` function that included `Sys.sleep(5)` which just makes R wait 5 seconds in between reading websites. 
+
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '965808697346789378')
+```
 
 ```{r message=FALSE, warning=FALSE}
 library(rvest)
