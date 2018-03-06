@@ -19,7 +19,7 @@ header:
 
 One thing I've learned from my PhD at Tufts is that I really enjoy working data wrangling, visualization, and statistics in R.  I enjoy it so much, that lately I've been strongly considering a career in data science after graduation.  As a way to showcase my data science skills, I've been working on a side project to use webscraping and multivariate statistics to answer the age old question: Are cupcakes really *that* different from muffins?
 
-Honestly, I can't even quite remember how this idea came to me, but it started in a discussion with Dr. Elizabeth Crone about why more ecologists don't use a statistical technique called [partial least squares regression](https://en.wikipedia.org/wiki/Partial_least_squares_regression).  We wanted a fun multivariate dataset that could illustrate the different conlculsions you might get depending on the statistical method you use. And that somehow led to me webscraping **every single muffin and cupcake recipe** on allrecipes.com.
+Honestly, I can't even quite remember how this idea came to me, but it started in a discussion with Dr. Elizabeth Crone about why more ecologists don't use a statistical technique called [partial least squares regression](https://en.wikipedia.org/wiki/Partial_least_squares_regression).  We wanted a fun multivariate data set that could illustrate the different conclusions you might get depending on the statistical method you use. And that somehow led to me webscraping **every single muffin and cupcake recipe** on allrecipes.com.
 
 I just finished the webscraping bit of the project this weekend. I'm not going to reproduce the code here, but rather address some of the challenges I faced, and some things I've learned so far.  You can check out my R notebook and a .rds file of all the recipes [over on github](https://github.com/Aariq/cupcakes-vs-muffins)
 
@@ -27,7 +27,7 @@ I just finished the webscraping bit of the project this weekend. I'm not going t
 I followed this [wonderful tutorial](https://towardsdatascience.com/web-scraping-tutorial-in-r-5e71fd107f32) from José Roberto Ayala Solares to get going. Necessary tools include the `tidyverse`, the `rvest` package for webscraping, and a chrome plugin called [SelectorGadget](http://selectorgadget.com/).  Going through the example in the tutorial was really helpful for getting a hang of what is and isn't easy/possible.
 
 # Choosing a data source
-I specifically chose allrecipes.com over, say geniuskitchen.com (an excellent recipe site) because of the way it categorizes and structures recipes.  When I search "cupcake" on geniuskitchen.com, I get 1830 reults (yay!), but a bunch of them are links to videos, articles, reviews, blog posts, food porn albums, and other things that are **not** recipes (boo!).  Allrecipes.com, on the otherhand, gives me the following url: https://www.allrecipes.com/recipes/377/desserts/cakes/cupcakes/
+I specifically chose allrecipes.com over, say geniuskitchen.com (an excellent recipe site) because of the way it categorizes and structures recipes.  When I search "cupcake" on geniuskitchen.com, I get 1830 results (yay!), but a bunch of them are links to videos, articles, reviews, blog posts, food porn albums, and other things that are **not** recipes (boo!).  Allrecipes.com, on the other hand, gives me the following URL: https://www.allrecipes.com/recipes/377/desserts/cakes/cupcakes/
 
 This is **ALL THE CUPCAKES**.  From there, I played around with SelectorGadget to make sure it was going to be easy to drill down to just the links to the actual recipes, and yes, it was.
 
@@ -41,7 +41,7 @@ The takeaway is that for this project I had my choice of many websites, but I sp
 
 # Don't scrape too fast! 
 ## (`Sys.sleep()` is your friend)
-So once I figured out how to pull in all the links to all the cupcake recipes, I started scraping ingredients from a small sample of them.  After a few debugging runs, allrecipes.com stopped responding and I just kept getting error messages.  After pulling my hair out trying to figure out how I broke my code, I realized that my IP was being blocked!  Because of the speed of accessing the website or how many links I accessed, my IP was suspected of being a bot or something and was temporarily (*whew*) blocked.  An easy fix to this was to create a custom `read_html_slow()` function that included `Sys.sleep(5)` which just makes R wait 5 seconds inbetween reading websites. 
+So once I figured out how to pull in all the links to all the cupcake recipes, I started scraping ingredients from a small sample of them.  After a few debugging runs, allrecipes.com stopped responding and I just kept getting error messages.  After pulling my hair out trying to figure out how I broke my code, I realized that my IP was being blocked!  Because of the speed of accessing the website or how many links I accessed, my IP was suspected of being a bot or something and was temporarily (*whew*) blocked.  An easy fix to this was to create a custom `read_html_slow()` function that included `Sys.sleep(5)` which just makes R wait 5 seconds in between reading websites. 
 
 ```{r message=FALSE, warning=FALSE}
 library(rvest)
@@ -53,7 +53,7 @@ read_html_slow <- function(x, ...){
 ```
 
 # Create your own custom helper functions
-A great side-effect of creating your own functions like `read_html_slow()` is making your code more readable. Instead of a for-loop that calls `Sys.sleep(5)` after every iteration of `read_html()`, I now have one function that does it all and can be easilly used in conjunction with `map()` from the `purrr` package.
+A great side-effect of creating your own functions like `read_html_slow()` is making your code more readable. Instead of a for-loop that calls `Sys.sleep(5)` after every iteration of `read_html()`, I now have one function that does it all and can be easily used in conjunction with `map()` from the `purrr` package.
 
 My `read_html_slow()` function would still occasionally encounter errors like when it would encounter a broken URL.  When reading in a whole list of URLs, one broken URL would mess up the whole list. I ended up expanding on `read_html_slow()` to make `read_html_safely()` which would output an `NA` rather than throwing an error if a URL was broken.
 
@@ -73,13 +73,13 @@ str_detect_any <- function(string, pattern){
 ```
 
 # Work on random samples
-There were something like 200 cupcake recipes and another 100 muffin recipes on allrecipes.com, which takes a long time to read in.  Rather than working on the whole data set, I used `sample()` on my vector of recipe URLs to take a manageable sample of recipes to work on.  After working through a few different random subsets, I reached a point where I was happy with how my code was working.  Only then did I read in the entire dataset.
+There were something like 200 cupcake recipes and another 100 muffin recipes on allrecipes.com, which takes a long time to read in.  Rather than working on the whole data set, I used `sample()` on my vector of recipe URLs to take a manageable sample of recipes to work on.  After working through a few different random subsets, I reached a point where I was happy with how my code was working.  Only then did I read in the entire data set.
 
 # Webscraped data is messy 
 ## (People make weird baked goods)
 Once I had all my ingredients for muffins and cupcakes in a data frame, I needed to standardize the ingredients.  For example "8 tablespoons butter, melted" and "1/2 cup unsalted, organic, non-GMO, gluten-free, single-origin butter" both needed to get converted to "1/2 cup butter."  This is where the combination of `mutate()`, `case_when()` and `str_detect()` really came in handy to make readable, debuggable code.
 
-`mutate()` is a function from the `dplyr` package (part of `tidyverse`) for adding new columns to dataframes based on information in other columns.  Here, I used it to take the ingredient descriptions and turn them into short, concise ingredients.  `str_detect()` is from the `stringr` package and takes a string and a regular expression pattern and outputs `TRUE` or `FALSE`.  Finally, `case_when()` is also from `dplyr` and provides a readable alternative to insane nested `ifelse()` statements.  For example:
+`mutate()` is a function from the `dplyr` package (part of `tidyverse`) for adding new columns to data frames based on information in other columns.  Here, I used it to take the ingredient descriptions and turn them into short, concise ingredients.  `str_detect()` is from the `stringr` package and takes a string and a regular expression pattern and outputs `TRUE` or `FALSE`.  Finally, `case_when()` is also from `dplyr` and provides a readable alternative to insane nested `ifelse()` statements.  For example:
 
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
@@ -105,7 +105,7 @@ df %>%
          )
 ```
 
-The way `case_when()` works is just like a bunch of nested `ifelse()` statments.  That is, if it satisfies a condition on the left of the `~` in the first line, it returns the output to the right, otherwise it goes to the next line.  That results in "buttermilk" getting categorized as "butter".  If you wanted it to be captured as "milk" instead, you could switch the order of the butter and milk lines inside `case_when()`.  
+The way `case_when()` works is just like a bunch of nested `ifelse()` statements.  That is, if it satisfies a condition on the left of the `~` in the first line, it returns the output to the right, otherwise it goes to the next line.  That results in "buttermilk" getting categorized as "butter".  If you wanted it to be captured as "milk" instead, you could switch the order of the butter and milk lines inside `case_when()`.  
 
 I had to do this sort of thing **a lot**.  For example, when "creamy peanut butter" was getting categorized as "cream" or "butter" instead of "nuts" or when "unsalted butter" was getting categorized as "salt".  You'll also notice that if a description makes it all the way through the list, it gets categorized as `NA`.  I'll never be able to categorize all the cupcake/muffin ingredients, because people put [weird shit](https://www.allrecipes.com/recipe/215561/peanut-butter-bacon-cupcake/) in their baked goods.
 
@@ -113,4 +113,4 @@ I had to do this sort of thing **a lot**.  For example, when "creamy peanut butt
 Webscraping can be frustrating, but you can set yourself up for success by choosing an easily scrapable website, annotating your code as you go, and taking measures to make your code as readable as possible.  With big, messy data, you'll likely never get it perfect, but you can use random samples of websites to help debug your code and test its effectiveness on new random samples of websites.
 
 # Next Steps
-Now that I have a dataset I'm pretty happy with, the next step of the project is to do some exploratory data analysis to see what properties it has that are relevant to the sorts of multivariate data that ecologists deal with.  Then on to statistical analyses to figure out what ingredients make cupcakes different from muffins.  Is it sweetness?  Is it somethign to do with leavening?  Butter vs oil?  Leave your predictions in the comments below!
+Now that I have a data set I'm pretty happy with, the next step of the project is to do some exploratory data analysis to see what properties it has that are relevant to the sorts of multivariate data that ecologists deal with.  Then on to statistical analyses to figure out what ingredients make cupcakes different from muffins.  Is it sweetness?  Is it something to do with leavening?  Butter vs oil?  Leave your predictions in the comments below!
