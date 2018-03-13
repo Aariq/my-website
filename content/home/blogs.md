@@ -14,8 +14,9 @@ subtitle = ""
 weight = 23
 
 +++
-## Invited Blog Posts
+## Invited Blog Posts:
 
+- [Oolong: more than mid-oxidized](http://www.teageek.net/blog/2018/03/oolong-mid-oxidized/)
 - [Oriental Beauty and Other Bug-Bitten Teas: Fact or Fiction?](https://worldoftea.org/oriental-beauty-bug-bitten-teas/)
 - [The science and nomenclature of tea processing. Part 1: Enzymatic browning](http://www.teageek.net/blog/2017/02/tea-terminology-part-1/)
 - [The science and nomenclature of tea processing. Part 2: Microbial ripening](http://www.teageek.net/blog/2017/02/science-nomenclature-tea-processing-part-2-microbial-ripening/)
