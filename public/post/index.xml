@@ -11,6 +11,20 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Cupcake Update</title>
+      <link>/2018/04/10/cupcake-update/</link>
+      <pubDate>Tue, 10 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/04/10/cupcake-update/</guid>
+      <description>&lt;p&gt;I know you&amp;rsquo;re all waiting on the edge of your seats for an update on the &lt;a href=&#34;http://www.ericrscott.com/2018/03/05/cupcakes-vs-muffins/&#34; target=&#34;_blank&#34;&gt;cupcakes vs. muffins data science project&lt;/a&gt;, but unfortunately I don&amp;rsquo;t have any answers to that age-old question* yet.&lt;/p&gt;
+
+&lt;p&gt;As silly as it may sound, I&amp;rsquo;m actually considering using this data set for a paper about using PLS (partial least squares regression) for ecological data. So for now, I&amp;rsquo;m holding off on blogging about any results of analyses in case I end up wanting to use them for the publication. In the meantime, the fully cleaned (I hope) &lt;a href=&#34;https://github.com/Aariq/cupcakes-vs-muffins&#34; target=&#34;_blank&#34;&gt;dataset is up on github&lt;/a&gt;, so feel free to play around with it. Once I have a general outline for this paper, I may feel more comfortable blogging about the results. Please comment if you think I&amp;rsquo;m being silly and overparanoid about holding back on this.&lt;/p&gt;
+
+&lt;p&gt;*all I can say is muffins probably differ from cupcakes by more than just frosting, based on the ingredients.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Cupcakes vs. Muffins</title>
       <link>/2018/03/05/cupcakes-vs-muffins/</link>
       <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
