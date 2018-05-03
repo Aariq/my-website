@@ -14,6 +14,10 @@ subtitle = ""
 weight = 23
 
 +++
+## Podcast appearances:
+
+- [PhDrinking podcast](https://soundcloud.com/phdrinking/tea-totaling)
+
 ## Invited Blog Posts:
 
 - [Oolong: more than mid-oxidized](http://www.teageek.net/blog/2018/03/oolong-mid-oxidized/)

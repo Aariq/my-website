@@ -11,6 +11,226 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Python is Weird (an unabashedly biased intro to Python for R users)</title>
+      <link>/2018/05/03/python-is-weird/</link>
+      <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/03/python-is-weird/</guid>
+      <description>
+
+&lt;p&gt;Last semester I took a class that used Python. The students were about half engineers and half biologists.  The vast majority of the biologists knew R to varying degrees, but had no experience with Python, and the engineers seemed to generally have some experience with Python, or at least with languages more similar to it than R. I wish that the instructor could have taught every Python lecture like &amp;ldquo;Ok, today we&amp;rsquo;re going to learn the Python equivalent of doing ____ in R&amp;rdquo;, but of course that wouldn&amp;rsquo;t be fair to about half the students.&lt;/p&gt;
+
+&lt;p&gt;So for anyone else making the leap from R to Python, here are three things that are going to feel really weird about Python.&lt;/p&gt;
+
+&lt;h1 id=&#34;1-indexing-is-not-intuitive&#34;&gt;1. Indexing is &lt;strong&gt;not&lt;/strong&gt; intuitive&lt;/h1&gt;
+
+&lt;p&gt;Let me just show you first and see if you can figure out what is going on:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;R Code:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# R
+x = c(10, 20, 30, 40, 50)
+x[1]
+x[1:3]
+x[4:5]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [1] 10
+## [1] 10 20 30
+## [1] 40 50
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Equivalent in Python:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Python
+x = [10, 20, 30, 40, 50]
+print(x[1])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## 20
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(x[0])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## 10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(x[3:4])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [40]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(x[3:5])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [40, 50]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Two things are really weird about this.  First, the first position in the vector is not position 1, it is position 0.  Second, &lt;code&gt;x[3:4]&lt;/code&gt; returns only a single number.  Why?!  Because in Python, the second number in the index is not inclusive, so if you want to get the 4th and 5th values of &lt;code&gt;x&lt;/code&gt; (index positions 3 and 4 in Python world), then you have to use &lt;code&gt;x[3:5]&lt;/code&gt; &lt;strong&gt;even though there is NO POSITION 5&lt;/strong&gt;.  Terrible.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Weird thing 1.1: Python is much more geared toward writing programs than R.  That means you can&amp;rsquo;t really run python code one line at a time like R and you have to explicitly &lt;code&gt;print()&lt;/code&gt; things that you want to be output to the screen.&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;you-need-a-package-just-to-do-vector-math&#34;&gt;You need a package just to do vector math&lt;/h1&gt;
+
+&lt;p&gt;R is built for doing math and statistics, so vectors and matrices are built in and built so that you can do math on them!&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;R Code:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# R
+x = c(1, 2, 3)
+x + 10
+x * 2
+y = c(5, 6, 7)
+x + y
+#Yay vector arithmetic!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [1] 11 12 13
+## [1] 2 4 6
+## [1]  6  8 10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Python is &lt;strong&gt;not&lt;/strong&gt; built with math and statistics in mind, and this doesn&amp;rsquo;t work without using a package.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Equivalent in Python:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Python
+x = [1, 2, 3]
+print(x + [10]) 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [1, 2, 3, 10]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(x*3) 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [1, 2, 3, 1, 2, 3, 1, 2, 3]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;y = [5, 6, 7]
+print(x + y) 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [1, 2, 3, 5, 6, 7]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Clearly &lt;code&gt;+&lt;/code&gt; is doing something different, it&amp;rsquo;s concatenating &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;10&lt;/code&gt;.  Similarly, &lt;code&gt;*&lt;/code&gt; is not multiplying, but concatenating three &lt;code&gt;x&lt;/code&gt;s in a row. This may seem totally ridiculous, but when you&amp;rsquo;re working with strings, it&amp;rsquo;s actually pretty freakin&amp;rsquo; great.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Python
+print((&amp;quot;Yay &amp;quot;+&amp;quot;Python! &amp;quot;) * 5)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## Yay Python! Yay Python! Yay Python! Yay Python! Yay Python!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you want numerical vectors to work like they should, you have to use a special kind of vector called a numpy array.  Numpy is a package for Python that provides a bunch of functions that work on numbers.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Python
+import numpy as np
+x = np.array([1, 2, 3])
+print(x + 10)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [11 12 13]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(x * 2) 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [2 4 6]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;y = np.array([5, 6, 7])
+print(x + y)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [ 6  8 10]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you do math to numpy arrays, you get what you&amp;rsquo;d expect as an R user.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Wierd thing 2.1: note that the &lt;code&gt;packagename.function()&lt;/code&gt; form is equivalent to &lt;code&gt;packagename::function()&lt;/code&gt; in R, but unlike R, it is always required.  That is, as far as I know, there is nothing you can do to make &lt;code&gt;array([1,2,3])&lt;/code&gt; work without the preceding &lt;code&gt;np.&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;default-assignment-behavior-is-aliasing&#34;&gt;Default assignment behavior is aliasing&lt;/h1&gt;
+
+&lt;p&gt;I&amp;rsquo;m still trying to wrap my mind around this one, so rather than trying to explain it, let me show you an example first:&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;R Code:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-r&#34;&gt;# R
+a1 = c(1,2,3)
+a2 = a1
+a2[1] = 100
+a1
+a2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [1] 1 2 3
+## [1] 100   2   3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;a1&lt;/code&gt; is, of course, unchanged by changing a value in &lt;code&gt;a2&lt;/code&gt;.  Let&amp;rsquo;s see if that&amp;rsquo;s true in Python.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Equivalent in Python:&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Python
+import numpy as np
+a1 = np.array([1,2,3])
+a2 = a1
+a2[1] = 100
+print(a1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [  1 100   3]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(a2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [  1 100   3]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Changing a value in &lt;code&gt;a2&lt;/code&gt; &lt;em&gt;changes&lt;/em&gt; the same value in &lt;code&gt;a1&lt;/code&gt;! In this case, &lt;code&gt;a2&lt;/code&gt; is an &lt;em&gt;alias&lt;/em&gt; of &lt;code&gt;a1&lt;/code&gt;, not a copy. This only happens when you do &lt;code&gt;object1 = object2&lt;/code&gt; and not when you do something to &lt;code&gt;object2&lt;/code&gt; as you&amp;rsquo;re assigning it. Here&amp;rsquo;s an example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Python
+import numpy as np
+a1 = np.array([1,2,3])
+a2 = a1 + 2
+a2[1] = 100
+print(a1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [1 2 3]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;print(a2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;## [  3 100   5]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now &lt;code&gt;a2&lt;/code&gt; is a separate object from &lt;code&gt;a1&lt;/code&gt; instead of just an alias. If you want to make an exact copy, you have to do that explicitly with &lt;code&gt;a2 = np.copy(a1)&lt;/code&gt; or &lt;code&gt;a2 = a1[:]&lt;/code&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;try-python&#34;&gt;Try Python!&lt;/h1&gt;
+
+&lt;p&gt;As many people in the data science world have pointed out, it&amp;rsquo;s not R vs. Python, it&amp;rsquo;s &lt;a href=&#34;https://www.datasciencecentral.com/profiles/blogs/r-vs-python-r-and-python-and-something-else&#34; target=&#34;_blank&#34;&gt;R &lt;em&gt;and&lt;/em&gt; Python&lt;/a&gt;. From my limited experience, the benefits of Python over R I&amp;rsquo;ve are that it seems to be faster, defining classes and functions seems less painful, and it&amp;rsquo;s great at working with strings out of the box. I don&amp;rsquo;t really plan on working in Python more unless I have to, but knowing a bit of the language will be useful for talking shop with people who use it!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>PhDrinking Podcast</title>
+      <link>/2018/05/01/phdrinking-podcast/</link>
+      <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/05/01/phdrinking-podcast/</guid>
+      <description>&lt;p&gt;I had the wonderful opportunity to be on Sadie Wit&amp;rsquo;s &lt;a href=&#34;https://soundcloud.com/phdrinking&#34; target=&#34;_blank&#34;&gt;PhDrinking podcast&lt;/a&gt;.  Check out the episode &lt;a href=&#34;https://soundcloud.com/phdrinking/tea-totaling&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt; and subscribe to PhDrinking wherever great podcasts are casted.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Cupcake Update</title>
       <link>/2018/04/10/cupcake-update/</link>
       <pubDate>Tue, 10 Apr 2018 00:00:00 +0000</pubDate>
