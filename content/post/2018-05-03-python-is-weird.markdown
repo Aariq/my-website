@@ -8,7 +8,9 @@ categories:
 tags:
   - Python
   - R
-draft: true
+draft: false
+header:
+  image: "headers/python_is_weird.png"
 ---
 
 
@@ -16,7 +18,7 @@ Last semester I took a class that used Python. The students were about half engi
 
 So for anyone else making the leap from R to Python, here are three things that are going to feel really weird about Python.
 
-# 1. Indexing is **not** intuitive
+# 1. Indexing is not intuitive in Python
 Let me just show you first and see if you can figure out what is going on:
 
 *R Code:*
@@ -34,6 +36,7 @@ x[4:5]
 ## [1] 10 20 30
 ## [1] 40 50
 ```
+Cool, cool.
 
 *Equivalent in Python:*
 
@@ -70,12 +73,12 @@ print(x[3:5])
 ```
 ## [40, 50]
 ```
-Two things are really weird about this.  First, the first position in the vector is not position 1, it is position 0.  Second, `x[3:4]` returns only a single number.  Why?!  Because in Python, the second number in the index is not inclusive, so if you want to get the 4th and 5th values of `x` (index positions 3 and 4 in Python world), then you have to use `x[3:5]` **even though there is NO POSITION 5**.  Terrible.
+Wait, what? Two things are really weird about this.  First, the first position in the vector is not position 1, it is position 0.  Second, `x[3:4]` returns only a single number.  Why?!  Because in Python, the second number in the index is not inclusive, so if you want to get the 4th and 5th values of `x` (index positions 3 and 4 in Python world), then you have to use `x[3:5]` **even though there is NO POSITION 5**.  Terrible.
 
 *Weird thing 1.1: Python is much more geared toward writing programs than R.  That means you can't really run python code one line at a time like R and you have to explicitly `print()` things that you want to be output to the screen.*
 
-# You need a package just to do vector math
-R is built for doing math and statistics, so vectors and matrices are built in and built so that you can do math on them!
+# 2. You need to load a package just to do vector math
+R is built for doing math and statistics, so vectors and matrices are built in and you can do math on them!
 
 *R Code:*
 
@@ -126,7 +129,7 @@ print(x + y)
 ## [1, 2, 3, 5, 6, 7]
 ```
 
-Clearly `+` is doing something different, it's concatenating `x` and `10`.  Similarly, `*` is not multiplying, but concatenating three `x`s in a row. This may seem totally ridiculous, but when you're working with strings, it's actually pretty freakin' great.
+Clearly `+` is doing something different in base Python---it's concatenating `x` and `10`.  Similarly, `*` is not multiplying, but concatenating three `x`s in a row. This is completely ridiculous behavior for numbers, but when you're working with strings, it's actually pretty freakin' great.
 
 
 ```python
@@ -137,7 +140,7 @@ print(("Yay "+"Python! ") * 5)
 ```
 ## Yay Python! Yay Python! Yay Python! Yay Python! Yay Python!
 ```
-If you want numerical vectors to work like they should, you have to use a special kind of vector called a numpy array.  Numpy is a package for Python that provides a bunch of functions that work on numbers.
+If you want numerical vectors to work like they should, you have to use a special kind of vector called a **numpy array**.  Numpy is a package for Python that provides a bunch of functions that work on numbers.
 
 ```python
 # Python
@@ -170,7 +173,7 @@ If you do math to numpy arrays, you get what you'd expect as an R user.
 
 *Wierd thing 2.1: note that the `packagename.function()` form is equivalent to `packagename::function()` in R, but unlike R, it is always required.  That is, as far as I know, there is nothing you can do to make `array([1,2,3])` work without the preceding `np.`*
 
-# Default assignment behavior is aliasing
+# 3. Default assignment behavior is aliasing
 
 I'm still trying to wrap my mind around this one, so rather than trying to explain it, let me show you an example first:
 
@@ -213,7 +216,7 @@ print(a2)
 ```
 ## [  1 100   3]
 ```
-Changing a value in `a2` *changes* the same value in `a1`! In this case, `a2` is an *alias* of `a1`, not a copy. This only happens when you do `object1 = object2` and not when you do something to `object2` as you're assigning it. Here's an example:
+Changing a value in `a2` *changes* the same value in `a1`! In this case, `a2` is an *alias* of `a1`, not a copy. This only happens when you do `object1 = object2` and not when you do something to `object2` as you're assigning it. Here's another example:
 
 
 ```python
@@ -236,7 +239,7 @@ print(a2)
 ```
 ## [  3 100   5]
 ```
-Now `a2` is a separate object from `a1` instead of just an alias. If you want to make an exact copy, you have to do that explicitly with `a2 = np.copy(a1)` or `a2 = a1[:]`
+Now `a2` is a separate object from `a1` instead of just an alias. If you want to make an *exact* copy, you have to do that explicitly with `a2 = np.copy(a1)` or `a2 = a1[:]`
 
 # Try Python!
 As many people in the data science world have pointed out, it's not R vs. Python, it's [R *and* Python](https://www.datasciencecentral.com/profiles/blogs/r-vs-python-r-and-python-and-something-else). From my limited experience, the benefits of Python over R I've are that it seems to be faster, defining classes and functions seems less painful, and it's great at working with strings out of the box. I don't really plan on working in Python more unless I have to, but knowing a bit of the language will be useful for talking shop with people who use it!

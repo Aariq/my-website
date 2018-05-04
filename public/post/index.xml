@@ -22,7 +22,7 @@
 
 &lt;p&gt;So for anyone else making the leap from R to Python, here are three things that are going to feel really weird about Python.&lt;/p&gt;
 
-&lt;h1 id=&#34;1-indexing-is-not-intuitive&#34;&gt;1. Indexing is &lt;strong&gt;not&lt;/strong&gt; intuitive&lt;/h1&gt;
+&lt;h1 id=&#34;1-indexing-is-not-intuitive-in-python&#34;&gt;1. Indexing is not intuitive in Python&lt;/h1&gt;
 
 &lt;p&gt;Let me just show you first and see if you can figure out what is going on:&lt;/p&gt;
 
@@ -39,6 +39,8 @@ x[4:5]
 ## [1] 10 20 30
 ## [1] 40 50
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Cool, cool.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Equivalent in Python:&lt;/em&gt;&lt;/p&gt;
 
@@ -68,13 +70,13 @@ print(x[1])
 &lt;pre&gt;&lt;code&gt;## [40, 50]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Two things are really weird about this.  First, the first position in the vector is not position 1, it is position 0.  Second, &lt;code&gt;x[3:4]&lt;/code&gt; returns only a single number.  Why?!  Because in Python, the second number in the index is not inclusive, so if you want to get the 4th and 5th values of &lt;code&gt;x&lt;/code&gt; (index positions 3 and 4 in Python world), then you have to use &lt;code&gt;x[3:5]&lt;/code&gt; &lt;strong&gt;even though there is NO POSITION 5&lt;/strong&gt;.  Terrible.&lt;/p&gt;
+&lt;p&gt;Wait, what? Two things are really weird about this.  First, the first position in the vector is not position 1, it is position 0.  Second, &lt;code&gt;x[3:4]&lt;/code&gt; returns only a single number.  Why?!  Because in Python, the second number in the index is not inclusive, so if you want to get the 4th and 5th values of &lt;code&gt;x&lt;/code&gt; (index positions 3 and 4 in Python world), then you have to use &lt;code&gt;x[3:5]&lt;/code&gt; &lt;strong&gt;even though there is NO POSITION 5&lt;/strong&gt;.  Terrible.&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;Weird thing 1.1: Python is much more geared toward writing programs than R.  That means you can&amp;rsquo;t really run python code one line at a time like R and you have to explicitly &lt;code&gt;print()&lt;/code&gt; things that you want to be output to the screen.&lt;/em&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;you-need-a-package-just-to-do-vector-math&#34;&gt;You need a package just to do vector math&lt;/h1&gt;
+&lt;h1 id=&#34;2-you-need-to-load-a-package-just-to-do-vector-math&#34;&gt;2. You need to load a package just to do vector math&lt;/h1&gt;
 
-&lt;p&gt;R is built for doing math and statistics, so vectors and matrices are built in and built so that you can do math on them!&lt;/p&gt;
+&lt;p&gt;R is built for doing math and statistics, so vectors and matrices are built in and you can do math on them!&lt;/p&gt;
 
 &lt;p&gt;&lt;em&gt;R Code:&lt;/em&gt;&lt;/p&gt;
 
@@ -117,7 +119,7 @@ print(x + y)
 &lt;pre&gt;&lt;code&gt;## [1, 2, 3, 5, 6, 7]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Clearly &lt;code&gt;+&lt;/code&gt; is doing something different, it&amp;rsquo;s concatenating &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;10&lt;/code&gt;.  Similarly, &lt;code&gt;*&lt;/code&gt; is not multiplying, but concatenating three &lt;code&gt;x&lt;/code&gt;s in a row. This may seem totally ridiculous, but when you&amp;rsquo;re working with strings, it&amp;rsquo;s actually pretty freakin&amp;rsquo; great.&lt;/p&gt;
+&lt;p&gt;Clearly &lt;code&gt;+&lt;/code&gt; is doing something different in base Python&amp;mdash;it&amp;rsquo;s concatenating &lt;code&gt;x&lt;/code&gt; and &lt;code&gt;10&lt;/code&gt;.  Similarly, &lt;code&gt;*&lt;/code&gt; is not multiplying, but concatenating three &lt;code&gt;x&lt;/code&gt;s in a row. This is completely ridiculous behavior for numbers, but when you&amp;rsquo;re working with strings, it&amp;rsquo;s actually pretty freakin&amp;rsquo; great.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Python
 print((&amp;quot;Yay &amp;quot;+&amp;quot;Python! &amp;quot;) * 5)
@@ -126,7 +128,7 @@ print((&amp;quot;Yay &amp;quot;+&amp;quot;Python! &amp;quot;) * 5)
 &lt;pre&gt;&lt;code&gt;## Yay Python! Yay Python! Yay Python! Yay Python! Yay Python!
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;If you want numerical vectors to work like they should, you have to use a special kind of vector called a numpy array.  Numpy is a package for Python that provides a bunch of functions that work on numbers.&lt;/p&gt;
+&lt;p&gt;If you want numerical vectors to work like they should, you have to use a special kind of vector called a &lt;strong&gt;numpy array&lt;/strong&gt;.  Numpy is a package for Python that provides a bunch of functions that work on numbers.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Python
 import numpy as np
@@ -154,7 +156,7 @@ print(x + y)
 
 &lt;p&gt;&lt;em&gt;Wierd thing 2.1: note that the &lt;code&gt;packagename.function()&lt;/code&gt; form is equivalent to &lt;code&gt;packagename::function()&lt;/code&gt; in R, but unlike R, it is always required.  That is, as far as I know, there is nothing you can do to make &lt;code&gt;array([1,2,3])&lt;/code&gt; work without the preceding &lt;code&gt;np.&lt;/code&gt;&lt;/em&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;default-assignment-behavior-is-aliasing&#34;&gt;Default assignment behavior is aliasing&lt;/h1&gt;
+&lt;h1 id=&#34;3-default-assignment-behavior-is-aliasing&#34;&gt;3. Default assignment behavior is aliasing&lt;/h1&gt;
 
 &lt;p&gt;I&amp;rsquo;m still trying to wrap my mind around this one, so rather than trying to explain it, let me show you an example first:&lt;/p&gt;
 
@@ -193,7 +195,7 @@ print(a1)
 &lt;pre&gt;&lt;code&gt;## [  1 100   3]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Changing a value in &lt;code&gt;a2&lt;/code&gt; &lt;em&gt;changes&lt;/em&gt; the same value in &lt;code&gt;a1&lt;/code&gt;! In this case, &lt;code&gt;a2&lt;/code&gt; is an &lt;em&gt;alias&lt;/em&gt; of &lt;code&gt;a1&lt;/code&gt;, not a copy. This only happens when you do &lt;code&gt;object1 = object2&lt;/code&gt; and not when you do something to &lt;code&gt;object2&lt;/code&gt; as you&amp;rsquo;re assigning it. Here&amp;rsquo;s an example:&lt;/p&gt;
+&lt;p&gt;Changing a value in &lt;code&gt;a2&lt;/code&gt; &lt;em&gt;changes&lt;/em&gt; the same value in &lt;code&gt;a1&lt;/code&gt;! In this case, &lt;code&gt;a2&lt;/code&gt; is an &lt;em&gt;alias&lt;/em&gt; of &lt;code&gt;a1&lt;/code&gt;, not a copy. This only happens when you do &lt;code&gt;object1 = object2&lt;/code&gt; and not when you do something to &lt;code&gt;object2&lt;/code&gt; as you&amp;rsquo;re assigning it. Here&amp;rsquo;s another example:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Python
 import numpy as np
@@ -212,7 +214,7 @@ print(a1)
 &lt;pre&gt;&lt;code&gt;## [  3 100   5]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Now &lt;code&gt;a2&lt;/code&gt; is a separate object from &lt;code&gt;a1&lt;/code&gt; instead of just an alias. If you want to make an exact copy, you have to do that explicitly with &lt;code&gt;a2 = np.copy(a1)&lt;/code&gt; or &lt;code&gt;a2 = a1[:]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Now &lt;code&gt;a2&lt;/code&gt; is a separate object from &lt;code&gt;a1&lt;/code&gt; instead of just an alias. If you want to make an &lt;em&gt;exact&lt;/em&gt; copy, you have to do that explicitly with &lt;code&gt;a2 = np.copy(a1)&lt;/code&gt; or &lt;code&gt;a2 = a1[:]&lt;/code&gt;&lt;/p&gt;
 
 &lt;h1 id=&#34;try-python&#34;&gt;Try Python!&lt;/h1&gt;
 
