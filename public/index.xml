@@ -11,6 +11,16 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Can pests rescue tea quality from climate change?</title>
+      <link>/talk/can-pests-rescue-tea-quality-from-climate-change/</link>
+      <pubDate>Fri, 04 May 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/can-pests-rescue-tea-quality-from-climate-change/</guid>
+      <description>&lt;p&gt;This invited talk is part of a side-event to the FAO Intergovernmental Group on Tea&amp;rsquo;s session at the 2nd annual International Tea Expo in Hangzhou, China organized by TRI CAAS.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Python is Weird (an unabashedly biased intro to Python for R users)</title>
       <link>/2018/05/03/python-is-weird/</link>
       <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
@@ -18,7 +28,7 @@
       <guid>/2018/05/03/python-is-weird/</guid>
       <description>
 
-&lt;p&gt;Last semester I took a class that used Python. The students were about half engineers and half biologists.  The vast majority of the biologists knew R to varying degrees, but had no experience with Python, and the engineers seemed to generally have some experience with Python, or at least with languages more similar to it than R. I wish that the instructor could have taught every Python lecture like &amp;ldquo;Ok, today we&amp;rsquo;re going to learn the Python equivalent of doing ____ in R&amp;rdquo;, but of course that wouldn&amp;rsquo;t be fair to about half the students.&lt;/p&gt;
+&lt;p&gt;Last semester I took a class that used Python. It was my first time really seriously using any programing language other than R. The students were about half engineers and half biologists.  The vast majority of the biologists knew R to varying degrees, but had no experience with Python, and the engineers seemed to generally have some experience with Python, or at least with languages more similar to it than R. I wish that the instructor could have taught every Python lecture like &amp;ldquo;Ok, today we&amp;rsquo;re going to learn the Python equivalent of doing ____ in R&amp;rdquo;, but of course that wouldn&amp;rsquo;t be fair to about half the students.&lt;/p&gt;
 
 &lt;p&gt;So for anyone else making the leap from R to Python, here are three things that are going to feel really weird about Python.&lt;/p&gt;
 
@@ -355,6 +365,15 @@ df %&amp;gt;%
 &lt;p&gt;Now that I have a data set I’m pretty happy with, the next step of the project is to do some exploratory data analysis to see what properties it has that are relevant to the sorts of multivariate data that ecologists deal with. Then on to statistical analyses to figure out what ingredients make cupcakes different from muffins. Is it sweetness? Is it something to do with leavening? Butter vs oil? Leave your predictions in the comments below!&lt;/p&gt;
 &lt;/div&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Combined Effects of Drought and Herbivory on Tea Metabolism</title>
+      <link>/talk/4th-yr-dept-talk/</link>
+      <pubDate>Fri, 02 Mar 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/4th-yr-dept-talk/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -770,25 +789,6 @@ raw.data.2 &amp;lt;- raw.data %&amp;gt;%
 &lt;p&gt;There are already quite a few studies on how drought stress affects tea plants and how insect herbivory affects tea plants, but fewer studies that investigate the interaction.  We also have the ability to measure hundreds of metabolites in tea thanks to the efforts of our collaborators in the Robbat lab.  This offered a great opportunity to better understand the response of tea plants to herbivory under different degrees of drought stress.&lt;/p&gt;
 
 &lt;p&gt;We manipulated rainfall in the BACE plots by using corrugated poly carbonate roofing slats at different spacing to create plots that got either 100%, 75%, or 50% of ambient rainfall.  We planted tea plants in these plots and after a summer of growing in these three precipitation regimes, we treated half of the plants with methyl jasmonate, a plant hormone used to mimic insect herbivory, and measured photosynthesis, volatile metabolites, and non-volatile secondary metabolites.  We are currently working on data analysis.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>A novel, high-throughput method for sampling volatiles in the field</title>
-      <link>/talk/esa-dcse/</link>
-      <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/talk/esa-dcse/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Can Insect Damage Improve Tea Quality In a Changing Climate?</title>
-      <link>/talk/tufts-gsc/</link>
-      <pubDate>Fri, 24 Feb 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/talk/tufts-gsc/</guid>
-      <description>&lt;p&gt;🏆 First place in 5 min talk category.&lt;/p&gt;
 </description>
     </item>
     
