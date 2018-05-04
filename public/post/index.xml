@@ -612,7 +612,7 @@ Figure 3: WEKA segmentation window with ROIs selected
 &lt;h3&gt;Exporting results&lt;/h3&gt;
 &lt;p&gt;Exporting results in a numeric format turned out to be a lot more difficult than we thought it would. The manual way of doing this through the FIJI menus is &lt;em&gt;Analyze &amp;gt; Histogram&lt;/em&gt; which opens a histogram window, then clicking “list” to get a results window with the number of pixels in each class for that image, then copying and pasting into Excel. This was far too labor intensive and error-prone to be appropriate for hundreds of images. We needed a better way, which led us to FIJI macros.&lt;/p&gt;
 &lt;p&gt;Building a macro turned out to be relatively painless, even though neither Michelle nor I had any experience coding in any language other than R. Through a combination of forum posts and using the documentation for the &lt;a href=&#34;http://imagej.net/developer/macro/functions.html&#34;&gt;ImageJ macro language&lt;/a&gt; as a reference, we were able to create a macro that opens results stacks (three-color images) and exports a text file containing the number of pixels in each class for each image in the stack.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;//ImageJ macro for exporting numerical results from classified image stacks
+&lt;pre class=&#34;javascript&#34;&gt;&lt;code&gt;//ImageJ macro for exporting numerical results from classified image stacks
 inpath = getDirectory(&amp;quot;Analyzed Stacks&amp;quot;);
 File.makeDirectory(inpath + &amp;quot;//Results//&amp;quot;);
 //outpath = getDirectory(&amp;quot;Results&amp;quot;);

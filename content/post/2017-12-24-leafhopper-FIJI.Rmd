@@ -66,7 +66,7 @@ Exporting results in a numeric format turned out to be a lot more difficult than
 
 Building a macro turned out to be relatively painless, even though neither Michelle nor I had any experience coding in any language other than R.  Through a combination of forum posts and using the documentation for the [ImageJ macro language](http://imagej.net/developer/macro/functions.html) as a reference, we were able to create a macro that opens results stacks (three-color images) and exports a text file containing the number of pixels in each class for each image in the stack.
 
-```
+```{javascript}
 //ImageJ macro for exporting numerical results from classified image stacks
 inpath = getDirectory("Analyzed Stacks");
 File.makeDirectory(inpath + "//Results//");
