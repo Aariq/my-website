@@ -436,16 +436,16 @@ head(input.all, 10)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 40
 ##    Obs        HHMMSS FTime `EBal?` Photo    Cond    Ci Trmmol  VpdL CTleaf
 ##    &amp;lt;chr&amp;gt;      &amp;lt;time&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
-##  1 08:30:38 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
-##  2 08:32:37 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
-##  3 08:40:20 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
-##  4 08:40:20 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
-##  5 08:40:20 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
-##  6 08:40:20 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
-##  7 08:42:11 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
-##  8 08:43:13 …    NA    NA       NA NA    NA        NA  NA     NA      NA  
-##  9 1          08:43   932.       0  6.62  0.0589  202.  0.724  1.25   22.3
-## 10 2          08:43   937.       0  6.99  0.0594  193.  0.731  1.25   22.3
+##  1 08:30:38 …    NA     NA      NA NA    NA         NA NA     NA      NA  
+##  2 08:32:37 …    NA     NA      NA NA    NA         NA NA     NA      NA  
+##  3 08:40:20 …    NA     NA      NA NA    NA         NA NA     NA      NA  
+##  4 08:40:20 …    NA     NA      NA NA    NA         NA NA     NA      NA  
+##  5 08:40:20 …    NA     NA      NA NA    NA         NA NA     NA      NA  
+##  6 08:40:20 …    NA     NA      NA NA    NA         NA NA     NA      NA  
+##  7 08:42:11 …    NA     NA      NA NA    NA         NA NA     NA      NA  
+##  8 08:43:13 …    NA     NA      NA NA    NA         NA NA     NA      NA  
+##  9 1          08:43    932       0  6.62  0.0589   202  0.724  1.25   22.3
+## 10 2          08:43    937       0  6.99  0.0594   193  0.731  1.25   22.3
 ## # ... with 30 more variables: Area &amp;lt;int&amp;gt;, BLC_1 &amp;lt;dbl&amp;gt;, StmRat &amp;lt;int&amp;gt;,
 ## #   BLCond &amp;lt;dbl&amp;gt;, Tair &amp;lt;dbl&amp;gt;, Tleaf &amp;lt;dbl&amp;gt;, TBlk &amp;lt;dbl&amp;gt;, CO2R &amp;lt;dbl&amp;gt;,
 ## #   CO2S &amp;lt;dbl&amp;gt;, H2OR &amp;lt;dbl&amp;gt;, H2OS &amp;lt;dbl&amp;gt;, RH_R &amp;lt;dbl&amp;gt;, RH_S &amp;lt;dbl&amp;gt;,
@@ -476,16 +476,16 @@ head(input.all, 10)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 41
 ##    remark      Obs   HHMMSS FTime `EBal?` Photo    Cond    Ci Trmmol  VpdL
 ##    &amp;lt;chr&amp;gt;       &amp;lt;chr&amp;gt; &amp;lt;time&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
-##  1 08:30:38 L… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA     NA   
-##  2 08:32:37 C… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA     NA   
-##  3 08:40:20 L… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA     NA   
-##  4 08:40:20 C… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA     NA   
-##  5 08:40:20 C… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA     NA   
-##  6 08:40:20 F… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA     NA   
-##  7 08:42:11 F… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA     NA   
-##  8 08:43:13 c… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA     NA   
-##  9 &amp;lt;NA&amp;gt;        1     08:43   932.       0  6.62  0.0589  202.  0.724  1.25
-## 10 &amp;lt;NA&amp;gt;        2     08:43   937.       0  6.99  0.0594  193.  0.731  1.25
+##  1 08:30:38 L… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA     NA   
+##  2 08:32:37 C… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA     NA   
+##  3 08:40:20 L… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA     NA   
+##  4 08:40:20 C… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA     NA   
+##  5 08:40:20 C… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA     NA   
+##  6 08:40:20 F… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA     NA   
+##  7 08:42:11 F… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA     NA   
+##  8 08:43:13 c… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA     NA   
+##  9 &amp;lt;NA&amp;gt;        1     08:43    932       0  6.62  0.0589   202  0.724  1.25
+## 10 &amp;lt;NA&amp;gt;        2     08:43    937       0  6.99  0.0594   193  0.731  1.25
 ## # ... with 31 more variables: CTleaf &amp;lt;dbl&amp;gt;, Area &amp;lt;int&amp;gt;, BLC_1 &amp;lt;dbl&amp;gt;,
 ## #   StmRat &amp;lt;int&amp;gt;, BLCond &amp;lt;dbl&amp;gt;, Tair &amp;lt;dbl&amp;gt;, Tleaf &amp;lt;dbl&amp;gt;, TBlk &amp;lt;dbl&amp;gt;,
 ## #   CO2R &amp;lt;dbl&amp;gt;, CO2S &amp;lt;dbl&amp;gt;, H2OR &amp;lt;dbl&amp;gt;, H2OS &amp;lt;dbl&amp;gt;, RH_R &amp;lt;dbl&amp;gt;,
@@ -499,7 +499,7 @@ input.all &amp;lt;- input.all %&amp;gt;% mutate(remark = str_replace_na(remark))
 
 IDpattern &amp;lt;- &amp;quot;[:lower:][:blank:]\\d+[:blank:][:lower:]&amp;quot;
 str_view(input.all$remark[1:10], IDpattern)&lt;/code&gt;&lt;/pre&gt;
-&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:960px;height:auto;&#34; class=&#34;str_view html-widget&#34;&gt;&lt;/div&gt;
+&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:960px;height:100%;&#34; class=&#34;str_view html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;html&#34;:&#34;&lt;ul&gt;\n  &lt;li&gt;08:30:38 Lamp: ParIn -&gt;  500 uml&lt;\/li&gt;\n  &lt;li&gt;08:32:37 CO2 Mixer: CO2R -&gt; 400 uml&lt;\/li&gt;\n  &lt;li&gt;08:40:20 Lamp: ParIn -&gt;  500 uml&lt;\/li&gt;\n  &lt;li&gt;08:40:20 CO2 Mixer: CO2R -&gt; 400 uml&lt;\/li&gt;\n  &lt;li&gt;08:40:20 Coolers: Off&lt;\/li&gt;\n  &lt;li&gt;08:40:20 Flow: Fixed -&gt; 500 umol/s&lt;\/li&gt;\n  &lt;li&gt;08:42:11 Flow: Fixed -&gt; 500 umol/s&lt;\/li&gt;\n  &lt;li&gt;08:43:13 &lt;span class=&#39;match&#39;&gt;c 4 a&lt;\/span&gt;&lt;\/li&gt;\n  &lt;li&gt;NA&lt;\/li&gt;\n  &lt;li&gt;NA&lt;\/li&gt;\n&lt;\/ul&gt;&#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;p&gt;Now that I’ve figure out a pattern that matches the ID’s I can use &lt;code&gt;str_extract()&lt;/code&gt; to move them to a new &lt;code&gt;sampleID&lt;/code&gt; column.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;input.all &amp;lt;- input.all %&amp;gt;%
@@ -509,16 +509,16 @@ head(input.all, 10)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 42
 ##    sampleID remark   Obs   HHMMSS FTime `EBal?` Photo    Cond    Ci Trmmol
 ##    &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;time&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt;
-##  1 &amp;lt;NA&amp;gt;     08:30:3… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA    
-##  2 &amp;lt;NA&amp;gt;     08:32:3… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA    
-##  3 &amp;lt;NA&amp;gt;     08:40:2… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA    
-##  4 &amp;lt;NA&amp;gt;     08:40:2… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA    
-##  5 &amp;lt;NA&amp;gt;     08:40:2… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA    
-##  6 &amp;lt;NA&amp;gt;     08:40:2… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA    
-##  7 &amp;lt;NA&amp;gt;     08:42:1… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA    
-##  8 c 4 a    08:43:1… &amp;lt;NA&amp;gt;     NA    NA       NA NA    NA        NA  NA    
-##  9 &amp;lt;NA&amp;gt;     NA       1     08:43   932.       0  6.62  0.0589  202.  0.724
-## 10 &amp;lt;NA&amp;gt;     NA       2     08:43   937.       0  6.99  0.0594  193.  0.731
+##  1 &amp;lt;NA&amp;gt;     08:30:3… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA    
+##  2 &amp;lt;NA&amp;gt;     08:32:3… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA    
+##  3 &amp;lt;NA&amp;gt;     08:40:2… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA    
+##  4 &amp;lt;NA&amp;gt;     08:40:2… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA    
+##  5 &amp;lt;NA&amp;gt;     08:40:2… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA    
+##  6 &amp;lt;NA&amp;gt;     08:40:2… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA    
+##  7 &amp;lt;NA&amp;gt;     08:42:1… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA    
+##  8 c 4 a    08:43:1… &amp;lt;NA&amp;gt;     NA     NA      NA NA    NA         NA NA    
+##  9 &amp;lt;NA&amp;gt;     NA       1     08:43    932       0  6.62  0.0589   202  0.724
+## 10 &amp;lt;NA&amp;gt;     NA       2     08:43    937       0  6.99  0.0594   193  0.731
 ## # ... with 32 more variables: VpdL &amp;lt;dbl&amp;gt;, CTleaf &amp;lt;dbl&amp;gt;, Area &amp;lt;int&amp;gt;,
 ## #   BLC_1 &amp;lt;dbl&amp;gt;, StmRat &amp;lt;int&amp;gt;, BLCond &amp;lt;dbl&amp;gt;, Tair &amp;lt;dbl&amp;gt;, Tleaf &amp;lt;dbl&amp;gt;,
 ## #   TBlk &amp;lt;dbl&amp;gt;, CO2R &amp;lt;dbl&amp;gt;, CO2S &amp;lt;dbl&amp;gt;, H2OR &amp;lt;dbl&amp;gt;, H2OS &amp;lt;dbl&amp;gt;,
@@ -543,16 +543,16 @@ head(output, 10)&lt;/code&gt;&lt;/pre&gt;
 &lt;pre&gt;&lt;code&gt;## # A tibble: 10 x 41
 ##    sampleID Obs   HHMMSS FTime `EBal?` Photo   Cond    Ci Trmmol  VpdL
 ##    &amp;lt;chr&amp;gt;    &amp;lt;chr&amp;gt; &amp;lt;time&amp;gt; &amp;lt;dbl&amp;gt;   &amp;lt;int&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;  &amp;lt;dbl&amp;gt; &amp;lt;dbl&amp;gt;
-##  1 c 4 a    1     08:43   932.       0  6.62 0.0589  202.  0.724  1.25
-##  2 c 4 a    2     08:43   937.       0  6.99 0.0594  193.  0.731  1.25
-##  3 c 4 a    3     08:44   942.       0  6.96 0.0596  195.  0.731  1.25
-##  4 c 4 b    4     08:44   978.       0  7.08 0.0783  237.  0.941  1.23
-##  5 c 4 b    5     08:44   985.       0  6.90 0.0791  242.  0.949  1.23
-##  6 c 4 b    6     08:44   990.       0  6.78 0.0801  246.  0.959  1.22
-##  7 c 4 c    7     08:45  1030.       0  6.34 0.0654  228.  0.805  1.25
-##  8 c 4 c    8     08:45  1037.       0  6.48 0.0648  222.  0.798  1.26
-##  9 c 4 c    9     08:45  1044.       0  6.51 0.0664  226.  0.819  1.26
-## 10 c 4 c    10    08:45  1050.       0  6.68 0.0678  225.  0.836  1.26
+##  1 c 4 a    1     08:43    932       0  6.62 0.0589   202  0.724  1.25
+##  2 c 4 a    2     08:43    937       0  6.99 0.0594   193  0.731  1.25
+##  3 c 4 a    3     08:44    942       0  6.96 0.0596   195  0.731  1.25
+##  4 c 4 b    4     08:44    978       0  7.08 0.0783   237  0.941  1.23
+##  5 c 4 b    5     08:44    985       0  6.9  0.0791   242  0.949  1.23
+##  6 c 4 b    6     08:44    990       0  6.78 0.0801   246  0.959  1.22
+##  7 c 4 c    7     08:45   1030       0  6.34 0.0654   228  0.805  1.25
+##  8 c 4 c    8     08:45   1037       0  6.48 0.0648   222  0.798  1.26
+##  9 c 4 c    9     08:45   1044       0  6.51 0.0664   226  0.819  1.26
+## 10 c 4 c    10    08:45   1050       0  6.68 0.0678   225  0.836  1.26
 ## # ... with 31 more variables: CTleaf &amp;lt;dbl&amp;gt;, Area &amp;lt;int&amp;gt;, BLC_1 &amp;lt;dbl&amp;gt;,
 ## #   StmRat &amp;lt;int&amp;gt;, BLCond &amp;lt;dbl&amp;gt;, Tair &amp;lt;dbl&amp;gt;, Tleaf &amp;lt;dbl&amp;gt;, TBlk &amp;lt;dbl&amp;gt;,
 ## #   CO2R &amp;lt;dbl&amp;gt;, CO2S &amp;lt;dbl&amp;gt;, H2OR &amp;lt;dbl&amp;gt;, H2OS &amp;lt;dbl&amp;gt;, RH_R &amp;lt;dbl&amp;gt;,
