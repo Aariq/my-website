@@ -1,0 +1,176 @@
+---
+title: Retrieve chemical retention indices from NIST with {webchem}!
+author: Eric R. Scott
+date: '2018-06-28'
+slug: webchem
+categories:
+  - Data Science
+  - Research
+tags:
+  - data-wrangling
+  - R
+  - webscraping
+  - GC/MS
+draft: no
+header:
+  caption: ''
+  image: ''
+  preview: yes
+---
+
+
+
+<p>My PhD has involved learning a lot more than I expected about analytical chemistry, and as I’ve been learning, I’ve been trying my best to make my life easier by writing R functions to help me out. Some of those functions have found a loving home in the <code>webchem</code> package, part of <a href="https://ropensci.org/">rOpenSci</a>.</p>
+<p>Papers that use gas chromatography to separate and measure chemicals often include a table of the compounds they found along with experimental retention indices and literature retention indices. A retention index is basically a corrected retention time—the time it took for the particular chemical to make it through the gas chromatograph, an instrument designed to separate chemicals, to the detector used to identify the compound (e.g. an FID or mass spectrometer). While the retention time for a particular compound might vary from run to run or beetween labs, the retention <strong>index</strong> should be comparable. Therefore, they are often used to help identify compounds and <a href="https://webbook.nist.gov/chemistry/">NIST</a> maintains a database of retention indeces for researchers to refer to.</p>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<img src="/img/kowalsick table.png" alt="An example table including literature retention indices from [Kowalsick, et al. 2014](https://doi.org/10.1016/j.chroma.2014.10.058)"  />
+<p class="caption">
+Figure 1: An example table including literature retention indices from <a href="https://doi.org/10.1016/j.chroma.2014.10.058">Kowalsick, et al. 2014</a>
+</p>
+</div>
+<p>Producing such a table of literature retention indices for potentially hundreds of metabolites by hand can be really tedious!</p>
+<p>Enter <code>nist_ri()</code>, a handy function I wrote to scrape retention index tables from NIST. Below, I work through an example of how you might use it. First, you need to install the latest version of <code>webchem</code>. My function isn’t in the latest CRAN release at the time of writing this blog post, but you can install from github like so:</p>
+<pre class="r"><code>devtools::install_github(&quot;ropensci/webchem&quot;)</code></pre>
+<p>To look up a retention index, you need a CAS identifier number for the chemical (For now, at least. Other search methods may be implemented in the future). If you don’t already have CAS numbers, you can get them using other functions in <code>webchem</code> from chemical names or other identifier numbers.</p>
+<pre class="r"><code>CASs &lt;- c(&quot;83-34-1&quot;, &quot;119-36-8&quot;, &quot;123-35-3&quot;, &quot;19700-21-1&quot;)</code></pre>
+<p>Load the package and take a look at the help file. You’ll see that we need to choose what type of retention index to scrape, what polarity of column, and what kind of teperature program. If you browse one of the <a href="https://webbook.nist.gov/cgi/cbook.cgi?ID=C78706&amp;Units=SI&amp;Mask=2000#Gas-Chrom">NIST sites for a compound</a>, this will make more sense.</p>
+<pre class="r"><code>library(webchem)
+?nist_ri</code></pre>
+<p>Let’s get Van Den Dool &amp; Kratz (AKA “linear”) retention indeces for non-polar columns using a temperature ramp. This might take a while, depending on your internet connection and how many CAS numbers you request data for. If a certain type of retention index doesn’t exist for a compound, the function will return <code>NA</code> for all columns but the CAS number.</p>
+<pre class="r"><code>RIs &lt;- nist_ri(CASs, &quot;linear&quot;, &quot;non-polar&quot;, &quot;ramp&quot;)
+head(RIs)</code></pre>
+<pre><code>##       CAS      type  phase   RI length      gas substrate diameter
+## 1 83-34-1 Capillary  SPB-5 1410     60     &lt;NA&gt;      &lt;NA&gt;     0.32
+## 2 83-34-1 Capillary DB-5MS 1380     30   Helium      &lt;NA&gt;     0.25
+## 3 83-34-1 Capillary  SE-54 1410     50   Helium      &lt;NA&gt;     0.32
+## 4 83-34-1 Capillary   DB-5 1381     30 Hydrogen      &lt;NA&gt;     0.25
+## 5 83-34-1 Capillary   DB-5 1389     30 Nitrogen      &lt;NA&gt;     0.25
+## 6 83-34-1 Capillary DB-5MS 1399     30     &lt;NA&gt;      &lt;NA&gt;     0.25
+##   thickness temp_start temp_end temp_rate hold_start hold_end
+## 1      1.00         40      230         3          2       10
+## 2      0.25         35      225        10          5       25
+## 3        NA         40      240         8          2        5
+## 4      0.25         35      270         5         NA       20
+## 5      0.25         30      250         3          2        2
+## 6      0.25         40      200        10          3       20
+##                               reference comment
+## 1                 Engel and Ratel, 2007 MSDC-RI
+## 2   Lozano P.R., Drake M., et al., 2007 MSDC-RI
+## 3    Schlutt B., Moran N., et al., 2007 MSDC-RI
+## 4            Alves, Pinto, et al., 2005 MSDC-RI
+## 5 Colahan-Sederstrom and Peterson, 2005 MSDC-RI
+## 6  Whetstine, Cadwallader, et al., 2005 MSDC-RI</code></pre>
+<p>You can see there are multiple retention indices (<code>RI</code>) for each CAS number. Let’s filter this down some more using some functions from <code>dplyr</code> and <code>stringr</code>.</p>
+<pre class="r"><code>library(dplyr)
+library(stringr)
+RIs_filtered &lt;- RIs %&gt;%
+  filter(gas == &quot;Helium&quot;,
+         between(length, 20, 30),
+         str_detect(phase, &quot;5&quot;),
+         diameter &lt; 0.3,
+         thickness == 0.25)
+head(RIs_filtered)</code></pre>
+<pre><code>##        CAS      type  phase     RI length    gas substrate diameter
+## 1  83-34-1 Capillary DB-5MS 1380.0     30 Helium      &lt;NA&gt;     0.25
+## 2  83-34-1 Capillary DB-5MS 1396.0     30 Helium      &lt;NA&gt;     0.25
+## 3  83-34-1 Capillary   DB-5 1391.0     30 Helium      &lt;NA&gt;     0.26
+## 4 119-36-8 Capillary   DB-5 1201.0     25 Helium      &lt;NA&gt;     0.25
+## 5 119-36-8 Capillary HP-5MS 1200.7     30 Helium      &lt;NA&gt;     0.25
+## 6 119-36-8 Capillary HP-5MS 1190.0     30 Helium      &lt;NA&gt;     0.25
+##   thickness temp_start temp_end temp_rate hold_start hold_end
+## 1      0.25         35      225        10          5       25
+## 2      0.25         35      200        10          5       30
+## 3      0.25         50      300         6          4       20
+## 4      0.25         60      200         2         NA       60
+## 5      0.25         80      300         4         NA       NA
+## 6      0.25         60      280         4          5       NA
+##                                 reference comment
+## 1     Lozano P.R., Drake M., et al., 2007 MSDC-RI
+## 2 Karagül-Yüceer, Vlahovich, et al., 2003 MSDC-RI
+## 3                Rostad and Pereira, 1986 MSDC-RI
+## 4                 Rout, Rao, et al., 2007 MSDC-RI
+## 5                Zeng, Zhao, et al., 2007 MSDC-RI
+## 6         Saroglou, Dorizas, et al., 2006 MSDC-RI</code></pre>
+<p>Now we could <code>summarise</code> to get an average of all the database entries…</p>
+<pre class="r"><code>RIs_filtered %&gt;% 
+  group_by(CAS) %&gt;% 
+  summarise(mean_RI = mean(RI))</code></pre>
+<pre><code>## # A tibble: 4 x 2
+##   CAS        mean_RI
+##   &lt;chr&gt;        &lt;dbl&gt;
+## 1 119-36-8     1193.
+## 2 123-35-3      990.
+## 3 19700-21-1   1430 
+## 4 83-34-1      1389</code></pre>
+<p>Or if we wanted to pick a single entry for each CAS number with the median RI, we could do that as well.</p>
+<pre class="r"><code>best_RIs &lt;- RIs_filtered %&gt;%
+  group_by(CAS) %&gt;% 
+  filter(RI == median(RI)) %&gt;% 
+  filter(row_number() == 1) %&gt;% 
+  select(CAS, RI, reference)
+best_RIs</code></pre>
+<pre><code>## # A tibble: 4 x 3
+## # Groups:   CAS [4]
+##   CAS           RI reference                             
+##   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;                                 
+## 1 83-34-1     1391 Rostad and Pereira, 1986              
+## 2 119-36-8    1191 Aligiannis, Kalpoutzakis, et al., 2004
+## 3 123-35-3     991 Maccioni, Baldini, et al., 2007       
+## 4 19700-21-1  1430 Dickschat, Wenzel, et al., 2004</code></pre>
+<p>You could then easily take this table and <code>*_join()</code> it to your GC/MS data, if you have a column for CAS#, and select the <code>RI</code> and <code>reference</code> columns, for example.</p>
+<pre class="r"><code>fake.data &lt;- data.frame(CAS = CASs,
+                 #Name = cts_convert(CASs, from = &quot;CAS&quot;, to = &quot;Chemical Name&quot;, first = TRUE),
+                 Name = c(&quot;skatole&quot;, &quot;methyl salicylate&quot;, &quot;beta-myrcene&quot;, &quot;geosmin&quot;),
+                 group_1_conc = round(abs(rnorm(4)), 3),
+                 group_2_conc = round(abs(rnorm(4)), 3))
+
+left_join(fake.data, best_RIs) %&gt;%
+  select(CAS, Name, RI, everything()) %&gt;% 
+  arrange(RI) %&gt;%
+  knitr::kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">CAS</th>
+<th align="left">Name</th>
+<th align="right">RI</th>
+<th align="right">group_1_conc</th>
+<th align="right">group_2_conc</th>
+<th align="left">reference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">123-35-3</td>
+<td align="left">beta-myrcene</td>
+<td align="right">991</td>
+<td align="right">0.639</td>
+<td align="right">0.747</td>
+<td align="left">Maccioni, Baldini, et al., 2007</td>
+</tr>
+<tr class="even">
+<td align="left">119-36-8</td>
+<td align="left">methyl salicylate</td>
+<td align="right">1191</td>
+<td align="right">0.844</td>
+<td align="right">2.237</td>
+<td align="left">Aligiannis, Kalpoutzakis, et al., 2004</td>
+</tr>
+<tr class="odd">
+<td align="left">83-34-1</td>
+<td align="left">skatole</td>
+<td align="right">1391</td>
+<td align="right">2.015</td>
+<td align="right">0.706</td>
+<td align="left">Rostad and Pereira, 1986</td>
+</tr>
+<tr class="even">
+<td align="left">19700-21-1</td>
+<td align="left">geosmin</td>
+<td align="right">1430</td>
+<td align="right">1.328</td>
+<td align="right">0.785</td>
+<td align="left">Dickschat, Wenzel, et al., 2004</td>
+</tr>
+</tbody>
+</table>
