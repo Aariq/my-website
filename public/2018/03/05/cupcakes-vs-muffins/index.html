@@ -364,8 +364,6 @@ Figure 1: SelectorGadget in action
 <div id="sys.sleep-is-your-friend" class="section level2">
 <h2>(<code>Sys.sleep()</code> is your friend)</h2>
 <p>So once I figured out how to pull in all the links to all the cupcake recipes, I started scraping ingredients from a small sample of them. After a few debugging runs, allrecipes.com stopped responding and I just kept getting error messages. After pulling my hair out trying to figure out how I broke my code, I realized that my IP was being blocked! Because of the speed of accessing the website or how many links I accessed, my IP was suspected of being a bot or something and was temporarily (<em>whew</em>) blocked. I turned to twitter and was reccomended an easy fix—create a custom <code>read_html_slow()</code> function that included <code>Sys.sleep(5)</code> which just makes R wait 5 seconds in between reading websites.</p>
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Make your own function with read_html followed by Sys.sleep(5) and then map using that?</p>&mdash; Sharon Machlis (@sharon000) <a href="https://twitter.com/sharon000/status/965808697346789378?ref_src=twsrc%5Etfw">February 20, 2018</a></blockquote>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <pre class="r"><code>library(rvest)
 read_html_slow &lt;- function(x, ...){

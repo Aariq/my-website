@@ -12,6 +12,7 @@ weight = 5
   interests = [
     "Plant-insect interactions",
     "Chemical ecology",
+    "Eco-Metabolomics",
     "Plant volatile sampling",
     "Statistics and programming in R",
     "Tea (as a hobby and a study system)"
