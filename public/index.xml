@@ -11,6 +11,15 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Can pests rescue tea quality from climate change?</title>
+      <link>/talk/can-pests-rescue-tea-quality/</link>
+      <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/talk/can-pests-rescue-tea-quality/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Retrieve chemical retention indices from NIST with {webchem}!</title>
       <link>/2018/06/28/webchem/</link>
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
@@ -140,32 +149,32 @@ left_join(fake.data, best_RIs) %&amp;gt;%
 &lt;td align=&#34;left&#34;&gt;123-35-3&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;beta-myrcene&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;991&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.148&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.045&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.961&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.359&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;Maccioni, Baldini, et al., 2007&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;119-36-8&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;methyl salicylate&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1191&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.569&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.259&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2.022&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.825&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;Aligiannis, Kalpoutzakis, et al., 2004&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;83-34-1&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;skatole&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1391&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.139&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.445&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.621&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.033&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;Rostad and Pereira, 1986&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;19700-21-1&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;geosmin&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1430&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.151&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.474&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.548&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.166&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;Dickschat, Wenzel, et al., 2004&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -467,6 +476,8 @@ Figure 1: SelectorGadget in action
 &lt;div id=&#34;sys.sleep-is-your-friend&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;(&lt;code&gt;Sys.sleep()&lt;/code&gt; is your friend)&lt;/h2&gt;
 &lt;p&gt;So once I figured out how to pull in all the links to all the cupcake recipes, I started scraping ingredients from a small sample of them. After a few debugging runs, allrecipes.com stopped responding and I just kept getting error messages. After pulling my hair out trying to figure out how I broke my code, I realized that my IP was being blocked! Because of the speed of accessing the website or how many links I accessed, my IP was suspected of being a bot or something and was temporarily (&lt;em&gt;whew&lt;/em&gt;) blocked. I turned to twitter and was reccomended an easy fix—create a custom &lt;code&gt;read_html_slow()&lt;/code&gt; function that included &lt;code&gt;Sys.sleep(5)&lt;/code&gt; which just makes R wait 5 seconds in between reading websites.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Make your own function with read_html followed by Sys.sleep(5) and then map using that?&lt;/p&gt;&amp;mdash; Sharon Machlis (@sharon000) &lt;a href=&#34;https://twitter.com/sharon000/status/965808697346789378?ref_src=twsrc%5Etfw&#34;&gt;February 20, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
 
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rvest)
 read_html_slow &amp;lt;- function(x, ...){
@@ -920,15 +931,6 @@ raw.data.2 &amp;lt;- raw.data %&amp;gt;%
 &lt;p&gt;This begs the question: Can microbial ripening ameliorate the impacts of monsoon rains on tea quality? One could imagine that many of the quality components of shu puer are microbially produced products, and the starting material has less of an impact on quality than the microbial community. On the other hand, the differences in secondary metabolites induced by monsoon rains could be a strong selective pressure on the microbial community and could further exacerbate the quality disparity between pre-monsoon and monsoon harvest tea.&lt;/p&gt;
 &lt;p&gt;I’m currently looking for undergraduates with an interest in microbiology to work on a pilot &lt;em&gt;in vitro&lt;/em&gt; tea fermentation method. Please &lt;a href=&#34;/#contact&#34;&gt;contact me&lt;/a&gt; if you’re interested!&lt;/p&gt;
 </description>
-    </item>
-    
-    <item>
-      <title>[poster] Generating and analyzing metabolomic data from tea plant volatiles</title>
-      <link>/talk/disc-poster/</link>
-      <pubDate>Wed, 08 Nov 2017 00:00:00 +0800</pubDate>
-      
-      <guid>/talk/disc-poster/</guid>
-      <description></description>
     </item>
     
   </channel>
