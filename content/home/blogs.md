@@ -25,6 +25,10 @@ weight = 23
 - [The science and nomenclature of tea processing. Part 1: Enzymatic browning](http://www.teageek.net/blog/2017/02/tea-terminology-part-1/)
 - [The science and nomenclature of tea processing. Part 2: Microbial ripening](http://www.teageek.net/blog/2017/02/science-nomenclature-tea-processing-part-2-microbial-ripening/)
 
+## Guest Lectures:
+
+- **Tea Chemistry, the Environment, and Health.** Guest lecture for *Medicinal Plants*, a [Tufts Experimental College](http://www.excollege.tufts.edu/) course taught by [John de la Parra](https://harvard.academia.edu/JohndelaParra). Spring 2018.
+
 ## Outreach Talks:
 
  - **Climate change and the quality of tea.** Taste of Science Boston. April 26, 2017.
