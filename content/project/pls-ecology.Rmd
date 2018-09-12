@@ -1,0 +1,28 @@
+---
+title: Use of partial least squares regression (PLS) in ecology
+date: '2018-09-12'
+slug: pls-ecology
+tags:
+  - R
+  - webscraping
+draft: no
+external_link: ''
+header:
+  caption: ''
+  image: ''
+highlight: yes
+image_preview: 'PLSvsPCA.png'
+math: no
+summary: PLS is a powerful multivariate regression method that has many applications for ecological data. When is it best used, what are its advantages, and how should you report your results?
+---
+As ecology datasets become increasingly larger due to citizen science, high-throughput methods, and remote and automated data collection technology, we need better methods to analyze multivariate data. A typical approach to multivariate data in ecology is to use principal components analysis, an unsupervised technique. Unsupervised techniques like PCA attempt to explain as much *variation* in the data as possible in fewer axes or 'latent variables' than there are variables in the data set.  Separation in a PCA score plot (of the two axes that explain the most variation in the data) are then often used to make some conclusions about clustering of data points into separate groups, or about the effects of some explanatory variable.  However, the variables that most strongly differentiate two groups, or most strongly co-vary with some explanatory variable are not necessarily the same variables loaded onto the PCA axes.
+
+Partial least squares regression (PLS, alternately 'projection to latent structures') is a supervised multivariate statistical technique. PLS, a supervised technique, attempts to explain *covariation* with a explanatory variable, and it's built with more variables than samples in mind. Because of that, it's been warmly adopted by analytic chemists and chemical ecologists, but I believe it has applications to other fields of ecology.
+
+```{r echo=FALSE, out.width="60%", fig.cap="A schematic of PCA (A) compared to PLS (B).  In a PCA score plot (right), the x axis is a combination of variables (in this example, the three metabolites) that explains the most variation in the data, regardless of group membership.  PLS, on the other-hand, attempts to explain the co-variation with an explanatory variable ('Treatment' in this example)."}
+knitr::include_graphics("/img/PLSvsPCA.png")
+```
+
+Unfortunately, researchers used to looking for visual separation in PCA score plots may be prone to misinterpreting PLS score plots because even when separation is not statistically significant, they may still show visual separation.
+
+In order to bring awareness to this algorithm and promote responsible use, I'm simulating different multivariate data scenarios using some [custom R functions](https://github.com/Aariq/chemhelper) to investigate it's properties and compare its performance to other statistical methods.  I'm also developing a 'best practices' for reporting results of PLS analyses, and finding some fun ecological and [non-ecological](http://www.ericrscott.com/2018/03/05/cupcakes-vs-muffins/) datasets to demonstrate its properties with.

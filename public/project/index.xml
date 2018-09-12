@@ -7,8 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Eric R. Scott</copyright>
-    <lastBuildDate>Wed, 13 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Sep 2018 00:00:00 +0000</lastBuildDate>
     <atom:link href="/project/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Use of partial least squares regression (PLS) in ecology</title>
+      <link>/project/pls-ecology/</link>
+      <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/pls-ecology/</guid>
+      <description>&lt;p&gt;As ecology datasets become increasingly larger due to citizen science, high-throughput methods, and remote and automated data collection technology, we need better methods to analyze multivariate data. A typical approach to multivariate data in ecology is to use principal components analysis, an unsupervised technique. Unsupervised techniques like PCA attempt to explain as much &lt;em&gt;variation&lt;/em&gt; in the data as possible in fewer axes or ‘latent variables’ than there are variables in the data set. Separation in a PCA score plot (of the two axes that explain the most variation in the data) are then often used to make some conclusions about clustering of data points into separate groups, or about the effects of some explanatory variable. However, the variables that most strongly differentiate two groups, or most strongly co-vary with some explanatory variable are not necessarily the same variables loaded onto the PCA axes.&lt;/p&gt;
+&lt;p&gt;Partial least squares regression (PLS, alternately ‘projection to latent structures’) is a supervised multivariate statistical technique. PLS, a supervised technique, attempts to explain &lt;em&gt;covariation&lt;/em&gt; with a explanatory variable, and it’s built with more variables than samples in mind. Because of that, it’s been warmly adopted by analytic chemists and chemical ecologists, but I believe it has applications to other fields of ecology.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/img/PLSvsPCA.png&#34; alt=&#34;A schematic of PCA (A) compared to PLS (B).  In a PCA score plot (right), the x axis is a combination of variables (in this example, the three metabolites) that explains the most variation in the data, regardless of group membership.  PLS, on the other-hand, attempts to explain the co-variation with an explanatory variable (&#39;Treatment&#39; in this example).&#34; width=&#34;60%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: A schematic of PCA (A) compared to PLS (B). In a PCA score plot (right), the x axis is a combination of variables (in this example, the three metabolites) that explains the most variation in the data, regardless of group membership. PLS, on the other-hand, attempts to explain the co-variation with an explanatory variable (‘Treatment’ in this example).
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Unfortunately, researchers used to looking for visual separation in PCA score plots may be prone to misinterpreting PLS score plots because even when separation is not statistically significant, they may still show visual separation.&lt;/p&gt;
+&lt;p&gt;In order to bring awareness to this algorithm and promote responsible use, I’m simulating different multivariate data scenarios using some &lt;a href=&#34;https://github.com/Aariq/chemhelper&#34;&gt;custom R functions&lt;/a&gt; to investigate it’s properties and compare its performance to other statistical methods. I’m also developing a ‘best practices’ for reporting results of PLS analyses, and finding some fun ecological and &lt;a href=&#34;http://www.ericrscott.com/2018/03/05/cupcakes-vs-muffins/&#34;&gt;non-ecological&lt;/a&gt; datasets to demonstrate its properties with.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Can fermentation rescue low-quality monsoon season tea?</title>

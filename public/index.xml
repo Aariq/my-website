@@ -11,6 +11,25 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Use of partial least squares regression (PLS) in ecology</title>
+      <link>/project/pls-ecology/</link>
+      <pubDate>Wed, 12 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/project/pls-ecology/</guid>
+      <description>&lt;p&gt;As ecology datasets become increasingly larger due to citizen science, high-throughput methods, and remote and automated data collection technology, we need better methods to analyze multivariate data. A typical approach to multivariate data in ecology is to use principal components analysis, an unsupervised technique. Unsupervised techniques like PCA attempt to explain as much &lt;em&gt;variation&lt;/em&gt; in the data as possible in fewer axes or ‘latent variables’ than there are variables in the data set. Separation in a PCA score plot (of the two axes that explain the most variation in the data) are then often used to make some conclusions about clustering of data points into separate groups, or about the effects of some explanatory variable. However, the variables that most strongly differentiate two groups, or most strongly co-vary with some explanatory variable are not necessarily the same variables loaded onto the PCA axes.&lt;/p&gt;
+&lt;p&gt;Partial least squares regression (PLS, alternately ‘projection to latent structures’) is a supervised multivariate statistical technique. PLS, a supervised technique, attempts to explain &lt;em&gt;covariation&lt;/em&gt; with a explanatory variable, and it’s built with more variables than samples in mind. Because of that, it’s been warmly adopted by analytic chemists and chemical ecologists, but I believe it has applications to other fields of ecology.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-1&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/img/PLSvsPCA.png&#34; alt=&#34;A schematic of PCA (A) compared to PLS (B).  In a PCA score plot (right), the x axis is a combination of variables (in this example, the three metabolites) that explains the most variation in the data, regardless of group membership.  PLS, on the other-hand, attempts to explain the co-variation with an explanatory variable (&#39;Treatment&#39; in this example).&#34; width=&#34;60%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: A schematic of PCA (A) compared to PLS (B). In a PCA score plot (right), the x axis is a combination of variables (in this example, the three metabolites) that explains the most variation in the data, regardless of group membership. PLS, on the other-hand, attempts to explain the co-variation with an explanatory variable (‘Treatment’ in this example).
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Unfortunately, researchers used to looking for visual separation in PCA score plots may be prone to misinterpreting PLS score plots because even when separation is not statistically significant, they may still show visual separation.&lt;/p&gt;
+&lt;p&gt;In order to bring awareness to this algorithm and promote responsible use, I’m simulating different multivariate data scenarios using some &lt;a href=&#34;https://github.com/Aariq/chemhelper&#34;&gt;custom R functions&lt;/a&gt; to investigate it’s properties and compare its performance to other statistical methods. I’m also developing a ‘best practices’ for reporting results of PLS analyses, and finding some fun ecological and &lt;a href=&#34;http://www.ericrscott.com/2018/03/05/cupcakes-vs-muffins/&#34;&gt;non-ecological&lt;/a&gt; datasets to demonstrate its properties with.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>The importance of insect herbivore density to induced metabolite blends in tea plants (Camellia sinensis) and implications for tea quality.</title>
       <link>/talk/entsoc-2018-talk/</link>
       <pubDate>Sun, 12 Aug 2018 00:00:00 +0000</pubDate>
@@ -218,32 +237,32 @@ left_join(fake.data, best_RIs) %&amp;gt;%
 &lt;td align=&#34;left&#34;&gt;123-35-3&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;beta-myrcene&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;991&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.311&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.462&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.131&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.578&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;Maccioni, Baldini, et al., 2007&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;119-36-8&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;methyl salicylate&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1191&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.920&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.581&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.026&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.457&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;Aligiannis, Kalpoutzakis, et al., 2004&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;83-34-1&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;skatole&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1391&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.242&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.369&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.037&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.459&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;Rostad and Pereira, 1986&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;19700-21-1&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;geosmin&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1430&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.449&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.144&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.699&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.391&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;Dickschat, Wenzel, et al., 2004&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
@@ -944,29 +963,6 @@ raw.data.2 &amp;lt;- raw.data %&amp;gt;%
   spread(key = Type, value = Pixels)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;And finished! With all the image stacks analyzed using our classifier, numeric results exported using our custom macro, and then read into R and tidied using our R script, we have data ready for statistical analysis!&lt;/p&gt;
 &lt;/div&gt;
-&lt;/div&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Making a website in RStudio</title>
-      <link>/2017/12/19/making-a-website-in-rstudio/</link>
-      <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
-      
-      <guid>/2017/12/19/making-a-website-in-rstudio/</guid>
-      <description>&lt;p&gt;I’ve always thought I should eventually have a professional website for job hunting, but recently I’ve realized that it would be nice to have somewhere to collect my thoughts and contributions all in one place. Before having a website of my own, I generally shared updates and thoughts on &lt;a href=&#34;https://twitter.com/LeafyEricScott&#34;&gt;Twitter&lt;/a&gt; and on &lt;a href=&#34;#blogs&#34;&gt;other people’s blogs&lt;/a&gt;, which I will still continue to do, but having everything I do in one place seems like a good idea. I kept putting off making a website until I was recently encouraged by a combination of envy of my &lt;a href=&#34;https://www.rachaelebonoan.com/&#34;&gt;officemate’s awesome looking website&lt;/a&gt;, and learning that one could make a website using R Studio and the &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown&lt;/a&gt; R package. I just spent a semester learning a ton about R Markdown, the file type blogdown uses to construct websites, for a &lt;a href=&#34;https://github.com/Aariq/biostats-recitation&#34;&gt;biostatistics course&lt;/a&gt; I was teaching, so I figured using R Markdown to make a website would be relatively easy. Fortunately, I was correct! I spent about 3-4 work days initially getting this website working and customized, and it was relatively painless. Compared to, say WordPress, the impressiveness-to-effort ratio is much higher, in my opinion.&lt;/p&gt;
-&lt;div id=&#34;getting-started-with-blogdown&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Getting started with Blogdown&lt;/h2&gt;
-&lt;p&gt;Basically blogdown builds a website from a series of Markdown or R Markdown documents. Markdown and the more R-specific version, R Markdown, are really simple languages for creating formatted HTML documents. For example, you can create headers like the one at the start of this paragraph simply by adding different numbers of “#”, and turn a word into a link with square brackets followed by a URL. When the Markdown is converted to HTML, those special characters get converted into the relevant HTML code. Blogdown adds some features to R Studio that make it easier to import themes to help you get started, write new blog posts, and view changes to your website “live.”&lt;/p&gt;
-&lt;p&gt;The &lt;a href=&#34;https://bookdown.org/yihui/blogdown/get-started.html&#34;&gt;tutorial for blogdown&lt;/a&gt; is great, but I found that choosing a &lt;a href=&#34;https://themes.gohugo.io/&#34;&gt;theme&lt;/a&gt; early on was important, because a lot of what I needed to learn and figure out was specific to the theme. In fact, using blogdown wasn’t really as helpful as I thought for editing the theme I chose, as the example pages in the theme were written in a different format (Markdown with TOML headers) than the default for a new blogdown post (R Markdown with YAML header). That being said, the example Markdown documents that came with the theme were well annotated and for the most part all I had to do was fiddle around with values and add my own text and images.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;building-and-hosting-a-website&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Building and Hosting a website&lt;/h2&gt;
-&lt;p&gt;I decided to go with blogdown’s recommendation to build and host my website using &lt;a href=&#34;https://www.netlify.com/&#34;&gt;Netlify&lt;/a&gt;. The tutorials on Netlify are very jargon-y and I got basically nothing out of them. Fortunately, the &lt;a href=&#34;https://bookdown.org/yihui/blogdown/netlify.html&#34;&gt;chapter on Netlify&lt;/a&gt; in the blogdown book was very helpful. Netlify builds your website from a GitHub repository containing all the Markdown or R Markdown files you’ve created. Fortunately, I had just recently figured out (after &lt;em&gt;much&lt;/em&gt; failure) how to link GitHub to R Studio thanks to &lt;a href=&#34;http://happygitwithr.com/&#34;&gt;Jenny Bryan&lt;/a&gt;, so it was just a matter of pushing updates to my website to GitHub and following the blogdown tutorial to build the website.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;want-to-make-a-website-just-try-it&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Want to make a website? Just try it!&lt;/h2&gt;
-&lt;p&gt;All of this was completely free, and if you have &lt;em&gt;some&lt;/em&gt; knowledge of R Markdown it is super easy to get started. Even if you’ve never used R Markdown, it’s not hard to learn. Depending on the theme you choose, you could get a website up and running in a day or two easily. Feel free to check out the &lt;a href=&#34;https://github.com/Aariq/my-website&#34;&gt;source documents&lt;/a&gt; for this website. I think you’ll find that they are not as intimidating as you might think!&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
