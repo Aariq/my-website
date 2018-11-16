@@ -5,6 +5,24 @@
     
     <url>
     
+      <loc>/publication/2019-scott-book_chapter/</loc>
+      <lastmod>2019-01-15T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/publication/2018-orians-aob/</loc>
+      <lastmod>2018-11-07T00:00:00+00:00</lastmod>
+    </url>
+    
+  
+    
+    
+    <url>
+    
       <loc>/2018/11/07/trip-to-uji/</loc>
       <lastmod>2018-11-07T00:00:00+00:00</lastmod>
     </url>
@@ -177,7 +195,7 @@
     <url>
     
       <loc>/talk/disc-poster/</loc>
-      <lastmod>2017-11-08T00:00:00-08:00</lastmod>
+      <lastmod>2017-11-08T00:00:00-05:00</lastmod>
     </url>
     
   
@@ -231,7 +249,7 @@
     <url>
     
       <loc>/post/</loc>
-      <lastmod>2017-01-01T00:00:00-08:00</lastmod>
+      <lastmod>2017-01-01T00:00:00-05:00</lastmod>
     </url>
     
   
@@ -321,7 +339,17 @@
     <url>
     
       <loc>/publication_types/2/</loc>
-      <lastmod>2018-10-28T00:00:00+00:00</lastmod>
+      <lastmod>2018-11-07T00:00:00+00:00</lastmod>
+      <priority>0</priority>
+    </url>
+    
+  
+    
+    
+    <url>
+    
+      <loc>/publication_types/6/</loc>
+      <lastmod>2019-01-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -361,7 +389,7 @@
     <url>
     
       <loc>/tags/climate-change/</loc>
-      <lastmod>2018-08-12T00:00:00+00:00</lastmod>
+      <lastmod>2019-01-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -391,7 +419,7 @@
     <url>
     
       <loc>/</loc>
-      <lastmod>2017-10-15T00:00:00-07:00</lastmod>
+      <lastmod>2017-10-15T00:00:00-04:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -431,7 +459,7 @@
     <url>
     
       <loc>/tags/herbivore-density/</loc>
-      <lastmod>2018-08-12T00:00:00+00:00</lastmod>
+      <lastmod>2019-01-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -481,7 +509,7 @@
     <url>
     
       <loc>/tags/plant-defense/</loc>
-      <lastmod>2018-10-28T00:00:00+00:00</lastmod>
+      <lastmod>2019-01-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -491,7 +519,7 @@
     <url>
     
       <loc>/tags/plant-volatiles/</loc>
-      <lastmod>2018-10-28T00:00:00+00:00</lastmod>
+      <lastmod>2019-01-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -521,7 +549,7 @@
     <url>
     
       <loc>/publication_types/</loc>
-      <lastmod>2018-10-28T00:00:00+00:00</lastmod>
+      <lastmod>2018-11-07T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -571,7 +599,7 @@
     <url>
     
       <loc>/categories/research/</loc>
-      <lastmod>2018-10-28T00:00:00+00:00</lastmod>
+      <lastmod>2019-01-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     
@@ -591,7 +619,7 @@
     <url>
     
       <loc>/tags/tea/</loc>
-      <lastmod>2018-11-07T00:00:00+00:00</lastmod>
+      <lastmod>2019-01-15T00:00:00+00:00</lastmod>
       <priority>0</priority>
     </url>
     

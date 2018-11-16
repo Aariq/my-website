@@ -1,7 +1,19 @@
 ---
 title: Interactive effects of drought severity and simulated herbivory on tea (Camellia
   sinensis) volatile and non-volatile metabolites
-author: Eric R. Scott
+authors: 
+ - Eric R. Scott
+ - Xin Li
+ - Nicole Kfoury
+ - Joshua Morimoto
+ - Wen-Yan Han
+ - Selena Ahmed
+ - Sean B. Cash
+ - Timothy S. Griffin
+ - John R. Stepp
+ - Albert Robbat Jr.
+ - Colin M. Orians
+ 
 date: '2018-10-28'
 slug: 2018-scott-eeb
 
@@ -43,8 +55,8 @@ highlight: yes
 image_preview: ''
 math: no
 projects: ["bace-tea"]
-publication: 'Environmental and Experimental Botany'
-publication_short: 'EEB'
+publication: '*Environmental and Experimental Botany*'
+publication_short: '*EEB*'
 publication_types:
   - '2'
 selected: yes
