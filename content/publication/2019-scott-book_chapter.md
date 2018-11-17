@@ -33,12 +33,16 @@ publication_types:
 selected: no
 url_code: ''
 url_dataset: ''
-url_pdf: 'https://www.springer.com/us/book/9789811321399'
+url_pdf: ''
 url_poster: ''
 url_preprint: ''
 url_project: ''
 url_slides: ''
 url_source: ''
 url_video: ''
+
+url_custom:
+- name: HTML
+  url: https://www.springer.com/us/book/9789811321399
 ---
 
