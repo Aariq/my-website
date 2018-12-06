@@ -11,7 +11,7 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Differential Changes in Tea Quality as Influenced by Insect Herbivory [in press]</title>
+      <title>Differential Changes in Tea Quality as Influenced by Insect Herbivory</title>
       <link>/publication/2019-scott-book_chapter/</link>
       <pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate>
       
@@ -20,11 +20,11 @@
     </item>
     
     <item>
-      <title>Combined impacts of prolonged drought and warming on plant size and foliar chemistry [in review]</title>
-      <link>/publication/2018-orians-aob/</link>
+      <title>Combined impacts of prolonged drought and warming on plant size and foliar chemistry [in press]</title>
+      <link>/publication/2019-orians-aob/</link>
       <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
       
-      <guid>/publication/2018-orians-aob/</guid>
+      <guid>/publication/2019-orians-aob/</guid>
       <description></description>
     </item>
     
@@ -308,32 +308,32 @@ left_join(fake.data, best_RIs) %&amp;gt;%
 &lt;td align=&#34;left&#34;&gt;123-35-3&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;beta-myrcene&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;991&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.052&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.512&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.905&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.503&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;Maccioni, Baldini, et al., 2007&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;119-36-8&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;methyl salicylate&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1191&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.586&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.473&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.554&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.799&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;Aligiannis, Kalpoutzakis, et al., 2004&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;odd&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;83-34-1&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;skatole&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1391&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.575&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.018&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.752&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.619&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;Rostad and Pereira, 1986&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr class=&#34;even&#34;&gt;
 &lt;td align=&#34;left&#34;&gt;19700-21-1&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;geosmin&lt;/td&gt;
 &lt;td align=&#34;right&#34;&gt;1430&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.767&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.491&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.270&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.784&lt;/td&gt;
 &lt;td align=&#34;left&#34;&gt;Dickschat, Wenzel, et al., 2004&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;

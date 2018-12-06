@@ -1,5 +1,5 @@
 ---
-title: Differential Changes in Tea Quality as Influenced by Insect Herbivory [in press]
+title: Differential Changes in Tea Quality as Influenced by Insect Herbivory
 date: '2019-01-15'
 slug: 2019-scott-book_chapter
 categories:
@@ -25,7 +25,7 @@ header:
 highlight: yes
 image_preview: ''
 math: no
-projects: []
+projects: [climate-leafhopper-quality]
 publication: '*Stress Physiology of Tea in the Face of Climate Change*'
 publication_short: ''
 publication_types:
