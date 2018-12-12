@@ -10,7 +10,6 @@ weight = 5
 # List your academic interests.
 [interests]
   interests = [
-    "Plant-insect interactions",
     "Chemical ecology",
     "Eco-Metabolomics",
     "Plant volatile sampling",
