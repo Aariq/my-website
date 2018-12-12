@@ -20,6 +20,33 @@
     </item>
     
     <item>
+      <title>Finding Cryptic Insect Eggs With Flourescence</title>
+      <link>/2018/12/12/leafhopper-egg-method/</link>
+      <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/12/12/leafhopper-egg-method/</guid>
+      <description>&lt;p&gt;I recently gave a talk on some of my work as a PhD student on &lt;a href=&#34;http://www.ericrscott.com/project/climate-leafhopper-quality/&#34;&gt;experiments&lt;/a&gt; manipulating densities of the tea green leaf hopper (&lt;em&gt;Empoasca onukii&lt;/em&gt;) on tea plants. What the audience liked most, I think, were my methods for finding leaf hopper eggs in the field and rearing them in the lab (well, a guest room at a tea farm). You see, leaf hoppers (including at least the tea green leaf hopper and the grape leaf hopper) lay their eggs &lt;em&gt;inside&lt;/em&gt; plant tissues, making them impossible to find with the naked eye. But, you can take advantage of the fluorescent properties of leaf hopper eggs and plants to make them more visible.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/img/learning-SLEDA.jpeg&#34; alt=&#34;Students from TRI CAAS looking for leafhopper eggs in tea shoots&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Students from TRI CAAS looking for leafhopper eggs in tea shoots
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;It turns out that under blue light, leaf hopper eggs fluoresce bright green while the chlorophyll in plants fluoresces red. By using blue light to create this fluorescence and blocking the blue light coming to your eyes with a filter, you can easily spot the eggs even though they are under the epidermis of the tea stems.&lt;/p&gt;
+&lt;video autoplay=&#34;TRUE&#34; controls=&#34;TRUE&#34; loop=&#34;TRUE&#34; muted=&#34;TRUE&#34; src=&#34;/img/SLEDA.mp4&#34; width=&#34;400&#34; height=&#34;400&#34; figcaption=&#34;testing&#34;&gt;&lt;/video&gt;
+&lt;p&gt;What you’re seeing above is video from a smart phone with the lens covered by a pair of orange goggles. I move the beam of a blue LED flashlight (which you can’t really see because of the orange filter) toward the center of the frame, where you see a green dot appear on the tea stem. This is a leaf hopper egg. Then I remove the orange goggles so you can see what it looks like without them—totally washed out by blue light.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/img/SLEDA-in-lab.png&#34; alt=&#34;A tea shoot lit by ambient light (left) and by blue light, filtered through orange goggles (right)&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: A tea shoot lit by ambient light (left) and by blue light, filtered through orange goggles (right)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;This method is modified from a &lt;a href=&#34;http://link.springer.com/10.1007/BF03356146&#34;&gt;2004 paper by Herrmann and Böll&lt;/a&gt; that was written before bright blue LEDs were widely available and calls for the use of full-spectrum white light from a halogen bulb passed through a filter. Now, blue LED flashlights are cheap and widely available, providing a much more portable solution for field sampling. I used a &lt;a href=&#34;https://www.amazon.com/WAYLLSHINE-Flashlight-Adjustable-Camping-Activities/dp/B00WD0XFAW&#34;&gt;small blue flashlight&lt;/a&gt; I bought from Amazon for my light source, and some &lt;a href=&#34;https://www.amazon.com/Uvex-S0360X-Ultra-spec-SCT-Orange-Anti-Fog/dp/B003OBZ64M/ref=sr_1_3?ie=UTF8&amp;amp;qid=1544637112&amp;amp;sr=8-3&amp;amp;keywords=uvex+orange+goggles&#34;&gt;orange, UV-blocking goggles&lt;/a&gt; for my blue light filter, but &lt;strong&gt;any&lt;/strong&gt; blue light source and orange goggles should work! I should also mention, that this is best done at dusk or nighttime to improve visibility.&lt;/p&gt;
+&lt;p&gt;Whether you’re working in a vineyard to monitor &lt;em&gt;Empoasca vitis&lt;/em&gt;, trying to rear leaf hoppers from eggs, or trying to count eggs in an oviposition choice experiment, using this method will save you time and frustration.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Combined impacts of prolonged drought and warming on plant size and foliar chemistry [in press]</title>
       <link>/publication/2019-orians-aob/</link>
       <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
@@ -583,117 +610,6 @@ print(a1)
 &lt;p&gt;As silly as it may sound, I&amp;rsquo;m actually considering using this data set for a paper about using PLS (partial least squares regression) for ecological data. So for now, I&amp;rsquo;m holding off on blogging about any results of analyses in case I end up wanting to use them for the publication. In the meantime, the fully cleaned (I hope) &lt;a href=&#34;https://github.com/Aariq/cupcakes-vs-muffins&#34; target=&#34;_blank&#34;&gt;dataset is up on github&lt;/a&gt;, so feel free to play around with it. Once I have a general outline for this paper, I may feel more comfortable blogging about the results. Please comment if you think I&amp;rsquo;m being silly and overparanoid about holding back on this.&lt;/p&gt;
 
 &lt;p&gt;*all I can say is muffins probably differ from cupcakes by more than just frosting, based on the ingredients.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Cupcakes vs. Muffins</title>
-      <link>/2018/03/05/cupcakes-vs-muffins/</link>
-      <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/03/05/cupcakes-vs-muffins/</guid>
-      <description>&lt;p&gt;One thing I’ve learned from my PhD at Tufts is that I really enjoy working data wrangling, visualization, and statistics in R. I enjoy it so much, that lately I’ve been strongly considering a career in data science after graduation. As a way to showcase my data science skills, I’ve been working on a side project to use webscraping and multivariate statistics to answer the age old question: Are cupcakes really &lt;em&gt;that&lt;/em&gt; different from muffins?&lt;/p&gt;
-&lt;p&gt;Honestly, I can’t even quite remember how this idea came to me, but it started in a discussion with Dr. Elizabeth Crone about why more ecologists don’t use a statistical technique called &lt;a href=&#34;https://en.wikipedia.org/wiki/Partial_least_squares_regression&#34;&gt;partial least squares regression&lt;/a&gt;. We wanted a fun multivariate data set that could illustrate the different conclusions you might get depending on the statistical method you use. Around the same time, I came across a blog post by &lt;a href=&#34;https://aczane.netlify.com/2018/02/08/the-first-and-namesake-post-is-it-cake/&#34;&gt;@lariebyrd&lt;/a&gt; explaining machine learning using cake emoji. And that somehow led to me webscraping &lt;strong&gt;every single muffin and cupcake recipe&lt;/strong&gt; on allrecipes.com.&lt;/p&gt;
-&lt;p&gt;I just finished the webscraping bit of the project this weekend. I’m not going to reproduce the code here, but rather address some of the challenges I faced, and some things I’ve learned so far. You can check out my R notebook and a .rds file of all the recipes &lt;a href=&#34;https://github.com/Aariq/cupcakes-vs-muffins&#34;&gt;over on github&lt;/a&gt;&lt;/p&gt;
-&lt;div id=&#34;getting-started-on-webscraping&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Getting started on webscraping&lt;/h1&gt;
-&lt;p&gt;I followed this &lt;a href=&#34;https://towardsdatascience.com/web-scraping-tutorial-in-r-5e71fd107f32&#34;&gt;wonderful tutorial&lt;/a&gt; from José Roberto Ayala Solares to get going. Necessary tools include the &lt;code&gt;tidyverse&lt;/code&gt;, the &lt;code&gt;rvest&lt;/code&gt; package for webscraping, and a chrome plugin called &lt;a href=&#34;http://selectorgadget.com/&#34;&gt;SelectorGadget&lt;/a&gt;. Going through the example in the tutorial was really helpful for getting a hang of what is and isn’t easy/possible.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;choosing-a-data-source&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Choosing a data source&lt;/h1&gt;
-&lt;p&gt;I specifically chose allrecipes.com over, say geniuskitchen.com (an excellent recipe site) because of the way it categorizes and structures recipes. When I search “cupcake” on geniuskitchen.com, I get 1830 results (yay!), but a bunch of them are links to videos, articles, reviews, blog posts, food porn albums, and other things that are &lt;strong&gt;not&lt;/strong&gt; recipes (boo!). Allrecipes.com, on the other hand, gives me the following URL: &lt;a href=&#34;https://www.allrecipes.com/recipes/377/desserts/cakes/cupcakes/&#34; class=&#34;uri&#34;&gt;https://www.allrecipes.com/recipes/377/desserts/cakes/cupcakes/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;This is &lt;strong&gt;ALL THE CUPCAKES&lt;/strong&gt;. From there, I played around with SelectorGadget to make sure it was going to be easy to drill down to just the links to the actual recipes, and yes, it was.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:selector-gadget&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/selector-gadget.png&#34; alt=&#34;SelectorGadget in action&#34;  /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: SelectorGadget in action
-&lt;/p&gt;
-&lt;/div&gt;
-&lt;p&gt;I also checked that the ingredients list of each recipe was going to be easy to scrape. They all have the same format, and some brief testing convinced me that I’d be able to figure out how to pull out ingredients.&lt;/p&gt;
-&lt;p&gt;The takeaway is that for this project I had my choice of many websites, but I specifically picked one that would make my life easier because of its html structure.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;dont-scrape-too-fast&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Don’t scrape too fast!&lt;/h1&gt;
-&lt;div id=&#34;sys.sleep-is-your-friend&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;(&lt;code&gt;Sys.sleep()&lt;/code&gt; is your friend)&lt;/h2&gt;
-&lt;p&gt;So once I figured out how to pull in all the links to all the cupcake recipes, I started scraping ingredients from a small sample of them. After a few debugging runs, allrecipes.com stopped responding and I just kept getting error messages. After pulling my hair out trying to figure out how I broke my code, I realized that my IP was being blocked! Because of the speed of accessing the website or how many links I accessed, my IP was suspected of being a bot or something and was temporarily (&lt;em&gt;whew&lt;/em&gt;) blocked. I turned to twitter and was reccomended an easy fix—create a custom &lt;code&gt;read_html_slow()&lt;/code&gt; function that included &lt;code&gt;Sys.sleep(5)&lt;/code&gt; which just makes R wait 5 seconds in between reading websites.&lt;/p&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Make your own function with read_html followed by Sys.sleep(5) and then map using that?&lt;/p&gt;&amp;mdash; Sharon Machlis (@sharon000) &lt;a href=&#34;https://twitter.com/sharon000/status/965808697346789378?ref_src=twsrc%5Etfw&#34;&gt;February 20, 2018&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(rvest)
-read_html_slow &amp;lt;- function(x, ...){
-  output &amp;lt;- read_html(x)
-  Sys.sleep(5) #wait 5 seconds before returning output
-  return(output)
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;create-your-own-custom-helper-functions&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Create your own custom helper functions&lt;/h1&gt;
-&lt;p&gt;A great side-effect of creating your own functions like &lt;code&gt;read_html_slow()&lt;/code&gt; is making your code more readable. Instead of a for-loop that calls &lt;code&gt;Sys.sleep(5)&lt;/code&gt; after every iteration of &lt;code&gt;read_html()&lt;/code&gt;, I now have one function that does it all and can be easily used in conjunction with &lt;code&gt;map()&lt;/code&gt; from the &lt;code&gt;purrr&lt;/code&gt; package.&lt;/p&gt;
-&lt;p&gt;My &lt;code&gt;read_html_slow()&lt;/code&gt; function would still occasionally encounter errors like when it would encounter a broken URL. When reading in a whole list of URLs, one broken URL would mess up the whole list. I ended up expanding on &lt;code&gt;read_html_slow()&lt;/code&gt; to make &lt;code&gt;read_html_safely()&lt;/code&gt; which would output an &lt;code&gt;NA&lt;/code&gt; rather than throwing an error if a URL was broken.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(purrr)
-read_html_safely &amp;lt;- possibly(read_html_slow, NA) #from the purrr package&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;I also created a &lt;code&gt;str_detect_any()&lt;/code&gt; which allows you to check if a string is matched by any of a vector of regular expressions. I show how I use this in the next section&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(stringi)
-str_detect_any &amp;lt;- function(string, pattern){
-  map_lgl(string, ~stri_detect_regex(., pattern) %&amp;gt;% any(.)) 
-  #map_lgl is from purrr, stri_detect() is from stringi
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;div id=&#34;work-on-random-samples&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Work on random samples&lt;/h1&gt;
-&lt;p&gt;There were something like 200 cupcake recipes and another 100 muffin recipes on allrecipes.com, which takes a long time to read in. Rather than working on the whole data set, I used &lt;code&gt;sample()&lt;/code&gt; on my vector of recipe URLs to take a manageable sample of recipes to work on. After working through a few different random subsets, I reached a point where I was happy with how my code was working. Only then did I read in the entire data set.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;webscraped-data-is-messy&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Webscraped data is messy&lt;/h1&gt;
-&lt;div id=&#34;people-make-weird-baked-goods&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;(People make weird baked goods)&lt;/h2&gt;
-&lt;p&gt;Once I had all my ingredients for muffins and cupcakes in a data frame, I needed to standardize the ingredients. For example “8 tablespoons butter, melted” and “1/2 cup unsalted, organic, non-GMO, gluten-free, single-origin butter” both needed to get converted to “1/2 cup butter.” This is where the combination of &lt;code&gt;mutate()&lt;/code&gt;, &lt;code&gt;case_when()&lt;/code&gt; and &lt;code&gt;str_detect()&lt;/code&gt; really came in handy to make readable, debuggable code.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;mutate()&lt;/code&gt; is a function from the &lt;code&gt;dplyr&lt;/code&gt; package (part of &lt;code&gt;tidyverse&lt;/code&gt;) for adding new columns to data frames based on information in other columns. Here, I used it to take the ingredient descriptions and turn them into short, concise ingredients. &lt;code&gt;str_detect()&lt;/code&gt; is from the &lt;code&gt;stringr&lt;/code&gt; package and takes a string and a regular expression pattern and outputs &lt;code&gt;TRUE&lt;/code&gt; or &lt;code&gt;FALSE&lt;/code&gt;. Finally, &lt;code&gt;case_when()&lt;/code&gt; is also from &lt;code&gt;dplyr&lt;/code&gt; and provides a readable alternative to insane nested &lt;code&gt;ifelse()&lt;/code&gt; statements. For example:&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(tidyverse)
-df &amp;lt;- tibble(description = c(&amp;quot;1/2 cup unsalted, organic, non-GMO, gluten-free, single-origin butter&amp;quot;,
-                             &amp;quot;1 cup buttermilk&amp;quot;,
-                             &amp;quot;4 cups sugar&amp;quot;,
-                             &amp;quot;4 cups slivered almonds&amp;quot;,
-                             &amp;quot;1/2 cup chopped walnuts&amp;quot;,
-                             &amp;quot;1 teaspoon salt&amp;quot;,
-                             &amp;quot;25 blueberries&amp;quot;))
-
-#all nuts should match one of these patterns
-nuts &amp;lt;- c(&amp;quot;almond&amp;quot;, &amp;quot;\\w*nut&amp;quot;, &amp;quot;pecan&amp;quot;)
-
-df %&amp;gt;%
-  mutate(ingredient = case_when(str_detect(.$description, &amp;quot;butter&amp;quot;) ~  &amp;quot;butter&amp;quot;,
-                                str_detect(.$description, &amp;quot;milk&amp;quot;)   ~  &amp;quot;milk&amp;quot;,
-                                str_detect(.$description, &amp;quot;sugar&amp;quot;)  ~  &amp;quot;sugar&amp;quot;,
-                                str_detect(.$description, &amp;quot;salt&amp;quot;)   ~  &amp;quot;salt&amp;quot;,
-                                str_detect_any(.$description, nuts) ~  &amp;quot;nut&amp;quot;,
-                                TRUE                                ~  as.character(NA)
-                                )
-         )&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 7 x 2
-##   description                                                   ingredient
-##   &amp;lt;chr&amp;gt;                                                         &amp;lt;chr&amp;gt;     
-## 1 1/2 cup unsalted, organic, non-GMO, gluten-free, single-orig… butter    
-## 2 1 cup buttermilk                                              butter    
-## 3 4 cups sugar                                                  sugar     
-## 4 4 cups slivered almonds                                       nut       
-## 5 1/2 cup chopped walnuts                                       nut       
-## 6 1 teaspoon salt                                               salt      
-## 7 25 blueberries                                                &amp;lt;NA&amp;gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;The way &lt;code&gt;case_when()&lt;/code&gt; works is just like a bunch of nested &lt;code&gt;ifelse()&lt;/code&gt; statements. That is, if it satisfies a condition on the left of the &lt;code&gt;~&lt;/code&gt; in the first line, it returns the output to the right, otherwise it goes to the next line. That results in “buttermilk” getting categorized as “butter”. If you wanted it to be captured as “milk” instead, you could switch the order of the butter and milk lines inside &lt;code&gt;case_when()&lt;/code&gt;.&lt;/p&gt;
-&lt;p&gt;I had to do this sort of thing &lt;strong&gt;a lot&lt;/strong&gt;. For example, when “creamy peanut butter” was getting categorized as “cream” or “butter” instead of “nuts” or when “unsalted butter” was getting categorized as “salt”. You’ll also notice that if a description makes it all the way through the list, it gets categorized as &lt;code&gt;NA&lt;/code&gt;. I’ll never be able to categorize all the cupcake/muffin ingredients, because people put &lt;a href=&#34;https://www.allrecipes.com/recipe/215561/peanut-butter-bacon-cupcake/&#34;&gt;weird shit&lt;/a&gt; in their baked goods.&lt;/p&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div id=&#34;conclusion&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Conclusion&lt;/h1&gt;
-&lt;p&gt;Webscraping can be frustrating, but you can set yourself up for success by choosing an easily scrapable website, annotating your code as you go, and taking measures to make your code as readable as possible. With big, messy data, you’ll likely never get it perfect, but you can use random samples of websites to help debug your code and test its effectiveness on new random samples of websites.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;next-steps&#34; class=&#34;section level1&#34;&gt;
-&lt;h1&gt;Next Steps&lt;/h1&gt;
-&lt;p&gt;Now that I have a data set I’m pretty happy with, the next step of the project is to do some exploratory data analysis to see what properties it has that are relevant to the sorts of multivariate data that ecologists deal with. Then on to statistical analyses to figure out what ingredients make cupcakes different from muffins. Is it sweetness? Is it something to do with leavening? Butter vs oil? Leave your predictions in the comments below!&lt;/p&gt;
-&lt;/div&gt;
 </description>
     </item>
     

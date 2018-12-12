@@ -11,6 +11,33 @@
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>Finding Cryptic Insect Eggs With Flourescence</title>
+      <link>/2018/12/12/leafhopper-egg-method/</link>
+      <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/2018/12/12/leafhopper-egg-method/</guid>
+      <description>&lt;p&gt;I recently gave a talk on some of my work as a PhD student on &lt;a href=&#34;http://www.ericrscott.com/project/climate-leafhopper-quality/&#34;&gt;experiments&lt;/a&gt; manipulating densities of the tea green leaf hopper (&lt;em&gt;Empoasca onukii&lt;/em&gt;) on tea plants. What the audience liked most, I think, were my methods for finding leaf hopper eggs in the field and rearing them in the lab (well, a guest room at a tea farm). You see, leaf hoppers (including at least the tea green leaf hopper and the grape leaf hopper) lay their eggs &lt;em&gt;inside&lt;/em&gt; plant tissues, making them impossible to find with the naked eye. But, you can take advantage of the fluorescent properties of leaf hopper eggs and plants to make them more visible.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/img/learning-SLEDA.jpeg&#34; alt=&#34;Students from TRI CAAS looking for leafhopper eggs in tea shoots&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Students from TRI CAAS looking for leafhopper eggs in tea shoots
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;It turns out that under blue light, leaf hopper eggs fluoresce bright green while the chlorophyll in plants fluoresces red. By using blue light to create this fluorescence and blocking the blue light coming to your eyes with a filter, you can easily spot the eggs even though they are under the epidermis of the tea stems.&lt;/p&gt;
+&lt;video autoplay=&#34;TRUE&#34; controls=&#34;TRUE&#34; loop=&#34;TRUE&#34; muted=&#34;TRUE&#34; src=&#34;/img/SLEDA.mp4&#34; width=&#34;400&#34; height=&#34;400&#34; figcaption=&#34;testing&#34;&gt;&lt;/video&gt;
+&lt;p&gt;What you’re seeing above is video from a smart phone with the lens covered by a pair of orange goggles. I move the beam of a blue LED flashlight (which you can’t really see because of the orange filter) toward the center of the frame, where you see a green dot appear on the tea stem. This is a leaf hopper egg. Then I remove the orange goggles so you can see what it looks like without them—totally washed out by blue light.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;/img/SLEDA-in-lab.png&#34; alt=&#34;A tea shoot lit by ambient light (left) and by blue light, filtered through orange goggles (right)&#34; width=&#34;70%&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 2: A tea shoot lit by ambient light (left) and by blue light, filtered through orange goggles (right)
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;This method is modified from a &lt;a href=&#34;http://link.springer.com/10.1007/BF03356146&#34;&gt;2004 paper by Herrmann and Böll&lt;/a&gt; that was written before bright blue LEDs were widely available and calls for the use of full-spectrum white light from a halogen bulb passed through a filter. Now, blue LED flashlights are cheap and widely available, providing a much more portable solution for field sampling. I used a &lt;a href=&#34;https://www.amazon.com/WAYLLSHINE-Flashlight-Adjustable-Camping-Activities/dp/B00WD0XFAW&#34;&gt;small blue flashlight&lt;/a&gt; I bought from Amazon for my light source, and some &lt;a href=&#34;https://www.amazon.com/Uvex-S0360X-Ultra-spec-SCT-Orange-Anti-Fog/dp/B003OBZ64M/ref=sr_1_3?ie=UTF8&amp;amp;qid=1544637112&amp;amp;sr=8-3&amp;amp;keywords=uvex+orange+goggles&#34;&gt;orange, UV-blocking goggles&lt;/a&gt; for my blue light filter, but &lt;strong&gt;any&lt;/strong&gt; blue light source and orange goggles should work! I should also mention, that this is best done at dusk or nighttime to improve visibility.&lt;/p&gt;
+&lt;p&gt;Whether you’re working in a vineyard to monitor &lt;em&gt;Empoasca vitis&lt;/em&gt;, trying to rear leaf hoppers from eggs, or trying to count eggs in an oviposition choice experiment, using this method will save you time and frustration.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Trip to Uji</title>
       <link>/2018/11/07/trip-to-uji/</link>
       <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
