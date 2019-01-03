@@ -19,6 +19,7 @@ header:
 ---
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 library(knitr)
+library(webchem)
 ```
 
 My PhD has involved learning a lot more than I expected about analytical chemistry, and as I've been learning, I've been trying my best to make my life easier by writing R functions to help me out.  Some of those functions have found a loving home in the `webchem` package, part of [rOpenSci](https://ropensci.org/
@@ -44,20 +45,26 @@ CASs <- c("83-34-1", "119-36-8", "123-35-3", "19700-21-1")
 ```
 
 Load the package and take a look at the help file.  You'll see that we need to choose what type of retention index to scrape, what polarity of column, and what kind of teperature program.  If you browse one of the [NIST sites for a compound](https://webbook.nist.gov/cgi/cbook.cgi?ID=C78706&Units=SI&Mask=2000#Gas-Chrom), this will make more sense.
-```{r}
+
+```{r eval=FALSE}
 library(webchem)
 ?nist_ri
 ```
+
 Let's get Van Den Dool & Kratz (AKA "linear") retention indeces for non-polar columns using a temperature ramp.  This might take a while, depending on your internet connection and how many CAS numbers you request data for.  If a certain type of retention index doesn't exist for a compound, the function will return `NA` for all columns but the CAS number.
+
 ```{r}
 RIs <- nist_ri(CASs, "linear", "non-polar", "ramp")
 head(RIs)
 ```
+
 You can see there are multiple retention indices (`RI`) for each CAS number. Let's filter this down some more using some functions from `dplyr` and `stringr`.
+
 ```{r message=FALSE, warning=FALSE}
 library(dplyr)
 library(stringr)
-RIs_filtered <- RIs %>%
+RIs_filtered <-
+  RIs %>%
   filter(gas == "Helium",
          between(length, 20, 30),
          str_detect(phase, "5"),
@@ -67,15 +74,18 @@ head(RIs_filtered)
 ```
 
 Now we could `summarise` to get an average of all the database entries...
+
 ```{r}
 RIs_filtered %>% 
   group_by(CAS) %>% 
   summarise(mean_RI = mean(RI))
 ```
+
 Or if we wanted to pick a single entry for each CAS number with the median RI, we could do that as well.
 
 ```{r}
-best_RIs <- RIs_filtered %>%
+best_RIs <-
+  RIs_filtered %>%
   group_by(CAS) %>% 
   filter(RI == median(RI)) %>% 
   filter(row_number() == 1) %>% 
@@ -86,11 +96,12 @@ best_RIs
 You could then easily take this table and `*_join()` it to your GC/MS data, if you have a column for CAS#, and select the `RI` and `reference` columns, for example.
 
 ```{r message=FALSE, warning=FALSE}
-fake.data <- data.frame(CAS = CASs,
-                 #Name = cts_convert(CASs, from = "CAS", to = "Chemical Name", first = TRUE),
-                 Name = c("skatole", "methyl salicylate", "beta-myrcene", "geosmin"),
-                 group_1_conc = round(abs(rnorm(4)), 3),
-                 group_2_conc = round(abs(rnorm(4)), 3))
+fake.data <-
+  data.frame(CAS = CASs,
+             #Name = cts_convert(CASs, from = "CAS", to = "Chemical Name", first = TRUE),
+             Name = c("skatole", "methyl salicylate", "beta-myrcene", "geosmin"),
+             group_1_conc = round(abs(rnorm(4)), 3),
+             group_2_conc = round(abs(rnorm(4)), 3))
 
 left_join(fake.data, best_RIs) %>%
   select(CAS, Name, RI, everything()) %>% 
