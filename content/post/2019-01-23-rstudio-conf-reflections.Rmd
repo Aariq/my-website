@@ -1,0 +1,59 @@
+---
+title: RStudio::conf reflections
+author: Eric R. Scott
+date: '2019-01-23'
+slug: rstudio-conf-reflections
+categories:
+  - Data Science
+  - Blog
+tags:
+  - R
+  - R-Markdown
+  - tidyverse
+draft: no
+header:
+  caption: ''
+  image: ''
+  preview: yes
+---
+
+This was my first time attending [RStudio::conf](https://www.rstudio.com/conference/), and I went primarily to explore my career options in data science.  I mainly stuck to teaching and modeling related talks since that's how I already use R.  Here are my major takeaways from the conference.
+
+# Shiny is the new hotness
+
+[Shiny](https://shiny.rstudio.com/) apps are interactive web apps that run on R code, and there was a big focus on Shiny development at the conference this year. Almost everyone I talked to was using Shiny in their jobs including creating [dashboards](https://shiny.rstudio.com/gallery/bus-dashboard.html), [interactive exploratory data analysis](https://laderast.github.io/burro/), guiding industry researchers through statistical analyses, and [teaching focused apps](https://kbodwin.shinyapps.io/Lab_Exercise_tDist/) built on the `learnr` package. There was also a lot of focus on scaling Shiny apps so many users could access apps simultaneously without significant slowdown.
+
+I've been toying with the idea of creating a Shiny app to help with my own work in doing some data quality checks on GC/MS data, and this gave me the inspiration to commit to doing it!
+
+# RStudio Cloud makes teaching R painless
+
+I've taught an [intro to R for Biostatistics](https://github.com/Aariq/biotstatistics-recitation-2018) course twice now, and both times the first day of class feels like 80% fixing package installation errors.  [RStudio Cloud](https://rstudio.cloud/) allows students to access RStudio through a web interface, without downloading or installing anything.  It also lets instructors set up project spaces with all the necessary packages **already installed**.  This allows you to start the first day off with fun stuff, like data visualization, and save the lessons about CRAN and troubleshooting package installations for later. Not only can you set up environments for students to work in, you can also peek into their environments.  That means no more "I can maybe help you if you send me your code" emails!
+
+# When to make a CRAN package
+
+```{r echo=FALSE}
+blogdown::shortcode('tweet', '611885584584441856')
+```
+
+I had already taken this advice and built a package for myself with all the functions that I've written and used in multiple projects.  I called it `chemhelper` and put it up on [GitHub](https://github.com/Aariq/chemhelper), just in case someone else would find it useful.  Now I'm working on a manuscript that uses some of the functions in this package, and I needed advice on what to do to make my analysis reproducible and archivable upon submitting it. You see, `webchem` is very much a work in progress, so if I were to archive analysis code that relied on it, it would likely be broken very quickly and therefore not reproducible. One option is submitting my package to CRAN and then recording version information in the analysis code or using something like [packrat](https://rstudio.github.io/packrat/). The advice I got over and over was **if your package is potentially useful to people other than you, put it on CRAN**. I've already started pulling out the functions that are useful to others and plan on submitting a package to CRAN before submitting my manuscript!
+
+# How we teach coding
+
+Finally, the keynote by [\@felienne](https://twitter.com/felienne) was **phenomenal**!  You should watch it regardless of your area of interest---it's *that* kind of talk.  With hand-drawn slides and an incredible stage presence, Dr. Felienne Hermans explored the weirdness of how we teach programming.  For example, you wouldn't just hand someone a guitar and say "the best way to learn is to just try changing something and see what happens!" and you also wouldn't tell a child riding a bike with training wheels "that's not real biking!", but we do both of these things regularly when interacting with beginner programmers.
+
+Most importantly, we know empirically that reading out loud (phonics) is a good way to learn languages, and that *should include* programming languages.  I realized that part of the value in [teaching tidyverse first](http://varianceexplained.org/r/teach-tidyverse/) is that you can and *should* read tidyverse code out-loud.  I'm definitely going to make classrooms read code outloud in the future.
+
+```{r eval=FALSE}
+library(dplyr)
+iris %>%
+  group_by(Species) %>% 
+  summarize(mean_petal_length = mean(Petal.Length),
+            sd_petal_length = sd(Petal.Length))
+```
+*Say it with me, class:*
+
+> Take the iris dataset, then  
+> group it by Species, then  
+> summarize it by taking the mean and standard deviation of petal length
+
+**What was your biggest takeaway from RStudio::conf 2019?  Let me know in the comments!**

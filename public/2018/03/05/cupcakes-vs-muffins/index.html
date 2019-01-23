@@ -422,15 +422,15 @@ df %&gt;%
                                 )
          )</code></pre>
 <pre><code>## # A tibble: 7 x 2
-##   description                                                   ingredient
-##   &lt;chr&gt;                                                         &lt;chr&gt;     
-## 1 1/2 cup unsalted, organic, non-GMO, gluten-free, single-orig… butter    
-## 2 1 cup buttermilk                                              butter    
-## 3 4 cups sugar                                                  sugar     
-## 4 4 cups slivered almonds                                       nut       
-## 5 1/2 cup chopped walnuts                                       nut       
-## 6 1 teaspoon salt                                               salt      
-## 7 25 blueberries                                                &lt;NA&gt;</code></pre>
+##   description                                                    ingredient
+##   &lt;chr&gt;                                                          &lt;chr&gt;     
+## 1 1/2 cup unsalted, organic, non-GMO, gluten-free, single-origi… butter    
+## 2 1 cup buttermilk                                               butter    
+## 3 4 cups sugar                                                   sugar     
+## 4 4 cups slivered almonds                                        nut       
+## 5 1/2 cup chopped walnuts                                        nut       
+## 6 1 teaspoon salt                                                salt      
+## 7 25 blueberries                                                 &lt;NA&gt;</code></pre>
 <p>The way <code>case_when()</code> works is just like a bunch of nested <code>ifelse()</code> statements. That is, if it satisfies a condition on the left of the <code>~</code> in the first line, it returns the output to the right, otherwise it goes to the next line. That results in “buttermilk” getting categorized as “butter”. If you wanted it to be captured as “milk” instead, you could switch the order of the butter and milk lines inside <code>case_when()</code>.</p>
 <p>I had to do this sort of thing <strong>a lot</strong>. For example, when “creamy peanut butter” was getting categorized as “cream” or “butter” instead of “nuts” or when “unsalted butter” was getting categorized as “salt”. You’ll also notice that if a description makes it all the way through the list, it gets categorized as <code>NA</code>. I’ll never be able to categorize all the cupcake/muffin ingredients, because people put <a href="https://www.allrecipes.com/recipe/215561/peanut-butter-bacon-cupcake/">weird shit</a> in their baked goods.</p>
 </div>

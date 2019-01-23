@@ -11,6 +11,49 @@
     <atom:link href="/" rel="self" type="application/rss+xml" />
     
     <item>
+      <title>RStudio::conf reflections</title>
+      <link>/2019/01/23/rstudio-conf-reflections/</link>
+      <pubDate>Wed, 23 Jan 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/01/23/rstudio-conf-reflections/</guid>
+      <description>&lt;p&gt;This was my first time attending &lt;a href=&#34;https://www.rstudio.com/conference/&#34;&gt;RStudio::conf&lt;/a&gt;, and I went primarily to explore my career options in data science. I mainly stuck to teaching and modeling related talks since that’s how I already use R. Here are my major takeaways from the conference.&lt;/p&gt;
+&lt;div id=&#34;shiny-is-the-new-hotness&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Shiny is the new hotness&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;https://shiny.rstudio.com/&#34;&gt;Shiny&lt;/a&gt; apps are interactive web apps that run on R code, and there was a big focus on Shiny development at the conference this year. Almost everyone I talked to was using Shiny in their jobs including creating &lt;a href=&#34;https://shiny.rstudio.com/gallery/bus-dashboard.html&#34;&gt;dashboards&lt;/a&gt;, &lt;a href=&#34;https://laderast.github.io/burro/&#34;&gt;interactive exploratory data analysis&lt;/a&gt;, guiding industry researchers through statistical analyses, and &lt;a href=&#34;https://kbodwin.shinyapps.io/Lab_Exercise_tDist/&#34;&gt;teaching focused apps&lt;/a&gt; built on the &lt;code&gt;learnr&lt;/code&gt; package. There was also a lot of focus on scaling Shiny apps so many users could access apps simultaneously without significant slowdown.&lt;/p&gt;
+&lt;p&gt;I’ve been toying with the idea of creating a Shiny app to help with my own work in doing some data quality checks on GC/MS data, and this gave me the inspiration to commit to doing it!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;rstudio-cloud-makes-teaching-r-painless&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;RStudio Cloud makes teaching R painless&lt;/h1&gt;
+&lt;p&gt;I’ve taught an &lt;a href=&#34;https://github.com/Aariq/biotstatistics-recitation-2018&#34;&gt;intro to R for Biostatistics&lt;/a&gt; course twice now, and both times the first day of class feels like 80% fixing package installation errors. &lt;a href=&#34;https://rstudio.cloud/&#34;&gt;RStudio Cloud&lt;/a&gt; allows students to access RStudio through a web interface, without downloading or installing anything. It also lets instructors set up project spaces with all the necessary packages &lt;strong&gt;already installed&lt;/strong&gt;. This allows you to start the first day off with fun stuff, like data visualization, and save the lessons about CRAN and troubleshooting package installations for later. Not only can you set up environments for students to work in, you can also peek into their environments. That means no more “I can maybe help you if you send me your code” emails!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;when-to-make-a-cran-package&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;When to make a CRAN package&lt;/h1&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;&amp;quot;I wish I&amp;#39;d left this code across scattered .R files instead of combining it into a package&amp;quot; said no one ever &lt;a href=&#34;https://twitter.com/hashtag/rstats?src=hash&amp;amp;ref_src=twsrc%5Etfw&#34;&gt;#rstats&lt;/a&gt; &lt;a href=&#34;http://t.co/udeNH4T67H&#34;&gt;http://t.co/udeNH4T67H&lt;/a&gt;&lt;/p&gt;&amp;mdash; David Robinson (@drob) &lt;a href=&#34;https://twitter.com/drob/status/611885584584441856?ref_src=twsrc%5Etfw&#34;&gt;June 19, 2015&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;I had already taken this advice and built a package for myself with all the functions that I’ve written and used in multiple projects. I called it &lt;code&gt;chemhelper&lt;/code&gt; and put it up on &lt;a href=&#34;https://github.com/Aariq/chemhelper&#34;&gt;GitHub&lt;/a&gt;, just in case someone else would find it useful. Now I’m working on a manuscript that uses some of the functions in this package, and I needed advice on what to do to make my analysis reproducible and archivable upon submitting it. You see, &lt;code&gt;webchem&lt;/code&gt; is very much a work in progress, so if I were to archive analysis code that relied on it, it would likely be broken very quickly and therefore not reproducible. One option is submitting my package to CRAN and then recording version information in the analysis code or using something like &lt;a href=&#34;https://rstudio.github.io/packrat/&#34;&gt;packrat&lt;/a&gt;. The advice I got over and over was &lt;strong&gt;if your package is potentially useful to people other than you, put it on CRAN&lt;/strong&gt;. I’ve already started pulling out the functions that are useful to others and plan on submitting a package to CRAN before submitting my manuscript!&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;how-we-teach-coding&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;How we teach coding&lt;/h1&gt;
+&lt;p&gt;Finally, the keynote by &lt;a href=&#34;https://twitter.com/felienne&#34;&gt;@felienne&lt;/a&gt; was &lt;strong&gt;phenomenal&lt;/strong&gt;! You should watch it regardless of your area of interest—it’s &lt;em&gt;that&lt;/em&gt; kind of talk. With hand-drawn slides and an incredible stage presence, Dr. Felienne Hermans explored the weirdness of how we teach programming. For example, you wouldn’t just hand someone a guitar and say “the best way to learn is to just try changing something and see what happens!” and you also wouldn’t tell a child riding a bike with training wheels “that’s not real biking!”, but we do both of these things regularly when interacting with beginner programmers.&lt;/p&gt;
+&lt;p&gt;Most importantly, we know empirically that reading out loud (phonics) is a good way to learn languages, and that &lt;em&gt;should include&lt;/em&gt; programming languages. I realized that part of the value in &lt;a href=&#34;http://varianceexplained.org/r/teach-tidyverse/&#34;&gt;teaching tidyverse first&lt;/a&gt; is that you can and &lt;em&gt;should&lt;/em&gt; read tidyverse code out-loud. I’m definitely going to make classrooms read code outloud in the future.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
+iris %&amp;gt;%
+  group_by(Species) %&amp;gt;% 
+  summarize(mean_petal_length = mean(Petal.Length),
+            sd_petal_length = sd(Petal.Length))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;em&gt;Say it with me, class:&lt;/em&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Take the iris dataset, then&lt;br /&gt;
+group it by Species, then&lt;br /&gt;
+summarize it by taking the mean and standard deviation of petal length&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;What was your biggest takeaway from RStudio::conf 2019? Let me know in the comments!&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Differential Changes in Tea Quality as Influenced by Insect Herbivory</title>
       <link>/publication/2019-scott-book_chapter/</link>
       <pubDate>Tue, 15 Jan 2019 00:00:00 +0000</pubDate>
@@ -20,7 +63,7 @@
     </item>
     
     <item>
-      <title>Finding Cryptic Insect Eggs With Flourescence</title>
+      <title>Finding Cryptic Insect Eggs With Fluorescence</title>
       <link>/2018/12/12/leafhopper-egg-method/</link>
       <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
       
@@ -217,12 +260,6 @@ Figure 4: Guo Ming-Ming, an undergraduate researcher visiting from Guangzhou for
       <guid>/2018/06/28/webchem/</guid>
       <description>&lt;p&gt;My PhD has involved learning a lot more than I expected about analytical chemistry, and as I’ve been learning, I’ve been trying my best to make my life easier by writing R functions to help me out. Some of those functions have found a loving home in the &lt;code&gt;webchem&lt;/code&gt; package, part of &lt;a href=&#34;https://ropensci.org/&#34;&gt;rOpenSci&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Papers that use gas chromatography to separate and measure chemicals often include a table of the compounds they found along with experimental retention indices and literature retention indices. A retention index is basically a corrected retention time—the time it took for the particular chemical to make it through the gas chromatograph, an instrument designed to separate chemicals, to the detector used to identify the compound (e.g. an FID or mass spectrometer). While the retention time for a particular compound might vary from run to run or beetween labs, the retention &lt;strong&gt;index&lt;/strong&gt; should be comparable. Therefore, they are often used to help identify compounds and &lt;a href=&#34;https://webbook.nist.gov/chemistry/&#34;&gt;NIST&lt;/a&gt; maintains a database of retention indeces for researchers to refer to.&lt;/p&gt;
-&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/kowalsick table.png&#34; alt=&#34;An example table including literature retention indices from [Kowalsick, et al. 2014](https://doi.org/10.1016/j.chroma.2014.10.058)&#34;  /&gt;
-&lt;p class=&#34;caption&#34;&gt;
-Figure 1: An example table including literature retention indices from &lt;a href=&#34;https://doi.org/10.1016/j.chroma.2014.10.058&#34;&gt;Kowalsick, et al. 2014&lt;/a&gt;
-&lt;/p&gt;
-&lt;/div&gt;
 &lt;p&gt;Producing such a table of literature retention indices for potentially hundreds of metabolites by hand can be really tedious!&lt;/p&gt;
 &lt;p&gt;Enter &lt;code&gt;nist_ri()&lt;/code&gt;, a handy function I wrote to scrape retention index tables from NIST. Below, I work through an example of how you might use it. First, you need to install the latest version of &lt;code&gt;webchem&lt;/code&gt;. My function isn’t in the latest CRAN release at the time of writing this blog post, but you can install from github like so:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;ropensci/webchem&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
@@ -234,141 +271,41 @@ Figure 1: An example table including literature retention indices from &lt;a hre
 &lt;p&gt;Let’s get Van Den Dool &amp;amp; Kratz (AKA “linear”) retention indeces for non-polar columns using a temperature ramp. This might take a while, depending on your internet connection and how many CAS numbers you request data for. If a certain type of retention index doesn’t exist for a compound, the function will return &lt;code&gt;NA&lt;/code&gt; for all columns but the CAS number.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;RIs &amp;lt;- nist_ri(CASs, &amp;quot;linear&amp;quot;, &amp;quot;non-polar&amp;quot;, &amp;quot;ramp&amp;quot;)
 head(RIs)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##       CAS      type  phase   RI length      gas substrate diameter
-## 1 83-34-1 Capillary  SPB-5 1410     60     &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;     0.32
-## 2 83-34-1 Capillary DB-5MS 1380     30   Helium      &amp;lt;NA&amp;gt;     0.25
-## 3 83-34-1 Capillary  SE-54 1410     50   Helium      &amp;lt;NA&amp;gt;     0.32
-## 4 83-34-1 Capillary   DB-5 1381     30 Hydrogen      &amp;lt;NA&amp;gt;     0.25
-## 5 83-34-1 Capillary   DB-5 1389     30 Nitrogen      &amp;lt;NA&amp;gt;     0.25
-## 6 83-34-1 Capillary DB-5MS 1399     30     &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;     0.25
-##   thickness temp_start temp_end temp_rate hold_start hold_end
-## 1      1.00         40      230         3          2       10
-## 2      0.25         35      225        10          5       25
-## 3        NA         40      240         8          2        5
-## 4      0.25         35      270         5         NA       20
-## 5      0.25         30      250         3          2        2
-## 6      0.25         40      200        10          3       20
-##                               reference comment
-## 1                 Engel and Ratel, 2007 MSDC-RI
-## 2   Lozano P.R., Drake M., et al., 2007 MSDC-RI
-## 3    Schlutt B., Moran N., et al., 2007 MSDC-RI
-## 4            Alves, Pinto, et al., 2005 MSDC-RI
-## 5 Colahan-Sederstrom and Peterson, 2005 MSDC-RI
-## 6  Whetstine, Cadwallader, et al., 2005 MSDC-RI&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can see there are multiple retention indices (&lt;code&gt;RI&lt;/code&gt;) for each CAS number. Let’s filter this down some more using some functions from &lt;code&gt;dplyr&lt;/code&gt; and &lt;code&gt;stringr&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
 library(stringr)
-RIs_filtered &amp;lt;- RIs %&amp;gt;%
+RIs_filtered &amp;lt;-
+  RIs %&amp;gt;%
   filter(gas == &amp;quot;Helium&amp;quot;,
          between(length, 20, 30),
          str_detect(phase, &amp;quot;5&amp;quot;),
          diameter &amp;lt; 0.3,
          thickness == 0.25)
 head(RIs_filtered)&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;##        CAS      type  phase     RI length    gas substrate diameter
-## 1  83-34-1 Capillary DB-5MS 1380.0     30 Helium      &amp;lt;NA&amp;gt;     0.25
-## 2  83-34-1 Capillary DB-5MS 1396.0     30 Helium      &amp;lt;NA&amp;gt;     0.25
-## 3  83-34-1 Capillary   DB-5 1391.0     30 Helium      &amp;lt;NA&amp;gt;     0.26
-## 4 119-36-8 Capillary   DB-5 1201.0     25 Helium      &amp;lt;NA&amp;gt;     0.25
-## 5 119-36-8 Capillary HP-5MS 1200.7     30 Helium      &amp;lt;NA&amp;gt;     0.25
-## 6 119-36-8 Capillary HP-5MS 1190.0     30 Helium      &amp;lt;NA&amp;gt;     0.25
-##   thickness temp_start temp_end temp_rate hold_start hold_end
-## 1      0.25         35      225        10          5       25
-## 2      0.25         35      200        10          5       30
-## 3      0.25         50      300         6          4       20
-## 4      0.25         60      200         2         NA       60
-## 5      0.25         80      300         4         NA       NA
-## 6      0.25         60      280         4          5       NA
-##                                 reference comment
-## 1     Lozano P.R., Drake M., et al., 2007 MSDC-RI
-## 2 Karagül-Yüceer, Vlahovich, et al., 2003 MSDC-RI
-## 3                Rostad and Pereira, 1986 MSDC-RI
-## 4                 Rout, Rao, et al., 2007 MSDC-RI
-## 5                Zeng, Zhao, et al., 2007 MSDC-RI
-## 6         Saroglou, Dorizas, et al., 2006 MSDC-RI&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now we could &lt;code&gt;summarise&lt;/code&gt; to get an average of all the database entries…&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;RIs_filtered %&amp;gt;% 
   group_by(CAS) %&amp;gt;% 
   summarise(mean_RI = mean(RI))&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 2
-##   CAS        mean_RI
-##   &amp;lt;chr&amp;gt;        &amp;lt;dbl&amp;gt;
-## 1 119-36-8     1193.
-## 2 123-35-3      990.
-## 3 19700-21-1   1430 
-## 4 83-34-1      1389&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Or if we wanted to pick a single entry for each CAS number with the median RI, we could do that as well.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;best_RIs &amp;lt;- RIs_filtered %&amp;gt;%
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;best_RIs &amp;lt;-
+  RIs_filtered %&amp;gt;%
   group_by(CAS) %&amp;gt;% 
   filter(RI == median(RI)) %&amp;gt;% 
   filter(row_number() == 1) %&amp;gt;% 
   select(CAS, RI, reference)
 best_RIs&lt;/code&gt;&lt;/pre&gt;
-&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 3
-## # Groups:   CAS [4]
-##   CAS           RI reference                             
-##   &amp;lt;chr&amp;gt;      &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;                                 
-## 1 83-34-1     1391 Rostad and Pereira, 1986              
-## 2 119-36-8    1191 Aligiannis, Kalpoutzakis, et al., 2004
-## 3 123-35-3     991 Maccioni, Baldini, et al., 2007       
-## 4 19700-21-1  1430 Dickschat, Wenzel, et al., 2004&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You could then easily take this table and &lt;code&gt;*_join()&lt;/code&gt; it to your GC/MS data, if you have a column for CAS#, and select the &lt;code&gt;RI&lt;/code&gt; and &lt;code&gt;reference&lt;/code&gt; columns, for example.&lt;/p&gt;
-&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fake.data &amp;lt;- data.frame(CAS = CASs,
-                 #Name = cts_convert(CASs, from = &amp;quot;CAS&amp;quot;, to = &amp;quot;Chemical Name&amp;quot;, first = TRUE),
-                 Name = c(&amp;quot;skatole&amp;quot;, &amp;quot;methyl salicylate&amp;quot;, &amp;quot;beta-myrcene&amp;quot;, &amp;quot;geosmin&amp;quot;),
-                 group_1_conc = round(abs(rnorm(4)), 3),
-                 group_2_conc = round(abs(rnorm(4)), 3))
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fake.data &amp;lt;-
+  data.frame(CAS = CASs,
+             #Name = cts_convert(CASs, from = &amp;quot;CAS&amp;quot;, to = &amp;quot;Chemical Name&amp;quot;, first = TRUE),
+             Name = c(&amp;quot;skatole&amp;quot;, &amp;quot;methyl salicylate&amp;quot;, &amp;quot;beta-myrcene&amp;quot;, &amp;quot;geosmin&amp;quot;),
+             group_1_conc = round(abs(rnorm(4)), 3),
+             group_2_conc = round(abs(rnorm(4)), 3))
 
 left_join(fake.data, best_RIs) %&amp;gt;%
   select(CAS, Name, RI, everything()) %&amp;gt;% 
   arrange(RI) %&amp;gt;%
   knitr::kable()&lt;/code&gt;&lt;/pre&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr class=&#34;header&#34;&gt;
-&lt;th align=&#34;left&#34;&gt;CAS&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;Name&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;RI&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;group_1_conc&lt;/th&gt;
-&lt;th align=&#34;right&#34;&gt;group_2_conc&lt;/th&gt;
-&lt;th align=&#34;left&#34;&gt;reference&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;123-35-3&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;beta-myrcene&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;991&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.188&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.924&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Maccioni, Baldini, et al., 2007&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;119-36-8&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;methyl salicylate&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1191&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.316&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.634&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Aligiannis, Kalpoutzakis, et al., 2004&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;odd&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;83-34-1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;skatole&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1391&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1.825&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.216&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Rostad and Pereira, 1986&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr class=&#34;even&#34;&gt;
-&lt;td align=&#34;left&#34;&gt;19700-21-1&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;geosmin&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;1430&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.176&lt;/td&gt;
-&lt;td align=&#34;right&#34;&gt;0.464&lt;/td&gt;
-&lt;td align=&#34;left&#34;&gt;Dickschat, Wenzel, et al., 2004&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
 </description>
     </item>
     
@@ -600,20 +537,6 @@ print(a1)
       
       <guid>/2018/05/01/phdrinking-podcast/</guid>
       <description>&lt;p&gt;I had the wonderful opportunity to be on Sadie Wit&amp;rsquo;s &lt;a href=&#34;https://soundcloud.com/phdrinking&#34; target=&#34;_blank&#34;&gt;PhDrinking podcast&lt;/a&gt;.  Check out the episode &lt;a href=&#34;https://soundcloud.com/phdrinking/tea-totaling&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt; and subscribe to PhDrinking wherever great podcasts are casted.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Cupcake Update</title>
-      <link>/2018/04/10/cupcake-update/</link>
-      <pubDate>Tue, 10 Apr 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/04/10/cupcake-update/</guid>
-      <description>&lt;p&gt;I know you&amp;rsquo;re all waiting on the edge of your seats for an update on the &lt;a href=&#34;http://www.ericrscott.com/2018/03/05/cupcakes-vs-muffins/&#34; target=&#34;_blank&#34;&gt;cupcakes vs. muffins data science project&lt;/a&gt;, but unfortunately I don&amp;rsquo;t have any answers to that age-old question* yet.&lt;/p&gt;
-
-&lt;p&gt;As silly as it may sound, I&amp;rsquo;m actually considering using this data set for a paper about using PLS (partial least squares regression) for ecological data. So for now, I&amp;rsquo;m holding off on blogging about any results of analyses in case I end up wanting to use them for the publication. In the meantime, the fully cleaned (I hope) &lt;a href=&#34;https://github.com/Aariq/cupcakes-vs-muffins&#34; target=&#34;_blank&#34;&gt;dataset is up on github&lt;/a&gt;, so feel free to play around with it. Once I have a general outline for this paper, I may feel more comfortable blogging about the results. Please comment if you think I&amp;rsquo;m being silly and overparanoid about holding back on this.&lt;/p&gt;
-
-&lt;p&gt;*all I can say is muffins probably differ from cupcakes by more than just frosting, based on the ingredients.&lt;/p&gt;
 </description>
     </item>
     
