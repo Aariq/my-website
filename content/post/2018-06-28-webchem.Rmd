@@ -20,6 +20,7 @@ header:
 ```{r message=FALSE, warning=FALSE, include=FALSE}
 library(knitr)
 library(webchem)
+knitr::opts_chunk$set(eval = FALSE) #remove this line when the govt opens up again
 ```
 
 My PhD has involved learning a lot more than I expected about analytical chemistry, and as I've been learning, I've been trying my best to make my life easier by writing R functions to help me out.  Some of those functions have found a loving home in the `webchem` package, part of [rOpenSci](https://ropensci.org/
