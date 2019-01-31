@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Eric R. Scott</title>
-    <link>/post/</link>
+    <link>http://ericrscott.com/post/</link>
     <description>Recent content in Posts on Eric R. Scott</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -12,10 +12,10 @@
     
     <item>
       <title>RStudio::conf reflections</title>
-      <link>/2019/01/23/rstudio-conf-reflections/</link>
+      <link>http://ericrscott.com/2019/01/23/rstudio-conf-reflections/</link>
       <pubDate>Wed, 23 Jan 2019 00:00:00 +0000</pubDate>
       
-      <guid>/2019/01/23/rstudio-conf-reflections/</guid>
+      <guid>http://ericrscott.com/2019/01/23/rstudio-conf-reflections/</guid>
       <description>&lt;p&gt;This was my first time attending &lt;a href=&#34;https://www.rstudio.com/conference/&#34;&gt;RStudio::conf&lt;/a&gt;, and I went primarily to explore my career options in data science. I mainly stuck to teaching and modeling related talks since that’s how I already use R. Here are my major takeaways from the conference.&lt;/p&gt;
 &lt;div id=&#34;shiny-is-the-new-hotness&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;Shiny is the new hotness&lt;/h1&gt;
@@ -55,22 +55,22 @@ summarize it by taking the mean and standard deviation of petal length&lt;/p&gt;
     
     <item>
       <title>Finding Cryptic Insect Eggs With Fluorescence</title>
-      <link>/2018/12/12/leafhopper-egg-method/</link>
+      <link>http://ericrscott.com/2018/12/12/leafhopper-egg-method/</link>
       <pubDate>Wed, 12 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/12/12/leafhopper-egg-method/</guid>
+      <guid>http://ericrscott.com/2018/12/12/leafhopper-egg-method/</guid>
       <description>&lt;p&gt;I recently gave a talk on some of my work as a PhD student on &lt;a href=&#34;http://www.ericrscott.com/project/climate-leafhopper-quality/&#34;&gt;experiments&lt;/a&gt; manipulating densities of the tea green leafhopper (&lt;em&gt;Empoasca onukii&lt;/em&gt;) on tea plants. What the audience liked most, I think, were my methods for finding leafhopper eggs in the field and rearing them in the lab (well, a guest room at a tea farm). You see, leafhoppers (including at least the tea green leafhopper and the small green leafhopper, &lt;em&gt;Empoasca vitis&lt;/em&gt;) lay their eggs &lt;em&gt;inside&lt;/em&gt; plant tissues, making them impossible to find with the naked eye. But, you can take advantage of the fluorescent properties of leafhopper eggs and plants to make them more visible.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/learning-SLEDA.jpeg&#34; alt=&#34;Students from TRI CAAS looking for leafhopper eggs in tea shoots&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/learning-SLEDA.jpeg&#34; alt=&#34;Students from TRI CAAS looking for leafhopper eggs in tea shoots&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Students from TRI CAAS looking for leafhopper eggs in tea shoots
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;It turns out that under blue light, leafhopper eggs fluoresce bright green while the chlorophyll in plants fluoresces red. By using blue light to create this fluorescence and blocking the blue light coming to your eyes with a filter, you can easily spot the eggs even though they are under the epidermis of the tea stems.&lt;/p&gt;
-&lt;video autoplay=&#34;TRUE&#34; controls=&#34;TRUE&#34; loop=&#34;TRUE&#34; muted=&#34;TRUE&#34; src=&#34;/img/SLEDA.mp4&#34; width=&#34;400&#34; height=&#34;400&#34; figcaption=&#34;testing&#34;&gt;&lt;/video&gt;
+&lt;video autoplay=&#34;TRUE&#34; controls=&#34;TRUE&#34; loop=&#34;TRUE&#34; muted=&#34;TRUE&#34; src=&#34;http://ericrscott.com/img/SLEDA.mp4&#34; width=&#34;400&#34; height=&#34;400&#34; figcaption=&#34;testing&#34;&gt;&lt;/video&gt;
 &lt;p&gt;What you’re seeing above is video from a smart phone with the lens covered by a pair of orange goggles. I move the beam of a blue LED flashlight (which you can’t really see because of the orange filter) toward the center of the frame, where you see a green dot appear on the tea stem. This is a leafhopper egg. Then I remove the orange goggles so you can see what it looks like without them—totally washed out by blue light.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/SLEDA-in-lab.png&#34; alt=&#34;A tea shoot lit by ambient light (left) and by blue light, filtered through orange goggles (right).  The leafhopper egg is the small green dot on the stem in the right panel.&#34; width=&#34;70%&#34; /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/SLEDA-in-lab.png&#34; alt=&#34;A tea shoot lit by ambient light (left) and by blue light, filtered through orange goggles (right).  The leafhopper egg is the small green dot on the stem in the right panel.&#34; width=&#34;70%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: A tea shoot lit by ambient light (left) and by blue light, filtered through orange goggles (right). The leafhopper egg is the small green dot on the stem in the right panel.
 &lt;/p&gt;
@@ -85,62 +85,18 @@ Figure 2: A tea shoot lit by ambient light (left) and by blue light, filtered th
     </item>
     
     <item>
-      <title>Trip to Uji</title>
-      <link>/2018/11/07/trip-to-uji/</link>
-      <pubDate>Wed, 07 Nov 2018 00:00:00 +0000</pubDate>
-      
-      <guid>/2018/11/07/trip-to-uji/</guid>
-      <description>&lt;p&gt;At the end of my &lt;a href=&#34;2018-07-20-last-fieldwork-season&#34; target=&#34;_blank&#34;&gt;last field season&lt;/a&gt;, I was lucky enough to be joined by my wife for some vacationing.  We spent about a week in China, and about a week in Kyoto, Japan, a mecca for Japanese green tea lovers.  It was &lt;em&gt;hot&lt;/em&gt; in August, and the super umami iced sencha we were offered at hotels and restaurants was a refreshing change from only hot beverages in China. Near the end of our stay, we took a day trip to Uji.  I was initially expecting Uji to be a bustling upscale downtown full of tea shops surrounded by tea gardens.  But what I heard from all our guide books was that it was mostly a tea-themed tourist trap.  Either way, I was down to experience it first-hand.&lt;/p&gt;
-
-&lt;p&gt;On our way down, we had planned to make a stop at Inari temple, and last minute decided to first go to Fukuji temple, since it was on the way.&lt;/p&gt;
-
-&lt;p&gt;picture of tofukuji&lt;/p&gt;
-
-&lt;p&gt;After wandering the temple grounds at Fukuji, we decided to walk to Inari temple.  It was only about a 15 min walk, and it didn&amp;rsquo;t seem worth it to get back on the train.  We were, however, unprepared for the amount of walking necessary at Inari temple.  We knew it was famous for it&amp;rsquo;s paths covered with organge painted gateways, but we didn&amp;rsquo;t know that those paths went &lt;strong&gt;to the top of a mountain&lt;/strong&gt;. My legs were &lt;em&gt;already&lt;/em&gt; tired after our morning stroll from Fukuji compounded with almost two weeks of walking an average of 10 miles a day. Every time we thought we were making progress, we would come across a YOU ARE HERE map that made it seem like we&amp;rsquo;d never get to the top.  Then, more orange gates.&lt;/p&gt;
-
-&lt;p&gt;Eventually, we gave up.  We think we made it almost &lt;sup&gt;3&lt;/sup&gt;&amp;frasl;&lt;sub&gt;4&lt;/sub&gt; of the way, to a spot with a very nice view.  If there was any hope of us making it to Uji with our leg muscles intact, we had to turn back.&lt;/p&gt;
-
-&lt;p&gt;We made it to Uji and shuffled doggedly to our first stop, Kyoryouri Ujigawa, a restaurant overlooking the Uji river that I found out about from Ricardo Caicedo&amp;rsquo;s &lt;a href=&#34;https://www.myjapanesegreentea.com/uji-press-tea-tour-2016-part-3&#34; target=&#34;_blank&#34;&gt;blog post&lt;/a&gt;.  It was green tea everything!  Matcha soba, inari sushi with matcha sprinkled on top, tempura tea leaf, and of course a cup of sencha.  The restaurant is on the third floor and all tatami mats.  It was &lt;em&gt;so&lt;/em&gt; wonderful to kick off our shoes and eat some delicous food while taking in the view.  We were refreshed and ready to do some shopping!&lt;/p&gt;
-
-&lt;p&gt;[restaurant]&lt;/p&gt;
-
-&lt;p&gt;We headed across the river to ____ which was one of the oldest tea shops in Uji.  I had come to Uji with intentions to buy some gyokuoro&amp;mdash;the super ummami result of shading tea plants for several weeks before harvest.  I knew it would be expensive, but without any way to taste it before buying (we &lt;em&gt;were&lt;/em&gt; given a sample of some delicious sencha), we decided to move on.&lt;/p&gt;
-
-&lt;p&gt;[pic outside of tea shop]&lt;/p&gt;
-
-&lt;p&gt;We ended up at another bookmarked spot, _____, also extremely old and in continous operation&amp;hellip;..  Here, their tea offerings were much more accessible.  Their wall of tea was organized with separate shelves for gyokuro, sencha, and other teas such as houjicha and genmaicha.  From left to right, teas increased in quality, price, and concentration of that delicious umami tasting amino acid, L-theanine.  On the top shelf were the, well, top-shelf teas!  We were offered a sample of a mid-range gyokuro which was already &lt;strong&gt;so&lt;/strong&gt; umami that it was almost unpleasant.  Amazing stuff, but not something I&amp;rsquo;d want to drink all the time.  Eventually we decided that the good sencha was worlds better than the gyokuro we usually have access to in the US, so we picked up some sencha and some kukicha made from gyokuro stems and called it a tea shopping success.&lt;/p&gt;
-
-&lt;p&gt;[tea shop wall of tea]&lt;/p&gt;
-
-&lt;p&gt;Next stop, snack time!  Feeling accomplished in tea shopping, we went &lt;em&gt;back&lt;/em&gt; across the bridge to the first place we went to for delicious matcha with sweets in it!&lt;/p&gt;
-
-&lt;p&gt;[matcha snacks]&lt;/p&gt;
-
-&lt;p&gt;We made one final stop on the way out of town to get souvenirs.  This shop was all matcha everything.  Matcha chocolate, matcha cookies, matcha ice cream, matcha mochi, matcha cakes, and, of course, matcha.&lt;/p&gt;
-
-&lt;p&gt;[uji mailbox shaped like a tea jar]&lt;/p&gt;
-
-&lt;p&gt;My legs and hips hurting, we made it back to the trainstation and got some pictures with the Uji city mascott (a baby with green hair, a matcha whisk on his head, and a cape that says &amp;ldquo;tea&amp;rdquo;) and heading back to our hotel.&lt;/p&gt;
-
-&lt;p&gt;[uji mascott]&lt;/p&gt;
-
-&lt;p&gt;Overall, the town of Uji wasn&amp;rsquo;t what I expected or what I had heard it would be. It was a small sleepy town, which was definitely tea-themed and touristy, but not the tourist &lt;em&gt;trap&lt;/em&gt; I had been told it would be.  The matcha and matcha products I tasted were all what would be considered high-quality in the US, so even if we were getting the cheap stuff, it was some of the best I&amp;rsquo;d had.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Last Fieldwork Season in China</title>
-      <link>/2018/07/20/last-fieldwork-season/</link>
+      <link>http://ericrscott.com/2018/07/20/last-fieldwork-season/</link>
       <pubDate>Fri, 20 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/07/20/last-fieldwork-season/</guid>
+      <guid>http://ericrscott.com/2018/07/20/last-fieldwork-season/</guid>
       <description>&lt;p&gt;I’m currently in Hangzhou, China at the &lt;a href=&#34;www.tricaas.com&#34;&gt;Tea Research Institute&lt;/a&gt;(TRI) for my fourth and last time. It’s bitter sweet (like my favorite teas ;-) ) since I’m both glad to be nearing the end of my PhD, and sad to say goodbye to all the friends I’ve made and a city I’ve really grown to enjoy living in.&lt;/p&gt;
 &lt;div id=&#34;fieldwork&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Fieldwork&lt;/h2&gt;
-&lt;p&gt;This final summer, I’ve been focusing on a few experiments having to do with leafhoppers and their effects on tea chemistry (see the &lt;a href=&#34;/project/climate-leafhopper-quality/&#34;&gt;project page&lt;/a&gt; for more info). I’m repeating an experiment from last year, where I put different densities of insects on tea plants and measure the chemistry, but this time using two different cultivars to see if they respond differently to insect attack.&lt;/p&gt;
+&lt;p&gt;This final summer, I’ve been focusing on a few experiments having to do with leafhoppers and their effects on tea chemistry (see the &lt;a href=&#34;http://ericrscott.com/project/climate-leafhopper-quality/&#34;&gt;project page&lt;/a&gt; for more info). I’m repeating an experiment from last year, where I put different densities of insects on tea plants and measure the chemistry, but this time using two different cultivars to see if they respond differently to insect attack.&lt;/p&gt;
 I’m also trying my hand at making oolong tea!
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/myoolong.jpg&#34; alt=&#34;Jin Guan Yin leaves after two rounds of gentle bruising&#34; width=&#34;60%&#34; /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/myoolong.jpg&#34; alt=&#34;Jin Guan Yin leaves after two rounds of gentle bruising&#34; width=&#34;60%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Jin Guan Yin leaves after two rounds of gentle bruising
 &lt;/p&gt;
@@ -148,7 +104,7 @@ Figure 1: Jin Guan Yin leaves after two rounds of gentle bruising
 &lt;p&gt;This is part of an experiment aiming to better understand when leafhoppers are a pest, and when they can improve tea quality. They’re definitely considered a pest to farmers that make green tea, but prized by some farmers making &lt;a href=&#34;https://specialtyteaalliance.org/world-of-tea/oriental-beauty-bug-bitten-teas/&#34;&gt;Eastern Beauty oolong&lt;/a&gt;. There are &lt;em&gt;many&lt;/em&gt; reasons for this, but I’m curious about how tea leaves react during processing after being previously damaged by leafhoppers. I’ve written a bit about this on &lt;a href=&#34;http://www.teageek.net/blog/2018/03/oolong-mid-oxidized/&#34;&gt;TeaGeek&lt;/a&gt; before, so you can read more about what’s going on during oolong processing there.&lt;/p&gt;
 &lt;p&gt;I’m doing these two experiments at TRI’s new-ish experimental field station in near-by Shengzhou.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-3&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/shengzhou.jpg&#34; alt=&#34;A view of the Shengzhou TRI Exeprimental Station&#34; width=&#34;80%&#34; /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/shengzhou.jpg&#34; alt=&#34;A view of the Shengzhou TRI Exeprimental Station&#34; width=&#34;80%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: A view of the Shengzhou TRI Exeprimental Station
 &lt;/p&gt;
@@ -159,14 +115,14 @@ Figure 2: A view of the Shengzhou TRI Exeprimental Station
 &lt;h2&gt;People&lt;/h2&gt;
 &lt;p&gt;I’m so happy to see old friends and meet new ones! I’ve been working closely with Dr. Li Xin and his masters student, Wei Ji Peng for the past 3 years and it’s great to see them again. I’ve also made friends in other departments (it’s easy to make friends at a tea research institute when you’re a foreign tea geek!) and it’s great to see them again as well.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-4&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/lixin-weijipeng.jpg&#34; alt=&#34;Wei Ji-Peng (left), me (center), and Dr. Li Xin (right) at the Shengzhou experimental station&#34; width=&#34;60%&#34; /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/lixin-weijipeng.jpg&#34; alt=&#34;Wei Ji-Peng (left), me (center), and Dr. Li Xin (right) at the Shengzhou experimental station&#34; width=&#34;60%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: Wei Ji-Peng (left), me (center), and Dr. Li Xin (right) at the Shengzhou experimental station
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;I’ve also been lucky to have a Chinese REU student working with me this summer. Her name is Guo Ming Ming, and she’s been extremely helpful in carrying out experiments, catching leafhoppers, and translating (no, even after 4 years I do not speak Mandarin well enough to do much of anything on my own).&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-5&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/ming-ming.jpg&#34; alt=&#34;Guo Ming-Ming, an undergraduate researcher visiting from Guangzhou for the summer&#34; width=&#34;60%&#34; /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/ming-ming.jpg&#34; alt=&#34;Guo Ming-Ming, an undergraduate researcher visiting from Guangzhou for the summer&#34; width=&#34;60%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 4: Guo Ming-Ming, an undergraduate researcher visiting from Guangzhou for the summer
 &lt;/p&gt;
@@ -174,19 +130,25 @@ Figure 4: Guo Ming-Ming, an undergraduate researcher visiting from Guangzhou for
 &lt;/div&gt;
 &lt;div id=&#34;computer-work&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Computer work&lt;/h2&gt;
-&lt;p&gt;Fieldwork is fun, but its far too hot to work outside for most of the day. So I usually finish my morning work before breakfast most days, and occasionally do some work in the evening. Of course there are longer days for setting up experiments, but most of the time I’m in an office. I’ve been working a lot on writing and coding for a paper about using partial least squares regression (PLS) on ecological data. I’m learning a lot in the process, and I can’t wait to share it with everyone (it might even include &lt;a href=&#34;/2018/03/05/cupcakes-vs-muffins/&#34;&gt;cupcakes vs. muffins&lt;/a&gt;!)&lt;/p&gt;
+&lt;p&gt;Fieldwork is fun, but its far too hot to work outside for most of the day. So I usually finish my morning work before breakfast most days, and occasionally do some work in the evening. Of course there are longer days for setting up experiments, but most of the time I’m in an office. I’ve been working a lot on writing and coding for a paper about using partial least squares regression (PLS) on ecological data. I’m learning a lot in the process, and I can’t wait to share it with everyone (it might even include &lt;a href=&#34;http://ericrscott.com/2018/03/05/cupcakes-vs-muffins/&#34;&gt;cupcakes vs. muffins&lt;/a&gt;!)&lt;/p&gt;
 &lt;/div&gt;
 </description>
     </item>
     
     <item>
       <title>Retrieve chemical retention indices from NIST with {webchem}!</title>
-      <link>/2018/06/28/webchem/</link>
+      <link>http://ericrscott.com/2018/06/28/webchem/</link>
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/06/28/webchem/</guid>
+      <guid>http://ericrscott.com/2018/06/28/webchem/</guid>
       <description>&lt;p&gt;My PhD has involved learning a lot more than I expected about analytical chemistry, and as I’ve been learning, I’ve been trying my best to make my life easier by writing R functions to help me out. Some of those functions have found a loving home in the &lt;code&gt;webchem&lt;/code&gt; package, part of &lt;a href=&#34;https://ropensci.org/&#34;&gt;rOpenSci&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Papers that use gas chromatography to separate and measure chemicals often include a table of the compounds they found along with experimental retention indices and literature retention indices. A retention index is basically a corrected retention time—the time it took for the particular chemical to make it through the gas chromatograph, an instrument designed to separate chemicals, to the detector used to identify the compound (e.g. an FID or mass spectrometer). While the retention time for a particular compound might vary from run to run or beetween labs, the retention &lt;strong&gt;index&lt;/strong&gt; should be comparable. Therefore, they are often used to help identify compounds and &lt;a href=&#34;https://webbook.nist.gov/chemistry/&#34;&gt;NIST&lt;/a&gt; maintains a database of retention indeces for researchers to refer to.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:unnamed-chunk-2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;http://ericrscott.com/img/kowalsick table.png&#34; alt=&#34;An example table including literature retention indices from [Kowalsick, et al. 2014](https://doi.org/10.1016/j.chroma.2014.10.058)&#34;  /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: An example table including literature retention indices from &lt;a href=&#34;https://doi.org/10.1016/j.chroma.2014.10.058&#34;&gt;Kowalsick, et al. 2014&lt;/a&gt;
+&lt;/p&gt;
+&lt;/div&gt;
 &lt;p&gt;Producing such a table of literature retention indices for potentially hundreds of metabolites by hand can be really tedious!&lt;/p&gt;
 &lt;p&gt;Enter &lt;code&gt;nist_ri()&lt;/code&gt;, a handy function I wrote to scrape retention index tables from NIST. Below, I work through an example of how you might use it. First, you need to install the latest version of &lt;code&gt;webchem&lt;/code&gt;. My function isn’t in the latest CRAN release at the time of writing this blog post, but you can install from github like so:&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;devtools::install_github(&amp;quot;ropensci/webchem&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
@@ -198,6 +160,27 @@ Figure 4: Guo Ming-Ming, an undergraduate researcher visiting from Guangzhou for
 &lt;p&gt;Let’s get Van Den Dool &amp;amp; Kratz (AKA “linear”) retention indeces for non-polar columns using a temperature ramp. This might take a while, depending on your internet connection and how many CAS numbers you request data for. If a certain type of retention index doesn’t exist for a compound, the function will return &lt;code&gt;NA&lt;/code&gt; for all columns but the CAS number.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;RIs &amp;lt;- nist_ri(CASs, &amp;quot;linear&amp;quot;, &amp;quot;non-polar&amp;quot;, &amp;quot;ramp&amp;quot;)
 head(RIs)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##       CAS      type  phase   RI length      gas substrate diameter
+## 1 83-34-1 Capillary  SPB-5 1410     60     &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;     0.32
+## 2 83-34-1 Capillary DB-5MS 1380     30   Helium      &amp;lt;NA&amp;gt;     0.25
+## 3 83-34-1 Capillary  SE-54 1410     50   Helium      &amp;lt;NA&amp;gt;     0.32
+## 4 83-34-1 Capillary   DB-5 1381     30 Hydrogen      &amp;lt;NA&amp;gt;     0.25
+## 5 83-34-1 Capillary   DB-5 1389     30 Nitrogen      &amp;lt;NA&amp;gt;     0.25
+## 6 83-34-1 Capillary DB-5MS 1399     30     &amp;lt;NA&amp;gt;      &amp;lt;NA&amp;gt;     0.25
+##   thickness temp_start temp_end temp_rate hold_start hold_end
+## 1      1.00         40      230         3          2       10
+## 2      0.25         35      225        10          5       25
+## 3        NA         40      240         8          2        5
+## 4      0.25         35      270         5         NA       20
+## 5      0.25         30      250         3          2        2
+## 6      0.25         40      200        10          3       20
+##                               reference comment
+## 1                 Engel and Ratel, 2007 MSDC-RI
+## 2   Lozano P.R., Drake M., et al., 2007 MSDC-RI
+## 3    Schlutt B., Moran N., et al., 2007 MSDC-RI
+## 4            Alves, Pinto, et al., 2005 MSDC-RI
+## 5 Colahan-Sederstrom and Peterson, 2005 MSDC-RI
+## 6  Whetstine, Cadwallader, et al., 2005 MSDC-RI&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You can see there are multiple retention indices (&lt;code&gt;RI&lt;/code&gt;) for each CAS number. Let’s filter this down some more using some functions from &lt;code&gt;dplyr&lt;/code&gt; and &lt;code&gt;stringr&lt;/code&gt;.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(dplyr)
 library(stringr)
@@ -209,10 +192,38 @@ RIs_filtered &amp;lt;-
          diameter &amp;lt; 0.3,
          thickness == 0.25)
 head(RIs_filtered)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;##        CAS      type  phase     RI length    gas substrate diameter
+## 1  83-34-1 Capillary DB-5MS 1380.0     30 Helium      &amp;lt;NA&amp;gt;     0.25
+## 2  83-34-1 Capillary DB-5MS 1396.0     30 Helium      &amp;lt;NA&amp;gt;     0.25
+## 3  83-34-1 Capillary   DB-5 1391.0     30 Helium      &amp;lt;NA&amp;gt;     0.26
+## 4 119-36-8 Capillary   DB-5 1201.0     25 Helium      &amp;lt;NA&amp;gt;     0.25
+## 5 119-36-8 Capillary HP-5MS 1200.7     30 Helium      &amp;lt;NA&amp;gt;     0.25
+## 6 119-36-8 Capillary HP-5MS 1190.0     30 Helium      &amp;lt;NA&amp;gt;     0.25
+##   thickness temp_start temp_end temp_rate hold_start hold_end
+## 1      0.25         35      225        10          5       25
+## 2      0.25         35      200        10          5       30
+## 3      0.25         50      300         6          4       20
+## 4      0.25         60      200         2         NA       60
+## 5      0.25         80      300         4         NA       NA
+## 6      0.25         60      280         4          5       NA
+##                                 reference comment
+## 1     Lozano P.R., Drake M., et al., 2007 MSDC-RI
+## 2 Karagül-Yüceer, Vlahovich, et al., 2003 MSDC-RI
+## 3                Rostad and Pereira, 1986 MSDC-RI
+## 4                 Rout, Rao, et al., 2007 MSDC-RI
+## 5                Zeng, Zhao, et al., 2007 MSDC-RI
+## 6         Saroglou, Dorizas, et al., 2006 MSDC-RI&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Now we could &lt;code&gt;summarise&lt;/code&gt; to get an average of all the database entries…&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;RIs_filtered %&amp;gt;% 
   group_by(CAS) %&amp;gt;% 
   summarise(mean_RI = mean(RI))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 2
+##   CAS        mean_RI
+##   &amp;lt;chr&amp;gt;        &amp;lt;dbl&amp;gt;
+## 1 119-36-8     1193.
+## 2 123-35-3      990.
+## 3 19700-21-1   1430 
+## 4 83-34-1      1389&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Or if we wanted to pick a single entry for each CAS number with the median RI, we could do that as well.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;best_RIs &amp;lt;-
   RIs_filtered %&amp;gt;%
@@ -221,6 +232,14 @@ head(RIs_filtered)&lt;/code&gt;&lt;/pre&gt;
   filter(row_number() == 1) %&amp;gt;% 
   select(CAS, RI, reference)
 best_RIs&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 4 x 3
+## # Groups:   CAS [4]
+##   CAS           RI reference                             
+##   &amp;lt;chr&amp;gt;      &amp;lt;dbl&amp;gt; &amp;lt;chr&amp;gt;                                 
+## 1 83-34-1     1391 Rostad and Pereira, 1986              
+## 2 119-36-8    1191 Aligiannis, Kalpoutzakis, et al., 2004
+## 3 123-35-3     991 Maccioni, Baldini, et al., 2007       
+## 4 19700-21-1  1430 Dickschat, Wenzel, et al., 2004&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;You could then easily take this table and &lt;code&gt;*_join()&lt;/code&gt; it to your GC/MS data, if you have a column for CAS#, and select the &lt;code&gt;RI&lt;/code&gt; and &lt;code&gt;reference&lt;/code&gt; columns, for example.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;fake.data &amp;lt;-
   data.frame(CAS = CASs,
@@ -233,15 +252,61 @@ left_join(fake.data, best_RIs) %&amp;gt;%
   select(CAS, Name, RI, everything()) %&amp;gt;% 
   arrange(RI) %&amp;gt;%
   knitr::kable()&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;CAS&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Name&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;RI&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;group_1_conc&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;group_2_conc&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;reference&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;123-35-3&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;beta-myrcene&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;991&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.464&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.491&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Maccioni, Baldini, et al., 2007&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;119-36-8&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;methyl salicylate&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1191&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.606&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.826&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Aligiannis, Kalpoutzakis, et al., 2004&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;83-34-1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;skatole&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1391&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.396&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.202&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Rostad and Pereira, 1986&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;19700-21-1&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;geosmin&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1430&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1.052&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.790&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Dickschat, Wenzel, et al., 2004&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
 </description>
     </item>
     
     <item>
       <title>Python is Weird (an unabashedly biased intro to Python for R users)</title>
-      <link>/2018/05/03/python-is-weird/</link>
+      <link>http://ericrscott.com/2018/05/03/python-is-weird/</link>
       <pubDate>Thu, 03 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/03/python-is-weird/</guid>
+      <guid>http://ericrscott.com/2018/05/03/python-is-weird/</guid>
       <description>
 
 &lt;p&gt;Last semester I took a class that used Python. It was my first time really seriously using any programing language other than R. The students were about half engineers and half biologists.  The vast majority of the biologists knew R to varying degrees, but had no experience with Python, and the engineers seemed to generally have some experience with Python, or at least with languages more similar to it than R. I wish that the instructor could have taught every Python lecture like &amp;ldquo;Ok, today we&amp;rsquo;re going to learn the Python equivalent of doing ____ in R&amp;rdquo;, but of course that wouldn&amp;rsquo;t be fair to about half the students.&lt;/p&gt;
@@ -450,20 +515,20 @@ print(a1)
     
     <item>
       <title>PhDrinking Podcast</title>
-      <link>/2018/05/01/phdrinking-podcast/</link>
+      <link>http://ericrscott.com/2018/05/01/phdrinking-podcast/</link>
       <pubDate>Tue, 01 May 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/05/01/phdrinking-podcast/</guid>
+      <guid>http://ericrscott.com/2018/05/01/phdrinking-podcast/</guid>
       <description>&lt;p&gt;I had the wonderful opportunity to be on Sadie Wit&amp;rsquo;s &lt;a href=&#34;https://soundcloud.com/phdrinking&#34; target=&#34;_blank&#34;&gt;PhDrinking podcast&lt;/a&gt;.  Check out the episode &lt;a href=&#34;https://soundcloud.com/phdrinking/tea-totaling&#34; target=&#34;_blank&#34;&gt;here&lt;/a&gt; and subscribe to PhDrinking wherever great podcasts are casted.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Cupcake Update</title>
-      <link>/2018/04/10/cupcake-update/</link>
+      <link>http://ericrscott.com/2018/04/10/cupcake-update/</link>
       <pubDate>Tue, 10 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/04/10/cupcake-update/</guid>
+      <guid>http://ericrscott.com/2018/04/10/cupcake-update/</guid>
       <description>&lt;p&gt;I know you&amp;rsquo;re all waiting on the edge of your seats for an update on the &lt;a href=&#34;http://www.ericrscott.com/2018/03/05/cupcakes-vs-muffins/&#34; target=&#34;_blank&#34;&gt;cupcakes vs. muffins data science project&lt;/a&gt;, but unfortunately I don&amp;rsquo;t have any answers to that age-old question* yet.&lt;/p&gt;
 
 &lt;p&gt;As silly as it may sound, I&amp;rsquo;m actually considering using this data set for a paper about using PLS (partial least squares regression) for ecological data. So for now, I&amp;rsquo;m holding off on blogging about any results of analyses in case I end up wanting to use them for the publication. In the meantime, the fully cleaned (I hope) &lt;a href=&#34;https://github.com/Aariq/cupcakes-vs-muffins&#34; target=&#34;_blank&#34;&gt;dataset is up on github&lt;/a&gt;, so feel free to play around with it. Once I have a general outline for this paper, I may feel more comfortable blogging about the results. Please comment if you think I&amp;rsquo;m being silly and overparanoid about holding back on this.&lt;/p&gt;
@@ -474,10 +539,10 @@ print(a1)
     
     <item>
       <title>Cupcakes vs. Muffins</title>
-      <link>/2018/03/05/cupcakes-vs-muffins/</link>
+      <link>http://ericrscott.com/2018/03/05/cupcakes-vs-muffins/</link>
       <pubDate>Mon, 05 Mar 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/03/05/cupcakes-vs-muffins/</guid>
+      <guid>http://ericrscott.com/2018/03/05/cupcakes-vs-muffins/</guid>
       <description>&lt;p&gt;One thing I’ve learned from my PhD at Tufts is that I really enjoy working data wrangling, visualization, and statistics in R. I enjoy it so much, that lately I’ve been strongly considering a career in data science after graduation. As a way to showcase my data science skills, I’ve been working on a side project to use webscraping and multivariate statistics to answer the age old question: Are cupcakes really &lt;em&gt;that&lt;/em&gt; different from muffins?&lt;/p&gt;
 &lt;p&gt;Honestly, I can’t even quite remember how this idea came to me, but it started in a discussion with Dr. Elizabeth Crone about why more ecologists don’t use a statistical technique called &lt;a href=&#34;https://en.wikipedia.org/wiki/Partial_least_squares_regression&#34;&gt;partial least squares regression&lt;/a&gt;. We wanted a fun multivariate data set that could illustrate the different conclusions you might get depending on the statistical method you use. Around the same time, I came across a blog post by &lt;a href=&#34;https://aczane.netlify.com/2018/02/08/the-first-and-namesake-post-is-it-cake/&#34;&gt;@lariebyrd&lt;/a&gt; explaining machine learning using cake emoji. And that somehow led to me webscraping &lt;strong&gt;every single muffin and cupcake recipe&lt;/strong&gt; on allrecipes.com.&lt;/p&gt;
 &lt;p&gt;I just finished the webscraping bit of the project this weekend. I’m not going to reproduce the code here, but rather address some of the challenges I faced, and some things I’ve learned so far. You can check out my R notebook and a .rds file of all the recipes &lt;a href=&#34;https://github.com/Aariq/cupcakes-vs-muffins&#34;&gt;over on github&lt;/a&gt;&lt;/p&gt;
@@ -490,7 +555,7 @@ print(a1)
 &lt;p&gt;I specifically chose allrecipes.com over, say geniuskitchen.com (an excellent recipe site) because of the way it categorizes and structures recipes. When I search “cupcake” on geniuskitchen.com, I get 1830 results (yay!), but a bunch of them are links to videos, articles, reviews, blog posts, food porn albums, and other things that are &lt;strong&gt;not&lt;/strong&gt; recipes (boo!). Allrecipes.com, on the other hand, gives me the following URL: &lt;a href=&#34;https://www.allrecipes.com/recipes/377/desserts/cakes/cupcakes/&#34; class=&#34;uri&#34;&gt;https://www.allrecipes.com/recipes/377/desserts/cakes/cupcakes/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is &lt;strong&gt;ALL THE CUPCAKES&lt;/strong&gt;. From there, I played around with SelectorGadget to make sure it was going to be easy to drill down to just the links to the actual recipes, and yes, it was.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:selector-gadget&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/selector-gadget.png&#34; alt=&#34;SelectorGadget in action&#34;  /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/selector-gadget.png&#34; alt=&#34;SelectorGadget in action&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: SelectorGadget in action
 &lt;/p&gt;
@@ -585,22 +650,22 @@ df %&amp;gt;%
     
     <item>
       <title>Importing data from a LI-COR photosynthesis meter into R</title>
-      <link>/2018/01/17/li-cor-wrangling/</link>
+      <link>http://ericrscott.com/2018/01/17/li-cor-wrangling/</link>
       <pubDate>Wed, 17 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>/2018/01/17/li-cor-wrangling/</guid>
-      <description>&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/viz/viz.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/DiagrammeR-styles/styles.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/grViz-binding/grViz.js&#34;&gt;&lt;/script&gt;
-&lt;link href=&#34;/rmarkdown-libs/str_view/str_view.css&#34; rel=&#34;stylesheet&#34; /&gt;
-&lt;script src=&#34;/rmarkdown-libs/str_view-binding/str_view.js&#34;&gt;&lt;/script&gt;
+      <guid>http://ericrscott.com/2018/01/17/li-cor-wrangling/</guid>
+      <description>&lt;script src=&#34;http://ericrscott.com/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://ericrscott.com/rmarkdown-libs/viz/viz.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://ericrscott.com/rmarkdown-libs/DiagrammeR-styles/styles.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://ericrscott.com/rmarkdown-libs/grViz-binding/grViz.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;http://ericrscott.com/rmarkdown-libs/str_view/str_view.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;http://ericrscott.com/rmarkdown-libs/str_view-binding/str_view.js&#34;&gt;&lt;/script&gt;
 
 
 &lt;p&gt;The &lt;a href=&#34;https://www.licor.com/env/products/photosynthesis/LI-6400XT/&#34;&gt;LI-6400XT&lt;/a&gt; is a portable device used to measure photosynthesis in plant leaves. As you take measurements by pressing a button on the device, they are recorded into memory. In order to keep track of which measurments go with which plants (or experimental treatments), there is an “add remark” option where you can enter sample information before taking measurements.&lt;/p&gt;
 &lt;p&gt;When the data are exported, you get a series of .xls files and a plain text file. Both of these have some problems that you’ll have to deal with if you want to read the data into R and use it for statistical analysis or generating reports.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:excel&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/licor_excel.png&#34; alt=&#34;Excel nightmare or text nightmare? Pick your poison.&#34; width=&#34;90%&#34; /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/licor_excel.png&#34; alt=&#34;Excel nightmare or text nightmare? Pick your poison.&#34; width=&#34;90%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Excel nightmare or text nightmare? Pick your poison.
 &lt;/p&gt;
@@ -793,13 +858,13 @@ head(output, 10)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Quantifying leafhopper damage with automated supervised classification</title>
-      <link>/2017/12/24/leafhopper-fiji/</link>
+      <link>http://ericrscott.com/2017/12/24/leafhopper-fiji/</link>
       <pubDate>Sun, 24 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/12/24/leafhopper-fiji/</guid>
+      <guid>http://ericrscott.com/2017/12/24/leafhopper-fiji/</guid>
       <description>&lt;p&gt;As part of my fieldwork in China, I collected harvested tea leaves that were damaged by the tea green leafhopper. I want to quantify the amount of leafhopper damage for each harvest. I was able to find several solutions for quantifying holes in leaves or even damage to leaf margins, but typical leafhopper damage is just tiny brown spots on the undersides of leaves. I did find some tutorials on using &lt;a href=&#34;http://imagej.net/Welcome&#34;&gt;ImageJ&lt;/a&gt; to analyze diseased area on leaves, but found that the leafhopper damage spots were too small and too similar in color to undamaged leaves for these tools to work reliably and be automated.&lt;/p&gt;
 &lt;div class=&#34;figure&#34; style=&#34;text-align: left&#34;&gt;&lt;span id=&#34;fig:leaf-fig&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/damaged leaf.png&#34; alt=&#34;Typical leafhopper damage&#34; width=&#34;60%&#34; /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/damaged leaf.png&#34; alt=&#34;Typical leafhopper damage&#34; width=&#34;60%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Typical leafhopper damage
 &lt;/p&gt;
@@ -810,7 +875,7 @@ Figure 1: Typical leafhopper damage
 &lt;p&gt;Just to clarify, my goal here is not image classification—that is, I’m not trying to classify leaves into categories like “undamaged”, “medium damaged”, “high damage”, but rather trying to classify individual pixels in the image as being damaged or undamaged leaf tissue (or background).&lt;/p&gt;
 &lt;p&gt;In short, after selecting some pixels representative of damaged leaf, undamaged leaf, and background (regions of interest, or ROIs), the WEKA plugin trains a random forest algorithm using data from various transformations of the pixels in the ROIs. Then, I can apply the algorithm to other images and extract data in the form of numbers of pixels classified in each category.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:example-result&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/analyzed leaf.png&#34; alt=&#34;example results of WEKA classification&#34; width=&#34;60%&#34; /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/analyzed leaf.png&#34; alt=&#34;example results of WEKA classification&#34; width=&#34;60%&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 2: example results of WEKA classification
 &lt;/p&gt;
@@ -829,7 +894,7 @@ Figure 2: example results of WEKA classification
 &lt;p&gt;We trained the classifier on three classes, background, damaged leaf, and undamaged leaf. For background and undamaged leaf, we found it was really important to focus on leaf edges, making sure to include shadows in the background class and lighter green leaf margins in the undamaged class. Without doing this, the classifier would consistently mis-classify shadows and edges as either damaged or background, respectively. This was also an iterative process and took several rounds of selecting ROIs, training a classifier, viewing results, and adding more ROIs. Once we were satisfied with our classifier, we saved it and applied it to all of our images in stacks of 20 on a computer with 32 GB of RAM. The results
 created by the WEKA plugin are stacks of three color images (because we used 3 classes). Getting numerical results turned out to be another problem.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:screenshot&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;/img/WEKA screenshot.png&#34; alt=&#34;WEKA segmentation window with ROIs selected&#34;  /&gt;
+&lt;img src=&#34;http://ericrscott.com/img/WEKA screenshot.png&#34; alt=&#34;WEKA segmentation window with ROIs selected&#34;  /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 3: WEKA segmentation window with ROIs selected
 &lt;/p&gt;
@@ -909,10 +974,10 @@ raw.data.2 &amp;lt;- raw.data %&amp;gt;%
     
     <item>
       <title>Making a website in RStudio</title>
-      <link>/2017/12/19/making-a-website-in-rstudio/</link>
+      <link>http://ericrscott.com/2017/12/19/making-a-website-in-rstudio/</link>
       <pubDate>Tue, 19 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>/2017/12/19/making-a-website-in-rstudio/</guid>
+      <guid>http://ericrscott.com/2017/12/19/making-a-website-in-rstudio/</guid>
       <description>&lt;p&gt;I’ve always thought I should eventually have a professional website for job hunting, but recently I’ve realized that it would be nice to have somewhere to collect my thoughts and contributions all in one place.
 Before having a website of my own, I generally shared updates and thoughts on &lt;a href=&#34;https://twitter.com/LeafyEricScott&#34;&gt;Twitter&lt;/a&gt; and on &lt;a href=&#34;#blogs&#34;&gt;other people’s blogs&lt;/a&gt;, which I will still continue to do, but having everything I do in one place seems like a good idea. I kept putting off making a website until I was recently encouraged by a combination of envy of my &lt;a href=&#34;https://www.rachaelebonoan.com/&#34;&gt;officemate’s awesome looking website&lt;/a&gt;, and learning that one could make a website using R Studio and the &lt;a href=&#34;https://bookdown.org/yihui/blogdown/&#34;&gt;blogdown&lt;/a&gt; R package. I just spent a semester learning a ton about R Markdown, the file type blogdown uses to construct websites, for a &lt;a href=&#34;https://github.com/Aariq/biostats-recitation&#34;&gt;biostatistics course&lt;/a&gt; I was teaching, so I figured using R Markdown to make a website would be relatively easy. Fortunately, I was correct! I spent about 3-4 work days initially getting this website working and customized, and it was relatively painless. Compared to, say WordPress, the impressiveness-to-effort ratio is much higher, in my opinion.&lt;/p&gt;
 &lt;div id=&#34;getting-started-with-blogdown&#34; class=&#34;section level2&#34;&gt;
