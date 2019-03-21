@@ -4,4 +4,4 @@
 .Ruserdata
 *.pages
 *.icloud
-public/
+public/**

@@ -7,8 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017 Eric R. Scott</copyright>
-    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0500</lastBuildDate>
+    <lastBuildDate>Sun, 01 Jan 2017 00:00:00 -0800</lastBuildDate>
     <atom:link href="/post/" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Cupcakes vs Muffins: Round 2</title>
+      <link>/2019/03/21/cupcakes-vs-muffins-round-2/</link>
+      <pubDate>Thu, 21 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/2019/03/21/cupcakes-vs-muffins-round-2/</guid>
+      <description>&lt;p&gt;Have you ever pondered whether a muffin is &lt;em&gt;really&lt;/em&gt; a breakfast food and not just an excuse to eat cake first thing in the morning? Well, you’ve come to the right blog post! In a previous &lt;a href=&#34;-vs-muffins&#34;&gt;post&lt;/a&gt;, I explained how I created a &lt;a href=&#34;&#34;&gt;dataset&lt;/a&gt; of the ingredients of __ muffin and __ cupcake recipes. In this installment, I’m going to use that dataset to demonstrate some of the important properties of multivariate statistics. Specifically, I want to show you the difference between unsupervised and supervised techniques—specifically the difference between principal components regression (PCA regression or PCR) and partial least squares regression (PLSR).&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>RStudio::conf reflections</title>
