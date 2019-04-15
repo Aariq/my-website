@@ -29,11 +29,11 @@ Figure 1: Correlation plot made using the <code>corrr</code> package
 </p>
 </div>
 <p>For example, baking powder, salt, baking soda, oil, milk, spice, and fruit are all strongly correlated with each other. This is called “multicollinearity”. Multicollinearity causes problems for statistical techniques that assume variables are independent, like multiple regression.</p>
-<p>Other common difficulties presented by ecological multivariate data include the “curse of dimensionality” (more variables than observations), and missing values.</p>
+<p>Other common difficulties presented by ecological multivariate data include the “<a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality">curse of dimensionality</a>” (more variables than observations), and missing values.</p>
 </div>
 <div id="unsupervised-and-supervised-analyses" class="section level1">
 <h1>Unsupervised and Supervised analyses</h1>
-<p><strong>Principal component analysis</strong> (PCA) is a multivariate technique that aims to explain the variation in the ingredient amounts, but is <strong>unsupervised</strong>. That is, it’s totally agnostic to whether recipes are muffins or cupcakes. Imagine a cloud of points in 3D space. PCA is aiming to draw a line through the spread of that cloud of points. That line explains most of the variation in the data. That line is then rotated and called “principle component 1”. Perpendicular to that, principle component 2 is drawn to explain the second greatest amount of variation in the points. You could then project your points onto this new coordinate space and do some statistical test to determine if your groups (e.g. cupcake or muffin) are different along one or both of these principle components.</p>
+<p><strong>Principal component analysis</strong> (PCA) is a multivariate technique that aims to explain the variation in the ingredient amounts, but is <strong>unsupervised</strong>. That is, it’s totally agnostic to whether recipes are muffins or cupcakes. Imagine a cloud of points in 3D space. PCA is aiming to draw a line through the spread of that cloud of points. That line explains most of the variation in the data. That line is then rotated and called “principal component 1”. Perpendicular to that, principal component 2 is drawn to explain the second greatest amount of variation in the points. You could then project your points onto this new coordinate space and do some statistical test to determine if your groups (e.g. cupcake or muffin) are different along one or both of these principal components.</p>
 <div class="figure"><span id="fig:unnamed-chunk-3"></span>
 <img src="/img/pca.png" alt="Conceptual diagram of PCA"  />
 <p class="caption">
@@ -111,8 +111,8 @@ nofrosting</code></pre>
 Figure 4: PCA score and loading plot. Muffins recipes (brown) separate only slightly from cupcake recipes (red) along PC2
 </p>
 </div>
-<p>Principle component 1 (PC1) represents a spectrum of leavening system. PC1 is negatively correlated with baking soda and some acidic ingredients like yogurt, sour cream, and cream cheese. PC1 is positively correlated with baking powder and milk. If you’re a baker, this makes sense because baking powder is just baking soda plus some powdered acid. If you have an acidic batter, then you can use baking soda.</p>
-<p>Principle component 2 is a “healthiness” axis going from savory/healthy at the top to sweet/unhealthy at the bottom.</p>
+<p>Principal component 1 (PC1) represents a spectrum of leavening system. PC1 is negatively correlated with baking soda and some acidic ingredients like yogurt, sour cream, and cream cheese. PC1 is positively correlated with baking powder and milk. If you’re a baker, this makes sense because baking powder is just baking soda plus some powdered acid. If you have an acidic batter, then you can use baking soda.</p>
+<p>Principal component 2 is a “healthiness” axis going from savory/healthy at the top to sweet/unhealthy at the bottom.</p>
 <p>There is <strong>no separation</strong> between muffins and cupcakes along PC1 (leavening system) even though that’s where the most variation is. There is <em>slight</em> separation along the healthiness axis with muffins tending to be a little more healthy than cupcakes.</p>
 <p><em>BUT</em> this doesn’t answer the question of whether cupcakes and muffins are different. It answers a slightly different question: “Do cupcakes and muffins differ in the ingredients that vary the most among all the recipes combined?”</p>
 </div>

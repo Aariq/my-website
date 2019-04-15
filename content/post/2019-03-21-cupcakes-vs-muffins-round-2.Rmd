@@ -62,12 +62,12 @@ nofrosting.raw %>%
 
 For example, baking powder, salt, baking soda, oil, milk, spice, and fruit are all strongly correlated with each other. This is called "multicollinearity". Multicollinearity causes problems for statistical techniques that assume variables are independent, like multiple regression.
 
-Other common difficulties presented by ecological multivariate data include the "curse of dimensionality" (more variables than observations), and missing values.
+Other common difficulties presented by ecological multivariate data include the "[curse of dimensionality](https://en.wikipedia.org/wiki/Curse_of_dimensionality)" (more variables than observations), and missing values.
 
 
 # Unsupervised and Supervised analyses
 
-**Principal component analysis** (PCA) is a multivariate technique that aims to explain the variation in the ingredient amounts, but is **unsupervised**.  That is, it's totally agnostic to whether recipes are muffins or cupcakes.  Imagine a cloud of points in 3D space.  PCA is aiming to draw a line through the spread of that cloud of points. That line explains most of the variation in the data. That line is then rotated and called "principle component 1". Perpendicular to that, principle component 2 is drawn to explain the second greatest amount of variation in the points.  You could then project your points onto this new coordinate space and do some statistical test to determine if your groups (e.g. cupcake or muffin) are different along one or both of these principle components.
+**Principal component analysis** (PCA) is a multivariate technique that aims to explain the variation in the ingredient amounts, but is **unsupervised**.  That is, it's totally agnostic to whether recipes are muffins or cupcakes.  Imagine a cloud of points in 3D space.  PCA is aiming to draw a line through the spread of that cloud of points. That line explains most of the variation in the data. That line is then rotated and called "principal component 1". Perpendicular to that, principal component 2 is drawn to explain the second greatest amount of variation in the points.  You could then project your points onto this new coordinate space and do some statistical test to determine if your groups (e.g. cupcake or muffin) are different along one or both of these principal components.
 
 ```{r echo=FALSE, fig.cap="Conceptual diagram of PCA"}
 include_graphics("/img/pca.png")
@@ -175,9 +175,9 @@ pca.score.plot<-
 plot_grid(pca.score.plot + theme(legend.position = "none"), pca.loading.plot, ncol = 2, nrow = 1)
 ```
 
-Principle component 1 (PC1) represents a spectrum of leavening system.  PC1 is negatively correlated with baking soda and some acidic ingredients like yogurt, sour cream, and cream cheese. PC1 is positively correlated with baking powder and milk. If you're a baker, this makes sense because baking powder is just baking soda plus some powdered acid.  If you have an acidic batter, then you can use baking soda.
+Principal component 1 (PC1) represents a spectrum of leavening system.  PC1 is negatively correlated with baking soda and some acidic ingredients like yogurt, sour cream, and cream cheese. PC1 is positively correlated with baking powder and milk. If you're a baker, this makes sense because baking powder is just baking soda plus some powdered acid.  If you have an acidic batter, then you can use baking soda.
 
-Principle component 2 is a "healthiness" axis going from savory/healthy at the top to sweet/unhealthy at the bottom.
+Principal component 2 is a "healthiness" axis going from savory/healthy at the top to sweet/unhealthy at the bottom.
 
 There is **no separation** between muffins and cupcakes along PC1 (leavening system) even though that's where the most variation is.  There is *slight* separation along the healthiness axis with muffins tending to be a little more healthy than cupcakes.
 
