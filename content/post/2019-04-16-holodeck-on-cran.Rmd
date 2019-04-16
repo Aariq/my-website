@@ -1,0 +1,47 @@
+---
+title: My first R package is on CRAN!
+author: Eric R. Scott
+date: '2019-04-16'
+slug: holodeck-on-cran
+categories:
+  - Blog
+tags:
+  - R
+  - multivariate statistics
+draft: no
+header:
+  caption: ''
+  image: ''
+  preview: yes
+---
+
+I woke up this morning to an email saying [my first R package](https://github.com/Aariq/holodeck), `holodeck`, was on it's way to [CRAN](https://cran.r-project.org/)! It's a humble package, providing a framework for quickly slapping together test data with different degrees of correlation between variables and differentiation among levels of a categorical variable.
+
+```{r eval=FALSE}
+# Example use of holodeck
+
+library(holodeck)
+library(dplyr)
+df <-
+  #make a categorical variable with 10 observations and 3 groups
+  sim_cat(n_obs = 10, n_groups = 3, name = "Treatment") %>% 
+  #add 3 variables that covary
+  sim_covar(n_vars = 3, var = 1, cov = 0.5) %>% 
+  #add 10 variables that don't covary, but discriminate levels of Treatment
+  group_by(Treatment) %>% 
+  sim_discr(n_vars = 10, var = 1, cov = 0, group_means = c(-1, 0, 1)) %>% 
+  #sprinkle in som NAs
+  sim_missing(prop = 0.02)
+```
+
+
+"First package" isn't entirely correct.  The functions in `holodeck` got their start in another [package](https://github.com/Aariq/chemhelper) that's really just for me.  While working on a [manuscript](http://www.ericrscott.com/project/pls-ecology/) I ended up writing functions for simulating multivariate data. From the beginning, I planned to share code related to the manuscript when it (hopefully) is published, but my analysis code loaded my personal package that was only on my computer and included a bunch of other stuff that was probably only useful to me. At [rstudio::conf19](http://www.ericrscott.com/2019/01/23/rstudio-conf-reflections/), I asked several atendees who worked in academic positions what I should do. The answer I heard was as long as my functions *might* be useful to others, I should publish my package to CRAN, then just cite the published package in my manuscript.
+
+So I pulled the relevant functions into their own standalone package, which is now called `holodeck`, and began working on refining, documenting, and testing those functions to get the package ready for CRAN submission. The process of creating an R package and readying it for CRAN submission was more painless than I imagined!  Here some of the resources I used:
+
+- The [usethis](https://usethis.r-lib.org/index.html) package provides great tools for automating many things involved in package creation.
+- The [R Packages](http://r-pkgs.had.co.nz/) book by Hadley Wickham was a great guideline.
+- Writing tests with the [testthat](https://testthat.r-lib.org/) package.
+- I also had to learn a bit about [tidyeval](https://tidyeval.tidyverse.org/dplyr.html), because the functions I wrote were meant to work with `dplyr::group_by()`.
+
+I hope that others find my package useful, but even if no one else uses it, I'm happy I went through the process.  It was a great learning experience, and I'm excited about the possibility of publishing other packages in the future!
