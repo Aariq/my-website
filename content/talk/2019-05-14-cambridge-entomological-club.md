@@ -14,7 +14,7 @@ abstract: 'When insect herbivores feed on agricultural crops, they are labeled a
 abstract_short: ''
 draft: no
 event: 'Cambridge Entomological Club'
-event_url: 'http://entclub.org/'
+event_url: 'http://eciton.org/eric-scott'
 header:
   caption: 'A tea green leafhopper on the underside of a tea leaf'
   image: 'headers/Bugs on tea.jpg'
