@@ -138,7 +138,7 @@ defaultContentLanguageInSubdir = false
   #   For more info on the highlighting options, see:
   #   https://sourcethemes.com/academic/post/writing-markdown-latex/#highlighting-options
   highlight = true
-  highlight_languages = ["r", "python"]
+  highlight_languages = ["r", "python", "javascript"]
   highlight_style = "solarized-dark"
 
   # Enable native social sharing buttons?
@@ -271,7 +271,8 @@ defaultContentLanguageInSubdir = false
 
 [[menu.main]]
   name = "Blog"
-  url = "#posts"
+  #url = "#posts" #scroll down to widget
+  url = "post" #link to separate page
   weight = 6
 
 [[menu.main]]
