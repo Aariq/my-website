@@ -9,7 +9,7 @@ title = "Research Projects"
 subtitle = ""
 
 # Order that this section will appear in.
-weight = 10
+weight = 3
 
 # View.
 # Customize how projects are displayed.

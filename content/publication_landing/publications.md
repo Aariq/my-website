@@ -9,7 +9,7 @@ title = "Peer-Reviewed Publications"
 subtitle = ""
 
 # Order that this section will appear in.
-weight = 22
+weight = 5
 
 # Number of publications to list.
 count = 10
