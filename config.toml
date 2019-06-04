@@ -261,14 +261,13 @@ defaultContentLanguageInSubdir = false
   
 [[menu.main]]
   name = "Publications & Press"
-  url = "publication_landing/"
+  url = "#publications"
   weight = 4
 
-#Get rid of outreach widget and find a way to combine it with Publications and Press
-#[[menu.main]]
-#  name = "Outreach"
-#  url = "#outreach"
-#  weight = 5
+[[menu.main]]
+  name = "Talks"
+  url = "#talks"
+  weight = 5
 
 [[menu.main]]
   name = "Blog"

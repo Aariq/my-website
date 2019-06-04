@@ -5,3 +5,5 @@
 *.pages
 *.icloud
 public/
+blogdown/
+.DS_Store

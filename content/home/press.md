@@ -7,11 +7,11 @@ active = true
 date = "2016-04-20T00:00:00"
 
 # Note: a full width section format can be enabled by commenting out the `title` and `subtitle` with a `#`.
-title = "Outreach"
+title = "Other Publications"
 subtitle = ""
 
 # Order that this section will appear in.
-weight = 23
+weight = 6
 
 +++
 ## Podcast appearances:
@@ -25,16 +25,8 @@ weight = 23
 - [The science and nomenclature of tea processing. Part 1: Enzymatic browning](http://www.teageek.net/blog/2017/02/tea-terminology-part-1/)
 - [The science and nomenclature of tea processing. Part 2: Microbial ripening](http://www.teageek.net/blog/2017/02/science-nomenclature-tea-processing-part-2-microbial-ripening/)
 
-## Guest Lectures:
+## Press
 
-- **Tea Chemistry, the Environment, and Health.** Guest lecture for *Medicinal Plants*, a [Tufts Experimental College](http://www.excollege.tufts.edu/) course taught by [John de la Parra](https://harvard.academia.edu/JohndelaParra). Spring 2018.
-
-## Outreach Talks:
-
- - **Climate change and the quality of tea.** Taste of Science Boston. April 26, 2017.
-
-## Other Activities:
-
- - [Letters to a Pre-Scientist](http://www.prescientist.org/) participant
+- Drew L. 2019. [The Growth of Tea](https://www.nature.com/articles/d41586-019-00395-4). *Nature Outlook*
 
 
