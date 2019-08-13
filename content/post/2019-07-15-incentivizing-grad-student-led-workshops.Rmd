@@ -1,0 +1,24 @@
+---
+title: Incentivizing Grad Student Led Workshops
+author: Eric R. Scott
+date: '2019-07-15'
+slug: incentivizing-grad-student-led-workshops
+categories:
+  - Blog
+tags: []
+draft: yes
+header:
+  caption: ''
+  image: ''
+  preview: yes
+---
+
+Last semester, our ecology reading group had maybe more meetings that were skill-shares than were actual paper discussions. At these meetings, graduate students presented on topics such as analzing circular data in R,  using Adobe Illustrator, scientific poster design, and data visualization with ggplot2. All of these workshops contained material that could be useful for the entire department, including professors and postdocs---not just ecology graduate students.  But there's no formal incentive or structure for graduate students (or anyone) to share skills or run trainings or professional development workshops in our department.  Last year I organized a workshop on [R Markdown](https://github.com/Aariq/R-Notebook-Workshop), but I did this all on my own and really got nothing out of it (other than a line in the 'service' section of my CV). It also wasn't terribly well attended, even though I had intended the workshop to be relatively short and geared toward professors, postdocs, and grad students alike. I also don't think I would have even considered doing this if I was a traditional graduate student (I have a MS and have worked as a college instructor). 
+
+Clearly graduate students in my program have skills that they want to share and also want to learn from each other (they'd prefer doing that over paper discussions most weeks!). Graduate students are also often good sources of information when it comes to new tools and technologies that professors may not have time to learn. In addition to potentially learning new skills, we would be helping to bridge the gap between our phsyically separated biology department at Tufts and giving students practice doing a different type of communication than they normally would. How could we create a system to incentivize grad students to develop these short informal skillshares into workshops geared toward the whole department? Ideally graduate students would be aware that running a workshop is something they could do, they would have some incentive to do them---and do them well---beyond a line on their CV, advisors would encourage their students to do them, and they would be attended by anyone in the department who is interested. I'd argue it would at minimum require the following:
+
+1. Grad students should get paid for their time. I think this would ideally be funds set aside specifically for workshops. I'm imagining some kind of application process to run a workshops, which, if approved, would grant the organizer some stipend after the workshop.
+
+2. Some infrastructure for facilitating these workshops. I don't think making a regular (e.g. monthly) workshop and then having to constantly fill slots is **NOT** the right way to go.  But there should be something such as a name (e.g. "Bio Skill Shares"), an email template to help with advertizing, and a feedback form to use at *minimum*.
+
+Have you run a department-wide workshop as a graduate student?  Have you been part of a department/organization with some reward structure for people who want to run workshops? Please share your thoughts in the comments or on [Twitter]()
