@@ -65,18 +65,18 @@ nofrosting &lt;-
   mutate(type = fct_relabel(type, tools::toTitleCase))
 nofrosting</code></pre>
 <pre><code>## # A tibble: 30 x 42
-##    type  recipe_id agave `baking powder` `baking soda`  bran  butter
-##    &lt;fct&gt; &lt;chr&gt;     &lt;dbl&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
-##  1 Cupc… 145206        0        0.00174       0.000868     0 0      
-##  2 Cupc… 240140        0        0.000868      0.000694     0 0.0167 
-##  3 Cupc… 161019        0        0.000868      0.00174      0 0      
-##  4 Muff… 16945         0        0             0            0 0.0741 
-##  5 Muff… 228562        0        0.00116       0.00231      0 0.00694
-##  6 Cupc… 215375        0        0.00130       0.000651     0 0      
-##  7 Cupc… 242474        0        0.00208       0            0 0      
-##  8 Cupc… 233538        0        0.00312       0.000521     0 0.05   
-##  9 Cupc… 155534        0        0.00231       0.000579     0 0      
-## 10 Muff… 6753          0        0.00694       0            0 0      
+##    type  recipe_id agave `baking powder` `baking soda`  bran butter
+##    &lt;fct&gt; &lt;chr&gt;     &lt;dbl&gt;           &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1 Cupc… 25994         0        0             0            0 0.0417
+##  2 Muff… 214651        0        0.000868      0            0 0     
+##  3 Muff… 8458          0        0.00231       0            0 0.0104
+##  4 Cupc… 244984        0        0.000434      0.000217     0 0.0312
+##  5 Cupc… 8274          0        0             0            0 0.0667
+##  6 Cupc… 136471        0        0.00260       0.000868     0 0     
+##  7 Muff… 69664         0        0.00391       0            0 0.0312
+##  8 Cupc… 256113        0        0             0            0 0.0556
+##  9 Muff… 6714          0        0.00347       0.00174      0 0     
+## 10 Cupc… 76930         0        0             0            0 0.0156
 ## # … with 20 more rows, and 35 more variables: buttermilk &lt;dbl&gt;,
 ## #   cheese &lt;dbl&gt;, chocolate &lt;dbl&gt;, cornmeal &lt;dbl&gt;, cream &lt;dbl&gt;, `cream
 ## #   cheese` &lt;dbl&gt;, eggs &lt;dbl&gt;, flour &lt;dbl&gt;, frosting &lt;dbl&gt;, fruit &lt;dbl&gt;,
@@ -99,11 +99,11 @@ nofrosting</code></pre>
        plotL = FALSE #suppresses default plot
     )</code></pre>
 <pre><code>## PCA
-## 30 samples x 29 variables
+## 30 samples x 30 variables
 ## standard scaling of predictors
-## 11 excluded variables (near zero variance)
+## 10 excluded variables (near zero variance)
 ##       R2X(cum) pre ort
-## Total    0.513   5   0</code></pre>
+## Total    0.522   5   0</code></pre>
 <p>A few ingredients get dropped because none of the recipes in my random sample of 30 have those ingredients. Notice that “type” is excluded in the PCA. PCA is totally agnostic to whether a recipe is for muffins or cupcakes.</p>
 <div class="figure"><span id="fig:unnamed-chunk-8"></span>
 <img src="/post/2019-03-21-cupcakes-vs-muffins-round-2_files/figure-html/unnamed-chunk-8-1.png" alt="PCA score and loading plot.  Muffins recipes (brown) separate only slightly from cupcake recipes (red) along PC2" width="960" />
@@ -128,11 +128,11 @@ Figure 4: PCA score and loading plot. Muffins recipes (brown) separate only slig
     orthoI = 1, #and one orthogonal axis
     permI = 200) #use 200 permutations to generate a p-value</code></pre>
 <pre><code>## OPLS-DA
-## 30 samples x 29 variables and 1 response
+## 30 samples x 30 variables and 1 response
 ## standard scaling of predictors and response(s)
-## 11 excluded variables (near zero variance)
+## 10 excluded variables (near zero variance)
 ##       R2X(cum) R2Y(cum) Q2(cum) RMSEE pre ort  pR2Y   pQ2
-## Total    0.189    0.832    0.58 0.214   1   1 0.005 0.005</code></pre>
+## Total     0.21     0.81   0.336 0.222   1   1 0.005 0.015</code></pre>
 <p>This output gives us some important properties of the model. <code>R2X(cum)</code> is the proportion of variation in the data explained by the predictive axes. <code>R2Y(cum)</code>, on the other hand, is the proportion of variation in <strong>baked good type</strong> explained by the model. PLS-DA only explains 9.44% of total variation, but explains <strong>83%</strong> of the difference between cupcakes and muffins! <code>Q2(cum)</code> is calculated through cross-validation and can be thought of as the predictive power of the model. <code>Q2(cum)</code> is always smaller than <code>R2Y(cum)</code>, but the larger it is, and the closer it is to <code>R2Y(cum)</code>, the better. A large <span class="math inline">\(Q^2\)</span> value indicates strong predictive power. <code>RMSEE</code> is the root mean squared error of estimation, a measure of error in the same units as the Y variable, which is not super useful in this case since our Y variable is categorical. <code>pre</code> and <code>ort</code> are just how many predictive and orthogonal components were used. Finally, the two p-values are generated through permutation—the data labels (muffin or cupcake) are shuffled randomly and the PLS-DA is re-fit. These p-values are the proportion of those 200 random datasets that generate <span class="math inline">\(R^2_Y\)</span> and <span class="math inline">\(Q^2\)</span> values as good or better than the real data.</p>
 <p>So, we can conclude that cupcakes <strong>are</strong> different than muffins (p &lt; 0.005)!</p>
 <p>Let’s see what ingredients contribute most to this difference.</p>

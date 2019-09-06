@@ -1,0 +1,47 @@
+---
+title: Tea Science Tuesday
+author: Eric R. Scott
+date: '2019-09-06'
+slug: tea-science-tuesday
+categories:
+  - Blog
+tags:
+  - tea
+draft: no
+header:
+  caption: ''
+  image: ''
+  preview: yes
+---
+```{r include=FALSE}
+library(here)
+library(dplyr)
+library(glue)
+library(knitr)
+library(kableExtra)
+library(readr)
+```
+
+```{r echo=FALSE, out.width="70%"}
+include_graphics("/img/Tea Instagram.png")
+```
+
+Tea Science Tuesdays are Instagram live streams where I'll talk informally about some aspect of tea science while enjoying some tea. Each week, there will be a topic, a suggested tea if you want to drink along, and a suggested "reading" (sometimes a video).
+
+Live streams will be at 9:00 AM eastern time @[leafyeric](https://www.instagram.com/leafyeric/). I know that time is probably not good for many people, but don't worry, the streams will be saved and pinned to my Instagram profile so you can watch them later.
+
+Here's the "syllabus" for the next few weeks:
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+df <- read_csv(here("static", "files", "tea science tuesday schedule.csv"))
+df %>%
+  mutate(Reading = glue("[{Reading}](http://{Reading})")) %>% 
+  mutate(Reading = ifelse(Paywall, glue("{Reading}*"), Reading)) %>% 
+  select(-Paywall, -Notes) %>% 
+  kable() %>% 
+  kable_styling(full_width = F) %>% 
+  column_spec(1, width = "5em")
+```
+
+ \* The full article is behind a paywall.  DM me if you need help finding it.
+
