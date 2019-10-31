@@ -42,7 +42,7 @@ Multivariate data means data with many things measured on the same samples or ob
 ```{r echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Correlation plot made using the `corrr` package"}
 nofrosting.raw <-
   read_rds(here("data", "nofrosting_wide.rds"))
-
+RNGversion("3.5.0")
 set.seed(888)
 nofrosting <-
   nofrosting.raw %>%
