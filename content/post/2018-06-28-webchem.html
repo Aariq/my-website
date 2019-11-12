@@ -120,7 +120,8 @@ best_RIs</code></pre>
 ## 3 123-35-3     991 Maccioni, Baldini, et al., 2007       
 ## 4 19700-21-1  1430 Dickschat, Wenzel, et al., 2004</code></pre>
 <p>You could then easily take this table and <code>*_join()</code> it to your GC/MS data, if you have a column for CAS#, and select the <code>RI</code> and <code>reference</code> columns, for example.</p>
-<pre class="r"><code>fake.data &lt;-
+<pre class="r"><code>set.seed(888)
+fake.data &lt;-
   data.frame(CAS = CASs,
              #Name = cts_convert(CASs, from = &quot;CAS&quot;, to = &quot;Chemical Name&quot;, first = TRUE),
              Name = c(&quot;skatole&quot;, &quot;methyl salicylate&quot;, &quot;beta-myrcene&quot;, &quot;geosmin&quot;),
@@ -147,32 +148,32 @@ left_join(fake.data, best_RIs) %&gt;%
 <td align="left">123-35-3</td>
 <td align="left">beta-myrcene</td>
 <td align="right">991</td>
-<td align="right">2.423</td>
-<td align="right">0.895</td>
+<td align="right">0.730</td>
+<td align="right">2.166</td>
 <td align="left">Maccioni, Baldini, et al., 2007</td>
 </tr>
 <tr class="even">
 <td align="left">119-36-8</td>
 <td align="left">methyl salicylate</td>
 <td align="right">1191</td>
-<td align="right">0.735</td>
-<td align="right">0.591</td>
+<td align="right">1.544</td>
+<td align="right">0.251</td>
 <td align="left">Aligiannis, Kalpoutzakis, et al., 2004</td>
 </tr>
 <tr class="odd">
 <td align="left">83-34-1</td>
 <td align="left">skatole</td>
 <td align="right">1391</td>
-<td align="right">0.980</td>
-<td align="right">0.884</td>
+<td align="right">1.951</td>
+<td align="right">1.656</td>
 <td align="left">Rostad and Pereira, 1986</td>
 </tr>
 <tr class="even">
 <td align="left">19700-21-1</td>
 <td align="left">geosmin</td>
 <td align="right">1430</td>
-<td align="right">0.321</td>
-<td align="right">0.009</td>
+<td align="right">0.278</td>
+<td align="right">0.587</td>
 <td align="left">Dickschat, Wenzel, et al., 2004</td>
 </tr>
 </tbody>

@@ -96,6 +96,7 @@ best_RIs
 You could then easily take this table and `*_join()` it to your GC/MS data, if you have a column for CAS#, and select the `RI` and `reference` columns, for example.
 
 ```{r message=FALSE, warning=FALSE}
+set.seed(888)
 fake.data <-
   data.frame(CAS = CASs,
              #Name = cts_convert(CASs, from = "CAS", to = "Chemical Name", first = TRUE),
