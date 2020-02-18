@@ -13,4 +13,4 @@ This loose-leaf puer tea, however, rarely makes it to customers in the tea marke
 
 This begs the question: Can microbial ripening ameliorate the impacts of monsoon rains on tea quality?  One could imagine that many of the quality components of shu puer are microbially produced products, and the starting material has less of an impact on quality than the microbial community.  On the other hand, the differences in secondary metabolites induced by monsoon rains could be a strong selective pressure on the microbial community and could further exacerbate the quality disparity between pre-monsoon and monsoon harvest tea.
 
-I'm currently looking for undergraduates with an interest in microbiology to work on a pilot *in vitro* tea fermentation method.  Please [contact me](/#contact) if you're interested!
+We've piloted a method for replicating wet-piling on a small scale in the lab, and I'm looking for collaborators with interests in food microbiology or community microbiology to help out.  Please [contact me](/#contact) if you're interested!
