@@ -191,4 +191,8 @@ Which means that $K = -\beta_0/\beta_1$
 emo::ji("exploding_head")
 ```
 
-
+```{r echo=FALSE}
+ggplot(wolves2, aes(x = year, y = num.wolves)) +
+  geom_point() +
+  geom_line(aes(y = predict(m_rick, type = "response")), color = "brown")
+```
