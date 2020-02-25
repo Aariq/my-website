@@ -1,0 +1,144 @@
+---
+title: Hacking GLMs to fit population growth models
+author: Eric R. Scott
+date: '2020-02-24'
+slug: hacking-glms
+categories:
+  - Blog
+tags:
+  - R
+  - modeling
+draft: no
+math: yes
+header:
+  caption: ''
+  image: ''
+  preview: yes
+---
+
+
+
+<p>I’m currently teaching Ecological Statistics and Data, a class I inherited from <a href="http://ase.tufts.edu/biology/labs/crone/cronies">Lee Brown</a> and <a href="https://ase.tufts.edu/biology/faculty/crone/">Elizabeth Crone</a>. In a lecture on population dynamics, they do some really cool things with generalized linear model—things that I don’t think are standard practice and as far as I can tell from googling, aren’t well documented. And let me tell you, I did a <strong>lot</strong> of googling to make sure I understood this stuff before teaching it. So, I thought I’d put it up on the blog for others.</p>
+<div id="data" class="section level1">
+<h1>Data</h1>
+<p>I’ll be using data on the Northern Rocky Mountain grey wolf population. You can read more about the history of these wolves <a href="https://www.justice.gov/enrd/northern-rocky-mountain-gray-wolves">here</a>.</p>
+<pre class="r"><code>library(tidyverse)
+library(here)
+wolves &lt;- read_csv(here(&quot;static&quot;, &quot;files&quot;, &quot;NRMwolves.csv&quot;)) %&gt;%
+  mutate(year_post = year - 1982) 
+head(wolves)</code></pre>
+<pre><code>## # A tibble: 6 x 8
+##    year num.wolves MT.wolves WY.wolves ID.wolves OR.wolves WA.wolves
+##   &lt;dbl&gt;      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1  1982          8         8        NA        NA        NA        NA
+## 2  1983          6         6        NA        NA        NA        NA
+## 3  1984          6         6        NA        NA        NA        NA
+## 4  1985         13        13        NA        NA        NA        NA
+## 5  1986         15        15        NA        NA        NA        NA
+## 6  1987         10        10        NA        NA        NA        NA
+## # … with 1 more variable: year_post &lt;dbl&gt;</code></pre>
+<p><img src="/post/2020-02-24-hacking-glms_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+<div id="exponential-growth" class="section level1">
+<h1>Exponential growth</h1>
+<p>Exponential growth describes unregulated reproduction and is described by the equation:</p>
+<p><span class="math display">\[
+N_{T} = \lambda^TN_0
+\]</span></p>
+<p>where <span class="math inline">\(\lambda\)</span> is the population growth rate, <span class="math inline">\(T\)</span> is a number of time steps (e.g. years) and <span class="math inline">\(N_0\)</span> is the population at some initial time.</p>
+<div id="hacking-an-exponential-growth-rate-glm" class="section level2">
+<h2>Hacking an exponential growth rate GLM</h2>
+<p>We can take advantage of a log-link to linearize this equation:</p>
+<p><span class="math display">\[
+log(N_T) = log(N_0) + log(\lambda)\times T
+\]</span></p>
+<p>Compare to a generic GLM equation with a log-link:</p>
+<p><span class="math display">\[
+log(y)= \beta_0 + \beta_1x_1
+\]</span></p>
+<p>Here’s the glm for an exponential growth model fit to the wolf data:</p>
+<pre class="r"><code>m_exp &lt;- glm(num.wolves ~ year_post, 
+             family = poisson(link = &quot;log&quot;), data = wolves)
+exp(coef(m_exp))</code></pre>
+<pre><code>## (Intercept)   year_post 
+##   19.615307    1.176583</code></pre>
+<p>The backtransformed intercept is the estimate for <span class="math inline">\(N_0\)</span>, the estimated number of wolves at <code>year_post</code> = 0</p>
+<p>The backtransformed coefficient for <code>year_post</code> = <span class="math inline">\(\lambda\)</span>, the population growth rate</p>
+<p><img src="/post/2020-02-24-hacking-glms_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+</div>
+<div id="process-error" class="section level1">
+<h1>Process error</h1>
+<p>The exponential growth model fit above is an observation error model. It assumes variation from predicted values are due to inaccuracies in estimating the number of wolves.</p>
+<p>A process error model estimates a population growth that depends on current population size. This can be modeled as a rate, <span class="math inline">\(N_{t+1}/N_{t}\)</span>.</p>
+<div id="hacking-a-process-error-glm" class="section level2">
+<h2>Hacking a process error GLM</h2>
+<p>Again, we can use a log-link to linearize this:</p>
+<p><span class="math display">\[
+log(N_{t+1}/N_{t}) = \beta_0
+\]</span></p>
+<p><span class="math display">\[
+log(N_{t+1}) +log(N_{t}) = \beta_0
+\]</span>
+<span class="math display">\[
+log(N_{t+1}) = \beta_0 + log(N_{t})
+\]</span></p>
+<p>The <span class="math inline">\(log(N_t)\)</span> term, which has no coefficient associated with it, is an <strong>offset</strong>. We can hack a glm to fit this model like so:</p>
+<pre class="r"><code>wolves2 &lt;- wolves %&gt;%
+  mutate(num.prev = lag(num.wolves)) %&gt;% #create a column of lagged wolf numbers
+  filter(!is.na(num.prev))
+
+m_process &lt;- glm(num.wolves ~ 1, offset = log(num.prev),
+                 family = poisson(link = &quot;log&quot;), data = wolves2)</code></pre>
+<p>The backtransformed intercept is the yearly rate of increase (<span class="math inline">\(N_{t+1}/N_t\)</span>)</p>
+<pre class="r"><code>exp(coef(m_process))</code></pre>
+<pre><code>## (Intercept) 
+##    1.108238</code></pre>
+<p><span class="math display">\[
+N_{t+1} = e^{\beta_0} \times N_{t}
+\]</span></p>
+<p>So, if there are 13 wolves in 1985, how many would it predict in 1986?</p>
+<pre class="r"><code>1.108238 * 13</code></pre>
+<pre><code>## [1] 14.40709</code></pre>
+<p><img src="/post/2020-02-24-hacking-glms_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+</div>
+</div>
+<div id="ricker-model" class="section level1">
+<h1>Ricker model</h1>
+<p>Finally, the most complicated, possibly mind blowing example of hacking a GLM. This one took me quite a while to wrap my head around.</p>
+<p>A Ricker model takes carrying capacity into account and allows growth rate to change as the population increases. It approximates logistic growth.</p>
+<p><span class="math display">\[
+N_{t+1}=N_{t}e^{r\left(1-{\frac {N_{t}}{K}}\right)}
+\]</span>
+where <span class="math inline">\(r = ln(\lambda)\)</span> and <span class="math inline">\(K\)</span> is the carrying capacity</p>
+<div id="hacking-a-ricker-model-glm" class="section level2">
+<h2>Hacking a Ricker model GLM</h2>
+<p>Linearizing using a log-link (please tell me if I got the math wrong in the comments):</p>
+<p><span class="math display">\[
+log(N_{t+1})=log(N_{t}) + log\left( (e^r)^{\left(1-{\frac {N_{t}}{K}}\right)}\right)
+\]</span></p>
+<p><span class="math display">\[
+log(N_{t+1})=log(N_{t}) + log (e^r)\times{\left(1-{\frac {N_{t}}{K}}\right)}
+\]</span></p>
+<p><span class="math display">\[
+log(N_{t+1})= r-\frac{r}{K}N_{t} + \textrm{offset}[log(N_{t})]
+\]</span></p>
+<p>We can model this with the following GLM:</p>
+<pre class="r"><code>m_rick &lt;- glm(num.wolves ~ num.prev, offset = log(num.prev),
+              family = poisson, data = wolves2)</code></pre>
+<p><span class="math inline">\(r = \beta_0\)</span></p>
+<pre class="r"><code>coef(m_rick)[1]</code></pre>
+<pre><code>## (Intercept) 
+##   0.3119624</code></pre>
+<p><span class="math inline">\(\beta_1 = -r/K\)</span></p>
+<pre class="r"><code>coef(m_rick)[2]</code></pre>
+<pre><code>##      num.prev 
+## -0.0001683389</code></pre>
+<p>Which means that <span class="math inline">\(K = -\beta_0/\beta_1\)</span></p>
+<pre class="r"><code>-coef(m_rick)[1]/coef(m_rick)[2]</code></pre>
+<pre><code>## (Intercept) 
+##     1853.18</code></pre>
+<pre class="r"><code>emo::ji(&quot;exploding_head&quot;)</code></pre>
+<pre><code>## 🤯</code></pre>
+</div>
+</div>

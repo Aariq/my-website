@@ -1,0 +1,194 @@
+---
+title: Hacking GLMs to fit population growth models
+author: Eric R. Scott
+date: '2020-02-24'
+slug: hacking-glms
+categories:
+  - Blog
+tags:
+  - R
+  - modeling
+draft: no
+math: yes
+header:
+  caption: ''
+  image: ''
+  preview: yes
+---
+
+I'm currently teaching Ecological Statistics and Data, a class I inherited from [Lee Brown](http://ase.tufts.edu/biology/labs/crone/cronies) and [Elizabeth Crone](https://ase.tufts.edu/biology/faculty/crone/). In a lecture on population dynamics, they do some really cool things with generalized linear model---things that I don't think are standard practice and as far as I can tell from googling, aren't well documented. And let me tell you, I did a **lot** of googling to make sure I understood this stuff before teaching it. So, I thought I'd put it up on the blog for others.
+
+# Data
+
+I'll be using data on the Northern Rocky Mountain grey wolf population.  You can read more about the history of these wolves [here](https://www.justice.gov/enrd/northern-rocky-mountain-gray-wolves).
+
+```{r message=FALSE}
+library(tidyverse)
+library(here)
+wolves <- read_csv(here("static", "files", "NRMwolves.csv")) %>%
+  mutate(year_post = year - 1982) 
+head(wolves)
+```
+
+```{r echo=FALSE}
+wolfplot <-
+  ggplot(wolves, aes(x = year, y = num.wolves)) +
+  geom_point() 
+wolfplot
+```
+
+# Exponential growth
+
+Exponential growth describes unregulated reproduction and is described by the equation:
+
+$$
+N_{T} = \lambda^TN_0
+$$
+
+where $\lambda$ is the population growth rate, $T$ is a number of time steps (e.g. years) and $N_0$ is the population at some initial time.
+
+
+## Hacking an exponential growth rate GLM
+
+We can take advantage of a log-link to linearize this equation:
+
+$$
+log(N_T) = log(N_0) + log(\lambda)\times T
+$$
+
+Compare to a generic GLM equation with a log-link:
+
+$$
+log(y)= \beta_0 + \beta_1x_1
+$$
+
+Here's the glm for an exponential growth model fit to the wolf data:
+
+```{r}
+m_exp <- glm(num.wolves ~ year_post, 
+             family = poisson(link = "log"), data = wolves)
+exp(coef(m_exp))
+```
+
+The backtransformed intercept is the estimate for $N_0$, the estimated number of wolves at `year_post` = 0
+
+The backtransformed coefficient for `year_post` = $\lambda$, the population growth rate
+
+```{r echo=FALSE}
+wolfplot +
+  geom_line(aes(y = predict(m_exp, type = "response")), color = "darkgreen")
+```
+
+# Process error
+
+The exponential growth model fit above is an observation error model.  It assumes variation from predicted values are due to inaccuracies in estimating the number of wolves.
+
+A process error model estimates a population growth that depends on current population size.  This can be modeled as a rate, $N_{t+1}/N_{t}$.
+
+## Hacking a process error GLM
+
+Again, we can use a log-link to linearize this:
+
+$$
+log(N_{t+1}/N_{t}) = \beta_0
+$$
+
+$$
+log(N_{t+1}) +log(N_{t}) = \beta_0
+$$
+$$
+log(N_{t+1}) = \beta_0 + log(N_{t})
+$$
+
+The $log(N_t)$ term, which has no coefficient associated with it, is an **offset**.  We can hack a glm to fit this model like so:
+
+```{r}
+wolves2 <- wolves %>%
+  mutate(num.prev = lag(num.wolves)) %>% #create a column of lagged wolf numbers
+  filter(!is.na(num.prev))
+
+m_process <- glm(num.wolves ~ 1, offset = log(num.prev),
+                 family = poisson(link = "log"), data = wolves2)
+```
+
+The backtransformed intercept is the yearly rate of increase ($N_{t+1}/N_t$)
+
+```{r}
+exp(coef(m_process))
+```
+
+$$
+N_{t+1} = e^{\beta_0} \times N_{t}
+$$
+
+So, if there are 13 wolves in 1985, how many would it predict in 1986?
+
+```{r}
+1.108238 * 13
+```
+
+```{r echo=FALSE}
+ggplot(wolves2, aes(x = year, y = num.wolves)) +
+  geom_point() +
+  geom_line(aes(y = predict(m_process, type = "response")), color = "orange")
+```
+
+# Ricker model
+
+Finally, the most complicated, possibly mind blowing example of hacking a GLM.  This one took me quite a while to wrap my head around.
+
+A Ricker model takes carrying capacity into account and allows growth rate to change as the population increases. It approximates logistic growth.
+
+$$
+N_{t+1}=N_{t}e^{r\left(1-{\frac {N_{t}}{K}}\right)}
+$$
+where $r = ln(\lambda)$ and $K$ is the carrying capacity
+
+## Hacking a Ricker model GLM
+
+Linearizing using a log-link (please tell me if I got the math wrong in the comments):
+
+
+$$
+log(N_{t+1})=log(N_{t}) + log\left( (e^r)^{\left(1-{\frac {N_{t}}{K}}\right)}\right)
+$$
+
+$$
+log(N_{t+1})=log(N_{t}) + log (e^r)\times{\left(1-{\frac {N_{t}}{K}}\right)}
+$$
+
+$$
+log(N_{t+1})= r-\frac{r}{K}N_{t} + \textrm{offset}[log(N_{t})]
+$$
+
+We can model this with the following GLM:
+
+```{r}
+m_rick <- glm(num.wolves ~ num.prev, offset = log(num.prev),
+              family = poisson, data = wolves2)
+```
+
+
+$r = \beta_0$
+
+```{r}
+coef(m_rick)[1]
+```
+
+$\beta_1 = -r/K$
+
+```{r}
+coef(m_rick)[2]
+```
+
+Which means that $K = -\beta_0/\beta_1$
+
+```{r}
+-coef(m_rick)[1]/coef(m_rick)[2]
+```
+
+```{r}
+emo::ji("exploding_head")
+```
+
+
