@@ -16,6 +16,7 @@ weight = 6
 +++
 ## Podcast appearances:
 
+- [Talking Tea](https://talkingtea.libsyn.com/chemistry-climate-change-bugs-tea)
 - [PhDrinking podcast](https://soundcloud.com/phdrinking/tea-totaling)
 
 ## Invited Blog Posts:
