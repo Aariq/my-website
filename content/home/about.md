@@ -19,6 +19,11 @@ weight = 2
 
 # List your qualifications (such as academic degrees).
 [[education.courses]]
+  course = "PhD in Biology"
+  institution = "Tufts University"
+  year = "expected 2020"
+  
+[[education.courses]]
   course = "MS in Ecology, Evolution, and Conservation Biology"
   institution = "University of Illinois at Urbana-Champaign"
   year = 2010
