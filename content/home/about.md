@@ -21,7 +21,7 @@ weight = 2
 [[education.courses]]
   course = "PhD in Biology"
   institution = "Tufts University"
-  year = "expected 2020"
+  year = "2020"
   
 [[education.courses]]
   course = "MS in Ecology, Evolution, and Conservation Biology"
