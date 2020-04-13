@@ -120,9 +120,17 @@ Then we can finally read in our cleaned text as a tab-separated (.tsv) file.  He
 
 ```{r message=FALSE, warning=FALSE}
 input <- raw_split3 %>%
-  map(read_tsv, skip = 1)
+  map( ~ read_tsv(
+    .x,
+    col_types = cols(
+      .default = col_double(),
+      Obs = col_character(),
+      HHMMSS = col_time(format = "")
+    )
+  ), skip = 1)
 
-input.all <- bind_rows(input)
+# input.all <- bind_rows(input) #not working. Says cols are different types, but that can't be true!
+input.all <- rbind(input[[1]], input[[2]])
 head(input.all, 10)
 ```
 

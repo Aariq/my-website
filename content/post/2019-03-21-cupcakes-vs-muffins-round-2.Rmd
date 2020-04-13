@@ -53,7 +53,7 @@ nofrosting <-
 nofrosting.raw %>% 
   select(-type, -recipe_id) %>% 
   correlate() %>% 
-  rearrange() %>% 
+  # rearrange() %>% #not working for some reason
   shave() %>% 
   corrr::rplot() +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
