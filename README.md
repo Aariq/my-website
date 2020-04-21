@@ -1,2 +1,2 @@
 adding a line
-Built with Hugo v 0.38 and Academic theme v2.3
+Built with Hugo v 0.45 and Academic theme v2.4
