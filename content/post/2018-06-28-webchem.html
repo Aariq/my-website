@@ -37,29 +37,57 @@ Figure 1: An example table including literature retention indices from <a href="
 <pre class="r"><code>library(webchem)
 ?nist_ri</code></pre>
 <p>Let’s get Van Den Dool &amp; Kratz (AKA “linear”) retention indeces for non-polar columns using a temperature ramp. This might take a while, depending on your internet connection and how many CAS numbers you request data for. If a certain type of retention index doesn’t exist for a compound, the function will return <code>NA</code> for all columns but the CAS number.</p>
-<pre class="r"><code>RIs &lt;- nist_ri(CASs, &quot;linear&quot;, &quot;non-polar&quot;, &quot;ramp&quot;)
-head(RIs)</code></pre>
-<pre><code>##       CAS      type  phase   RI length      gas substrate diameter
-## 1 83-34-1 Capillary  SPB-5 1410     60     &lt;NA&gt;      &lt;NA&gt;     0.32
-## 2 83-34-1 Capillary DB-5MS 1380     30   Helium      &lt;NA&gt;     0.25
-## 3 83-34-1 Capillary  SE-54 1410     50   Helium      &lt;NA&gt;     0.32
-## 4 83-34-1 Capillary   DB-5 1381     30 Hydrogen      &lt;NA&gt;     0.25
-## 5 83-34-1 Capillary   DB-5 1389     30 Nitrogen      &lt;NA&gt;     0.25
-## 6 83-34-1 Capillary DB-5MS 1399     30     &lt;NA&gt;      &lt;NA&gt;     0.25
-##   thickness temp_start temp_end temp_rate hold_start hold_end
-## 1      1.00         40      230         3          2       10
-## 2      0.25         35      225        10          5       25
-## 3        NA         40      240         8          2        5
-## 4      0.25         35      270         5         NA       20
-## 5      0.25         30      250         3          2        2
-## 6      0.25         40      200        10          3       20
-##                               reference comment
-## 1                 Engel and Ratel, 2007 MSDC-RI
-## 2   Lozano P.R., Drake M., et al., 2007 MSDC-RI
-## 3    Schlutt B., Moran N., et al., 2007 MSDC-RI
-## 4            Alves, Pinto, et al., 2005 MSDC-RI
-## 5 Colahan-Sederstrom and Peterson, 2005 MSDC-RI
-## 6  Whetstine, Cadwallader, et al., 2005 MSDC-RI</code></pre>
+<pre class="r"><code>RIs &lt;- nist_ri(CASs, &quot;linear&quot;, &quot;non-polar&quot;, &quot;ramp&quot;)</code></pre>
+<pre><code>## New names:
+## * X2 -&gt; X2...1
+## * X3 -&gt; X3...2
+## * X4 -&gt; X4...3
+## * X5 -&gt; X5...4
+## * X6 -&gt; X6...5
+## * ...
+## New names:
+## * X2 -&gt; X2...1
+## * X3 -&gt; X3...2
+## * X4 -&gt; X4...3
+## * X5 -&gt; X5...4
+## * X6 -&gt; X6...5
+## * ...
+## New names:
+## * X2 -&gt; X2...1
+## * X3 -&gt; X3...2
+## * X4 -&gt; X4...3
+## * X5 -&gt; X5...4
+## * X6 -&gt; X6...5
+## * ...</code></pre>
+<pre><code>## New names:
+## * X2...1 -&gt; X2...16
+## * X3...2 -&gt; X3...17
+## * X4...3 -&gt; X4...18
+## * X5...4 -&gt; X5...19
+## * X6...5 -&gt; X6...20
+## * ...</code></pre>
+<pre class="r"><code>head(RIs)</code></pre>
+<pre><code>##            CAS      type  phase   RI length      gas substrate diameter
+## X2...1 83-34-1 Capillary  SPB-5 1410     60     &lt;NA&gt;      &lt;NA&gt;     0.32
+## X3...2 83-34-1 Capillary DB-5MS 1380     30   Helium      &lt;NA&gt;     0.25
+## X4...3 83-34-1 Capillary  SE-54 1410     50   Helium      &lt;NA&gt;     0.32
+## X5...4 83-34-1 Capillary   DB-5 1381     30 Hydrogen      &lt;NA&gt;     0.25
+## X6...5 83-34-1 Capillary   DB-5 1389     30 Nitrogen      &lt;NA&gt;     0.25
+## X2...6 83-34-1 Capillary DB-5MS 1399     30     &lt;NA&gt;      &lt;NA&gt;     0.25
+##        thickness temp_start temp_end temp_rate hold_start hold_end
+## X2...1      1.00         40      230         3          2       10
+## X3...2      0.25         35      225        10          5       25
+## X4...3        NA         40      240         8          2        5
+## X5...4      0.25         35      270         5         NA       20
+## X6...5      0.25         30      250         3          2        2
+## X2...6      0.25         40      200        10          3       20
+##                                    reference comment
+## X2...1                 Engel and Ratel, 2007 MSDC-RI
+## X3...2   Lozano P.R., Drake M., et al., 2007 MSDC-RI
+## X4...3    Schlutt B., Moran N., et al., 2007 MSDC-RI
+## X5...4            Alves, Pinto, et al., 2005 MSDC-RI
+## X6...5 Colahan-Sederstrom and Peterson, 2005 MSDC-RI
+## X2...6  Whetstine, Cadwallader, et al., 2005 MSDC-RI</code></pre>
 <p>You can see there are multiple retention indices (<code>RI</code>) for each CAS number. Let’s filter this down some more using some functions from <code>dplyr</code> and <code>stringr</code>.</p>
 <pre class="r"><code>library(dplyr)
 library(stringr)
@@ -71,34 +99,34 @@ RIs_filtered &lt;-
          diameter &lt; 0.3,
          thickness == 0.25)
 head(RIs_filtered)</code></pre>
-<pre><code>##        CAS      type  phase     RI length    gas substrate diameter
-## 1  83-34-1 Capillary DB-5MS 1380.0     30 Helium      &lt;NA&gt;     0.25
-## 2  83-34-1 Capillary DB-5MS 1396.0     30 Helium      &lt;NA&gt;     0.25
-## 3  83-34-1 Capillary   DB-5 1391.0     30 Helium      &lt;NA&gt;     0.26
-## 4 119-36-8 Capillary   DB-5 1201.0     25 Helium      &lt;NA&gt;     0.25
-## 5 119-36-8 Capillary HP-5MS 1200.7     30 Helium      &lt;NA&gt;     0.25
-## 6 119-36-8 Capillary HP-5MS 1190.0     30 Helium      &lt;NA&gt;     0.25
-##   thickness temp_start temp_end temp_rate hold_start hold_end
-## 1      0.25         35      225        10          5       25
-## 2      0.25         35      200        10          5       30
-## 3      0.25         50      300         6          4       20
-## 4      0.25         60      200         2         NA       60
-## 5      0.25         80      300         4         NA       NA
-## 6      0.25         60      280         4          5       NA
-##                                 reference comment
-## 1     Lozano P.R., Drake M., et al., 2007 MSDC-RI
-## 2 Karagül-Yüceer, Vlahovich, et al., 2003 MSDC-RI
-## 3                Rostad and Pereira, 1986 MSDC-RI
-## 4                 Rout, Rao, et al., 2007 MSDC-RI
-## 5                Zeng, Zhao, et al., 2007 MSDC-RI
-## 6         Saroglou, Dorizas, et al., 2006 MSDC-RI</code></pre>
+<pre><code>##             CAS      type  phase     RI length    gas substrate diameter
+## X3...1  83-34-1 Capillary DB-5MS 1380.0     30 Helium      &lt;NA&gt;     0.25
+## X4...2  83-34-1 Capillary DB-5MS 1396.0     30 Helium      &lt;NA&gt;     0.25
+## X6...3  83-34-1 Capillary   DB-5 1391.0     30 Helium      &lt;NA&gt;     0.26
+## X3...4 119-36-8 Capillary   DB-5 1201.0     25 Helium      &lt;NA&gt;     0.25
+## X5...5 119-36-8 Capillary HP-5MS 1200.7     30 Helium      &lt;NA&gt;     0.25
+## X5...6 119-36-8 Capillary HP-5MS 1190.0     30 Helium      &lt;NA&gt;     0.25
+##        thickness temp_start temp_end temp_rate hold_start hold_end
+## X3...1      0.25         35      225        10          5       25
+## X4...2      0.25         35      200        10          5       30
+## X6...3      0.25         50      300         6          4       20
+## X3...4      0.25         60      200         2         NA       60
+## X5...5      0.25         80      300         4         NA       NA
+## X5...6      0.25         60      280         4          5       NA
+##                                      reference comment
+## X3...1     Lozano P.R., Drake M., et al., 2007 MSDC-RI
+## X4...2 Karagül-Yüceer, Vlahovich, et al., 2003 MSDC-RI
+## X6...3                Rostad and Pereira, 1986 MSDC-RI
+## X3...4                 Rout, Rao, et al., 2007 MSDC-RI
+## X5...5                Zeng, Zhao, et al., 2007 MSDC-RI
+## X5...6         Saroglou, Dorizas, et al., 2006 MSDC-RI</code></pre>
 <p>Now we could <code>summarise</code> to get an average of all the database entries…</p>
 <pre class="r"><code>RIs_filtered %&gt;% 
   group_by(CAS) %&gt;% 
   summarise(mean_RI = mean(RI))</code></pre>
 <pre><code>## # A tibble: 4 x 2
 ##   CAS        mean_RI
-##   &lt;chr&gt;        &lt;dbl&gt;
+## * &lt;chr&gt;        &lt;dbl&gt;
 ## 1 119-36-8     1193.
 ## 2 123-35-3      990.
 ## 3 19700-21-1   1430 

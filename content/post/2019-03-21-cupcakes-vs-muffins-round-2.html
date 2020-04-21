@@ -54,7 +54,7 @@ Figure 3: Conceptual diagram of PLS-DA
 <h1>The Data</h1>
 <p>For this blog post, I’m using a subset of the dataset with all frosting ingredients removed (because obviously cupcakes have frosting and muffins don’t). The reason I’m using a subset of only 30 recipes is to more accurately replicate the “curse of dimensionality” that is common in ecological data.</p>
 <pre class="r"><code>nofrosting.raw &lt;-
-  read_rds(here(&quot;data&quot;, &quot;nofrosting_wide.rds&quot;))
+  read_rds(here(&quot;sitedata&quot;, &quot;nofrosting_wide.rds&quot;))
 #can be found at github.com/Aariq/cupcakes-vs-muffins
 
 set.seed(888)
