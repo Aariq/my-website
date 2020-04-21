@@ -1,6 +1,6 @@
 +++
 title = "Talks & Posters"
-date = "2017-01-01T00:00:00Z"
+date = ""
 math = false
 highlight = false
 

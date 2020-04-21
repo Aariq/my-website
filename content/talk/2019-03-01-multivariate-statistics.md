@@ -1,7 +1,7 @@
 ---
 title: Multivariate Statistics for Ecology and Baked Goods
 author: Eric R. Scott
-date: '2019-03-01'
+date: ''
 slug: multivariate-statistics
 categories:
   - Data Science
