@@ -4,7 +4,7 @@ widget = "hero"
 active = true
 date = 2017-10-15
 
-title = "Eric R. Scott, PhD"
+title = "Eric R. Scott"
 
 # Order that this section will appear in.
 weight = 1
@@ -24,7 +24,7 @@ weight = 1
 # label = '<i class="fa fa-download"></i> Download CV'
 +++
 
-Ph.D. Candidate, Tufts University
+Ph.D. in Biology, Tufts University
 <br>
 <small><a id="Orians Lab" href="http://ase.tufts.edu/biology/labs/orians/">Orians Lab</a></small>
 <br>
